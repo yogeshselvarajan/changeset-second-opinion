@@ -1,0 +1,28 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 25341987,
+      "timestamp": "2008-07-04T10:17:32Z",
+      "version": 1,
+      "changeset": 390954,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        276137376,
+        276137377,
+        276137378,
+        276136816
+      ],
+      "tags": {
+        "created_by": "Potlatch 0.9c",
+        "highway": "unclassified"
+      }
+    }
+  ]
+}

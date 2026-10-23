@@ -1,0 +1,64 @@
+---
+title: Sign in
+description: How people sign in with OpenStreetMap or an invite code, and what each role can do.
+---
+
+import ThemedShot from '../../../components/ThemedShot.astro';
+
+*For community admins. How-to.*
+
+Anyone can browse the sample cases without signing in. To draft a comment or record an outcome, a person signs in. There are two ways in, and you can offer both.
+
+## What you need first
+
+- A running workspace. See [Install with Docker Compose](../../self-host/docker-compose/).
+- For the OpenStreetMap button: a registered OpenStreetMap app. See [Register the OSM sign-in app](../../self-host/register-the-osm-app/).
+- For an invite code: an admin account. See [Set up the first admin](../first-admin/).
+
+<ThemedShot name="login" alt="The sign-in screen. A button reads Sign in with OpenStreetMap. Below it are fields for an invite code and a display name, a Sign in button and a Browse as viewer link." caption="The sign-in screen with both ways in. The OpenStreetMap button only shows when the server has an OpenStreetMap app and an admin has not switched it off." />
+
+## Sign in with OpenStreetMap
+
+1. Open the sign-in page and choose **Sign in with OpenStreetMap**.
+2. Approve the read-only request on the OpenStreetMap page.
+3. You return to the queue, signed in under your OpenStreetMap display name.
+
+The request asks for the `read_prefs` scope only. The tool reads your user name and nothing else, it cannot change the map, and your OpenStreetMap password never reaches it. The access token is used once and then dropped. Nothing about it is stored.
+
+A person who signs in this way is a **reviewer**. The one exception is the account the operator named as admin. See [Set up the first admin](../first-admin/).
+
+If the button is missing, the server has no OpenStreetMap app, or an admin switched it off under Settings, Access. If a sign-in fails, the login page shows a short reason. See [Monitor and troubleshoot](../../self-host/monitor-and-troubleshoot/).
+
+### Limit who can sign in
+
+By default every OpenStreetMap account can sign in as a reviewer. On a public host, the operator can limit this to a list of OpenStreetMap user ids with `CSO_OSM_SIGNIN_ALLOWED_UIDS`. An account that is not on the list sees "This OpenStreetMap account is not on the list for this service. Ask an admin for an invite code." See the [settings reference](../../reference/settings/).
+
+## Sign in with an invite code
+
+1. Ask an admin for a code. See [Invite and remove reviewers](../invite-and-remove-reviewers/).
+2. On the sign-in page, enter the **Invite code** and a **Display name**.
+3. Choose **Sign in**.
+
+The display name is shown next to the decisions you record. You choose it yourself. The role comes from the code, not from you.
+
+## What each role can do
+
+| Role | How a person gets it | What they can do |
+| --- | --- | --- |
+| Viewer | No sign-in | Browse the queue, cases, receipts and the active configuration. View only. |
+| Reviewer | OpenStreetMap sign-in, or a reviewer invite code | Everything a viewer can do, plus request drafts and record and correct outcomes. |
+| Admin | The named account that claims the workspace, or an admin invite code | Everything a reviewer can do, plus Settings (name, branding, sign-in switch, invite codes), switching community packs and refitting cut points. |
+
+The full table by action is in [Roles and permissions](../../reference/roles-and-permissions/).
+
+## Sessions
+
+A session lasts 12 hours and ends after 120 minutes without activity, unless the operator changed `CSO_AUTH_SESSION_HOURS` or `CSO_AUTH_IDLE_MINUTES`. Choose **Sign out** to end it earlier. Signing in again replaces the old session.
+
+After 10 failed attempts from one address in 15 minutes, the page asks the person to wait.
+
+## Check that it worked
+
+After signing in, the top bar shows your role next to the mode label, for example Admin, and the **Sign out** button replaces **Sign in**. A reviewer sees "Reviewing as" followed by their name.
+
+Next: [Invite and remove reviewers](../invite-and-remove-reviewers/).

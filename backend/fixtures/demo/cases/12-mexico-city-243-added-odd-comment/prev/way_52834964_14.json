@@ -1,0 +1,49 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 52834964,
+      "timestamp": "2025-10-09T06:21:43Z",
+      "version": 14,
+      "changeset": 173033093,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        387266517,
+        3545810424,
+        670014702,
+        3545810420,
+        2265791941,
+        670014704,
+        2265787025,
+        3545810418,
+        3545810417,
+        8323495102,
+        2265787010,
+        670014709,
+        6148137874,
+        8512250316,
+        670014714,
+        3545809890,
+        670014716,
+        670014718,
+        8299863254,
+        8299863258,
+        8512254319,
+        8512254317,
+        286567538
+      ],
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Calle San Pedro Actopan"
+      }
+    }
+  ]
+}

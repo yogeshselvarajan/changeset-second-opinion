@@ -1,0 +1,46 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 893297149,
+      "timestamp": "2026-10-19T22:55:38Z",
+      "version": 4,
+      "changeset": 190765359,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "nodes": [
+        8302509167,
+        14301248461,
+        8302509166,
+        14301248462,
+        14301248463,
+        14301248464,
+        8302509171,
+        8302509164,
+        8302509160,
+        3539135898,
+        8302509172,
+        4076126523,
+        8302518649,
+        14301248465,
+        8302509170,
+        8302509169
+      ],
+      "tags": {
+        "alt_name": "Nueva Carretera a Oaxtepec",
+        "highway": "primary",
+        "maxspeed": "60",
+        "name": "Carretera San Gregorio - Oaxtepec",
+        "nat_ref": "113",
+        "oneway": "yes",
+        "ref": "MEX 113",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

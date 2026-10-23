@@ -1,0 +1,24 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 342119741,
+      "lat": 16.04279,
+      "lon": 73.4600899,
+      "timestamp": "2010-07-07T09:32:55Z",
+      "version": 3,
+      "changeset": 5157145,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "tags": {
+        "historic": "castle",
+        "name": "Sindhudurg Fort"
+      }
+    }
+  ]
+}

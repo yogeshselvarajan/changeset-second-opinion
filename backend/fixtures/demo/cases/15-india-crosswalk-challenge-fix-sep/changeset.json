@@ -1,0 +1,35 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 188909786,
+    "created_at": "2026-09-12T10:49:35Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 170,
+    "created_count": 139,
+    "modified_count": 23,
+    "deleted_count": 8,
+    "closed_at": "2026-09-12T10:49:36Z",
+    "min_lat": 8.8835967,
+    "min_lon": 76.5893066,
+    "max_lat": 8.8963441,
+    "max_lon": 76.6060422,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "4002",
+      "comment": "Kollam+++",
+      "created_by": "iD 2.42.2",
+      "host": "[url removed]",
+      "imagery_used": "Esri World Imagery",
+      "locale": "en-US",
+      "resolved:crossing_ways:highway-highway": "3",
+      "resolved:disconnected_way:highway": "1"
+    },
+    "comments": []
+  }
+}

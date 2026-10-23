@@ -1,0 +1,178 @@
+{
+  "fixture_id": "10-partial-revert-of-flagged-changeset",
+  "description": "Nairobi: a mapper partly reverts an earlier flagged changeset",
+  "place_label": "Nairobi, Kenya",
+  "changeset_id": 190513686,
+  "coverage": {
+    "elements_in_changeset": 2,
+    "elements_detailed": 2,
+    "elements_skipped_budget": 0,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 1.0
+  },
+  "flags": [],
+  "rules": [],
+  "nature": "likely_good_faith_mistake",
+  "response": "welcome_and_tips",
+  "lane": "review_suggested",
+  "notes": "Real run: strands-decider-2B-qwen3.5-v1-2610, config sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9, recorded 2026-10-20.",
+  "receipt": {
+    "receipt_version": "1",
+    "case_id": "a382f3e3-7df7-4dea-a9f2-7a476698321f",
+    "snapshot_id": "a75d237a-9f51-4464-826c-25532a342f11",
+    "evidence_version": "sha256:bc2b0e3814892545a128c2cb5176640b0e05380aed79d4235e0c5e427ad5e4c4",
+    "coverage": {
+      "elements_in_changeset": 2,
+      "elements_detailed": 2,
+      "elements_skipped_budget": 0,
+      "history_gaps": [],
+      "user_profile": "fetched",
+      "discussion": "fetched",
+      "snapshot_truncated": false,
+      "score": 1.0
+    },
+    "decider": {
+      "model": "strands-decider-2B-qwen3.5-v1-2610",
+      "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+      "device": "cuda",
+      "max_length": 4096,
+      "temperature": 1.0545210242263665,
+      "base_model": "Qwen/Qwen3.5-2B-Base",
+      "prefix_cache": true,
+      "server_git_sha": null
+    },
+    "config_version": "sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9",
+    "questions_hash": null,
+    "state_tokens": 382,
+    "permutations": [],
+    "aggregated": {},
+    "nouls": {},
+    "panel": {
+      "low": 0.35,
+      "high": 0.65,
+      "readings": {
+        "mature_feature_deleted": {
+          "id": "mature_feature_deleted",
+          "probability": 0.5077,
+          "state": "unknown"
+        },
+        "nonsense_or_offensive_values": {
+          "id": "nonsense_or_offensive_values",
+          "probability": 0.1439,
+          "state": "no"
+        },
+        "comment_matches_changes": {
+          "id": "comment_matches_changes",
+          "probability": 0.6688,
+          "state": "yes"
+        },
+        "conventions_followed": {
+          "id": "conventions_followed",
+          "probability": 0.2876,
+          "state": "no"
+        },
+        "new_account_first_edits": {
+          "id": "new_account_first_edits",
+          "probability": 0.1285,
+          "state": "no"
+        },
+        "deleted_own_recent_additions": {
+          "id": "deleted_own_recent_additions",
+          "probability": 0.1567,
+          "state": "no"
+        },
+        "real_world_change_claimed": {
+          "id": "real_world_change_claimed",
+          "probability": 0.1924,
+          "state": "no"
+        },
+        "discussion_cites_source": {
+          "id": "discussion_cites_source",
+          "probability": 0.1045,
+          "state": "no"
+        },
+        "mass_retag_single_key": {
+          "id": "mass_retag_single_key",
+          "probability": 0.1283,
+          "state": "no"
+        },
+        "evidence_sufficient": {
+          "id": "evidence_sufficient",
+          "probability": 0.4029,
+          "state": "unknown"
+        }
+      },
+      "advisory_nature": {
+        "advisory": true,
+        "order": [
+          "consistent_edit",
+          "likely_good_faith_mistake",
+          "possible_deliberate_damage",
+          "needs_local_knowledge"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.1658,
+          "likely_good_faith_mistake": 0.3646,
+          "possible_deliberate_damage": 0.068,
+          "needs_local_knowledge": 0.4016
+        },
+        "choice": "needs_local_knowledge",
+        "confidence": 0.2021
+      },
+      "ids": [
+        "mature_feature_deleted",
+        "nonsense_or_offensive_values",
+        "comment_matches_changes",
+        "conventions_followed",
+        "new_account_first_edits",
+        "deleted_own_recent_additions",
+        "real_world_change_claimed",
+        "discussion_cites_source",
+        "mass_retag_single_key",
+        "evidence_sufficient"
+      ]
+    },
+    "panel_questions_hash": "sha256:d0cd31c9b190f6734322679a27db5a9e6a1c770641452db44e6141a12dc6dd21",
+    "panel_composition": {
+      "nature": "likely_good_faith_mistake",
+      "response": "welcome_and_tips",
+      "band": "unsure",
+      "nature_row": "N3",
+      "response_row": "P4",
+      "yes": [
+        "comment_matches_changes"
+      ],
+      "unknown": [
+        "mature_feature_deleted",
+        "new_account_first_edits"
+      ]
+    },
+    "panel_cross_checks": {
+      "mature_feature_deleted": "undecided",
+      "new_account_first_edits": "n/a",
+      "deleted_own_recent_additions": "agree",
+      "mass_retag_single_key": "agree",
+      "evidence_sufficient": "undecided"
+    },
+    "band": "unsure",
+    "rules_fired": [],
+    "reconciliation": {
+      "applied": false,
+      "from": null,
+      "to": "welcome_and_tips"
+    },
+    "lane": "review_suggested",
+    "timing_ms": {
+      "fetch": 759,
+      "snapshot": 20,
+      "decide": 1310,
+      "decide_server": 607,
+      "total": 2089
+    },
+    "errors": [],
+    "human_outcome_ids": []
+  }
+}

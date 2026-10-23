@@ -1,0 +1,76 @@
+---
+title: Write docs
+description: How this documentation site is built, how to add or fix a page, and the writing rules the build checks.
+---
+
+*For contributors. How-to.*
+
+The docs follow the same rule as the tool: say what it does and what it does not do. The tool never writes to OpenStreetMap, and lanes only order the queue. Say both wherever a reader might wonder.
+
+## What you need first
+
+- Node.js with npm
+- The backend installed, only if you change code that the generated reference pages read: `cd backend && uv sync --frozen`
+- A page idea, and the reader it is for
+
+## How the site is built
+
+The site is [Starlight](https://starlight.astro.build/) (a documentation theme for Astro), in the `site/` folder. It is built into the product website and served at `/docs/`. There is no separate documentation host. Pages are `.md` or `.mdx` files under `site/src/content/docs/<section>/<slug>`. The sidebar is set in `site/astro.config.mjs`.
+
+Pages are sorted into four types, following [Diataxis](https://diataxis.fr/). One type per page.
+
+| Type | The reader is | Test |
+| --- | --- | --- |
+| Tutorial | Learning by doing | Do they finish with a working result? |
+| How-to | Doing one task | Does the page get that task done? |
+| Reference | Looking something up | Is it dry, complete and in the same order every time? |
+| Explanation | Studying why | Does it answer why, with no steps? |
+
+Some reference pages are generated. `site/scripts/generate.mjs` runs `uv run python -m cso.tools.export_docs` in the backend and writes the settings, command line, roles and permissions, community pack schema and receipt schema pages. Those files are committed, and CI regenerates them and fails if they differ from the code. Change the code, then run `npm run generate` in `site/` and commit the result. Do not edit those pages by hand. The REST API pages are drawn from `backend/openapi/v1.json` by the `starlight-openapi` plugin. The errors page is the one reference page written by hand.
+
+## Add or fix a page
+
+1. Create or edit the file under the right section.
+2. Put a `title` in sentence case and a one-sentence `description` in the front matter.
+3. Make the first body line name the reader and the type, in italics, for example `*For reviewers. How-to.*`.
+4. For a new page, add its slug to the sidebar in `site/astro.config.mjs`.
+5. Link to other pages with relative paths and a trailing slash, for example `../read-a-receipt/`. Link to repository files with an absolute GitHub address.
+6. For a how-to, begin with what the reader needs first, end with how to check it worked, then give one link to what to do next.
+7. Use `.mdx` if the page shows a screenshot with `<ThemedShot name="queue" alt="..." />`.
+
+Every page has an edit link at the bottom that points at its file on GitHub. If you spot a mistake while reading, use it. There is also a docs problem issue form in `.github/ISSUE_TEMPLATE/docs_problem.yml`.
+
+## Writing rules
+
+The build checks the first three.
+
+- No em dash and no en dash. Use a comma, a colon, parentheses or a new sentence.
+- Never use the words the product avoids: the list is the one under `tone.banned_words` in `config/communities/default.yaml`.
+- No exclamation marks.
+- Sentence case headings, short sentences, plain words.
+- Never call a mapper a bad name. Examples use a kind, plain tone.
+- Show readings as probabilities with a remainder: yes, no and cannot tell. Never write a score out of 100 or a single percentage for how bad an edit is.
+- Check every command, number and path against the code. If you cannot, leave a comment such as `{/* TODO(verify): what is unknown */}` and tell the reviewer.
+
+## Build and check
+
+To read your changes as you write, from the repository root:
+
+```sh
+cd site && npm ci && npm run dev
+```
+
+The dev server prints its address, normally `http://localhost:4321/docs/`. Before you push, run the checks from `site`:
+
+```sh
+npm run check:prose
+npm run build
+```
+
+`npm run build` builds the site and checks internal links and anchors. Quick offline commands in a page can be marked as tested by writing the code fence as `sh test`. A nightly job runs those.
+
+## Check it worked
+
+`npm run check:prose` prints nothing and exits cleanly, and `npm run build` finishes without a link error. Open the page in the dev server and read it in light and dark themes.
+
+Next: [releases](../releases/).

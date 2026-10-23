@@ -1,0 +1,240 @@
+{
+  "fixture_id": "15-india-crosswalk-challenge-fix-sep",
+  "description": "Kollam: 170 elements, touches a way from MapRoulette challenge 56160, comment is a place name",
+  "place_label": "Kollam, India",
+  "changeset_id": 188909786,
+  "coverage": {
+    "elements_in_changeset": 170,
+    "elements_detailed": 40,
+    "elements_skipped_budget": 130,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.235294
+  },
+  "flags": [],
+  "rules": [
+    "R1",
+    "R3"
+  ],
+  "nature": "needs_local_knowledge",
+  "response": "escalate_to_experienced_reviewer",
+  "lane": "insufficient_evidence",
+  "notes": "Real run: strands-decider-2B-qwen3.5-v1-2610, config sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9, recorded 2026-10-20.",
+  "receipt": {
+    "receipt_version": "1",
+    "case_id": "1bf69f0e-f307-4688-912a-96465d0296a0",
+    "snapshot_id": "4d5df93d-29e5-4481-a71f-166c6da44e27",
+    "evidence_version": "sha256:8d4e14d85303ce73e6602c6814a929da603085aec1a5477fc17dcef4038b0216",
+    "coverage": {
+      "elements_in_changeset": 170,
+      "elements_detailed": 40,
+      "elements_skipped_budget": 130,
+      "history_gaps": [],
+      "user_profile": "fetched",
+      "discussion": "fetched",
+      "snapshot_truncated": false,
+      "score": 0.235294
+    },
+    "decider": {
+      "model": "strands-decider-2B-qwen3.5-v1-2610",
+      "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+      "device": "cuda",
+      "max_length": 4096,
+      "temperature": 1.0545210242263665,
+      "base_model": "Qwen/Qwen3.5-2B-Base",
+      "prefix_cache": true,
+      "server_git_sha": null
+    },
+    "config_version": "sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9",
+    "questions_hash": null,
+    "state_tokens": 584,
+    "permutations": [],
+    "aggregated": {},
+    "nouls": {},
+    "panel": {
+      "low": 0.35,
+      "high": 0.65,
+      "readings": {
+        "mature_feature_deleted": {
+          "id": "mature_feature_deleted",
+          "probability": 0.5238,
+          "state": "unknown"
+        },
+        "nonsense_or_offensive_values": {
+          "id": "nonsense_or_offensive_values",
+          "probability": 0.1497,
+          "state": "no"
+        },
+        "comment_matches_changes": {
+          "id": "comment_matches_changes",
+          "probability": 0.4771,
+          "state": "unknown"
+        },
+        "conventions_followed": {
+          "id": "conventions_followed",
+          "probability": 0.4834,
+          "state": "unknown"
+        },
+        "new_account_first_edits": {
+          "id": "new_account_first_edits",
+          "probability": 0.1011,
+          "state": "no"
+        },
+        "deleted_own_recent_additions": {
+          "id": "deleted_own_recent_additions",
+          "probability": 0.2506,
+          "state": "no"
+        },
+        "real_world_change_claimed": {
+          "id": "real_world_change_claimed",
+          "probability": 0.2035,
+          "state": "no"
+        },
+        "discussion_cites_source": {
+          "id": "discussion_cites_source",
+          "probability": 0.1085,
+          "state": "no"
+        },
+        "mass_retag_single_key": {
+          "id": "mass_retag_single_key",
+          "probability": 0.1709,
+          "state": "no"
+        },
+        "evidence_sufficient": {
+          "id": "evidence_sufficient",
+          "probability": 0.3357,
+          "state": "no"
+        }
+      },
+      "advisory_nature": {
+        "advisory": true,
+        "order": [
+          "consistent_edit",
+          "likely_good_faith_mistake",
+          "possible_deliberate_damage",
+          "needs_local_knowledge"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.2422,
+          "likely_good_faith_mistake": 0.174,
+          "possible_deliberate_damage": 0.1006,
+          "needs_local_knowledge": 0.4832
+        },
+        "choice": "needs_local_knowledge",
+        "confidence": 0.3109
+      },
+      "ids": [
+        "mature_feature_deleted",
+        "nonsense_or_offensive_values",
+        "comment_matches_changes",
+        "conventions_followed",
+        "new_account_first_edits",
+        "deleted_own_recent_additions",
+        "real_world_change_claimed",
+        "discussion_cites_source",
+        "mass_retag_single_key",
+        "evidence_sufficient"
+      ]
+    },
+    "panel_questions_hash": "sha256:d0cd31c9b190f6734322679a27db5a9e6a1c770641452db44e6141a12dc6dd21",
+    "panel_composition": {
+      "nature": "needs_local_knowledge",
+      "response": "escalate_to_experienced_reviewer",
+      "band": "unsure",
+      "nature_row": "N2",
+      "response_row": "P1",
+      "yes": [
+        "mature_feature_deleted"
+      ],
+      "unknown": [
+        "comment_matches_changes",
+        "conventions_followed"
+      ]
+    },
+    "panel_cross_checks": {
+      "mature_feature_deleted": "undecided",
+      "new_account_first_edits": "agree",
+      "deleted_own_recent_additions": "agree",
+      "mass_retag_single_key": "agree",
+      "evidence_sufficient": "agree"
+    },
+    "band": "unsure",
+    "rules_fired": [
+      {
+        "code": "R1",
+        "label": "Mature deletion",
+        "severity": "block",
+        "triggered_by": {
+          "count": 5,
+          "elements": [
+            {
+              "type": "node",
+              "id": 10610335437,
+              "age_days": 1314,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 7593947668,
+              "age_days": 2290,
+              "version_before": 2
+            },
+            {
+              "type": "node",
+              "id": 10610335435,
+              "age_days": 1314,
+              "version_before": 2
+            },
+            {
+              "type": "node",
+              "id": 10610335436,
+              "age_days": 1314,
+              "version_before": 2
+            },
+            {
+              "type": "way",
+              "id": 1138236732,
+              "age_days": 1314,
+              "version_before": 2
+            }
+          ],
+          "min_age_days": 365,
+          "min_prior_versions": 5
+        }
+      },
+      {
+        "code": "R3",
+        "label": "Coverage",
+        "severity": "warn",
+        "triggered_by": {
+          "score": 0.235294,
+          "min_score": 0.5,
+          "gap_ratio": 0.0,
+          "max_gap_ratio": 0.2,
+          "elements_in_changeset": 170,
+          "elements_detailed": 40,
+          "history_gaps": 0,
+          "elements_skipped_budget": 130,
+          "drafting_limited_to": "ask_source_question"
+        }
+      }
+    ],
+    "reconciliation": {
+      "applied": false,
+      "from": null,
+      "to": "escalate_to_experienced_reviewer"
+    },
+    "lane": "insufficient_evidence",
+    "timing_ms": {
+      "fetch": 855,
+      "snapshot": 35,
+      "decide": 1227,
+      "decide_server": 655,
+      "total": 2117
+    },
+    "errors": [],
+    "human_outcome_ids": []
+  }
+}

@@ -1,0 +1,60 @@
+---
+title: Responsible use
+description: The tone, the community norms and the human judgement the tool is built around, and what is asked of the people who use it.
+---
+
+*For reviewers, admins and anyone deciding whether to adopt the tool. Explanation.*
+
+The tool never writes to OpenStreetMap, and lanes only order the queue. A person reads the evidence, a person decides, and a person posts any comment.
+
+## A human decides
+
+A reading is a second opinion on a flagged changeset. It is not a ruling. The model sees only the public record, in text, with a limit on how much it reads. It does not know the mapper, the place or the history of your community. You do.
+
+So the tool is built to keep you in charge:
+
+- every case stays visible, in some lane
+- the evidence and its coverage are shown before the reading
+- every probability is shown, with a band that tells you how decisive the readings were
+- a draft is only text until you edit, copy and post it yourself
+
+See [why lanes only order the queue](../why-lanes-only-order-the-queue/) and [what it cannot do](../what-it-cannot-do/).
+
+## Most flagged edits are honest
+
+A flag is a reason to look, not a conclusion. Validators have reported false positives on newcomers in machine-flagged queues. Many new mappers make honest mistakes: wrong tag keys, a feature dragged by accident, a deletion of something they added minutes earlier. The default response in the tool for a new account with small convention problems is a welcome with one or two tips.
+
+## Tone
+
+The project keeps one tone everywhere: kind, plain and specific.
+
+- **Describe the edit, not the person.** Say what changed and what you could not check. Do not guess at intent.
+- **Ask before you assume.** When a comment is missing or an edit could be right, ask for the source.
+- **Never call a mapper a bad name.** The interface, the drafts and these docs avoid accusing words. Each community pack carries an avoid-list under `tone.banned_words` in its YAML file. The draft checker rejects a draft that uses one, and a CI check scans the web source and the config.
+- **Say the reading, not a verdict.** The natures are named "possible" and "likely" on purpose. They prompt a look. They are not findings.
+
+A draft from the tool is a starting point written in that tone. Read it as the mapper would, and change anything that sounds sharper than you mean. A person can also write a comment from scratch.
+
+## OpenStreetMap community norms
+
+The tool follows the community's view that machine flagging needs human checking. The way the queue works rests on the OpenStreetMap automated edits code of conduct and community etiquette. In practice:
+
+- The tool makes read-only requests, with a User-Agent that carries a real contact, and at most two at a time. It reads public data only.
+- It does not edit the map and holds no write credential.
+- It is independent. It is not endorsed by, sponsored by or affiliated with the OpenStreetMap Foundation, and nothing it says is an OpenStreetMap Foundation position. See [licence and notices](../../project/licence-and-notices/).
+- Discussion happens on openstreetmap.org, in the open, where the mapper and the community can reply. If an edit looks harmful or you are not sure what to do, raise it with your local community or the Data Working Group through the usual channels, as you would without the tool.
+
+## Privacy and data
+
+The tool stores the public evidence it read, its own readings, your drafts and your recorded outcomes. Receipts shared by link carry only public OpenStreetMap data and no reviewer name. See [privacy](../../administer/privacy/).
+
+OpenStreetMap data is © OpenStreetMap contributors, under the ODbL. See [licence and notices](../../project/licence-and-notices/).
+
+## Questions to ask yourself
+
+- Did I read the evidence, or only the lane?
+- Is the coverage good enough to say anything?
+- Would I be comfortable if the mapper read my comment?
+- Am I sure about what I could not check?
+
+If any answer is no, slow down. Next: [read the evidence](../../review/read-the-evidence/).

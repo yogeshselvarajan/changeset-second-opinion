@@ -1,0 +1,69 @@
+---
+title: Run the Decider
+description: Serve the Strands Decider 2B model on loopback, set its timeout class, or use the stub for tests.
+---
+
+*For operators who self-host. How-to.*
+
+The Decider is the small model that answers the ten yes or no questions about a changeset's evidence. The compose stack runs it for you. Run it by hand when you use the `uv` workflow.
+
+## What you need first
+
+- Python 3.13 and `pip`, or Docker. See [Requirements and sizing](../requirements/).
+- About 5 GB of disk for the weights, which download on first run.
+- A GPU for fast answers, or a CPU for background use.
+
+## Serve the model
+
+The model is `StrandsAgents/strands-decider-2B-qwen3.5-v1-2610`.
+
+```sh
+pip install strands-decider==0.1.0
+strands-decider serve StrandsAgents/strands-decider-2B-qwen3.5-v1-2610 --host 127.0.0.1 --port 8099 --device cpu
+```
+
+Use `--device cuda` on an NVIDIA GPU. Keep `--host 127.0.0.1`. The server has no sign-in of its own, so it never listens beyond loopback, and compose gives it no published port.
+
+In compose, the `decider` service already runs this command, and the CPU and GPU profile files choose the device. See [Install with Docker Compose](../docker-compose/).
+
+## Point the app at it
+
+From `backend/`:
+
+```sh
+export CSO_DECIDER_URL=http://127.0.0.1:8099
+export CSO_DECIDER_DEVICE_CLASS=cpu     # or gpu
+uv run cso worker --once --fixture 02-good-faith-mistake
+```
+
+`CSO_DECIDER_DEVICE_CLASS` only sets the request timeout:
+
+| Class | Timeout |
+| --- | --- |
+| `gpu` | 45 seconds |
+| `cpu` | 90 seconds |
+
+The compose CPU file estimates 2 to 30 seconds per request on CPU, so use it for background analysis. The README says CPU latency has not been measured. On one GPU, the recorded end to end time was about 1.2 seconds at the median.
+
+Without `CSO_DECIDER_URL`, a case shows its evidence and rules only, in the Rules only lane.
+
+## Test without a model
+
+A stand-in server returns fixed, plainly illustrative readings, so the real app can run end to end with no GPU and no download. It is for screenshots, demos and tests. It reads no evidence, and every case gets the same answers.
+
+```sh
+cd backend
+uv run python -m cso.tools.stub_decider
+```
+
+It listens on `127.0.0.1:8099` by default and takes `--port`. Its health answer names the model as a stub, so nobody can mistake it for the real one. Do not use it for real review.
+
+## Check that it worked
+
+```sh
+curl -fsS http://127.0.0.1:8099/health
+```
+
+A healthy server answers with HTTP 200. In live mode, `/readyz` on the API answers 200 only when this check passes. See [Monitor and troubleshoot](../monitor-and-troubleshoot/).
+
+Next: [Connect Amazon Bedrock](../connect-bedrock/).

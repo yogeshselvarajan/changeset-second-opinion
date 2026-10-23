@@ -1,0 +1,2893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1316 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14296896496" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0331897" lon="88.5645675"/>
+ </create>
+ <create>
+  <node id="14296896497" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0330685" lon="88.5645889"/>
+ </create>
+ <create>
+  <node id="14296896498" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0330031" lon="88.5645849"/>
+ </create>
+ <create>
+  <node id="14296896499" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0328908" lon="88.5645540"/>
+ </create>
+ <create>
+  <node id="14296896500" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0327242" lon="88.5644615"/>
+ </create>
+ <create>
+  <node id="14296901201" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0325329" lon="88.5643824"/>
+ </create>
+ <create>
+  <node id="14296901202" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0324021" lon="88.5643542"/>
+ </create>
+ <create>
+  <node id="14296901203" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0322762" lon="88.5643421"/>
+ </create>
+ <create>
+  <node id="14296901204" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0321194" lon="88.5643515"/>
+ </create>
+ <create>
+  <node id="14296901205" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0320306" lon="88.5643743"/>
+ </create>
+ <create>
+  <node id="14296901206" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0319590" lon="88.5643851"/>
+ </create>
+ <create>
+  <node id="14296901207" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0319047" lon="88.5643931"/>
+ </create>
+ <create>
+  <node id="14296901208" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0318578" lon="88.5643864"/>
+ </create>
+ <create>
+  <node id="14296901209" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0318072" lon="88.5643569"/>
+ </create>
+ <create>
+  <node id="14296901210" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0317307" lon="88.5642979"/>
+ </create>
+ <create>
+  <node id="14296901211" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0315900" lon="88.5641195"/>
+ </create>
+ <create>
+  <node id="14296901212" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0314740" lon="88.5639572"/>
+ </create>
+ <create>
+  <node id="14296901213" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0313160" lon="88.5637936"/>
+ </create>
+ <create>
+  <node id="14296901214" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0312345" lon="88.5637158"/>
+ </create>
+ <create>
+  <node id="14296901215" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0311543" lon="88.5636528"/>
+ </create>
+ <create>
+  <node id="14296901216" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0310617" lon="88.5636139"/>
+ </create>
+ <create>
+  <node id="14296901217" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0309618" lon="88.5635938"/>
+ </create>
+ <create>
+  <node id="14296901218" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0308383" lon="88.5635603"/>
+ </create>
+ <create>
+  <node id="14296901219" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0306384" lon="88.5634838"/>
+ </create>
+ <create>
+  <node id="14296901220" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0305310" lon="88.5634101"/>
+ </create>
+ <create>
+  <node id="14296901221" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0304372" lon="88.5633457"/>
+ </create>
+ <create>
+  <node id="14296901222" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0302792" lon="88.5632465"/>
+ </create>
+ <create>
+  <node id="14296901223" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0301620" lon="88.5631620"/>
+ </create>
+ <create>
+  <node id="14296901224" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0300953" lon="88.5631231"/>
+ </create>
+ <create>
+  <node id="14296901225" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0300164" lon="88.5630895"/>
+ </create>
+ <create>
+  <node id="14296901226" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0299583" lon="88.5630802"/>
+ </create>
+ <create>
+  <node id="14296901227" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0298349" lon="88.5630775"/>
+ </create>
+ <create>
+  <node id="14296901228" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0296350" lon="88.5630936"/>
+ </create>
+ <create>
+  <node id="14296901229" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0293894" lon="88.5630989"/>
+ </create>
+ <create>
+  <node id="14296901230" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0291808" lon="88.5630909"/>
+ </create>
+ <create>
+  <node id="14296901231" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0289475" lon="88.5630828"/>
+ </create>
+ <create>
+  <node id="14296901232" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0287772" lon="88.5630480"/>
+ </create>
+ <create>
+  <node id="14296901233" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0285958" lon="88.5629970"/>
+ </create>
+ <create>
+  <node id="14296901234" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0284094" lon="88.5629219"/>
+ </create>
+ <create>
+  <node id="14296901235" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0281305" lon="88.5628307"/>
+ </create>
+ <create>
+  <node id="14296901236" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0279910" lon="88.5627784"/>
+ </create>
+ <create>
+  <node id="14296901237" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0279589" lon="88.5627583"/>
+ </create>
+ <create>
+  <node id="14296901238" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0279354" lon="88.5627368"/>
+ </create>
+ <create>
+  <node id="14296901239" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0279132" lon="88.5626751"/>
+ </create>
+ <create>
+  <node id="14296901240" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0278713" lon="88.5625960"/>
+ </create>
+ <create>
+  <node id="14296901241" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0277127" lon="88.5624211"/>
+ </create>
+ <create>
+  <node id="14296901242" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0275922" lon="88.5623344"/>
+ </create>
+ <create>
+  <node id="14296901243" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0273495" lon="88.5622141"/>
+ </create>
+ <create>
+  <node id="14296901244" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0272453" lon="88.5621769"/>
+ </create>
+ <create>
+  <node id="14296901245" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0271964" lon="88.5621805"/>
+ </create>
+ <create>
+  <node id="14296901246" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0271362" lon="88.5621875"/>
+ </create>
+ <create>
+  <node id="14296901247" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0270564" lon="88.5621787"/>
+ </create>
+ <create>
+  <node id="14296901248" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0269163" lon="88.5621097"/>
+ </create>
+ <create>
+  <node id="14296901249" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0268007" lon="88.5620407"/>
+ </create>
+ <create>
+  <node id="14296901250" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0265906" lon="88.5619469"/>
+ </create>
+ <create>
+  <node id="14296901251" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0264131" lon="88.5618743"/>
+ </create>
+ <create>
+  <node id="14296901252" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0262416" lon="88.5618152"/>
+ </create>
+ <create>
+  <node id="14296901253" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0260073" lon="88.5617382"/>
+ </create>
+ <create>
+  <node id="14296901254" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259357" lon="88.5617151"/>
+ </create>
+ <create>
+  <node id="14296901255" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259151" lon="88.5617028"/>
+ </create>
+ <create>
+  <node id="14296901256" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259038" lon="88.5616882"/>
+ </create>
+ <create>
+  <node id="14296901257" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0258931" lon="88.5616658"/>
+ </create>
+ <create>
+  <node id="14296901258" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0258768" lon="88.5616258"/>
+ </create>
+ <create>
+  <node id="14296901259" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0258733" lon="88.5615850"/>
+ </create>
+ <create>
+  <node id="14296901260" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0258754" lon="88.5615203"/>
+ </create>
+ <create>
+  <node id="14296901261" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259550" lon="88.5610910"/>
+ </create>
+ <create>
+  <node id="14296901262" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259762" lon="88.5609813"/>
+ </create>
+ <create>
+  <node id="14296901263" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259729" lon="88.5609477"/>
+ </create>
+ <create>
+  <node id="14296901264" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0259371" lon="88.5609070"/>
+ </create>
+ <create>
+  <node id="14296901265" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0258329" lon="88.5608574"/>
+ </create>
+ <create>
+  <node id="14296901266" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0254045" lon="88.5607141"/>
+ </create>
+ <create>
+  <node id="14296901267" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0248052" lon="88.5605336"/>
+ </create>
+ <create>
+  <node id="14296901268" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0244420" lon="88.5603903"/>
+ </create>
+ <create>
+  <node id="14296901269" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0243247" lon="88.5603089"/>
+ </create>
+ <create>
+  <node id="14296901270" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0242173" lon="88.5602221"/>
+ </create>
+ <create>
+  <node id="14296901271" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0241505" lon="88.5601602"/>
+ </create>
+ <create>
+  <node id="14296901272" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0241049" lon="88.5601372"/>
+ </create>
+ <create>
+  <node id="14296901273" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0239632" lon="88.5600930"/>
+ </create>
+ <create>
+  <node id="14296901274" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0239355" lon="88.5600629"/>
+ </create>
+ <create>
+  <node id="14296901275" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0238948" lon="88.5600151"/>
+ </create>
+ <create>
+  <node id="14296901276" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0238182" lon="88.5599514"/>
+ </create>
+ <create>
+  <node id="14296901277" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0237026" lon="88.5598965"/>
+ </create>
+ <create>
+  <node id="14296901278" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0233997" lon="88.5597851"/>
+ </create>
+ <create>
+  <node id="14296901279" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0232922" lon="88.5597638"/>
+ </create>
+ <create>
+  <node id="14296901280" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0230463" lon="88.5597054"/>
+ </create>
+ <create>
+  <node id="14296901281" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0227075" lon="88.5596258"/>
+ </create>
+ <create>
+  <node id="14296901282" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0222889" lon="88.5595072"/>
+ </create>
+ <create>
+  <node id="14296901283" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0220104" lon="88.5594506"/>
+ </create>
+ <create>
+  <node id="14296901284" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0216798" lon="88.5593727"/>
+ </create>
+ <create>
+  <node id="14296901285" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0213655" lon="88.5592683"/>
+ </create>
+ <create>
+  <node id="14296901286" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0212417" lon="88.5592276"/>
+ </create>
+ <create>
+  <node id="14296901287" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0211179" lon="88.5592170"/>
+ </create>
+ <create>
+  <node id="14296901288" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0210153" lon="88.5592152"/>
+ </create>
+ <create>
+  <node id="14296901289" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0208476" lon="88.5592736"/>
+ </create>
+ <create>
+  <node id="14296901290" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0207515" lon="88.5592772"/>
+ </create>
+ <create>
+  <node id="14296901291" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0206473" lon="88.5592559"/>
+ </create>
+ <create>
+  <node id="14296901292" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0200886" lon="88.5591285"/>
+ </create>
+ <create>
+  <node id="14296901293" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0194827" lon="88.5589480"/>
+ </create>
+ <create>
+  <node id="14296901294" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0184616" lon="88.5586684"/>
+ </create>
+ <create>
+  <node id="14296901295" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0175169" lon="88.5584136"/>
+ </create>
+ <create>
+  <node id="14296901296" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0166097" lon="88.5582172"/>
+ </create>
+ <create>
+  <node id="14296901297" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0165192" lon="88.5582258"/>
+ </create>
+ <create>
+  <node id="14296901298" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0164001" lon="88.5582350"/>
+ </create>
+ <create>
+  <node id="14296901299" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0162952" lon="88.5582135"/>
+ </create>
+ <create>
+  <node id="14296901300" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0161080" lon="88.5581395"/>
+ </create>
+ <create>
+  <node id="14296901301" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0158840" lon="88.5580841"/>
+ </create>
+ <create>
+  <node id="14296901302" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0155692" lon="88.5580471"/>
+ </create>
+ <create>
+  <node id="14296901303" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0153792" lon="88.5580841"/>
+ </create>
+ <create>
+  <node id="14296901304" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0152403" lon="88.5581457"/>
+ </create>
+ <create>
+  <node id="14296901305" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0151070" lon="88.5582104"/>
+ </create>
+ <create>
+  <node id="14296901306" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0145838" lon="88.5584082"/>
+ </create>
+ <create>
+  <node id="14296901307" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0144356" lon="88.5598031"/>
+ </create>
+ <create>
+  <node id="14296901308" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0146402" lon="88.5591488"/>
+ </create>
+ <create>
+  <node id="14296901309" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0142957" lon="88.5577470"/>
+ </create>
+ <create>
+  <node id="14296901310" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0198648" lon="88.5488668"/>
+ </create>
+ <create>
+  <node id="14296901311" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.8773118" lon="88.2790009"/>
+ </create>
+ <create>
+  <node id="14296901312" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.7490474" lon="88.2372129"/>
+ </create>
+ <create>
+  <way id="1569467818" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="10741403723"/>
+   <nd ref="10741403724"/>
+   <nd ref="10741403725"/>
+   <nd ref="10741403726"/>
+   <nd ref="10741403727"/>
+   <nd ref="10741403728"/>
+   <nd ref="10741403729"/>
+   <nd ref="10741403730"/>
+   <nd ref="10741403731"/>
+   <nd ref="10741403732"/>
+   <nd ref="10741403733"/>
+   <nd ref="10741403734"/>
+   <nd ref="10741403735"/>
+   <nd ref="10741403736"/>
+   <nd ref="10741403737"/>
+   <nd ref="10741403738"/>
+   <nd ref="10741403767"/>
+   <nd ref="10741403739"/>
+   <nd ref="10741403770"/>
+   <nd ref="10741403771"/>
+   <nd ref="10742670550"/>
+   <nd ref="10742670558"/>
+   <nd ref="10742670549"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467819" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="5265159519"/>
+   <nd ref="5265159520"/>
+   <nd ref="5265160721"/>
+   <nd ref="5265160722"/>
+   <nd ref="5265160723"/>
+   <nd ref="5265160724"/>
+   <nd ref="5265160725"/>
+   <nd ref="5265160726"/>
+   <nd ref="5265160727"/>
+   <nd ref="5265160728"/>
+   <nd ref="5265160729"/>
+   <nd ref="5265160730"/>
+   <nd ref="5265160731"/>
+   <nd ref="5265160732"/>
+   <nd ref="5265160733"/>
+   <nd ref="5265160734"/>
+   <nd ref="5265160735"/>
+   <nd ref="5265160736"/>
+   <nd ref="5265160737"/>
+   <nd ref="5265160738"/>
+   <nd ref="5265160739"/>
+   <nd ref="5265160740"/>
+   <nd ref="5265160741"/>
+   <nd ref="5265160742"/>
+   <nd ref="5265160743"/>
+   <nd ref="5265160744"/>
+   <nd ref="5265160745"/>
+   <nd ref="5265160746"/>
+   <nd ref="5265160747"/>
+   <nd ref="5265160748"/>
+   <nd ref="5265160749"/>
+   <nd ref="5265160750"/>
+   <nd ref="5265160751"/>
+   <nd ref="5265160752"/>
+   <tag k="name" v="Jamuna River"/>
+   <tag k="waterway" v="river"/>
+   <tag k="wikidata" v="Q6148321"/>
+   <tag k="wikipedia" v="en:Jamuna River (West Bengal)"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467820" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="5265160752"/>
+   <nd ref="5265160753"/>
+   <nd ref="5265160754"/>
+   <nd ref="5265160755"/>
+   <nd ref="5265160756"/>
+   <nd ref="5265160757"/>
+   <nd ref="5265160758"/>
+   <nd ref="5380417931"/>
+   <nd ref="5380417930"/>
+   <nd ref="5380417929"/>
+   <nd ref="5265160759"/>
+   <nd ref="5265160760"/>
+   <nd ref="5380417720"/>
+   <nd ref="5265160761"/>
+   <nd ref="5265160762"/>
+   <nd ref="5265160763"/>
+   <nd ref="5265160764"/>
+   <nd ref="5380417708"/>
+   <nd ref="5380417706"/>
+   <nd ref="5265160765"/>
+   <nd ref="5265160766"/>
+   <nd ref="5265160767"/>
+   <nd ref="5265160768"/>
+   <nd ref="5265160769"/>
+   <nd ref="5265160770"/>
+   <nd ref="5265160771"/>
+   <nd ref="5265160773"/>
+   <nd ref="12635847254"/>
+   <nd ref="5265160774"/>
+   <nd ref="10741403723"/>
+   <tag k="name" v="Jamuna River"/>
+   <tag k="waterway" v="river"/>
+   <tag k="wikidata" v="Q6148321"/>
+   <tag k="wikipedia" v="en:Jamuna River (West Bengal)"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467821" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="5265159498"/>
+   <nd ref="5265159499"/>
+   <nd ref="5265159500"/>
+   <nd ref="5265159501"/>
+   <nd ref="5265159502"/>
+   <nd ref="5265159503"/>
+   <nd ref="5265159504"/>
+   <nd ref="5265159505"/>
+   <nd ref="5265159506"/>
+   <nd ref="5265159507"/>
+   <nd ref="10012568714"/>
+   <nd ref="10012568715"/>
+   <nd ref="5265159508"/>
+   <nd ref="5265159509"/>
+   <nd ref="5265159510"/>
+   <nd ref="5265159511"/>
+   <nd ref="5265159512"/>
+   <nd ref="5265159513"/>
+   <nd ref="5265159514"/>
+   <nd ref="5265159515"/>
+   <nd ref="5265159516"/>
+   <nd ref="5265159517"/>
+   <nd ref="5265159518"/>
+   <nd ref="5265159519"/>
+   <tag k="name" v="Jamuna River"/>
+   <tag k="waterway" v="river"/>
+   <tag k="wikidata" v="Q6148321"/>
+   <tag k="wikipedia" v="en:Jamuna River (West Bengal)"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467822" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="14296901252"/>
+   <nd ref="14296901253"/>
+   <nd ref="14296901254"/>
+   <nd ref="14296901255"/>
+   <nd ref="14296901256"/>
+   <nd ref="14296901257"/>
+   <nd ref="14296901258"/>
+   <nd ref="14296901259"/>
+   <nd ref="14296901260"/>
+   <nd ref="14296901261"/>
+   <nd ref="14296901262"/>
+   <nd ref="14296901263"/>
+   <nd ref="14296901264"/>
+   <nd ref="14296901265"/>
+   <nd ref="14296901266"/>
+   <nd ref="14296901267"/>
+   <nd ref="14296901268"/>
+   <nd ref="14296901269"/>
+   <nd ref="14296901270"/>
+   <nd ref="14296901271"/>
+   <nd ref="14296901272"/>
+   <nd ref="14296901273"/>
+   <nd ref="14296901274"/>
+   <nd ref="14296901275"/>
+   <nd ref="14296901276"/>
+   <nd ref="14296901277"/>
+   <nd ref="14296901278"/>
+   <nd ref="14296901279"/>
+   <nd ref="14296901280"/>
+   <nd ref="14296901281"/>
+   <nd ref="14296901282"/>
+   <nd ref="14296901283"/>
+   <nd ref="14296901284"/>
+   <nd ref="14296901285"/>
+   <nd ref="14296901286"/>
+   <nd ref="14296901287"/>
+   <nd ref="14296901288"/>
+   <nd ref="14296901289"/>
+   <nd ref="14296901290"/>
+   <nd ref="14296901291"/>
+   <nd ref="14296901292"/>
+   <nd ref="14296901293"/>
+   <nd ref="14296901294"/>
+   <nd ref="14296901295"/>
+   <nd ref="14296901296"/>
+   <nd ref="14296901297"/>
+   <nd ref="14296901298"/>
+   <nd ref="14296901299"/>
+   <nd ref="14296901300"/>
+   <nd ref="14296901301"/>
+   <nd ref="14296901302"/>
+   <nd ref="14296901303"/>
+   <nd ref="14296901304"/>
+   <nd ref="14296901305"/>
+   <nd ref="14296901306"/>
+   <tag k="boundary" v="administrative"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467823" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="14296901306"/>
+   <nd ref="14296901308"/>
+   <nd ref="14296901307"/>
+   <nd ref="13998051358"/>
+   <nd ref="13998051359"/>
+   <nd ref="13998051360"/>
+   <nd ref="13998051361"/>
+   <nd ref="13998051362"/>
+   <nd ref="13998051363"/>
+   <nd ref="13998051364"/>
+   <nd ref="13998051365"/>
+   <tag k="waterway" v="canal"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467824" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="7031709116"/>
+   <nd ref="14296901310"/>
+   <nd ref="7031709115"/>
+   <nd ref="7031712892"/>
+   <nd ref="7031712891"/>
+   <nd ref="14296901252"/>
+   <tag k="boundary" v="administrative"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467825" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="14296896496"/>
+   <nd ref="14296896497"/>
+   <nd ref="14296896498"/>
+   <nd ref="14296896499"/>
+   <nd ref="14296896500"/>
+   <nd ref="14296901201"/>
+   <nd ref="14296901202"/>
+   <nd ref="14296901203"/>
+   <nd ref="14296901204"/>
+   <nd ref="14296901205"/>
+   <nd ref="14296901206"/>
+   <nd ref="14296901207"/>
+   <nd ref="14296901208"/>
+   <nd ref="14296901209"/>
+   <nd ref="14296901210"/>
+   <nd ref="14296901211"/>
+   <nd ref="14296901212"/>
+   <nd ref="14296901213"/>
+   <nd ref="14296901214"/>
+   <nd ref="14296901215"/>
+   <nd ref="14296901216"/>
+   <nd ref="14296901217"/>
+   <nd ref="14296901218"/>
+   <nd ref="14296901219"/>
+   <nd ref="14296901220"/>
+   <nd ref="14296901221"/>
+   <nd ref="14296901222"/>
+   <nd ref="14296901223"/>
+   <nd ref="14296901224"/>
+   <nd ref="14296901225"/>
+   <nd ref="14296901226"/>
+   <nd ref="14296901227"/>
+   <nd ref="14296901228"/>
+   <nd ref="14296901229"/>
+   <nd ref="14296901230"/>
+   <nd ref="14296901231"/>
+   <nd ref="14296901232"/>
+   <nd ref="14296901233"/>
+   <nd ref="14296901234"/>
+   <nd ref="14296901235"/>
+   <nd ref="14296901236"/>
+   <nd ref="14296901237"/>
+   <nd ref="14296901238"/>
+   <nd ref="14296901239"/>
+   <nd ref="14296901240"/>
+   <nd ref="14296901241"/>
+   <nd ref="14296901242"/>
+   <nd ref="14296901243"/>
+   <nd ref="14296901244"/>
+   <nd ref="14296901245"/>
+   <nd ref="14296901246"/>
+   <nd ref="14296901247"/>
+   <nd ref="14296901248"/>
+   <nd ref="14296901249"/>
+   <nd ref="14296901250"/>
+   <nd ref="14296901251"/>
+   <nd ref="14296901252"/>
+   <tag k="highway" v="residential"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467826" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="7033204230"/>
+   <nd ref="7033144443"/>
+   <nd ref="7033204229"/>
+   <nd ref="7033273197"/>
+   <nd ref="7033142110"/>
+   <nd ref="7033273196"/>
+   <nd ref="7033144442"/>
+   <nd ref="7033144441"/>
+   <nd ref="7033144440"/>
+   <nd ref="7033144439"/>
+   <nd ref="7033144438"/>
+   <nd ref="7033142109"/>
+   <nd ref="7033144437"/>
+   <nd ref="7033144436"/>
+   <nd ref="7033273195"/>
+   <nd ref="7033142108"/>
+   <nd ref="7033142107"/>
+   <nd ref="7033144435"/>
+   <nd ref="7033144434"/>
+   <nd ref="7033144433"/>
+   <nd ref="7033144432"/>
+   <nd ref="7033144431"/>
+   <nd ref="7033142106"/>
+   <nd ref="7033204228"/>
+   <nd ref="7033273194"/>
+   <nd ref="7033273193"/>
+   <nd ref="7033204227"/>
+   <nd ref="7033142105"/>
+   <nd ref="7033144430"/>
+   <nd ref="7033144429"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467827" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="3349587042"/>
+   <nd ref="4006056682"/>
+   <nd ref="4006056686"/>
+   <nd ref="4006056685"/>
+   <nd ref="4006056683"/>
+   <nd ref="4006056684"/>
+   <nd ref="4006056687"/>
+   <nd ref="4006056688"/>
+   <nd ref="4006056790"/>
+   <nd ref="4006056792"/>
+   <nd ref="4006056795"/>
+   <nd ref="7033204230"/>
+   <tag k="waterway" v="river"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467828" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="10793551246"/>
+   <nd ref="3349586910"/>
+   <nd ref="3349586901"/>
+   <nd ref="3349586894"/>
+   <nd ref="3349586879"/>
+   <nd ref="3349586868"/>
+   <nd ref="3349586862"/>
+   <nd ref="3349586850"/>
+   <nd ref="3349586842"/>
+   <nd ref="3349586839"/>
+   <nd ref="3349586836"/>
+   <nd ref="3349586832"/>
+   <nd ref="3349586824"/>
+   <nd ref="3349586815"/>
+   <nd ref="3349586801"/>
+   <nd ref="3349586782"/>
+   <nd ref="3349586725"/>
+   <nd ref="3349586706"/>
+   <nd ref="3349586670"/>
+   <nd ref="3349586655"/>
+   <nd ref="3349586647"/>
+   <nd ref="3349586641"/>
+   <nd ref="3349586636"/>
+   <nd ref="3349586626"/>
+   <nd ref="3349586617"/>
+   <nd ref="3349586600"/>
+   <nd ref="3349586588"/>
+   <nd ref="3349586537"/>
+   <nd ref="3349586524"/>
+   <nd ref="3349586523"/>
+   <nd ref="3349586522"/>
+   <nd ref="3349586521"/>
+   <nd ref="3349586520"/>
+   <nd ref="3349586519"/>
+   <nd ref="3349586518"/>
+   <nd ref="3349586517"/>
+   <nd ref="4008102737"/>
+   <nd ref="3349586506"/>
+   <nd ref="3349586502"/>
+   <nd ref="3349586501"/>
+   <nd ref="3349586499"/>
+   <nd ref="3349586497"/>
+   <nd ref="3349586494"/>
+   <nd ref="3349586495"/>
+   <nd ref="3349586498"/>
+   <nd ref="3349586500"/>
+   <nd ref="3349586504"/>
+   <nd ref="3349586507"/>
+   <nd ref="3349586510"/>
+   <nd ref="3349586514"/>
+   <nd ref="3349586513"/>
+   <nd ref="3349586515"/>
+   <nd ref="3349586512"/>
+   <nd ref="3349586511"/>
+   <nd ref="3349586508"/>
+   <nd ref="3349586505"/>
+   <nd ref="3349586503"/>
+   <nd ref="3349586496"/>
+   <tag k="name" v="DVC Canal"/>
+   <tag k="waterway" v="canal"/>
+   <tag k="wikimedia_commons" v="File:Baidyabati_DVC_Canal_-_Hooghly_2024-12-31_0204.jpg"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467829" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="10793551248"/>
+   <nd ref="10793551214"/>
+   <nd ref="10793551215"/>
+   <nd ref="10793551216"/>
+   <nd ref="10793551217"/>
+   <nd ref="10793551218"/>
+   <nd ref="10793551219"/>
+   <nd ref="10793551220"/>
+   <nd ref="10793551221"/>
+   <nd ref="10793551222"/>
+   <nd ref="10793551223"/>
+   <nd ref="10793551224"/>
+   <nd ref="10793551225"/>
+   <nd ref="10793551226"/>
+   <nd ref="10793551227"/>
+   <nd ref="10793551228"/>
+   <nd ref="10793551229"/>
+   <nd ref="10793551230"/>
+   <nd ref="10793551231"/>
+   <nd ref="10793551232"/>
+   <nd ref="10793551233"/>
+   <nd ref="10793551234"/>
+   <nd ref="10793551235"/>
+   <nd ref="10793551236"/>
+   <nd ref="10793551237"/>
+   <nd ref="10793551238"/>
+   <nd ref="10793551239"/>
+   <nd ref="10793551240"/>
+   <nd ref="10793551241"/>
+   <nd ref="10793551242"/>
+   <nd ref="10793551243"/>
+   <nd ref="10793551244"/>
+   <nd ref="10793551245"/>
+   <nd ref="10793551246"/>
+   <tag k="name" v="Saraswati"/>
+   <tag k="waterway" v="river"/>
+   <tag k="width" v="25"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467830" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="3349587042"/>
+   <nd ref="3349587040"/>
+   <nd ref="3349587039"/>
+   <nd ref="3349587027"/>
+   <nd ref="3349587007"/>
+   <nd ref="3349586997"/>
+   <nd ref="3349586989"/>
+   <nd ref="3349586981"/>
+   <nd ref="3349586948"/>
+   <nd ref="3349586938"/>
+   <nd ref="4006056634"/>
+   <nd ref="3349586934"/>
+   <nd ref="3349586921"/>
+   <nd ref="10793551246"/>
+   <tag k="name" v="DVC Canal"/>
+   <tag k="waterway" v="canal"/>
+   <tag k="wikimedia_commons" v="File:Baidyabati_DVC_Canal_-_Hooghly_2024-12-31_0204.jpg"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467831" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="11662135433"/>
+   <nd ref="11662135477"/>
+   <tag k="layer" v="-1"/>
+   <tag k="name" v="Saraswati"/>
+   <tag k="tunnel" v="culvert"/>
+   <tag k="waterway" v="river"/>
+   <tag k="width" v="25"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467832" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="14296901312"/>
+   <nd ref="4008452342"/>
+   <nd ref="4008452341"/>
+   <nd ref="4008452340"/>
+   <nd ref="4008452336"/>
+   <nd ref="4008452335"/>
+   <nd ref="4008452334"/>
+   <nd ref="4008452333"/>
+   <nd ref="4008452332"/>
+   <nd ref="4008452331"/>
+   <nd ref="4008452330"/>
+   <nd ref="4008452329"/>
+   <nd ref="4008452328"/>
+   <nd ref="4008452327"/>
+   <nd ref="4008452326"/>
+   <nd ref="4008452321"/>
+   <nd ref="4008452311"/>
+   <nd ref="4008452306"/>
+   <nd ref="4008452303"/>
+   <nd ref="4008452300"/>
+   <nd ref="4008452299"/>
+   <tag k="waterway" v="canal"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569467833" visible="true" version="1" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="7033254604"/>
+   <nd ref="7033227562"/>
+   <nd ref="7033227561"/>
+   <nd ref="7033141782"/>
+   <nd ref="7033217369"/>
+   <nd ref="7033227560"/>
+   <nd ref="7033217368"/>
+   <nd ref="14296901312"/>
+  </way>
+ </create>
+ <modify>
+  <node id="7031709116" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0199022" lon="88.5482716"/>
+ </modify>
+ <modify>
+  <node id="7033204230" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.8755751" lon="88.2967008"/>
+ </modify>
+ <modify>
+  <node id="10741403723" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.9478119" lon="88.6260223"/>
+ </modify>
+ <modify>
+  <node id="10793551246" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.8626532" lon="88.3091777"/>
+ </modify>
+ <modify>
+  <node id="11662135433" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.7780548" lon="88.2544354"/>
+ </modify>
+ <modify>
+  <node id="11662135477" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="22.7778537" lon="88.2537191"/>
+ </modify>
+ <delete>
+  <node id="13998041189" visible="false" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="13998051357" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0139282" lon="88.5573076"/>
+ </modify>
+ <modify>
+  <node id="13998051358" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001" lat="23.0136466" lon="88.5608530"/>
+ </modify>
+ <modify>
+  <way id="397818094" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="7033204230"/>
+   <nd ref="4006056798"/>
+   <nd ref="4006056800"/>
+   <nd ref="4006056815"/>
+   <nd ref="4006056817"/>
+   <nd ref="4006056820"/>
+   <nd ref="4006056819"/>
+   <nd ref="4006056818"/>
+   <nd ref="4006056814"/>
+   <nd ref="4006056803"/>
+   <nd ref="4006056799"/>
+   <nd ref="4006056801"/>
+   <nd ref="4006056806"/>
+   <nd ref="4006056810"/>
+   <nd ref="4006056813"/>
+   <nd ref="4006056807"/>
+   <nd ref="4006056805"/>
+   <nd ref="4006056802"/>
+   <nd ref="4006056797"/>
+   <nd ref="4006056794"/>
+   <nd ref="4006056791"/>
+   <nd ref="4006056789"/>
+   <nd ref="4006056680"/>
+   <nd ref="4006056675"/>
+   <nd ref="4006056672"/>
+   <nd ref="4006056668"/>
+   <nd ref="4006056663"/>
+   <nd ref="4006056657"/>
+   <nd ref="4006056645"/>
+   <nd ref="4006056634"/>
+   <tag k="waterway" v="river"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="752623907" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="14296901312"/>
+   <nd ref="7033135142"/>
+   <nd ref="7033227559"/>
+   <nd ref="7033141781"/>
+   <nd ref="7033227558"/>
+   <nd ref="7033135141"/>
+   <nd ref="7033158522"/>
+   <nd ref="7033158521"/>
+   <nd ref="7033141780"/>
+   <nd ref="7033227557"/>
+   <nd ref="7033158520"/>
+   <nd ref="7033217367"/>
+   <nd ref="7033227556"/>
+   <nd ref="7033217366"/>
+   <nd ref="7033141779"/>
+   <nd ref="7033217365"/>
+   <nd ref="7033217364"/>
+   <nd ref="7033227555"/>
+   <nd ref="7033135140"/>
+   <nd ref="7033217363"/>
+   <nd ref="7033217362"/>
+   <nd ref="7033227554"/>
+   <nd ref="7033217361"/>
+   <nd ref="7033135139"/>
+   <nd ref="7033217360"/>
+   <nd ref="7033227553"/>
+   <nd ref="7033141778"/>
+   <nd ref="7033227552"/>
+   <nd ref="7033141777"/>
+   <nd ref="7033227551"/>
+   <nd ref="7033227550"/>
+   <nd ref="7033141776"/>
+   <nd ref="7033227549"/>
+   <nd ref="7033135138"/>
+   <nd ref="7033141775"/>
+   <nd ref="7033158519"/>
+   <nd ref="7033141774"/>
+   <nd ref="7033227548"/>
+   <nd ref="7033227547"/>
+   <nd ref="7033217359"/>
+   <nd ref="7033135137"/>
+   <nd ref="7033227546"/>
+   <nd ref="7033227545"/>
+   <nd ref="7033227544"/>
+   <nd ref="7033227543"/>
+   <nd ref="7033227542"/>
+   <nd ref="7033227541"/>
+   <nd ref="7033217358"/>
+   <nd ref="7033141773"/>
+   <nd ref="7033141772"/>
+   <nd ref="7033227540"/>
+   <nd ref="7033217357"/>
+   <nd ref="7033158518"/>
+   <nd ref="7033217356"/>
+   <nd ref="7033217355"/>
+   <nd ref="7033217354"/>
+   <nd ref="7033141771"/>
+   <nd ref="7033227539"/>
+   <nd ref="7033227538"/>
+   <nd ref="7033158517"/>
+   <nd ref="7033227537"/>
+   <nd ref="7033217353"/>
+   <nd ref="7033217352"/>
+   <nd ref="7033158516"/>
+   <nd ref="7033135136"/>
+   <nd ref="7033217351"/>
+   <nd ref="7033141770"/>
+   <nd ref="7033217350"/>
+   <nd ref="7033227536"/>
+   <nd ref="7033217349"/>
+   <nd ref="7033217348"/>
+   <nd ref="7033217347"/>
+   <nd ref="7033227535"/>
+   <nd ref="7033227534"/>
+   <nd ref="7033217346"/>
+   <nd ref="7033227533"/>
+   <nd ref="7031984186"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="752623920" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="7033144467"/>
+   <nd ref="7033144466"/>
+   <nd ref="7033204236"/>
+   <nd ref="7033144465"/>
+   <nd ref="7033142114"/>
+   <nd ref="7033144464"/>
+   <nd ref="7033142113"/>
+   <nd ref="7033144463"/>
+   <nd ref="7033276789"/>
+   <nd ref="7033144462"/>
+   <nd ref="7033144461"/>
+   <nd ref="7033204235"/>
+   <nd ref="7033144460"/>
+   <nd ref="7033144459"/>
+   <nd ref="7033273198"/>
+   <nd ref="7033144458"/>
+   <nd ref="7033204234"/>
+   <nd ref="7033142112"/>
+   <nd ref="7033144457"/>
+   <nd ref="7033144456"/>
+   <nd ref="7033144455"/>
+   <nd ref="7033144454"/>
+   <nd ref="7033144453"/>
+   <nd ref="7033276788"/>
+   <nd ref="7033276787"/>
+   <nd ref="7033204233"/>
+   <nd ref="7033144452"/>
+   <nd ref="7033144451"/>
+   <nd ref="7033144450"/>
+   <nd ref="7033144449"/>
+   <nd ref="14296901311"/>
+   <nd ref="7033144448"/>
+   <nd ref="7033144447"/>
+   <nd ref="7033144446"/>
+   <nd ref="7033144445"/>
+   <nd ref="7033142111"/>
+   <nd ref="7033144444"/>
+   <nd ref="7033204232"/>
+   <nd ref="7033204231"/>
+   <nd ref="7033276786"/>
+   <nd ref="7033204230"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="842921494" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="7863415733"/>
+   <nd ref="7863415732"/>
+   <nd ref="3832286348"/>
+   <nd ref="3832286347"/>
+   <nd ref="3832286346"/>
+   <nd ref="3832286345"/>
+   <nd ref="3832286344"/>
+   <nd ref="3832286343"/>
+   <nd ref="3832286342"/>
+   <nd ref="3832286340"/>
+   <nd ref="3832286339"/>
+   <nd ref="3832286338"/>
+   <nd ref="3832286337"/>
+   <nd ref="3832286336"/>
+   <nd ref="3832286334"/>
+   <nd ref="3832286333"/>
+   <nd ref="3832286335"/>
+   <nd ref="3832286332"/>
+   <nd ref="3832286330"/>
+   <nd ref="3832286329"/>
+   <nd ref="3832286328"/>
+   <nd ref="3832286327"/>
+   <nd ref="3832286326"/>
+   <nd ref="3832286325"/>
+   <nd ref="3832286331"/>
+   <nd ref="3832286341"/>
+   <nd ref="3832286350"/>
+   <nd ref="3832286353"/>
+   <nd ref="3832286355"/>
+   <nd ref="3832286356"/>
+   <nd ref="3832286471"/>
+   <nd ref="3832286473"/>
+   <nd ref="3832286474"/>
+   <nd ref="3832286476"/>
+   <nd ref="3832286477"/>
+   <nd ref="3832286478"/>
+   <nd ref="3832286480"/>
+   <nd ref="3832286482"/>
+   <nd ref="3832286486"/>
+   <nd ref="3832286487"/>
+   <nd ref="3832286485"/>
+   <nd ref="3832286483"/>
+   <nd ref="3832286488"/>
+   <nd ref="3832286489"/>
+   <nd ref="3832286491"/>
+   <nd ref="3832286505"/>
+   <nd ref="3832286510"/>
+   <nd ref="14296896496"/>
+   <nd ref="3832286514"/>
+   <nd ref="3832286518"/>
+   <nd ref="3832286527"/>
+   <nd ref="3832286528"/>
+   <nd ref="3832286526"/>
+   <nd ref="3832286524"/>
+   <nd ref="3832286523"/>
+   <nd ref="3832286525"/>
+   <nd ref="3832286521"/>
+   <nd ref="3832286520"/>
+   <nd ref="3832286517"/>
+   <nd ref="3832286516"/>
+   <nd ref="3832286515"/>
+   <nd ref="3832286513"/>
+   <nd ref="3832286511"/>
+   <nd ref="3832286508"/>
+   <nd ref="3832286506"/>
+   <nd ref="3832286501"/>
+   <nd ref="3832286494"/>
+   <nd ref="3832286495"/>
+   <nd ref="3832286498"/>
+   <nd ref="3832286500"/>
+   <nd ref="3832286502"/>
+   <nd ref="3832286503"/>
+   <nd ref="3832286499"/>
+   <nd ref="3832286496"/>
+   <nd ref="3832286493"/>
+   <nd ref="3832286492"/>
+   <nd ref="3832286497"/>
+   <nd ref="3832286504"/>
+   <nd ref="3832286507"/>
+   <nd ref="3832286512"/>
+   <nd ref="3832286519"/>
+   <nd ref="570079234"/>
+   <tag k="highway" v="tertiary"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1536581178" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="13998051366"/>
+   <nd ref="13998051302"/>
+   <nd ref="13998051303"/>
+   <nd ref="13998051304"/>
+   <nd ref="13998051305"/>
+   <nd ref="13998051306"/>
+   <nd ref="13998051307"/>
+   <nd ref="13998051308"/>
+   <nd ref="13998051309"/>
+   <nd ref="13998051310"/>
+   <nd ref="13998051311"/>
+   <nd ref="13998051312"/>
+   <nd ref="13998051313"/>
+   <nd ref="13998051314"/>
+   <nd ref="13998051315"/>
+   <nd ref="13998051316"/>
+   <nd ref="13998051317"/>
+   <nd ref="13998051318"/>
+   <nd ref="13998051319"/>
+   <nd ref="13998051320"/>
+   <nd ref="13998051321"/>
+   <nd ref="13998051322"/>
+   <nd ref="13998051323"/>
+   <nd ref="13998051324"/>
+   <nd ref="13998051325"/>
+   <nd ref="13998051326"/>
+   <nd ref="13998051327"/>
+   <nd ref="13998051328"/>
+   <nd ref="13998051329"/>
+   <nd ref="13998051330"/>
+   <nd ref="13998051331"/>
+   <nd ref="13998051332"/>
+   <nd ref="13998051333"/>
+   <nd ref="13998051334"/>
+   <nd ref="13998051335"/>
+   <tag k="boundary" v="administrative"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1536581179" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="13998051335"/>
+   <nd ref="13998051336"/>
+   <nd ref="13998051337"/>
+   <nd ref="13998051338"/>
+   <nd ref="13998051339"/>
+   <nd ref="13998051340"/>
+   <nd ref="13998051341"/>
+   <nd ref="13998051342"/>
+   <nd ref="13998051343"/>
+   <nd ref="13998051344"/>
+   <nd ref="13998051345"/>
+   <nd ref="13998051346"/>
+   <nd ref="13998051347"/>
+   <nd ref="13998051348"/>
+   <nd ref="13998051349"/>
+   <nd ref="13998051350"/>
+   <nd ref="13998051351"/>
+   <nd ref="13998051352"/>
+   <nd ref="13998051353"/>
+   <nd ref="13998051354"/>
+   <nd ref="13998051355"/>
+   <nd ref="13998051356"/>
+   <nd ref="13998051357"/>
+   <nd ref="14296901309"/>
+   <nd ref="14296901306"/>
+   <tag k="boundary" v="administrative"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1536581180" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="5265159519"/>
+   <nd ref="13998041190"/>
+   <nd ref="13998041191"/>
+   <nd ref="13998041192"/>
+   <nd ref="13998041193"/>
+   <nd ref="13998041194"/>
+   <nd ref="13998041195"/>
+   <nd ref="13998041196"/>
+   <nd ref="13998041197"/>
+   <nd ref="13998041198"/>
+   <nd ref="13998041199"/>
+   <nd ref="13998041200"/>
+   <nd ref="13998051301"/>
+   <nd ref="13998051367"/>
+   <tag k="boundary" v="administrative"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1536581181" visible="true" version="2" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="13998051367"/>
+   <nd ref="13998051366"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="layer" v="-1"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="15608629" visible="true" version="3" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1154654618" role=""/>
+   <member type="way" ref="1569467824" role=""/>
+   <member type="way" ref="752305826" role=""/>
+   <tag k="type" v="boundary"/>
+  </relation>
+ </modify>
+ <modify>
+  <way id="1160532644" visible="true" version="4" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="10793551246"/>
+   <nd ref="11662135169"/>
+   <nd ref="11662135170"/>
+   <nd ref="11662135171"/>
+   <nd ref="11662135172"/>
+   <nd ref="11662135173"/>
+   <nd ref="11662135174"/>
+   <nd ref="11662135175"/>
+   <nd ref="11662135176"/>
+   <nd ref="11662135177"/>
+   <nd ref="11662135178"/>
+   <nd ref="11662135179"/>
+   <nd ref="11662135180"/>
+   <nd ref="11662135181"/>
+   <nd ref="11662135182"/>
+   <nd ref="11662135183"/>
+   <nd ref="11662135184"/>
+   <nd ref="11662135185"/>
+   <nd ref="11662135186"/>
+   <nd ref="11662135187"/>
+   <nd ref="11662135188"/>
+   <nd ref="11662135189"/>
+   <nd ref="11662135190"/>
+   <nd ref="11662135191"/>
+   <nd ref="11662135192"/>
+   <nd ref="11662135193"/>
+   <nd ref="11662135194"/>
+   <nd ref="11662135195"/>
+   <nd ref="11662135196"/>
+   <nd ref="11662135197"/>
+   <nd ref="11662135198"/>
+   <nd ref="11662135199"/>
+   <nd ref="11662135200"/>
+   <nd ref="11662135201"/>
+   <nd ref="11662135202"/>
+   <nd ref="11662135203"/>
+   <nd ref="11662135204"/>
+   <nd ref="11662135205"/>
+   <nd ref="11662135206"/>
+   <nd ref="11662135207"/>
+   <nd ref="11662135208"/>
+   <nd ref="11662135209"/>
+   <nd ref="11662135210"/>
+   <nd ref="11662135211"/>
+   <nd ref="11662135212"/>
+   <nd ref="11662135213"/>
+   <nd ref="11662135214"/>
+   <nd ref="11662135215"/>
+   <nd ref="11662135216"/>
+   <nd ref="11662135217"/>
+   <nd ref="11662135218"/>
+   <nd ref="11662135219"/>
+   <nd ref="11662135220"/>
+   <nd ref="11662135221"/>
+   <nd ref="11662135222"/>
+   <nd ref="11662135223"/>
+   <nd ref="11662135224"/>
+   <nd ref="11662135225"/>
+   <nd ref="11662135226"/>
+   <nd ref="11662135227"/>
+   <nd ref="11662135228"/>
+   <nd ref="11662135229"/>
+   <nd ref="11662135230"/>
+   <nd ref="11662135231"/>
+   <nd ref="11662135232"/>
+   <nd ref="11662135233"/>
+   <nd ref="11662135234"/>
+   <nd ref="11662135235"/>
+   <nd ref="11662135236"/>
+   <nd ref="11662135237"/>
+   <nd ref="11662135238"/>
+   <nd ref="11662135239"/>
+   <nd ref="11662135240"/>
+   <nd ref="11662135241"/>
+   <nd ref="11662135242"/>
+   <nd ref="11662135243"/>
+   <nd ref="11662135244"/>
+   <nd ref="11662135245"/>
+   <nd ref="11662135246"/>
+   <nd ref="11662135247"/>
+   <nd ref="11662135248"/>
+   <nd ref="11662135249"/>
+   <nd ref="11662135250"/>
+   <nd ref="11662135251"/>
+   <nd ref="11662135252"/>
+   <nd ref="11662135253"/>
+   <nd ref="11662135254"/>
+   <nd ref="11662135255"/>
+   <nd ref="11662135256"/>
+   <nd ref="11662135257"/>
+   <nd ref="11662135258"/>
+   <nd ref="11662135259"/>
+   <nd ref="11662135260"/>
+   <nd ref="11662135261"/>
+   <nd ref="11662135262"/>
+   <nd ref="11662135263"/>
+   <nd ref="11662135264"/>
+   <nd ref="11662135265"/>
+   <nd ref="11662135266"/>
+   <nd ref="11662135267"/>
+   <nd ref="11662135268"/>
+   <nd ref="11662135269"/>
+   <nd ref="11662135270"/>
+   <nd ref="11662135271"/>
+   <nd ref="11662135272"/>
+   <nd ref="11662135273"/>
+   <nd ref="11662135274"/>
+   <nd ref="11662135275"/>
+   <nd ref="11662135276"/>
+   <nd ref="11662135277"/>
+   <nd ref="11662135278"/>
+   <nd ref="11662135279"/>
+   <nd ref="11662135280"/>
+   <nd ref="11662135281"/>
+   <nd ref="11662135282"/>
+   <nd ref="11662135283"/>
+   <nd ref="11662135284"/>
+   <nd ref="11662135285"/>
+   <nd ref="11662135286"/>
+   <nd ref="11662135287"/>
+   <nd ref="11662135288"/>
+   <nd ref="11662135289"/>
+   <nd ref="11662135290"/>
+   <nd ref="11662135291"/>
+   <nd ref="11662135292"/>
+   <nd ref="11662135293"/>
+   <nd ref="11662135294"/>
+   <nd ref="11662135295"/>
+   <nd ref="11662135296"/>
+   <nd ref="11662135297"/>
+   <nd ref="11662135298"/>
+   <nd ref="11662135299"/>
+   <nd ref="11662135300"/>
+   <nd ref="11662135301"/>
+   <nd ref="11662135302"/>
+   <nd ref="11662135303"/>
+   <nd ref="11662135304"/>
+   <nd ref="11662135305"/>
+   <nd ref="11662135306"/>
+   <nd ref="11662135307"/>
+   <nd ref="11662135308"/>
+   <nd ref="11662135309"/>
+   <nd ref="11662135310"/>
+   <nd ref="11662135311"/>
+   <nd ref="11662135312"/>
+   <nd ref="11662135313"/>
+   <nd ref="11662135314"/>
+   <nd ref="11662135315"/>
+   <nd ref="11662135316"/>
+   <nd ref="11662135317"/>
+   <nd ref="11662135318"/>
+   <nd ref="11662135319"/>
+   <nd ref="11662135320"/>
+   <nd ref="11662135321"/>
+   <nd ref="11662135322"/>
+   <nd ref="11662135323"/>
+   <nd ref="11662135324"/>
+   <nd ref="11662135325"/>
+   <nd ref="11662135326"/>
+   <nd ref="11662135327"/>
+   <nd ref="11662135328"/>
+   <nd ref="11662135329"/>
+   <nd ref="11662135330"/>
+   <nd ref="11662135331"/>
+   <nd ref="11662135332"/>
+   <nd ref="11662135333"/>
+   <nd ref="11662135334"/>
+   <nd ref="11662135335"/>
+   <nd ref="11662135336"/>
+   <nd ref="11662135337"/>
+   <nd ref="11662135338"/>
+   <nd ref="11662135339"/>
+   <nd ref="11662135340"/>
+   <nd ref="11662135341"/>
+   <nd ref="11662135342"/>
+   <nd ref="11662135343"/>
+   <nd ref="11662135344"/>
+   <nd ref="11662135345"/>
+   <nd ref="11662135346"/>
+   <nd ref="11662135347"/>
+   <nd ref="11662135348"/>
+   <nd ref="11662135349"/>
+   <nd ref="11662135350"/>
+   <nd ref="11662135351"/>
+   <nd ref="11662135352"/>
+   <nd ref="11662135353"/>
+   <nd ref="11662135354"/>
+   <nd ref="11662135355"/>
+   <nd ref="11662135356"/>
+   <nd ref="11662135357"/>
+   <nd ref="11662135358"/>
+   <nd ref="11662135359"/>
+   <nd ref="11662135360"/>
+   <nd ref="11662135361"/>
+   <nd ref="11662135362"/>
+   <nd ref="11662135363"/>
+   <nd ref="11662135364"/>
+   <nd ref="11662135365"/>
+   <nd ref="11662135366"/>
+   <nd ref="11662135367"/>
+   <nd ref="11662135368"/>
+   <nd ref="11662135369"/>
+   <nd ref="11662135370"/>
+   <nd ref="11662135371"/>
+   <nd ref="11662135372"/>
+   <nd ref="11662135373"/>
+   <nd ref="11662135374"/>
+   <nd ref="11662135375"/>
+   <nd ref="11662135376"/>
+   <nd ref="11662135377"/>
+   <nd ref="11662135378"/>
+   <nd ref="11662135379"/>
+   <nd ref="11662135380"/>
+   <nd ref="11662135381"/>
+   <nd ref="11662135382"/>
+   <nd ref="11662135383"/>
+   <nd ref="11662135384"/>
+   <nd ref="11662135385"/>
+   <nd ref="11662135386"/>
+   <nd ref="11662135387"/>
+   <nd ref="11662135388"/>
+   <nd ref="11662135389"/>
+   <nd ref="11662135390"/>
+   <nd ref="11662135391"/>
+   <nd ref="11662135392"/>
+   <nd ref="11662135393"/>
+   <nd ref="11662135394"/>
+   <nd ref="11662135395"/>
+   <nd ref="11662135396"/>
+   <nd ref="11662135397"/>
+   <nd ref="11662135398"/>
+   <nd ref="11662135399"/>
+   <nd ref="11662135400"/>
+   <nd ref="11662135401"/>
+   <nd ref="11662135402"/>
+   <nd ref="11662135403"/>
+   <nd ref="11662135404"/>
+   <nd ref="11662135405"/>
+   <nd ref="11662135406"/>
+   <nd ref="11662135407"/>
+   <nd ref="11662135408"/>
+   <nd ref="11662135409"/>
+   <nd ref="11662135410"/>
+   <nd ref="11662135411"/>
+   <nd ref="11662135412"/>
+   <nd ref="11662135413"/>
+   <nd ref="11662135414"/>
+   <nd ref="11662135415"/>
+   <nd ref="11662135416"/>
+   <nd ref="11662135417"/>
+   <nd ref="11662135418"/>
+   <nd ref="11662135419"/>
+   <nd ref="11662135420"/>
+   <nd ref="11662135421"/>
+   <nd ref="11662135422"/>
+   <nd ref="11662135423"/>
+   <nd ref="11662135424"/>
+   <nd ref="11662135425"/>
+   <nd ref="11662135426"/>
+   <nd ref="11662135427"/>
+   <nd ref="11662135428"/>
+   <nd ref="11662135429"/>
+   <nd ref="11662135430"/>
+   <nd ref="11662135431"/>
+   <nd ref="11662135432"/>
+   <nd ref="11662135433"/>
+   <tag k="layer" v="-1"/>
+   <tag k="name" v="Saraswati"/>
+   <tag k="waterway" v="river"/>
+   <tag k="width" v="25"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="10371560" visible="true" version="4" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="node" ref="7156071806" role="admin_centre"/>
+   <member type="way" ref="752623934" role="outer"/>
+   <member type="way" ref="1569467826" role="outer"/>
+   <member type="way" ref="752623920" role="outer"/>
+   <member type="way" ref="752623889" role="outer"/>
+   <member type="way" ref="752623952" role="outer"/>
+   <member type="way" ref="752623957" role="outer"/>
+   <tag k="admin_level" v="6"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Polba - Dadpur"/>
+   <tag k="ref:LGD:subdistrict" v="2347"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q7209208"/>
+  </relation>
+ </modify>
+ <modify>
+  <way id="521311928" visible="true" version="5" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="5843561273"/>
+   <nd ref="5843561274"/>
+   <nd ref="5843561275"/>
+   <nd ref="5843561276"/>
+   <nd ref="5843561277"/>
+   <nd ref="5843561278"/>
+   <nd ref="5843561279"/>
+   <nd ref="5843561280"/>
+   <nd ref="5843561281"/>
+   <nd ref="5843561282"/>
+   <nd ref="5843561283"/>
+   <nd ref="5843561284"/>
+   <nd ref="5843562285"/>
+   <nd ref="5843562286"/>
+   <nd ref="5843562287"/>
+   <nd ref="5843562288"/>
+   <nd ref="5843562289"/>
+   <nd ref="4008452406"/>
+   <nd ref="4008452405"/>
+   <nd ref="4008452404"/>
+   <nd ref="4008452403"/>
+   <nd ref="4008452395"/>
+   <nd ref="4008452391"/>
+   <nd ref="4008452388"/>
+   <nd ref="4008452387"/>
+   <nd ref="4008452390"/>
+   <nd ref="4008452392"/>
+   <nd ref="4008452398"/>
+   <nd ref="4008452400"/>
+   <nd ref="4008452402"/>
+   <nd ref="4008452401"/>
+   <nd ref="4008452399"/>
+   <nd ref="4008452397"/>
+   <nd ref="4008452396"/>
+   <nd ref="4008452385"/>
+   <nd ref="4008452377"/>
+   <nd ref="5079461035"/>
+   <nd ref="4008452376"/>
+   <nd ref="4008452375"/>
+   <nd ref="4008452372"/>
+   <nd ref="4008452374"/>
+   <nd ref="4008452373"/>
+   <nd ref="4008452371"/>
+   <nd ref="4008452370"/>
+   <nd ref="4008452368"/>
+   <nd ref="4008452364"/>
+   <nd ref="4008452357"/>
+   <nd ref="4008452351"/>
+   <nd ref="4008452344"/>
+   <nd ref="4008452343"/>
+   <nd ref="14296901312"/>
+   <tag k="waterway" v="canal"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="752305826" visible="true" version="5" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="14296901252"/>
+   <nd ref="7031709114"/>
+   <nd ref="7031709893"/>
+   <nd ref="7031709892"/>
+   <nd ref="7031708656"/>
+   <nd ref="7031708655"/>
+   <nd ref="7031709612"/>
+   <nd ref="7031709891"/>
+   <nd ref="7031715085"/>
+   <nd ref="7031709113"/>
+   <nd ref="7031712288"/>
+   <nd ref="7031708654"/>
+   <nd ref="7031708653"/>
+   <nd ref="7031709611"/>
+   <nd ref="7031708652"/>
+   <nd ref="7031709112"/>
+   <nd ref="7031709111"/>
+   <nd ref="7031709610"/>
+   <nd ref="7031709244"/>
+   <nd ref="7031709609"/>
+   <nd ref="7031708651"/>
+   <nd ref="7031708650"/>
+   <nd ref="7031709243"/>
+   <nd ref="7031709242"/>
+   <nd ref="7031709241"/>
+   <nd ref="7031708649"/>
+   <nd ref="7031709240"/>
+   <nd ref="7031709890"/>
+   <nd ref="7031712890"/>
+   <nd ref="7031709239"/>
+   <nd ref="7031709110"/>
+   <nd ref="7031708648"/>
+   <nd ref="7031709109"/>
+   <nd ref="7031709608"/>
+   <nd ref="7031709238"/>
+   <nd ref="7031708647"/>
+   <nd ref="7031709237"/>
+   <nd ref="7031708646"/>
+   <nd ref="7031708645"/>
+   <nd ref="7031708644"/>
+   <nd ref="7031708643"/>
+   <tag k="boundary" v="administrative"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="10371558" visible="true" version="6" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1299918268" role="outer"/>
+   <member type="way" ref="752623933" role="outer"/>
+   <member type="way" ref="1569467826" role="outer"/>
+   <member type="way" ref="752623920" role="outer"/>
+   <member type="way" ref="752623919" role="outer"/>
+   <member type="way" ref="752623897" role="outer"/>
+   <member type="way" ref="752623905" role="outer"/>
+   <member type="way" ref="752623908" role="outer"/>
+   <member type="way" ref="1533223622" role="outer"/>
+   <member type="node" ref="566534670" role="admin_centre"/>
+   <tag k="admin_level" v="6"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Singur"/>
+   <tag k="ref:LGD:subdistrict" v="2349"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q7524284"/>
+  </relation>
+ </modify>
+ <modify>
+  <relation id="15608586" visible="true" version="6" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1299847412" role="outer"/>
+   <member type="way" ref="1299841990" role="outer"/>
+   <member type="way" ref="752305838" role="outer"/>
+   <member type="way" ref="752305836" role="outer"/>
+   <member type="way" ref="752305826" role="outer"/>
+   <member type="way" ref="1569467824" role="outer"/>
+   <member type="way" ref="1154654616" role="outer"/>
+   <tag k="admin_level" v="6"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Chakdaha"/>
+   <tag k="ref:LGD:subdistrict" v="2314"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q5068305"/>
+  </relation>
+ </modify>
+ <modify>
+  <relation id="10371555" visible="true" version="7" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1299936657" role="outer"/>
+   <member type="way" ref="1299929189" role="outer"/>
+   <member type="node" ref="7156005591" role="admin_centre"/>
+   <member type="way" ref="752623897" role="outer"/>
+   <member type="way" ref="1569467833" role="outer"/>
+   <member type="way" ref="752623907" role="outer"/>
+   <member type="way" ref="752623895" role="outer"/>
+   <member type="way" ref="752623893" role="outer"/>
+   <tag k="admin_level" v="6"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Chanditala - I"/>
+   <tag k="ref:LGD:subdistrict" v="2351"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q5071110"/>
+  </relation>
+ </modify>
+ <modify>
+  <way id="1155005033" visible="true" version="8" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="9409663609"/>
+   <nd ref="10741403765"/>
+   <nd ref="10741403764"/>
+   <nd ref="10741403763"/>
+   <nd ref="10741403762"/>
+   <nd ref="10741403761"/>
+   <nd ref="10741403760"/>
+   <nd ref="10741403759"/>
+   <nd ref="10741403758"/>
+   <nd ref="10741403757"/>
+   <nd ref="10741403756"/>
+   <nd ref="10741403755"/>
+   <nd ref="10741403754"/>
+   <nd ref="10741403752"/>
+   <nd ref="10741403751"/>
+   <nd ref="12845316275"/>
+   <nd ref="10741403750"/>
+   <nd ref="12845316274"/>
+   <nd ref="12845316276"/>
+   <nd ref="12845316273"/>
+   <nd ref="10741403749"/>
+   <nd ref="10741403748"/>
+   <nd ref="10741403774"/>
+   <nd ref="10741403747"/>
+   <nd ref="10741403746"/>
+   <nd ref="10741403773"/>
+   <nd ref="10741403723"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="10371556" visible="true" version="10" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1299928426" role="outer"/>
+   <member type="way" ref="1299928078" role="outer"/>
+   <member type="node" ref="7156005592" role="admin_centre"/>
+   <member type="way" ref="1569467833" role="outer"/>
+   <member type="way" ref="752623907" role="outer"/>
+   <member type="way" ref="752623904" role="outer"/>
+   <member type="way" ref="752623905" role="outer"/>
+   <tag k="admin_level" v="6"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Chanditala - II"/>
+   <tag k="ref:LGD:subdistrict" v="2352"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q5071109"/>
+   <tag k="wikipedia" v="en:Chanditala II"/>
+  </relation>
+ </modify>
+ <modify>
+  <relation id="20023037" visible="true" version="10" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="752623919" role="outer"/>
+   <member type="way" ref="752623897" role="outer"/>
+   <member type="way" ref="1299845306" role="outer"/>
+   <member type="way" ref="1569457512" role="outer"/>
+   <member type="way" ref="1569457511" role="outer"/>
+   <member type="way" ref="1569457513" role="outer"/>
+   <member type="way" ref="379867478" role="outer"/>
+   <member type="way" ref="1037091696" role="outer"/>
+   <member type="way" ref="1569457506" role="outer"/>
+   <member type="way" ref="1037272063" role="outer"/>
+   <member type="way" ref="1501281425" role="outer"/>
+   <member type="way" ref="1037271385" role="outer"/>
+   <member type="way" ref="1569457504" role="outer"/>
+   <member type="way" ref="1037267521" role="outer"/>
+   <member type="way" ref="1569457501" role="outer"/>
+   <member type="way" ref="1024613853" role="outer"/>
+   <member type="way" ref="1024613854" role="outer"/>
+   <member type="way" ref="1025439470" role="outer"/>
+   <member type="way" ref="1569457499" role="outer"/>
+   <member type="way" ref="1037283646" role="outer"/>
+   <member type="way" ref="1025439439" role="outer"/>
+   <member type="way" ref="1569457496" role="outer"/>
+   <member type="way" ref="1024937191" role="outer"/>
+   <member type="way" ref="1024341162" role="outer"/>
+   <member type="way" ref="1569457493" role="outer"/>
+   <member type="way" ref="1037320715" role="outer"/>
+   <member type="way" ref="1569457491" role="outer"/>
+   <member type="way" ref="1569457487" role="outer"/>
+   <member type="way" ref="1569457489" role="outer"/>
+   <member type="way" ref="752713941" role="outer"/>
+   <member type="way" ref="752713940" role="outer"/>
+   <member type="way" ref="752713936" role="outer"/>
+   <member type="way" ref="1299921806" role="outer"/>
+   <member type="way" ref="1299921987" role="outer"/>
+   <member type="way" ref="1299922163" role="outer"/>
+   <member type="way" ref="752732990" role="outer"/>
+   <member type="way" ref="752732974" role="outer"/>
+   <member type="way" ref="752732973" role="outer"/>
+   <member type="way" ref="752732970" role="outer"/>
+   <member type="way" ref="752823233" role="outer"/>
+   <member type="way" ref="752732975" role="outer"/>
+   <member type="way" ref="752732976" role="outer"/>
+   <member type="way" ref="752732977" role="outer"/>
+   <member type="way" ref="752732999" role="outer"/>
+   <member type="way" ref="752732982" role="outer"/>
+   <member type="way" ref="752732985" role="outer"/>
+   <member type="way" ref="752732987" role="outer"/>
+   <member type="way" ref="1112281966" role="outer"/>
+   <member type="way" ref="752677827" role="outer"/>
+   <member type="way" ref="752677824" role="outer"/>
+   <member type="way" ref="752677828" role="outer"/>
+   <member type="way" ref="752677821" role="outer"/>
+   <member type="way" ref="752677833" role="outer"/>
+   <member type="way" ref="752677830" role="outer"/>
+   <member type="way" ref="752677839" role="outer"/>
+   <member type="way" ref="752677840" role="outer"/>
+   <member type="way" ref="752677743" role="outer"/>
+   <member type="way" ref="1299929189" role="outer"/>
+   <member type="way" ref="752623907" role="outer"/>
+   <member type="way" ref="521311928" role=""/>
+   <member type="way" ref="1254519636" role=""/>
+   <member type="way" ref="1569467831" role=""/>
+   <member type="way" ref="1160532644" role=""/>
+   <member type="way" ref="1569467830" role="outer"/>
+   <member type="way" ref="1569467827" role="outer"/>
+   <member type="way" ref="1569467826" role="outer"/>
+   <member type="way" ref="752623934" role="outer"/>
+   <member type="way" ref="752623935" role="outer"/>
+   <member type="way" ref="752623960" role="outer"/>
+   <member type="way" ref="1299842112" role="outer"/>
+   <member type="way" ref="1154654616" role="outer"/>
+   <member type="way" ref="1569467824" role="outer"/>
+   <member type="way" ref="1569467822" role="outer"/>
+   <member type="way" ref="1536581179" role="outer"/>
+   <member type="way" ref="1536581178" role="outer"/>
+   <member type="way" ref="1536581181" role="outer"/>
+   <member type="way" ref="1536581180" role="outer"/>
+   <member type="way" ref="1569467821" role="outer"/>
+   <member type="way" ref="544703059" role="outer"/>
+   <member type="way" ref="557897644" role="outer"/>
+   <member type="way" ref="1569467820" role="outer"/>
+   <member type="way" ref="1155005033" role="outer"/>
+   <member type="way" ref="1299846802" role="outer"/>
+   <member type="way" ref="1299845848" role="outer"/>
+   <member type="way" ref="1569467822" role="outer"/>
+   <tag k="admin_level" v="7"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Kolkata Metropolitan Area"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q3349812"/>
+  </relation>
+ </modify>
+ <modify>
+  <way id="328134814" visible="true" version="11" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="2475801459"/>
+   <nd ref="3349587387"/>
+   <nd ref="3349587386"/>
+   <nd ref="3349587389"/>
+   <nd ref="3349587390"/>
+   <nd ref="3349587391"/>
+   <nd ref="3349587392"/>
+   <nd ref="3349587394"/>
+   <nd ref="3349587395"/>
+   <nd ref="3349587393"/>
+   <nd ref="3349587388"/>
+   <nd ref="3349587385"/>
+   <nd ref="3349587384"/>
+   <nd ref="3349587383"/>
+   <nd ref="3349587382"/>
+   <nd ref="3349587381"/>
+   <nd ref="3349587380"/>
+   <nd ref="3349587379"/>
+   <nd ref="3349587378"/>
+   <nd ref="3349587377"/>
+   <nd ref="3349587376"/>
+   <nd ref="3349587373"/>
+   <nd ref="3349587372"/>
+   <nd ref="3349587375"/>
+   <nd ref="3349587374"/>
+   <nd ref="3349587371"/>
+   <nd ref="3349587370"/>
+   <nd ref="3349587369"/>
+   <nd ref="3349587368"/>
+   <nd ref="3349587367"/>
+   <nd ref="3349587366"/>
+   <nd ref="3349587365"/>
+   <nd ref="3349587364"/>
+   <nd ref="3349587363"/>
+   <nd ref="3349587362"/>
+   <nd ref="3349587361"/>
+   <nd ref="3349587360"/>
+   <nd ref="3349587359"/>
+   <nd ref="3349587358"/>
+   <nd ref="3349587357"/>
+   <nd ref="3349587356"/>
+   <nd ref="3349587355"/>
+   <nd ref="3349587354"/>
+   <nd ref="3349587353"/>
+   <nd ref="3349587352"/>
+   <nd ref="3349587351"/>
+   <nd ref="3349587350"/>
+   <nd ref="3349587349"/>
+   <nd ref="3349587348"/>
+   <nd ref="3349587347"/>
+   <nd ref="3349587346"/>
+   <nd ref="3349587345"/>
+   <nd ref="3349587344"/>
+   <nd ref="3349587343"/>
+   <nd ref="3349587342"/>
+   <nd ref="3349587341"/>
+   <nd ref="3349587340"/>
+   <nd ref="3349587339"/>
+   <nd ref="3349587338"/>
+   <nd ref="3349587337"/>
+   <nd ref="3349587336"/>
+   <nd ref="3349587335"/>
+   <nd ref="3349587334"/>
+   <nd ref="3349587333"/>
+   <nd ref="3349587332"/>
+   <nd ref="3349587331"/>
+   <nd ref="3349587330"/>
+   <nd ref="3349587329"/>
+   <nd ref="3349587328"/>
+   <nd ref="3349587327"/>
+   <nd ref="3349587326"/>
+   <nd ref="3349587325"/>
+   <nd ref="3349587324"/>
+   <nd ref="3349587323"/>
+   <nd ref="3349587322"/>
+   <nd ref="3349587321"/>
+   <nd ref="3349587320"/>
+   <nd ref="3349587319"/>
+   <nd ref="3349587318"/>
+   <nd ref="3349587317"/>
+   <nd ref="3349587316"/>
+   <nd ref="3349587315"/>
+   <nd ref="3349587314"/>
+   <nd ref="3349587313"/>
+   <nd ref="3349587312"/>
+   <nd ref="3349587311"/>
+   <nd ref="3349587310"/>
+   <nd ref="3349587309"/>
+   <nd ref="3349587308"/>
+   <nd ref="3349587307"/>
+   <nd ref="3349587306"/>
+   <nd ref="3349587305"/>
+   <nd ref="3349587304"/>
+   <nd ref="3349587303"/>
+   <nd ref="3349587302"/>
+   <nd ref="3349587301"/>
+   <nd ref="3349587300"/>
+   <nd ref="3349587299"/>
+   <nd ref="3349587298"/>
+   <nd ref="3349587297"/>
+   <nd ref="3349587296"/>
+   <nd ref="3349587294"/>
+   <nd ref="3349587295"/>
+   <nd ref="3349587293"/>
+   <nd ref="3349587292"/>
+   <nd ref="3349587291"/>
+   <nd ref="3349587290"/>
+   <nd ref="3349587289"/>
+   <nd ref="3349587288"/>
+   <nd ref="3349587287"/>
+   <nd ref="3349587286"/>
+   <nd ref="3349587285"/>
+   <nd ref="3349587284"/>
+   <nd ref="3349587283"/>
+   <nd ref="3349587282"/>
+   <nd ref="3349587281"/>
+   <nd ref="3349587280"/>
+   <nd ref="3349587279"/>
+   <nd ref="3349587278"/>
+   <nd ref="3349587277"/>
+   <nd ref="3349587276"/>
+   <nd ref="3349587275"/>
+   <nd ref="3349587274"/>
+   <nd ref="3349587273"/>
+   <nd ref="3349587272"/>
+   <nd ref="3349587271"/>
+   <nd ref="3349587270"/>
+   <nd ref="3349587269"/>
+   <nd ref="3349587266"/>
+   <nd ref="3349587263"/>
+   <nd ref="3349587264"/>
+   <nd ref="3349587267"/>
+   <nd ref="3349587268"/>
+   <nd ref="3349587265"/>
+   <nd ref="3349587262"/>
+   <nd ref="3349587261"/>
+   <nd ref="3349587260"/>
+   <nd ref="3349587259"/>
+   <nd ref="3349587258"/>
+   <nd ref="3349587257"/>
+   <nd ref="3349587256"/>
+   <nd ref="3349587255"/>
+   <nd ref="3349587254"/>
+   <nd ref="3349587253"/>
+   <nd ref="3349587252"/>
+   <nd ref="3349587251"/>
+   <nd ref="3349587250"/>
+   <nd ref="3349587249"/>
+   <nd ref="3349587248"/>
+   <nd ref="3349587247"/>
+   <nd ref="3349587246"/>
+   <nd ref="3349587245"/>
+   <nd ref="3349587244"/>
+   <nd ref="3349587243"/>
+   <nd ref="3349587242"/>
+   <nd ref="3349587241"/>
+   <nd ref="3349587240"/>
+   <nd ref="3349587237"/>
+   <nd ref="3349587236"/>
+   <nd ref="3349587235"/>
+   <nd ref="3349587234"/>
+   <nd ref="3349587233"/>
+   <nd ref="3349587232"/>
+   <nd ref="3349587231"/>
+   <nd ref="3349587230"/>
+   <nd ref="3349587229"/>
+   <nd ref="3349587228"/>
+   <nd ref="3349587227"/>
+   <nd ref="3349587226"/>
+   <nd ref="3349587225"/>
+   <nd ref="3349587224"/>
+   <nd ref="3349587223"/>
+   <nd ref="3349587222"/>
+   <nd ref="3349587221"/>
+   <nd ref="3349587220"/>
+   <nd ref="3349587219"/>
+   <nd ref="3349587218"/>
+   <nd ref="3349587217"/>
+   <nd ref="3349587216"/>
+   <nd ref="3349587215"/>
+   <nd ref="3349587214"/>
+   <nd ref="3349587213"/>
+   <nd ref="3349587212"/>
+   <nd ref="3349587211"/>
+   <nd ref="3349587210"/>
+   <nd ref="3349587209"/>
+   <nd ref="3349587208"/>
+   <nd ref="3349587207"/>
+   <nd ref="3349587206"/>
+   <nd ref="3349587205"/>
+   <nd ref="3349587204"/>
+   <nd ref="3349587203"/>
+   <nd ref="3349587202"/>
+   <nd ref="3349587201"/>
+   <nd ref="3349587200"/>
+   <nd ref="3349587199"/>
+   <nd ref="3349587198"/>
+   <nd ref="3349587197"/>
+   <nd ref="3349587196"/>
+   <nd ref="3349587195"/>
+   <nd ref="3349587194"/>
+   <nd ref="3349587193"/>
+   <nd ref="3349587192"/>
+   <nd ref="3349587191"/>
+   <nd ref="3349587190"/>
+   <nd ref="3349587189"/>
+   <nd ref="3349587188"/>
+   <nd ref="3349587187"/>
+   <nd ref="3349587186"/>
+   <nd ref="3349587185"/>
+   <nd ref="3349587184"/>
+   <nd ref="3349587183"/>
+   <nd ref="3349587182"/>
+   <nd ref="3349587181"/>
+   <nd ref="3349587180"/>
+   <nd ref="3349587179"/>
+   <nd ref="3349587178"/>
+   <nd ref="3349587177"/>
+   <nd ref="3349587176"/>
+   <nd ref="3349587175"/>
+   <nd ref="3349587174"/>
+   <nd ref="3349587173"/>
+   <nd ref="3349587172"/>
+   <nd ref="3349587171"/>
+   <nd ref="3349587170"/>
+   <nd ref="3349587169"/>
+   <nd ref="3349587168"/>
+   <nd ref="3349587167"/>
+   <nd ref="3349587166"/>
+   <nd ref="3349587165"/>
+   <nd ref="3349587164"/>
+   <nd ref="3349587163"/>
+   <nd ref="3349587162"/>
+   <nd ref="3349587161"/>
+   <nd ref="3349587160"/>
+   <nd ref="3349587159"/>
+   <nd ref="3349587158"/>
+   <nd ref="3349587157"/>
+   <nd ref="3349587156"/>
+   <nd ref="3349587155"/>
+   <nd ref="3349587154"/>
+   <nd ref="3349587153"/>
+   <nd ref="3349587152"/>
+   <nd ref="3349587151"/>
+   <nd ref="3349587150"/>
+   <nd ref="3349587149"/>
+   <nd ref="3349587148"/>
+   <nd ref="3349587147"/>
+   <nd ref="3349587146"/>
+   <nd ref="3349587145"/>
+   <nd ref="3349587144"/>
+   <nd ref="3349587143"/>
+   <nd ref="3349587142"/>
+   <nd ref="3349587141"/>
+   <nd ref="3349587140"/>
+   <nd ref="3349587139"/>
+   <nd ref="3349587138"/>
+   <nd ref="3349587137"/>
+   <nd ref="3349587136"/>
+   <nd ref="3349587135"/>
+   <nd ref="3349587134"/>
+   <nd ref="3349587133"/>
+   <nd ref="3349587132"/>
+   <nd ref="3349587131"/>
+   <nd ref="3349587130"/>
+   <nd ref="3349587129"/>
+   <nd ref="3349587128"/>
+   <nd ref="3349587127"/>
+   <nd ref="3349587126"/>
+   <nd ref="3349587125"/>
+   <nd ref="3349587124"/>
+   <nd ref="3349587123"/>
+   <nd ref="3349587116"/>
+   <nd ref="3349587110"/>
+   <nd ref="3349587106"/>
+   <nd ref="3349587103"/>
+   <nd ref="3349587109"/>
+   <nd ref="3349587112"/>
+   <nd ref="3349587115"/>
+   <nd ref="3349587117"/>
+   <nd ref="3349587119"/>
+   <nd ref="3349587122"/>
+   <nd ref="3349587121"/>
+   <nd ref="3349587120"/>
+   <nd ref="3349587118"/>
+   <nd ref="3349587114"/>
+   <nd ref="3349587113"/>
+   <nd ref="3349587111"/>
+   <nd ref="3349587104"/>
+   <nd ref="3349587099"/>
+   <nd ref="3349587096"/>
+   <nd ref="3349587095"/>
+   <nd ref="3349587092"/>
+   <nd ref="3349587090"/>
+   <nd ref="3349587086"/>
+   <nd ref="3349587081"/>
+   <nd ref="3349587075"/>
+   <nd ref="3349587067"/>
+   <nd ref="3349587061"/>
+   <nd ref="3349587048"/>
+   <nd ref="3349587041"/>
+   <nd ref="3349587036"/>
+   <nd ref="3349587026"/>
+   <nd ref="3349587018"/>
+   <nd ref="3349587008"/>
+   <nd ref="3349586991"/>
+   <nd ref="3349586982"/>
+   <nd ref="3349586969"/>
+   <nd ref="3349586958"/>
+   <nd ref="3349586942"/>
+   <nd ref="3349586932"/>
+   <nd ref="3349586927"/>
+   <nd ref="3349586923"/>
+   <nd ref="3349586918"/>
+   <nd ref="3349586914"/>
+   <nd ref="3349586911"/>
+   <nd ref="3349586907"/>
+   <nd ref="3349586903"/>
+   <nd ref="3349586900"/>
+   <nd ref="9620010231"/>
+   <nd ref="3349586896"/>
+   <nd ref="3349586895"/>
+   <nd ref="3349586892"/>
+   <nd ref="3349586888"/>
+   <nd ref="3349586887"/>
+   <nd ref="3349586886"/>
+   <nd ref="3349586891"/>
+   <nd ref="3349586899"/>
+   <nd ref="3349586908"/>
+   <nd ref="3349586913"/>
+   <nd ref="3349586919"/>
+   <nd ref="3349586930"/>
+   <nd ref="3349586939"/>
+   <nd ref="3349586959"/>
+   <nd ref="3349586971"/>
+   <nd ref="3349586975"/>
+   <nd ref="3349586976"/>
+   <nd ref="3349586979"/>
+   <nd ref="3349586980"/>
+   <nd ref="3349586977"/>
+   <nd ref="3349586974"/>
+   <nd ref="3349586970"/>
+   <nd ref="3349586963"/>
+   <nd ref="3349586952"/>
+   <nd ref="3349586941"/>
+   <nd ref="3349586936"/>
+   <nd ref="3349586929"/>
+   <nd ref="3349586924"/>
+   <nd ref="3349586917"/>
+   <nd ref="3349586902"/>
+   <nd ref="3349586890"/>
+   <nd ref="3349586883"/>
+   <nd ref="3349586870"/>
+   <nd ref="3349586860"/>
+   <nd ref="3349586856"/>
+   <nd ref="3349586852"/>
+   <nd ref="3349586848"/>
+   <nd ref="3349586844"/>
+   <nd ref="3349586840"/>
+   <nd ref="3349586834"/>
+   <nd ref="3349586826"/>
+   <nd ref="3349586822"/>
+   <nd ref="3349586820"/>
+   <nd ref="3349586818"/>
+   <nd ref="3349586817"/>
+   <nd ref="3349586814"/>
+   <nd ref="3349586812"/>
+   <nd ref="3349586807"/>
+   <nd ref="3349586802"/>
+   <nd ref="3349586796"/>
+   <nd ref="3349586793"/>
+   <nd ref="3349586784"/>
+   <nd ref="3349586773"/>
+   <nd ref="3349586755"/>
+   <nd ref="3349586748"/>
+   <nd ref="3349586745"/>
+   <nd ref="3349586746"/>
+   <nd ref="3349586741"/>
+   <nd ref="3349586739"/>
+   <nd ref="3349586736"/>
+   <nd ref="3349586729"/>
+   <nd ref="3349586724"/>
+   <nd ref="3349586722"/>
+   <nd ref="3349586721"/>
+   <nd ref="3349586717"/>
+   <nd ref="3349586716"/>
+   <nd ref="3349586712"/>
+   <nd ref="3349586708"/>
+   <nd ref="3349586705"/>
+   <nd ref="3349586704"/>
+   <nd ref="3349586699"/>
+   <nd ref="3349586697"/>
+   <nd ref="3349586694"/>
+   <nd ref="3349586693"/>
+   <nd ref="3349586689"/>
+   <nd ref="3349586686"/>
+   <nd ref="3349586684"/>
+   <nd ref="3349586680"/>
+   <nd ref="3349586673"/>
+   <nd ref="3349586668"/>
+   <nd ref="3349586665"/>
+   <nd ref="6427294949"/>
+   <nd ref="3349586659"/>
+   <nd ref="3349586654"/>
+   <nd ref="3349586650"/>
+   <nd ref="3349586648"/>
+   <nd ref="3349586643"/>
+   <nd ref="3349586639"/>
+   <nd ref="3349586634"/>
+   <nd ref="3349586631"/>
+   <nd ref="3349586624"/>
+   <nd ref="3349586618"/>
+   <nd ref="3349586613"/>
+   <nd ref="3349586610"/>
+   <nd ref="3349586607"/>
+   <nd ref="3349586608"/>
+   <nd ref="3349586609"/>
+   <nd ref="3349586611"/>
+   <nd ref="3349586612"/>
+   <nd ref="3349586615"/>
+   <nd ref="3349586619"/>
+   <nd ref="3349586623"/>
+   <nd ref="3349586628"/>
+   <nd ref="3349586632"/>
+   <nd ref="3349586638"/>
+   <nd ref="3349586644"/>
+   <nd ref="3349586651"/>
+   <nd ref="3349586658"/>
+   <nd ref="3349586663"/>
+   <nd ref="3349586678"/>
+   <nd ref="3349586685"/>
+   <nd ref="3349586688"/>
+   <nd ref="3349586695"/>
+   <nd ref="3349586700"/>
+   <nd ref="3349586701"/>
+   <nd ref="3349586703"/>
+   <nd ref="3349586702"/>
+   <nd ref="3349586698"/>
+   <nd ref="3349586692"/>
+   <nd ref="3349586690"/>
+   <nd ref="3349586683"/>
+   <nd ref="3349586672"/>
+   <nd ref="3349586661"/>
+   <nd ref="3349586652"/>
+   <nd ref="3349586646"/>
+   <nd ref="3349586637"/>
+   <nd ref="3349586630"/>
+   <nd ref="3349586622"/>
+   <nd ref="3349586598"/>
+   <nd ref="3349586581"/>
+   <nd ref="3349586575"/>
+   <nd ref="3349586558"/>
+   <nd ref="3349586539"/>
+   <nd ref="3349586534"/>
+   <nd ref="3349586532"/>
+   <nd ref="3349586529"/>
+   <nd ref="3349586526"/>
+   <nd ref="3349586525"/>
+   <nd ref="3349586527"/>
+   <nd ref="3349586528"/>
+   <nd ref="3349586530"/>
+   <nd ref="3349586531"/>
+   <nd ref="3349586533"/>
+   <nd ref="3349586535"/>
+   <nd ref="3349586536"/>
+   <nd ref="3349586538"/>
+   <nd ref="3349586546"/>
+   <nd ref="3349586551"/>
+   <nd ref="3349586563"/>
+   <nd ref="3349586569"/>
+   <nd ref="3349586579"/>
+   <nd ref="3349586583"/>
+   <nd ref="3349586585"/>
+   <nd ref="3349586586"/>
+   <nd ref="3349586591"/>
+   <nd ref="3349586594"/>
+   <nd ref="3843270583"/>
+   <nd ref="3843270584"/>
+   <nd ref="3349586595"/>
+   <nd ref="3349586593"/>
+   <nd ref="3349586592"/>
+   <nd ref="3349586587"/>
+   <nd ref="3349586580"/>
+   <nd ref="3349586577"/>
+   <nd ref="3349586566"/>
+   <nd ref="3349586561"/>
+   <nd ref="3349586556"/>
+   <nd ref="3349586552"/>
+   <nd ref="3349586549"/>
+   <nd ref="3349586547"/>
+   <nd ref="3349586544"/>
+   <nd ref="3349586548"/>
+   <nd ref="3349586550"/>
+   <nd ref="3349586553"/>
+   <nd ref="3349586557"/>
+   <nd ref="3349586559"/>
+   <nd ref="4052307043"/>
+   <nd ref="3349586562"/>
+   <nd ref="4052307044"/>
+   <nd ref="3349586565"/>
+   <nd ref="3349586567"/>
+   <nd ref="3349586571"/>
+   <nd ref="3349586574"/>
+   <nd ref="3349586576"/>
+   <nd ref="3349586573"/>
+   <nd ref="3349586572"/>
+   <nd ref="3349586568"/>
+   <nd ref="3349586564"/>
+   <nd ref="3349586554"/>
+   <nd ref="3349586545"/>
+   <nd ref="3349586541"/>
+   <nd ref="3349586540"/>
+   <nd ref="3349586542"/>
+   <nd ref="3349586543"/>
+   <nd ref="3349586555"/>
+   <nd ref="3349586560"/>
+   <nd ref="3349586570"/>
+   <nd ref="3349586578"/>
+   <nd ref="3349586582"/>
+   <nd ref="3349586584"/>
+   <nd ref="3349586589"/>
+   <nd ref="3349586590"/>
+   <nd ref="3349586597"/>
+   <nd ref="3349586599"/>
+   <nd ref="3349586601"/>
+   <nd ref="3349586602"/>
+   <nd ref="3349586605"/>
+   <nd ref="3349586604"/>
+   <nd ref="3349586603"/>
+   <nd ref="3349586606"/>
+   <nd ref="3349586614"/>
+   <nd ref="3349586616"/>
+   <nd ref="3349586620"/>
+   <nd ref="3349586621"/>
+   <nd ref="3349586625"/>
+   <nd ref="3349586627"/>
+   <nd ref="3349586629"/>
+   <nd ref="3349586633"/>
+   <nd ref="3349586635"/>
+   <nd ref="3349586640"/>
+   <nd ref="3349586645"/>
+   <nd ref="3349586649"/>
+   <nd ref="3349586653"/>
+   <nd ref="3349586657"/>
+   <nd ref="3349586660"/>
+   <nd ref="3349586662"/>
+   <nd ref="3349586664"/>
+   <nd ref="3349586666"/>
+   <nd ref="3349586667"/>
+   <nd ref="3349586669"/>
+   <nd ref="3349586671"/>
+   <nd ref="3349586674"/>
+   <nd ref="3349586675"/>
+   <nd ref="3349586676"/>
+   <nd ref="3349586677"/>
+   <nd ref="3349586679"/>
+   <nd ref="3349586681"/>
+   <nd ref="3349586682"/>
+   <nd ref="3349586687"/>
+   <nd ref="3349586691"/>
+   <nd ref="3349586696"/>
+   <nd ref="3349586707"/>
+   <nd ref="3349586710"/>
+   <nd ref="3349586718"/>
+   <nd ref="3349586728"/>
+   <nd ref="3349586732"/>
+   <nd ref="3349586744"/>
+   <nd ref="3349586750"/>
+   <nd ref="3349586753"/>
+   <nd ref="3349586757"/>
+   <nd ref="3349586758"/>
+   <nd ref="3349586760"/>
+   <nd ref="3349586759"/>
+   <nd ref="3349586754"/>
+   <nd ref="3349586751"/>
+   <nd ref="3349586742"/>
+   <nd ref="3349586740"/>
+   <nd ref="3349586735"/>
+   <nd ref="3349586733"/>
+   <nd ref="3349586731"/>
+   <nd ref="3349586734"/>
+   <nd ref="3349586737"/>
+   <nd ref="3349586747"/>
+   <nd ref="3349586762"/>
+   <nd ref="3349586772"/>
+   <nd ref="3349586781"/>
+   <nd ref="3349586785"/>
+   <nd ref="3349586787"/>
+   <nd ref="3349586791"/>
+   <nd ref="3349586790"/>
+   <nd ref="3349586788"/>
+   <nd ref="3349586786"/>
+   <nd ref="3349586783"/>
+   <nd ref="3349586779"/>
+   <nd ref="3349586778"/>
+   <nd ref="3349586777"/>
+   <nd ref="3349586776"/>
+   <nd ref="3349586774"/>
+   <nd ref="3349586761"/>
+   <nd ref="3349586743"/>
+   <nd ref="3349586730"/>
+   <nd ref="3349586726"/>
+   <nd ref="3349586719"/>
+   <nd ref="3349586715"/>
+   <nd ref="3349586713"/>
+   <nd ref="3349586709"/>
+   <nd ref="3349586711"/>
+   <nd ref="3349586714"/>
+   <nd ref="3349586720"/>
+   <nd ref="3349586723"/>
+   <nd ref="3349586727"/>
+   <nd ref="3349586738"/>
+   <nd ref="3349586749"/>
+   <nd ref="3349586752"/>
+   <nd ref="3349586756"/>
+   <nd ref="3349586763"/>
+   <nd ref="3349586768"/>
+   <nd ref="3349586770"/>
+   <nd ref="3349586767"/>
+   <nd ref="3349586765"/>
+   <nd ref="3349586764"/>
+   <nd ref="3349586766"/>
+   <nd ref="3349586769"/>
+   <nd ref="3349586771"/>
+   <nd ref="3349586775"/>
+   <nd ref="3349586780"/>
+   <nd ref="3349586789"/>
+   <nd ref="3349586792"/>
+   <nd ref="3349586794"/>
+   <nd ref="3349586795"/>
+   <nd ref="3349586797"/>
+   <nd ref="3349586799"/>
+   <nd ref="3349586800"/>
+   <nd ref="3349586803"/>
+   <nd ref="3349586804"/>
+   <nd ref="3349586805"/>
+   <nd ref="3349586806"/>
+   <nd ref="3349586808"/>
+   <nd ref="3349586809"/>
+   <nd ref="3349586810"/>
+   <nd ref="3349586811"/>
+   <nd ref="3349586813"/>
+   <nd ref="3349586816"/>
+   <nd ref="3349586819"/>
+   <nd ref="3349586821"/>
+   <nd ref="3349586823"/>
+   <nd ref="3349586825"/>
+   <nd ref="3349586827"/>
+   <nd ref="3349586828"/>
+   <nd ref="3349586829"/>
+   <nd ref="3349586830"/>
+   <nd ref="3349586831"/>
+   <nd ref="3349586833"/>
+   <nd ref="3349586835"/>
+   <nd ref="3349586837"/>
+   <nd ref="3349586838"/>
+   <nd ref="3349586841"/>
+   <nd ref="3349586843"/>
+   <nd ref="3349586845"/>
+   <nd ref="3349586846"/>
+   <nd ref="3349586847"/>
+   <nd ref="3349586849"/>
+   <nd ref="3349586851"/>
+   <nd ref="3349586853"/>
+   <nd ref="3349586854"/>
+   <nd ref="3349586855"/>
+   <nd ref="3349586857"/>
+   <nd ref="3349586858"/>
+   <nd ref="3349586859"/>
+   <nd ref="3349586861"/>
+   <nd ref="3349586863"/>
+   <nd ref="3349586864"/>
+   <nd ref="3349586865"/>
+   <nd ref="3349586866"/>
+   <nd ref="3349586867"/>
+   <nd ref="3349586869"/>
+   <nd ref="3349586871"/>
+   <nd ref="3349586872"/>
+   <nd ref="3349586873"/>
+   <nd ref="3349586874"/>
+   <nd ref="3349586875"/>
+   <nd ref="3349586876"/>
+   <nd ref="3349586877"/>
+   <nd ref="3349586878"/>
+   <nd ref="3349586880"/>
+   <nd ref="3349586881"/>
+   <nd ref="3349586882"/>
+   <nd ref="3349586884"/>
+   <nd ref="3349586885"/>
+   <nd ref="3349586889"/>
+   <nd ref="3349586893"/>
+   <nd ref="3349586897"/>
+   <nd ref="3349586898"/>
+   <nd ref="3349586904"/>
+   <nd ref="3349586905"/>
+   <nd ref="3349586906"/>
+   <nd ref="3349586909"/>
+   <nd ref="3349586912"/>
+   <nd ref="3349586915"/>
+   <nd ref="3349586916"/>
+   <nd ref="3349586920"/>
+   <nd ref="3349586922"/>
+   <nd ref="3349586925"/>
+   <nd ref="3349586926"/>
+   <nd ref="3349586928"/>
+   <nd ref="3349586931"/>
+   <nd ref="3349586933"/>
+   <nd ref="3349586935"/>
+   <nd ref="3349586937"/>
+   <nd ref="3349586940"/>
+   <nd ref="3349586943"/>
+   <nd ref="3349586947"/>
+   <nd ref="3349586955"/>
+   <nd ref="3349586960"/>
+   <nd ref="3349586964"/>
+   <nd ref="3349586966"/>
+   <nd ref="3349586965"/>
+   <nd ref="3349586961"/>
+   <nd ref="3349586957"/>
+   <nd ref="3349586954"/>
+   <nd ref="3349586950"/>
+   <nd ref="3349586946"/>
+   <nd ref="3349586944"/>
+   <nd ref="3349586945"/>
+   <nd ref="3349586949"/>
+   <nd ref="3349586951"/>
+   <nd ref="3349586953"/>
+   <nd ref="3349586956"/>
+   <nd ref="3349586962"/>
+   <nd ref="3349586967"/>
+   <nd ref="3349586968"/>
+   <nd ref="3349586972"/>
+   <nd ref="3349586973"/>
+   <nd ref="3349586978"/>
+   <nd ref="3349586983"/>
+   <nd ref="3349586984"/>
+   <nd ref="3349586985"/>
+   <nd ref="3349586986"/>
+   <nd ref="3349586987"/>
+   <nd ref="3349586988"/>
+   <nd ref="3349586990"/>
+   <nd ref="3349586992"/>
+   <nd ref="3349586994"/>
+   <nd ref="3349587000"/>
+   <nd ref="3349587002"/>
+   <nd ref="3349587005"/>
+   <nd ref="3349587009"/>
+   <nd ref="3349587012"/>
+   <nd ref="3349587015"/>
+   <nd ref="3349587020"/>
+   <nd ref="3349587021"/>
+   <nd ref="3349587017"/>
+   <nd ref="3349587016"/>
+   <nd ref="3349587013"/>
+   <nd ref="3349587010"/>
+   <nd ref="3349587004"/>
+   <nd ref="3349587001"/>
+   <nd ref="3349586998"/>
+   <nd ref="3349586995"/>
+   <nd ref="3349586993"/>
+   <nd ref="3349586996"/>
+   <nd ref="3349586999"/>
+   <nd ref="3349587003"/>
+   <nd ref="3349587006"/>
+   <nd ref="3349587011"/>
+   <nd ref="3349587014"/>
+   <nd ref="3349587019"/>
+   <nd ref="3349587022"/>
+   <nd ref="3349587023"/>
+   <nd ref="3349587024"/>
+   <nd ref="3349587025"/>
+   <nd ref="3349587028"/>
+   <nd ref="3349587029"/>
+   <nd ref="3349587030"/>
+   <nd ref="3349587031"/>
+   <nd ref="3349587032"/>
+   <nd ref="3349587033"/>
+   <nd ref="3349587034"/>
+   <nd ref="3349587035"/>
+   <nd ref="3349587037"/>
+   <nd ref="3349587038"/>
+   <nd ref="3349587043"/>
+   <nd ref="3349587044"/>
+   <nd ref="3349587047"/>
+   <nd ref="3349587056"/>
+   <nd ref="3349587058"/>
+   <nd ref="3349587060"/>
+   <nd ref="3349587064"/>
+   <nd ref="3349587065"/>
+   <nd ref="3349587069"/>
+   <nd ref="3349587071"/>
+   <nd ref="3349587074"/>
+   <nd ref="3349640045"/>
+   <nd ref="3349587077"/>
+   <nd ref="3349587080"/>
+   <nd ref="3349587085"/>
+   <nd ref="3349587088"/>
+   <nd ref="3349587093"/>
+   <nd ref="3349587097"/>
+   <nd ref="3349587100"/>
+   <nd ref="3349587105"/>
+   <nd ref="3349587108"/>
+   <nd ref="3349587107"/>
+   <nd ref="3349587102"/>
+   <nd ref="3349587101"/>
+   <nd ref="3349587098"/>
+   <nd ref="3349587094"/>
+   <nd ref="3349587091"/>
+   <nd ref="3349587089"/>
+   <nd ref="3349587087"/>
+   <nd ref="3349587084"/>
+   <nd ref="3349587083"/>
+   <nd ref="3349587082"/>
+   <nd ref="3349587079"/>
+   <nd ref="3349587078"/>
+   <nd ref="3349587073"/>
+   <nd ref="3349587070"/>
+   <nd ref="3349587066"/>
+   <nd ref="3349587063"/>
+   <nd ref="3349587062"/>
+   <nd ref="3349587059"/>
+   <nd ref="3349587057"/>
+   <nd ref="3349587051"/>
+   <nd ref="3349587050"/>
+   <nd ref="3349587049"/>
+   <nd ref="3349587052"/>
+   <nd ref="3349587054"/>
+   <nd ref="3349587055"/>
+   <nd ref="3349587053"/>
+   <nd ref="3349587046"/>
+   <nd ref="3349587045"/>
+   <nd ref="3349587042"/>
+   <tag k="name" v="DVC Canal"/>
+   <tag k="waterway" v="canal"/>
+   <tag k="wikimedia_commons" v="File:Baidyabati_DVC_Canal_-_Hooghly_2024-12-31_0204.jpg"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="15612331" visible="true" version="14" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1299846802" role="outer"/>
+   <member type="way" ref="1299845848" role="outer"/>
+   <member type="way" ref="1155005033" role="outer"/>
+   <member type="way" ref="1569467818" role="outer"/>
+   <member type="way" ref="1155150061" role="outer"/>
+   <member type="way" ref="1155005034" role="outer"/>
+   <tag k="addr:city" v="Nagarukhra"/>
+   <tag k="admin_level" v="8"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Nagarukhra I"/>
+   <tag k="type" v="boundary"/>
+  </relation>
+ </modify>
+ <modify>
+  <way id="544694020" visible="true" version="19" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <nd ref="10741403723"/>
+   <nd ref="5265160775"/>
+   <nd ref="5265160776"/>
+   <nd ref="5265160777"/>
+   <nd ref="5265160778"/>
+   <nd ref="5265160779"/>
+   <nd ref="5265160780"/>
+   <nd ref="5265160781"/>
+   <nd ref="5265160782"/>
+   <nd ref="5265160783"/>
+   <nd ref="5265160784"/>
+   <nd ref="5265160785"/>
+   <nd ref="9920572963"/>
+   <nd ref="5265160786"/>
+   <nd ref="5265160787"/>
+   <nd ref="5265160788"/>
+   <nd ref="5265160789"/>
+   <nd ref="5265160790"/>
+   <nd ref="5265160791"/>
+   <nd ref="5265160792"/>
+   <nd ref="5265160793"/>
+   <nd ref="5265160794"/>
+   <nd ref="5265160795"/>
+   <nd ref="5265160796"/>
+   <nd ref="5265160797"/>
+   <nd ref="5265160798"/>
+   <nd ref="5265160799"/>
+   <nd ref="5265160800"/>
+   <nd ref="5265160801"/>
+   <nd ref="5265160802"/>
+   <nd ref="5265160803"/>
+   <nd ref="5265160804"/>
+   <nd ref="5265160805"/>
+   <nd ref="5265160806"/>
+   <nd ref="5265160807"/>
+   <nd ref="5265160808"/>
+   <nd ref="5265160809"/>
+   <nd ref="5265160810"/>
+   <nd ref="5265160811"/>
+   <nd ref="5265160812"/>
+   <nd ref="5265160813"/>
+   <nd ref="5265160814"/>
+   <nd ref="5265160815"/>
+   <nd ref="5265160816"/>
+   <nd ref="5265160817"/>
+   <nd ref="5265160818"/>
+   <nd ref="5265160819"/>
+   <nd ref="5265160820"/>
+   <nd ref="5265160921"/>
+   <nd ref="5265160922"/>
+   <nd ref="5265160923"/>
+   <nd ref="5265160924"/>
+   <nd ref="5265160925"/>
+   <nd ref="5265160926"/>
+   <nd ref="9409570031"/>
+   <nd ref="5265160928"/>
+   <nd ref="5265160929"/>
+   <nd ref="5265160930"/>
+   <nd ref="9409570032"/>
+   <nd ref="5265160933"/>
+   <nd ref="9409570033"/>
+   <nd ref="9409570034"/>
+   <nd ref="5265160934"/>
+   <nd ref="9409570035"/>
+   <nd ref="5265160936"/>
+   <nd ref="5265160937"/>
+   <nd ref="5265160938"/>
+   <nd ref="5265160939"/>
+   <nd ref="5265160940"/>
+   <nd ref="5265160941"/>
+   <nd ref="5265160942"/>
+   <nd ref="5265160943"/>
+   <nd ref="5265160944"/>
+   <nd ref="5265160945"/>
+   <nd ref="5265160946"/>
+   <nd ref="5265160947"/>
+   <nd ref="5265160948"/>
+   <nd ref="5265160949"/>
+   <nd ref="5265160950"/>
+   <nd ref="5265160951"/>
+   <nd ref="5265160952"/>
+   <nd ref="5265160953"/>
+   <nd ref="5265160954"/>
+   <nd ref="5265160955"/>
+   <nd ref="5265160956"/>
+   <nd ref="5265160957"/>
+   <nd ref="9082171865"/>
+   <nd ref="5265160958"/>
+   <nd ref="8234333114"/>
+   <nd ref="5265160959"/>
+   <nd ref="5265160960"/>
+   <nd ref="5265160961"/>
+   <nd ref="9082171866"/>
+   <nd ref="5265160962"/>
+   <nd ref="5265160963"/>
+   <nd ref="5265160964"/>
+   <nd ref="5265160965"/>
+   <nd ref="5265160966"/>
+   <nd ref="5265160967"/>
+   <nd ref="5265160968"/>
+   <nd ref="5265160969"/>
+   <nd ref="5265160970"/>
+   <nd ref="5265160971"/>
+   <nd ref="5265160972"/>
+   <nd ref="5265160973"/>
+   <nd ref="5265160974"/>
+   <nd ref="8912524515"/>
+   <nd ref="5265160975"/>
+   <nd ref="5265160976"/>
+   <nd ref="5265160977"/>
+   <nd ref="5265160978"/>
+   <nd ref="5265160979"/>
+   <nd ref="5265160980"/>
+   <nd ref="5265160981"/>
+   <nd ref="5265160982"/>
+   <nd ref="5265160983"/>
+   <nd ref="5265160984"/>
+   <nd ref="5265160985"/>
+   <nd ref="5265160986"/>
+   <nd ref="5265160987"/>
+   <nd ref="5265160988"/>
+   <nd ref="5265160989"/>
+   <nd ref="5265160990"/>
+   <nd ref="5265160991"/>
+   <nd ref="5265160992"/>
+   <nd ref="5265160993"/>
+   <nd ref="5265160994"/>
+   <nd ref="5265160995"/>
+   <nd ref="9997498094"/>
+   <nd ref="5265160996"/>
+   <nd ref="5265160997"/>
+   <nd ref="5265160998"/>
+   <nd ref="5265160999"/>
+   <nd ref="5265161000"/>
+   <nd ref="5265161001"/>
+   <nd ref="5265161002"/>
+   <nd ref="5265161003"/>
+   <nd ref="5265161004"/>
+   <nd ref="5265161005"/>
+   <nd ref="5265161006"/>
+   <nd ref="5265161007"/>
+   <nd ref="5265161008"/>
+   <nd ref="5265161009"/>
+   <nd ref="5265161010"/>
+   <tag k="name" v="Jamuna River"/>
+   <tag k="waterway" v="river"/>
+   <tag k="wikidata" v="Q6148321"/>
+   <tag k="wikipedia" v="en:Jamuna River (West Bengal)"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="15613086" visible="true" version="25" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="node" ref="9182612241" role="admin_centre"/>
+   <member type="way" ref="1155005035" role="outer"/>
+   <member type="way" ref="1155150061" role="outer"/>
+   <member type="way" ref="1569467818" role="outer"/>
+   <member type="way" ref="1155005033" role="outer"/>
+   <member type="way" ref="1299846802" role="outer"/>
+   <member type="way" ref="1299845848" role="outer"/>
+   <member type="way" ref="1299845306" role="outer"/>
+   <member type="way" ref="1299845057" role="outer"/>
+   <member type="way" ref="1299844783" role="outer"/>
+   <tag k="addr:subdistrict" v="Kalyani"/>
+   <tag k="admin_level" v="7"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="capital_city" v="Kolkata"/>
+   <tag k="district" v="Nadia South (Kolkata)"/>
+   <tag k="name" v="Nagarukhra"/>
+   <tag k="population" v="49922"/>
+   <tag k="region" v="Presidency Division"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q123662870"/>
+   <tag k="wikipedia" v="bn:নগরউখড়া, পশ্চিমবঙ্গ"/>
+  </relation>
+ </modify>
+ <modify>
+  <relation id="10370849" visible="true" version="28" changeset="190699738" timestamp="2026-10-18T14:34:24Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="1299847081" role="outer"/>
+   <member type="way" ref="1299846802" role="outer"/>
+   <member type="way" ref="1299845848" role="outer"/>
+   <member type="way" ref="1299845306" role="outer"/>
+   <member type="way" ref="1299845057" role="outer"/>
+   <member type="way" ref="1299844783" role="outer"/>
+   <member type="way" ref="1299844784" role="outer"/>
+   <member type="way" ref="1299843250" role="outer"/>
+   <member type="way" ref="752701478" role="outer"/>
+   <member type="way" ref="1154654618" role="outer"/>
+   <member type="way" ref="1569467824" role="outer"/>
+   <member type="way" ref="752305826" role="outer"/>
+   <tag k="admin_level" v="6"/>
+   <tag k="boundary" v="administrative"/>
+   <tag k="name" v="Haringhata"/>
+   <tag k="ref:LGD:subdistrict" v="2315"/>
+   <tag k="type" v="boundary"/>
+   <tag k="wikidata" v="Q5657632"/>
+  </relation>
+ </modify>
+</osmChange>

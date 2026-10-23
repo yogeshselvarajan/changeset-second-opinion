@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1302 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <delete>
+  <node id="11513592143" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592144" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592145" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592146" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592147" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592148" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592149" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592150" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592151" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11513592152" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423594" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423595" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423596" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423597" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423598" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423599" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423600" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423601" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423602" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423603" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423604" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423605" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423606" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423607" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423608" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423609" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423610" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423611" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423612" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423613" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423614" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423615" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423616" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423617" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423618" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423619" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423620" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11514423621" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11524719101" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11524719102" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11524719103" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11524719104" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267305" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267306" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267307" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267308" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267309" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267310" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267311" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267312" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267313" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267314" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267315" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267316" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267317" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267318" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267319" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267320" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267321" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267322" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267323" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11527267324" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530405663" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530405664" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530405665" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530405666" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530405667" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530405668" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530448098" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530448099" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530448100" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530448101" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463397" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463398" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463399" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463400" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463401" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463402" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463403" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530463404" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466670" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466671" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466672" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466673" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466674" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466675" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466676" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466677" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466678" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466679" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466680" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466681" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466682" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466683" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466684" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466685" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466686" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466687" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466688" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466689" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466690" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466691" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466692" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466693" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466694" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466695" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466696" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466697" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466698" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466699" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466700" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466701" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466702" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466703" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466704" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466705" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466706" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466707" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466708" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466709" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466710" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466711" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466712" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530466713" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482769" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482770" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482771" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482772" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482773" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482774" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482775" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482776" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482777" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482778" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482779" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482780" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482781" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11530482782" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239353893" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239353894" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461218" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461219" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461220" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461221" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461222" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461223" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1239461224" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240439433" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240669061" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240669062" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240669063" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240669064" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240669065" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986192" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986193" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986369" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986370" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986371" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986372" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986373" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986374" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986375" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986376" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986377" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986378" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240986379" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240987137" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240987138" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240987139" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240987140" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240987141" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="1240987206" visible="false" version="2" changeset="190518942" timestamp="2026-10-14T17:11:49Z" user="mapper_A" uid="900000001"/>
+ </delete>
+</osmChange>

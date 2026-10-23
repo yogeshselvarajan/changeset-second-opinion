@@ -1,0 +1,29 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 2398275923,
+      "lat": 17.8169273,
+      "lon": 73.0844634,
+      "timestamp": "2023-11-20T20:57:50Z",
+      "version": 5,
+      "changeset": 144262708,
+      "user": "mapper_G",
+      "uid": 900000007,
+      "tags": {
+        "historic": "fort",
+        "name": "Suvarnadurg",
+        "name:en": "Suwarnadadh fort",
+        "source": "Survey",
+        "wikidata": "Q2099096",
+        "wikimedia_commons": "Category:Suvarnadurg",
+        "wikipedia": "en:Suvarnadurg"
+      }
+    }
+  ]
+}

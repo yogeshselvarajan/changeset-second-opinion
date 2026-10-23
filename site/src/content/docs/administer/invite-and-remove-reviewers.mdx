@@ -1,0 +1,65 @@
+---
+title: Invite and remove reviewers
+description: Make invite codes with a role, an expiry and a use limit, and revoke them in Settings.
+---
+
+*For community admins. How-to.*
+
+Invite codes give a person a named, revocable way in without email. Admins make and revoke them in Settings, on the Access tab.
+
+## What you need first
+
+- An admin session. See [Set up the first admin](../first-admin/).
+
+## Make an invite code
+
+1. Open **Settings** and choose the **Access** tab.
+2. Under **Invite codes**, choose **Create invite code**.
+3. Fill in the form:
+   - **Label**: who it is for, up to 80 characters. It is not secret.
+   - **Role**: Reviewer or Admin. Choose Reviewer unless the person will manage the workspace.
+   - **Valid for (hours)**: leave empty for no end date.
+   - **Number of uses**: leave empty for no limit.
+4. Choose **Create code**.
+5. The dialog "Copy this code now" shows the code. Choose **Copy code** and send it to the person through a private channel.
+
+The code is shown once. It is stored only as a hash, so nobody, including you, can show it again. If it is lost, make a new one.
+
+A short expiry and a single use suit a code you send to one person. Leave both empty for a code you share with a small team.
+
+You can also make codes on the command line. See the [command line reference](../../reference/command-line/).
+
+## Read the invite table
+
+The table lists every code, newest first, with these columns: Label, Role, Created, Expires, Uses, Status and Actions. The code itself is never listed.
+
+| Status | Meaning |
+| --- | --- |
+| Active | The code works. |
+| Expired | The end date has passed. |
+| Used up | It reached its number of uses. |
+| Revoked | An admin ended it. |
+
+## Remove a reviewer's access
+
+To end an invite code:
+
+1. In the table, choose **Revoke** on its row.
+2. Read "Revoke this invite code?". People who signed in with it are signed out, and this cannot be undone.
+3. Choose **Revoke code**.
+
+Later sign-ins with the code fail. Revoking twice does no harm.
+
+People who signed in with OpenStreetMap have no code to revoke. To keep an account out, the operator sets `CSO_OSM_SIGNIN_ALLOWED_UIDS` to the ids that may sign in. See [Sign in](../sign-in/). You can also turn off **Offer sign in with OpenStreetMap** on the same tab, so the button no longer shows.
+
+Both of these are checked when a person signs in. Neither ends a session that is already open. Such a session ends when it expires (12 hours by default) or when it has been idle too long.
+
+Past decisions stay. Records are never edited, so a person's earlier outcomes keep their name. See [Privacy and what is stored](../privacy/).
+
+## Check that it worked
+
+- A new code shows in the table with Status Active.
+- A revoked code shows Revoked and has no Revoke button.
+- Open a private window and sign in with the code. After a revoke, the page says "That invite code was not accepted."
+
+Next: [Privacy and what is stored](../privacy/).

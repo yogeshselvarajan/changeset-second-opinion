@@ -1,0 +1,35 @@
+# Shared definition of the Decider service. Not a stack on its own: docker-compose.cpu.yml and
+# docker-compose.gpu.yml extend it and add the device. Loopback only by design: `--host 127.0.0.1`,
+# no `ports:` entry, reachable only inside the shared network namespace of the `stack` service.
+services:
+  decider:
+    build:
+      context: .
+      dockerfile: decider.Dockerfile
+    network_mode: "service:stack"
+    restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    pids_limit: 512
+    volumes:
+      - ${CSO_HF_DIR:-hf-cache}:/home/decider/.cache/huggingface
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8099/health', timeout=5)"
+      interval: 30s
+      timeout: 6s
+      retries: 10
+      start_period: 120s # first boot downloads the model (about 5 GB) into the cache volume
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "5"}
+    labels:
+      cso.role: decider

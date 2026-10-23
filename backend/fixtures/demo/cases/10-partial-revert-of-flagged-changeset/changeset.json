@@ -1,0 +1,31 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 190513686,
+    "created_at": "2026-10-14T15:32:32Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 2,
+    "created_count": 0,
+    "modified_count": 2,
+    "deleted_count": 0,
+    "closed_at": "2026-10-14T15:32:43Z",
+    "min_lat": -1.2454438,
+    "min_lon": 36.770437,
+    "max_lat": -1.2440732,
+    "max_lon": 36.7707087,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "comment": "Partially reverted [url removed] due to Modified highway incorrectly.corrected database. #tomtom #tt_repair",
+      "created_by": "JOSM/1.5 (19439 en)",
+      "hashtags": "#tomtom;#tt_repair",
+      "source": "Bing aerial imagery"
+    },
+    "comments": []
+  }
+}

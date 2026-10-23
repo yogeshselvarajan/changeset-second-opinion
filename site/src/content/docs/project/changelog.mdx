@@ -1,0 +1,45 @@
+---
+title: Changelog
+description: A dated list of changes you can see, newest first, written from the repository history.
+---
+
+*For users and operators. Reference.*
+
+There is no tagged release yet, so changes are grouped by the date they reached the main branch. Technical detail is in the repository's own [`CHANGELOG.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CHANGELOG.md) and its commit history. The tool never writes to OpenStreetMap in any of these versions.
+
+## 20 October 2026
+
+- The demo is now fifteen real changesets, recorded on 20 October 2026. Each has a reading from the Strands Decider 2B. The lanes came out as 4 needs local knowledge, 4 review suggested and 7 insufficient evidence. None is in looks consistent.
+- Queue rows show the mapper's own changeset comment.
+- A fresh workspace can be claimed only by an OpenStreetMap account named in the server settings. See [first admin](../../administer/first-admin/).
+- The queue, case, draft, history, config and settings screens now share one look, with a banner for the person claiming a workspace.
+- The public home page gains a section on how decisions are made, with readings from a real run, and scroll motion with a switch for less motion.
+- The map now loads in the development server, and the dropdown focus ring is fixed.
+- This documentation site is added.
+
+## 19 October 2026
+
+- Sign in with OpenStreetMap, with read-only access. Invite codes still work. See [sign in](../../administer/sign-in/).
+- Shareable decision receipts, which anyone can open from a link. See [read a receipt](../../review/read-a-receipt/).
+- Community packs, and calibration from reviewers' recorded decisions. See [tune it to your community](../../administer/tune-to-your-community/) and [calibration](../../administer/calibration/).
+- A settings page for admins: workspace name, tagline, accent colour, logo, invites and the sign-in switch. See [brand the workspace](../../administer/brand-the-workspace/).
+- Public home, About and Privacy pages.
+- A redesigned evidence desk: a side rail, a command menu, a queue grid and a timeline.
+- The queue lists cases where the mature-deletion rule fired ahead of every lane. They keep their lane.
+- A command for comparing model sizes, `cso eval ablate-model`. The comparison itself has not been run.
+- For operators: continuous database backup, secrets read at boot, alarms and a safer deploy for the single AWS host. See [deploy on AWS](../../self-host/deploy-on-aws/).
+
+## 18 October 2026
+
+- Safety and honesty fixes from a review: parsed facts now set a floor under the model's readings, drafts are metered and checked more strictly, and imports have a quota.
+- The evaluation write-up now says plainly that a constant guess matches the model on the same readings. See [what it cannot do](../../concepts/what-it-cannot-do/).
+
+## 17 October 2026
+
+- First working version.
+  - Collects the public evidence for a changeset, with a call budget and a coverage record.
+  - Asks the Strands Decider 2B yes or no questions about it, applies fixed rules, and puts the case in a lane.
+  - Drafts a comment with Claude Haiku 4.5 on Amazon Bedrock, with a plain template as a fallback.
+  - A keyboard-first queue, case view, draft editor, outcome recording and history.
+  - Invite-code sign-in, an HTTP API and a command line.
+  - Evaluation tools and the first measured results.

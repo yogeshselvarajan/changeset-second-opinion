@@ -1,0 +1,30 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 900000000004,
+    "created_at": "2026-04-10T16:00:00Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 126,
+    "created_count": 0,
+    "modified_count": 0,
+    "deleted_count": 126,
+    "closed_at": "2026-04-10T16:12:00Z",
+    "min_lat": 51.499,
+    "min_lon": -0.121,
+    "max_lat": 51.507,
+    "max_lon": -0.113,
+    "uid": 900000005,
+    "user": "mapper_E",
+    "tags": {
+      "comment": "Remove demolished site features",
+      "created_by": "iD 2.30.0",
+      "locale": "en-GB"
+    },
+    "comments": []
+  }
+}

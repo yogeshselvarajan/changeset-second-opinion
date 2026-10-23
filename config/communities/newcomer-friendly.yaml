@@ -1,0 +1,118 @@
+# Community pack: newcomer friendly (versioned by content hash like every pack).
+# For a community that mostly meets new mappers: a real-world claim from a new account gets a welcome
+# first, a mistake is suggested only when both the comment and the conventions look off, and the
+# tone allows a link to the beginner guide. The rules, the parsed-fact floor and the list of words
+# the drafts avoid are the same as the default pack.
+id: newcomer-friendly
+
+pack:
+  id: newcomer-friendly
+  title: Newcomer friendly
+  description: >-
+    For communities that mostly meet new mappers. A new account's claim gets a welcome before a
+    question, and a beginner guide link is allowed in drafts. Rules and caution are unchanged.
+  author: Changeset Second Opinion
+  version: "1.0"
+
+option_sets:
+  nature:
+    - code: consistent_edit
+      label: Consistent edit
+      description: >-
+        Edits match the changeset comment; tags follow usual conventions; feature ages and counts
+        are ordinary; no long-standing features deleted; account has prior edits or the edits are
+        small and clean.
+    - code: likely_good_faith_mistake
+      label: Likely good-faith mistake
+      description: >-
+        Mistakes typical of someone learning: first edits, wrong tag keys, duplicated or dragged
+        features, deletions of their own recent additions, a comment describing an intention the
+        edits only partly achieve.
+    - code: possible_deliberate_damage
+      label: Possible deliberate damage
+      description: >-
+        Signs of intentional damage: long-standing features (older than a year or many versions)
+        deleted or renamed to nonsense or offensive values, mass tag removal, comment unrelated to
+        the edits, very new account with no other activity.
+    - code: needs_local_knowledge
+      label: Needs local knowledge
+      description: >-
+        Evidence is internally consistent but whether the real-world change is true (new shop,
+        closed road, renamed place) cannot be judged from tags and history alone.
+  response:
+    - code: no_action_suggested
+      label: No action suggested
+      description: >-
+        Edits look correct and ordinary; the comment matches the changes; nothing long-standing
+        was deleted.
+    - code: welcome_and_tips
+      label: Welcome and tips
+      description: >-
+        A friendly welcome with one or two tagging tips fits: new account, small convention
+        problems, nothing destructive. For a new account this is the first thing to offer.
+    - code: ask_source_question
+      label: Ask a source question
+      description: >-
+        A question is needed: the comment is missing or vague, or the edit could be right or wrong
+        depending on the mapper's source.
+    - code: request_local_check
+      label: Request a local check
+      description: >-
+        Someone with local knowledge needs to look: a plausible real-world change that cannot be
+        verified remotely, or mixed signals.
+    - code: escalate_to_experienced_reviewer
+      label: Escalate to an experienced reviewer
+      description: >-
+        An experienced reviewer should look before anything else: long-standing features deleted,
+        mass changes, nonsense or offensive values, comment unrelated to the edits.
+
+bands:
+  confident_min: 0.80
+  unsure_min: 0.50
+  order_sensitivity_max: 0.30
+
+panel:
+  noul_ids:
+    - mature_feature_deleted
+    - nonsense_or_offensive_values
+    - comment_matches_changes
+    - conventions_followed
+    - new_account_first_edits
+    - deleted_own_recent_additions
+    - real_world_change_claimed
+    - discussion_cites_source
+    - mass_retag_single_key
+    - evidence_sufficient
+  thresholds: { low: 0.35, high: 0.65 }
+  band: { confident_max_unknown: 1, unsure_max_unknown: 3 }
+  composition:
+    p4_requires_both: true
+    newcomer_welcome_over_question: true
+
+rules:
+  - code: R1
+    label: Mature deletion
+    params: { min_age_days: 365, min_prior_versions: 5 }
+  - code: R2
+    label: Mass change
+    params: { osmcha_reasons: [mass deletion, mass modification, possible import] }
+  - code: R3
+    label: Coverage
+    params: { min_score: 0.5, max_gap_ratio: 0.2, drafting_limited_to: ask_source_question }
+  - code: R4
+    label: New account with deletions
+    params: { account_age_days_lt: 7 }
+  - code: R5
+    label: Escalation requires signal
+    params: { min_damage_probability: 0.5, downgrade_to: ask_source_question }
+  - code: R6
+    label: No model output
+    params: {}
+
+tone:
+  language_policy: mapper_language_else_english
+  allowed_links:
+    - https://wiki.openstreetmap.org/
+    - https://www.openstreetmap.org/
+    - https://learnosm.org/
+  banned_words: [vandal, vandalism, spam, illegal, stop, must]

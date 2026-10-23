@@ -1,0 +1,58 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 10371560,
+      "timestamp": "2025-12-16T18:09:53Z",
+      "version": 3,
+      "changeset": 176018096,
+      "user": "mapper_F",
+      "uid": 900000006,
+      "members": [
+        {
+          "type": "node",
+          "ref": 7156071806,
+          "role": "admin_centre"
+        },
+        {
+          "type": "way",
+          "ref": 752623934,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623920,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623889,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623952,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623957,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Polba - Dadpur",
+        "ref:LGD:subdistrict": "2347",
+        "type": "boundary",
+        "wikidata": "Q7209208"
+      }
+    }
+  ]
+}

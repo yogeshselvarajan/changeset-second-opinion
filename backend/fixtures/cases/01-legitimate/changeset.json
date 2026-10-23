@@ -1,0 +1,33 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 900000000001,
+    "created_at": "2026-03-01T10:10:00Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 3,
+    "created_count": 0,
+    "modified_count": 3,
+    "deleted_count": 0,
+    "closed_at": "2026-03-01T10:20:00Z",
+    "min_lat": 51.5,
+    "min_lon": -0.1,
+    "max_lat": 51.5008,
+    "max_lon": -0.099,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "1150",
+      "comment": "Specify road surfaces",
+      "created_by": "StreetComplete 57.1",
+      "locale": "en-GB",
+      "source": "survey",
+      "StreetComplete:quest_type": "AddRoadSurface"
+    },
+    "comments": []
+  }
+}

@@ -1,0 +1,22 @@
+# Continuous replication of the SQLite database to S3. Runs as the `litestream` service in
+# infra/compose/docker-compose.aws.yml with the same data volume as the API, and finds its AWS
+# credentials from the instance role (IMDSv2, hop limit 2 in the template). No key is stored here.
+#
+# What it buys over the nightly dump in infra/scripts/backup.sh: a lost disk costs seconds of data,
+# not a day, and any moment in the last 24 hours can be restored. The nightly dump stays as a plain
+# file-level copy that needs no Litestream to read.
+#
+# Variables come from the compose environment (/opt/cso/.env, written by bootstrap.sh).
+dbs:
+  - path: /data/cso.db
+    replicas:
+      - type: s3
+        bucket: ${CSO_BACKUP_BUCKET}
+        path: litestream/cso
+        region: ${AWS_REGION}
+        sync-interval: 15s
+        # Keep 24 hours of generations; a snapshot every 6 hours bounds how much WAL a restore replays.
+        retention: 24h
+        retention-check-interval: 1h
+        snapshot-interval: 6h
+        # Server-side encryption is the bucket default (AES256).

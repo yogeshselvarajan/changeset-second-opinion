@@ -1,0 +1,28 @@
+{
+  "fixture_id": "04-large-deletion",
+  "description": "126 deletions incl. a named school aged 6 years; budget covers 40",
+  "changeset_id": 900000000004,
+  "coverage": {
+    "elements_in_changeset": 126,
+    "elements_detailed": 40,
+    "elements_skipped_budget": 86,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.31746
+  },
+  "flags": [
+    "mass deletion"
+  ],
+  "rules": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "nature": "needs_local_knowledge",
+  "response": "request_local_check",
+  "lane": "insufficient_evidence",
+  "notes": "Deletions have no tags in osmChange so v-1 is fetched; ways come first in document order (6 ways + 34 nodes = 40). Prior v1 of the school way is dated 2020-04-01 so age_days > 2000 and R1 fires. score = 40/126 < 0.5 so R3 also fires under the documented formula; the lane can never be looks_consistent.",
+  "receipt": null
+}

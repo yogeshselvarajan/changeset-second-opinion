@@ -1,0 +1,40 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 867506139,
+      "timestamp": "2025-10-11T04:27:30Z",
+      "version": 5,
+      "changeset": 173120810,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        8085959941,
+        8085959938,
+        8085959937,
+        8085959940,
+        8085959935,
+        8085959936,
+        8085959934,
+        8085959932,
+        275059481
+      ],
+      "tags": {
+        "bridge": "yes",
+        "destination:ref": "EJE 1 OTE",
+        "highway": "primary",
+        "lanes": "5",
+        "layer": "1",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

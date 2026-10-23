@@ -1,0 +1,33 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 45056756,
+      "timestamp": "2016-12-13T16:25:04Z",
+      "version": 5,
+      "changeset": 44376037,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "nodes": [
+        571349274,
+        571349364,
+        571349365,
+        571349357,
+        3614513284,
+        571349275
+      ],
+      "tags": {
+        "aeroway": "runway",
+        "name": "10R/28L",
+        "ref": "10R/28L",
+        "surface": "asphalt",
+        "wikipedia": "en:Air Force Academy, Dundigul"
+      }
+    }
+  ]
+}

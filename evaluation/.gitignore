@@ -1,0 +1,3 @@
+# Raw evidence snapshots contain mapper names; never commit them.
+.cache/
+evaluation/.diag.log

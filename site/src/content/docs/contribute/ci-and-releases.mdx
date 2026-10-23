@@ -1,0 +1,146 @@
+---
+title: Automation and releases
+description: What runs on a pull request, how a release reaches PyPI, GitHub Container Registry and the demo, and the one time setup on GitHub, PyPI and AWS.
+---
+
+*For maintainers and contributors. Reference and how-to.*
+
+Everything lives in `.github/` in the repository. Three ideas hold it together: a pull request has one required check, nothing publishes without a person approving it, and no long-lived secret exists (PyPI and AWS both use short-lived identity tokens from GitHub's OIDC provider).
+
+The project is built with the help of AI coding agents. A person reviews and approves every change before it merges, and the checks below run on every pull request, so an automated change gets the same scrutiny as a human one.
+
+## What runs on a pull request
+
+```text
+pull request / push to main
+        |
+   changes  (which paths moved?)
+        |
+        +-- backend    ruff, mypy, migrations, pytest, uv lock --check
+        +-- contract   OpenAPI file, generated TypeScript client, CI script tests
+        +-- invariants no OSM writes, no auto actions, policy inputs, wording, security policy
+        +-- secrets    gitleaks
+        +-- web        prettier, eslint, tsc, vitest, build, size budget
+        +-- e2e        Playwright specs on the built bundle
+        +-- docs-site  prose rules, Vale, build and links, generated pages, axe
+        +-- infra      cfn-lint, hadolint, compose config, Caddyfile, shellcheck
+        +-- workflows  actionlint, zizmor
+        +-- package    uv build, twine check, wheel contents, clean install
+        +-- licenses   no GPL or AGPL runtime dependency
+        +-- audit      pip-audit and npm audit (when a lock file changed)
+        |
+   ci-passed   <- the single required check
+```
+
+The `changes` job looks at the changed paths, so a documentation edit skips the Playwright run. A skipped job counts as passed in `ci-passed`, and a failed or cancelled job does not. Branch protection names `ci-passed` and the pull request title check, so adding a job never needs a settings change. The full table of jobs is in [`.github/REQUIRED_CHECKS.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/.github/REQUIRED_CHECKS.md), and the settings to apply in GitHub are in [`.github/RULESETS.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/.github/RULESETS.md).
+
+Practices used in every workflow:
+
+- Third party actions are pinned to a full commit SHA, with the tag in a comment. Dependabot updates the SHA and the comment together, weekly, after a seven day cooldown.
+- The default token has no permissions (`permissions: {}`); each job asks for the few it needs.
+- Concurrency groups cancel superseded pull request runs. Release and deploy runs never cancel.
+- The uv cache is keyed on `backend/uv.lock`, the npm cache on both lock files and the Playwright browser on the Playwright version in `web/package-lock.json`.
+- Every job has a timeout and starts with a harden-runner step in audit mode. Read the egress report after a few runs and switch a job to block mode with an allow list.
+- actionlint and zizmor lint the workflows themselves.
+
+## Security automation
+
+- **CodeQL** analyses Python and JavaScript/TypeScript on pushes, pull requests and weekly.
+- **Dependency review** blocks a pull request that adds a dependency with a high severity advisory or a GPL or AGPL licence.
+- **OpenSSF Scorecard** runs weekly.
+- **Licence check** in CI installs the runtime dependencies from the lock file and fails on GPL or AGPL licences. The allow list, `.github/license-allowlist.txt`, is empty on purpose.
+- **Secret scanning** has two layers: gitleaks in CI, and GitHub secret scanning with push protection in the repository settings.
+
+While the repository is private, CodeQL, dependency review, Scorecard and the signed attestations are skipped, because they need a public repository (or GitHub Advanced Security). They start working on their own once the repository is public. Nothing else depends on that.
+
+## How a release works
+
+The project uses release-please. Releases are driven by the Conventional Commits already used in the repository, so the version number is not chosen by hand.
+
+1. Commits land on `main` with titles such as `feat(osm): read the changeset discussion`. The pull request title check enforces the type and scope.
+2. The `release-please` workflow keeps one open pull request titled like `chore: release 1.0.0`. It edits the version in `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json` and `web/package-lock.json`.
+3. A person reviews and merges that pull request. Merging tags `v1.0.0` and creates the GitHub Release.
+4. The workflow then starts `release.yml` for the tag.
+
+`release.yml` builds everything first and publishes second:
+
+```text
+prepare        tag and package versions agree?   stable tag -> PyPI, pre-release tag -> TestPyPI
+build-python   licence check, uv build, twine check, wheel contents, clean install,
+               SBOM, signed provenance and SBOM attestations
+build-docs     docs site archive, signed provenance
+images         backend and web images, linux/amd64 and linux/arm64, pushed to GHCR with
+               provenance and SBOM, signed attestation stored with the image
+        |
+publish-pypi / publish-testpypi    environment approval, then Trusted Publishing (OIDC)
+        |
+github-release attach wheel, sdist, SBOM, docs archive, CHANGELOG.md, SHA256SUMS
+        |
+deploy-demo    stable releases only, when AWS_DEPLOY_ROLE_ARN is set (environment approval)
+```
+
+The first release is `v1.0.0`. The file `.github/release-please-config.json` has `"release-as": "1.0.0"` for that. Delete that line in the pull request after the first release, or later releases would stay at 1.0.0.
+
+`CHANGELOG.md` stays hand written. Release-please is configured not to write it, so the user facing notes keep their style. The GitHub Release body lists the commits by type, and `CHANGELOG.md` is attached as an asset.
+
+### Why release-please
+
+| Option | Verdict |
+| --- | --- |
+| release-please | Chosen. Works from Conventional Commits and scopes, bumps several files, keeps a reviewable release pull request, and needs no extra service. |
+| Tag driven by hand | Simple, but a person has to compute the version and edit four files, and a tag can disagree with the files. The `prepare` job catches that anyway. |
+| semantic-release | Publishes on every merge without a review step. The project wants a person to approve each release. |
+
+### Publish by hand, or try it first
+
+Open Actions, then `release`, then Run workflow, and pick a tag in "Use workflow from". The target `testpypi` publishes only to TestPyPI, and `build-only` builds and checks everything and publishes nothing (it works from any branch).
+
+### Check a release
+
+```sh
+pip install changeset-second-opinion==1.0.0
+gh attestation verify changeset_second_opinion-1.0.0-py3-none-any.whl --repo yogeshselvarajan/changeset-second-opinion
+gh attestation verify oci://ghcr.io/yogeshselvarajan/changeset-second-opinion-backend:1.0.0 --repo yogeshselvarajan/changeset-second-opinion
+```
+
+## One time setup
+
+### On GitHub
+
+1. Apply the settings in `.github/RULESETS.md`: the `main` ruleset, the `v*` tag ruleset, squash merge only, Dependabot, secret scanning and private vulnerability reporting.
+2. Create three environments: `pypi` (required reviewer, tags `v*`), `testpypi` and `demo` (required reviewer).
+3. Optional: add the secret `RELEASE_PLEASE_TOKEN` (fine grained token for this repository with contents and pull requests write), so the release pull request runs the required checks.
+4. Add the repository variables for the demo deploy: `AWS_DEPLOY_ROLE_ARN`, `DEMO_CERT_ARN`, `DEMO_ALERT_EMAIL`.
+5. Turn on Discussions.
+
+### On PyPI and TestPyPI
+
+Reserve the name and wire Trusted Publishing before the first release, with a pending publisher. Do this on both pypi.org and test.pypi.org (separate accounts and separate forms):
+
+1. Sign in, open Your account, Publishing, and add a pending publisher with GitHub as the provider.
+2. Project name `changeset-second-opinion`, owner `yogeshselvarajan`, repository `changeset-second-opinion`, workflow file `release.yml`, environment `pypi` (on TestPyPI use `testpypi`).
+3. The first successful publish turns the pending publisher into a normal one and creates the project.
+
+No API token is created. The distribution name is `changeset-second-opinion`; the import package stays `cso` and the command is `cso`.
+
+### On AWS
+
+The deploy workflow needs a role that only the `demo` environment of this repository can assume. Create it once, in the account that hosts the demo, from the template in `infra/aws-github-oidc/`:
+
+```sh
+aws cloudformation deploy --region us-east-1 --stack-name cso-github-oidc \
+  --template-file infra/aws-github-oidc/github-oidc-deploy-role.yaml \
+  --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation describe-stacks --region us-east-1 --stack-name cso-github-oidc \
+  --query "Stacks[0].Outputs[?OutputKey=='DeployRoleArn'].OutputValue" --output text
+```
+
+Put the printed ARN in the repository variable `AWS_DEPLOY_ROLE_ARN`. If the account already has the GitHub OIDC provider, add `--parameter-overrides CreateOidcProvider=false`. The role trusts only `repo:yogeshselvarajan/changeset-second-opinion:environment:demo`, can touch only resources named `cso-demo-*` (plus CloudFront, which cannot be narrowed before it exists), and lasts one hour per run.
+
+The workflow `deploy-demo.yml` runs `infra/aws-serverless-demo/deploy.sh`, so a deploy from GitHub and a deploy from a laptop use the same script.
+
+## What a person still decides
+
+Release-please never merges its own pull request, the publish jobs wait for environment approval, and the deploy waits for the `demo` environment. Nothing posts to OpenStreetMap from any workflow.
+
+Next: [releases](../releases/).

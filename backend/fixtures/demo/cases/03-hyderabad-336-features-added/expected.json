@@ -1,0 +1,226 @@
+{
+  "fixture_id": "03-hyderabad-336-features-added",
+  "description": "Karnataka: 336 features added across a wide area under one short comment",
+  "place_label": "Karnataka, India (wide area)",
+  "changeset_id": 190750593,
+  "coverage": {
+    "elements_in_changeset": 348,
+    "elements_detailed": 40,
+    "elements_skipped_budget": 308,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.114943
+  },
+  "flags": [],
+  "rules": [
+    "R1",
+    "R3"
+  ],
+  "nature": "needs_local_knowledge",
+  "response": "escalate_to_experienced_reviewer",
+  "lane": "insufficient_evidence",
+  "notes": "Real run: strands-decider-2B-qwen3.5-v1-2610, config sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9, recorded 2026-10-20.",
+  "receipt": {
+    "receipt_version": "1",
+    "case_id": "6fe828b0-d25c-4f4c-acee-fd57ba0204b9",
+    "snapshot_id": "0c1da763-f7d9-4805-8dc2-21772cde215f",
+    "evidence_version": "sha256:290dbf5ef58f2947d9de986fd8767f0f0f57604757fa731964d363a08c90509c",
+    "coverage": {
+      "elements_in_changeset": 348,
+      "elements_detailed": 40,
+      "elements_skipped_budget": 308,
+      "history_gaps": [],
+      "user_profile": "fetched",
+      "discussion": "fetched",
+      "snapshot_truncated": false,
+      "score": 0.114943
+    },
+    "decider": {
+      "model": "strands-decider-2B-qwen3.5-v1-2610",
+      "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+      "device": "cuda",
+      "max_length": 4096,
+      "temperature": 1.0545210242263665,
+      "base_model": "Qwen/Qwen3.5-2B-Base",
+      "prefix_cache": true,
+      "server_git_sha": null
+    },
+    "config_version": "sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9",
+    "questions_hash": null,
+    "state_tokens": 567,
+    "permutations": [],
+    "aggregated": {},
+    "nouls": {},
+    "panel": {
+      "low": 0.35,
+      "high": 0.65,
+      "readings": {
+        "mature_feature_deleted": {
+          "id": "mature_feature_deleted",
+          "probability": 0.7302,
+          "state": "yes"
+        },
+        "nonsense_or_offensive_values": {
+          "id": "nonsense_or_offensive_values",
+          "probability": 0.1436,
+          "state": "no"
+        },
+        "comment_matches_changes": {
+          "id": "comment_matches_changes",
+          "probability": 0.7334,
+          "state": "yes"
+        },
+        "conventions_followed": {
+          "id": "conventions_followed",
+          "probability": 0.2871,
+          "state": "no"
+        },
+        "new_account_first_edits": {
+          "id": "new_account_first_edits",
+          "probability": 0.1127,
+          "state": "no"
+        },
+        "deleted_own_recent_additions": {
+          "id": "deleted_own_recent_additions",
+          "probability": 0.1863,
+          "state": "no"
+        },
+        "real_world_change_claimed": {
+          "id": "real_world_change_claimed",
+          "probability": 0.1903,
+          "state": "no"
+        },
+        "discussion_cites_source": {
+          "id": "discussion_cites_source",
+          "probability": 0.1031,
+          "state": "no"
+        },
+        "mass_retag_single_key": {
+          "id": "mass_retag_single_key",
+          "probability": 0.214,
+          "state": "no"
+        },
+        "evidence_sufficient": {
+          "id": "evidence_sufficient",
+          "probability": 0.2758,
+          "state": "no"
+        }
+      },
+      "advisory_nature": {
+        "advisory": true,
+        "order": [
+          "consistent_edit",
+          "likely_good_faith_mistake",
+          "possible_deliberate_damage",
+          "needs_local_knowledge"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.2869,
+          "likely_good_faith_mistake": 0.1259,
+          "possible_deliberate_damage": 0.0903,
+          "needs_local_knowledge": 0.4969
+        },
+        "choice": "needs_local_knowledge",
+        "confidence": 0.3292
+      },
+      "ids": [
+        "mature_feature_deleted",
+        "nonsense_or_offensive_values",
+        "comment_matches_changes",
+        "conventions_followed",
+        "new_account_first_edits",
+        "deleted_own_recent_additions",
+        "real_world_change_claimed",
+        "discussion_cites_source",
+        "mass_retag_single_key",
+        "evidence_sufficient"
+      ]
+    },
+    "panel_questions_hash": "sha256:d0cd31c9b190f6734322679a27db5a9e6a1c770641452db44e6141a12dc6dd21",
+    "panel_composition": {
+      "nature": "needs_local_knowledge",
+      "response": "escalate_to_experienced_reviewer",
+      "band": "confident",
+      "nature_row": "N2",
+      "response_row": "P1",
+      "yes": [
+        "mature_feature_deleted",
+        "comment_matches_changes"
+      ],
+      "unknown": []
+    },
+    "panel_cross_checks": {
+      "mature_feature_deleted": "agree",
+      "new_account_first_edits": "agree",
+      "deleted_own_recent_additions": "agree",
+      "mass_retag_single_key": "agree",
+      "evidence_sufficient": "agree"
+    },
+    "band": "confident",
+    "rules_fired": [
+      {
+        "code": "R1",
+        "label": "Mature deletion",
+        "severity": "block",
+        "triggered_by": {
+          "count": 3,
+          "elements": [
+            {
+              "type": "node",
+              "id": 7446916908,
+              "age_days": 2367,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 7446916909,
+              "age_days": 2367,
+              "version_before": 1
+            },
+            {
+              "type": "way",
+              "id": 796266148,
+              "age_days": 2367,
+              "version_before": 1
+            }
+          ],
+          "min_age_days": 365,
+          "min_prior_versions": 5
+        }
+      },
+      {
+        "code": "R3",
+        "label": "Coverage",
+        "severity": "warn",
+        "triggered_by": {
+          "score": 0.114943,
+          "min_score": 0.5,
+          "gap_ratio": 0.0,
+          "max_gap_ratio": 0.2,
+          "elements_in_changeset": 348,
+          "elements_detailed": 40,
+          "history_gaps": 0,
+          "elements_skipped_budget": 308,
+          "drafting_limited_to": "ask_source_question"
+        }
+      }
+    ],
+    "reconciliation": {
+      "applied": false,
+      "from": null,
+      "to": "escalate_to_experienced_reviewer"
+    },
+    "lane": "insufficient_evidence",
+    "timing_ms": {
+      "fetch": 985,
+      "snapshot": 21,
+      "decide": 1201,
+      "decide_server": 654,
+      "total": 2207
+    },
+    "errors": [],
+    "human_outcome_ids": []
+  }
+}

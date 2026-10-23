@@ -1,0 +1,49 @@
+---
+title: Why lanes only order the queue
+description: Why every flagged changeset stays visible, nothing is closed or posted by the tool, and a person always decides.
+---
+
+*For anyone curious, and for reviewers who want to trust the queue. Explanation.*
+
+The tool never writes to OpenStreetMap. Lanes only order the queue. No case is hidden, closed or answered by the tool.
+
+## What a lane is
+
+After the tool reads a changeset, it puts the case in one of five lanes.
+
+| Lane | Plain meaning |
+| --- | --- |
+| Review suggested | Worth a look soon |
+| Insufficient evidence | The tool could not see enough to say much |
+| Needs local knowledge | Someone who knows the place should check |
+| Rules only | The model was not available, so only the fixed rules ran |
+| Looks consistent | Nothing in the evidence asks for attention |
+
+A lane is a way to sort. The queue lists review suggested first, then insufficient evidence, needs local knowledge, rules only and looks consistent. A case where the mature-deletion rule fired is listed ahead of every lane, and it keeps its own lane. See [work the queue](../../review/work-the-queue/).
+
+## Why nothing is hidden
+
+There are three reasons.
+
+- **Flagged queues are noisy.** Validators have measured between 17 and 65 percent precision on a machine-flagged queue, and have reported false positives on newcomers.
+- **A model answer is not a safety boundary.** A small model can be wrong with confidence. If its answer could remove a case from view, one wrong answer would be a missed edit.
+- **The community accepts machine flagging only with human checking.** This rests on the OpenStreetMap automated edits code of conduct and community etiquette.
+
+So even the looks-consistent lane is a list a person can open. A reviewer who has time can read all of it.
+
+## What the tool will not do
+
+- It will not close a case. A case ends when a person records an outcome. See [record and correct an outcome](../../review/record-and-correct-an-outcome/).
+- It will not post a comment. A draft is text on a screen. A person edits it, copies it and posts it on openstreetmap.org by hand. See [draft and send a comment](../../review/draft-and-send-a-comment/).
+- It will not filter a case out of sight.
+- It holds no OpenStreetMap write credential and asks for no write scope. It makes read-only requests to `api.openstreetmap.org` and `maproulette.org`. The one other call is the sign-in token exchange, which asks only for `read_prefs`. A check in the project's CI fails if any other kind of request appears.
+
+## Rules can only add caution
+
+The fixed rules read parsed numbers such as ages, counts and coverage. They never read a model answer. A model answer can move a case toward more review, and it can never move a case past a rule. For example, if a long-standing feature was deleted, the lane cannot be looks consistent whatever the model said. See [how a verdict is made](../how-a-verdict-is-made/).
+
+## What it costs
+
+Ordering is a judgement too. A case in a low lane may wait longer. The project accepts that cost on purpose, and states the benefit as reviewer attention pointed at the right place, not as work removed. The lane names avoid accusing words, and the tool shows a band and every probability so that a reviewer can see how sure the reading was.
+
+Next: [what it cannot do](../what-it-cannot-do/).

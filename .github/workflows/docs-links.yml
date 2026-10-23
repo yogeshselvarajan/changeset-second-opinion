@@ -1,0 +1,36 @@
+name: docs external links
+
+# Dead outside links, weekly. It runs on a schedule so a flaky website can never block a merge.
+# The token is only there so GitHub does not rate-limit the checker.
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress --max-concurrency 4 --accept 200,206,429
+            --exclude '^https://github.com/yogeshselvarajan/changeset-second-opinion'
+            --exclude '^http://127\.0\.0\.1' --exclude '^http://localhost'
+            'site/src/content/docs/**/*.md' 'site/src/content/docs/**/*.mdx' 'README.md'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

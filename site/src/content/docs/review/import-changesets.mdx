@@ -1,0 +1,51 @@
+---
+title: Import changesets
+description: Add a changeset by its number or link, or import a batch from a MapRoulette challenge.
+---
+
+*For reviewers. How-to.*
+
+This guide shows how to put changesets into the queue. The tool reads public OpenStreetMap data with GET requests only. It **never writes to OpenStreetMap**, and an imported case is placed in a lane like any other: **lanes only order the queue**, and nothing is hidden or posted by itself.
+
+You need to be signed in as a reviewer. Viewers see "Sign in as a reviewer to add changesets". On a server in live mode, the worker (`uv run cso worker`) also needs to be running, because each new case queues an analysis that the worker carries out.
+
+## Add one changeset
+
+1. On the queue, choose **Add changeset**. You can also open the command menu with `Ctrl` and `K` and choose **Add changeset**.
+2. Enter a changeset number, or a link such as `https://www.openstreetmap.org/changeset/123`. The link is read for its number only. It is never opened.
+3. Choose **Add to queue**.
+
+The tool says "Added changeset" followed by the number, and that its analysis is queued. Choose **Open case** to go to it. If the changeset is already in the queue, the tool says so and does not add it twice.
+
+In replay mode the tool serves only the saved demo changesets and does not call OpenStreetMap. A number that is not in the demo set is still added to the queue, but its analysis fails with the code `osm_not_found` and is not retried.
+
+## Import from a MapRoulette challenge
+
+A MapRoulette challenge is a list of tasks, and each task can point to a changeset. The import reads that list, and it works in live mode only.
+
+1. On the queue, choose **Import from MapRoulette**, or choose it from the command menu.
+2. Enter the **Challenge id**, which is the challenge's number on MapRoulette.
+3. Enter **How many to import**, from 1 to 100.
+4. Choose **Import**.
+
+The tool reports "Imported N new and found M already in the queue". Each id is handled once, so running the same import again does not make duplicates.
+
+## What can go wrong
+
+- **"Enter a changeset number, or a link such as …".** The text was not a number or an openstreetmap.org changeset link.
+- **"The daily analysis limit has been reached. Try again after midnight UTC."** The server caps how many analyses it queues each day. Wait until the next UTC day.
+- **"Importing from a challenge is only available in live mode."** The server is in replay mode. See [replay and live](../../self-host/replay-and-live/).
+- **"MapRoulette could not be reached. Try again later."** The tool could not read the challenge list. Nothing was queued from it.
+- **"Enter a challenge number and a count between 1 and 100."** One of the two fields is empty or out of range.
+
+## For scripts
+
+The same actions are available from the API. `POST /api/v1/cases` takes a `changeset_id`. `POST /api/v1/cases/import` takes a `source` of `maproulette` or `osmcha`, and either a list of `ids` or a `challenge_id`, with a `limit` of up to 100. Both need a reviewer session. The interface offers only the MapRoulette import.
+
+With the `osmcha` source, send `ids` only. A `challenge_id` with that source is refused as an invalid parameter. The source value is recorded with each case, and the interface does not offer it.
+
+## Check that it worked
+
+The new cases appear in the queue, and the lane counts in the side bar change as their analyses finish. A case that is still being analyzed shows the status **Queued** or **Analyzing**. Open one and you see the step the analysis is on, such as "fetching evidence" or "reading the evidence with the model".
+
+Next, read a new case with [read the evidence](../read-the-evidence/).

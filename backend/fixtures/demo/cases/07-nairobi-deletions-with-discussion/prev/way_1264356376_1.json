@@ -1,0 +1,34 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1264356376,
+      "timestamp": "2024-03-19T23:37:27Z",
+      "version": 1,
+      "changeset": 148886698,
+      "user": "mapper_L",
+      "uid": 900000012,
+      "nodes": [
+        11739755344,
+        11739755345,
+        11739755346,
+        11746878312,
+        11746878311,
+        11746878310,
+        11746878309,
+        11746878308,
+        11746878307
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway",
+        "surface": "concrete"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: Set up the web app and docs site
+description: Node 22 with the npm cache for web/ and site/, then `npm ci` in the folders asked for.
+
+inputs:
+  web:
+    description: Install web/ dependencies ("true" or "false").
+    default: "true"
+  site:
+    description: Install site/ dependencies ("true" or "false").
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version: 22
+        cache: npm
+        cache-dependency-path: |
+          web/package-lock.json
+          site/package-lock.json
+    - if: inputs.web == 'true'
+      shell: bash
+      working-directory: web
+      run: npm ci --no-audit --no-fund
+    - if: inputs.site == 'true'
+      shell: bash
+      working-directory: site
+      run: npm ci --no-audit --no-fund

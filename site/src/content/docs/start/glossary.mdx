@@ -1,0 +1,64 @@
+---
+title: Glossary
+description: The terms used in the tool and on this site, in alphabetical order.
+---
+
+*For everyone. Reference.*
+
+Terms are in alphabetical order. A term in italics inside a definition has its own entry.
+
+## Band
+
+A label for how decisive the model's answers were: **Model is confident**, **Model is unsure**, **Model cannot tell**, or **No model reading** when there is no model output. The backend assigns it from the *fact panel*: the more questions that read unknown, the lower the band. A band shows how clear the readings were. It does not show how likely an edit is to be harmful, and the tool never shows a single percentage for that. See [how a verdict is made](../../concepts/how-a-verdict-is-made/).
+
+## Changeset
+
+A group of edits that one mapper uploads to OpenStreetMap together, with a comment, an editor name and a bounding box. A changeset has a number. The tool reviews one changeset per case.
+
+## Community pack
+
+A file that holds the settings a community may want to change: the response options, the cut points for readings and bands, the rule parameters and the tone of drafts. Packs live in `config/communities/`. An admin switches the active pack on the Config page, after the page shows every setting that would change. Runs that were already made keep the pack they used. See [tune to your community](../../administer/tune-to-your-community/) and [community pack schema](../../reference/community-pack-schema/).
+
+## Decider
+
+The small model that answers the ten questions. It is the Strands Decider 2B, served on `127.0.0.1` only. It reads a compact text version of the evidence and returns a probability for each question. It does not write comments. See [run the Decider](../../self-host/run-the-decider/).
+
+## Evidence strip
+
+A short strip at the top of a case that shows tag changes as they were before and after, one line per change. On the queue, an example strip is shown while the queue is empty, and it is marked as a sample. Text in the strip comes from OpenStreetMap, is shown as plain text and is never turned into a link.
+
+## Flag
+
+A reason, raised before the tool sees a changeset, that the changeset deserves a look. Examples in the queue are `mass deletion` and `New mapper`. Rule codes such as `R1` and `R3` appear beside them. A flag is a reason to look. It is not a finding.
+
+## Invite code
+
+A code that an admin creates so that a person can sign in without an OpenStreetMap account. It has a role (reviewer or admin) and can have an expiry time and a limit on uses. The code is shown once when it is made and is stored only as a hash, so it cannot be shown again. An admin can revoke a code, and people who signed in with it are signed out. See [invite and remove reviewers](../../administer/invite-and-remove-reviewers/).
+
+## Lane
+
+A group in the queue: **Looks consistent**, **Review suggested**, **Needs local knowledge**, **Insufficient evidence** and **Rules only**. A lane orders the queue. It does not hide a case, close a case or post anything. Every lane is visible and counted. See [why lanes only order the queue](../../concepts/why-lanes-only-order-the-queue/).
+
+## Live mode
+
+The mode in which the tool reads real changesets from OpenStreetMap (GET requests only) and can use the Decider and Amazon Bedrock. It needs a real `CSO_USER_AGENT` with a contact address, and the app refuses to start while placeholder values are still set. See [replay and live](../../self-host/replay-and-live/).
+
+## Outcome
+
+A reviewer's recorded decision on a case: Agreed, Different response, Needs survey, Disagreed with the model, or No action. An outcome can carry a note and, for a disagreement, the facts that were read wrongly. Outcomes are never edited or deleted. A correction is a new outcome, and the latest one is the current decision. See [record and correct an outcome](../../review/record-and-correct-an-outcome/).
+
+## Reading
+
+One answer to one question. A reading has a probability and a state: **no** (below the low cut point), **yes** (above the high cut point) or **unknown** (in between). Unknown is the cautious reading: it withholds reassurance. A reading is shown with the probability the model gave to yes, and the remainder went to no. See [read the evidence](../../review/read-the-evidence/).
+
+## Receipt
+
+The audit record of one analysis, with its own public page at `/r/<run id>`. It shows each reading, the rules that fired, the coverage, the lane, the band and the configuration version. It carries no reviewer name, no draft, no outcome and no evidence text. See [read a receipt](../../review/read-a-receipt/) and [receipt schema](../../reference/receipt-schema/).
+
+## Replay mode
+
+The default mode. The tool serves saved changesets and never calls OpenStreetMap, the Decider or Amazon Bedrock. Drafts come from an offline template. The demo runs in replay mode. See [quickstart](../quickstart/).
+
+## Workspace
+
+The named space that an admin looks after: its name, tagline, accent colour, logo, access and invite codes. A server holds one workspace. A fresh workspace has no admin until the account named in the server settings claims it, or until someone signs in with an admin invite code. See [first admin](../../administer/first-admin/).

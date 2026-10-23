@@ -1,0 +1,29 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 25341987,
+      "timestamp": "2018-01-10T19:13:09Z",
+      "version": 4,
+      "changeset": 55331495,
+      "user": "mapper_I",
+      "uid": 900000009,
+      "nodes": [
+        276137376,
+        276137377,
+        276137378,
+        276136816
+      ],
+      "tags": {
+        "highway": "unclassified",
+        "name": "Nakuru Street",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

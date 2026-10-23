@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="synthetic fixture (CC0)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <modify>
+  <way id="900000050001" visible="true" version="3" changeset="900000000005" timestamp="2026-05-03T11:03:00Z" user="mapper_F" uid="900000006">
+   <nd ref="900000051001"/>
+   <nd ref="900000051002"/>
+   <nd ref="900000051003"/>
+   <tag k="leisure" v="park"/>
+   <tag k="name" v="Meadow Gardens"/>
+   <tag k="source" v="survey"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000050002" visible="true" version="2" changeset="900000000005" timestamp="2026-05-03T11:03:00Z" user="mapper_F" uid="900000006">
+   <nd ref="900000051004"/>
+   <nd ref="900000051005"/>
+   <tag k="highway" v="footway"/>
+   <tag k="name" v="Meadow Gardens Path"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="900000050003" visible="true" version="2" changeset="900000000005" timestamp="2026-05-03T11:03:00Z" user="mapper_F" uid="900000006" lat="48.2100000" lon="16.3600000">
+   <tag k="barrier" v="gate"/>
+   <tag k="name" v="Meadow Gardens Gate"/>
+  </node>
+ </modify>
+</osmChange>

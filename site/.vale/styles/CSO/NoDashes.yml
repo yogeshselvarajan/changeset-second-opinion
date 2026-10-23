@@ -1,0 +1,7 @@
+extends: existence
+message: "Do not use an em dash or an en dash. Use a comma, a colon, parentheses or a new sentence."
+level: error
+scope: raw
+nonword: true
+tokens:
+  - "[\\x{2013}\\x{2014}]"

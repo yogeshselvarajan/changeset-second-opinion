@@ -1,0 +1,73 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 10371558,
+      "timestamp": "2026-06-28T13:26:10Z",
+      "version": 5,
+      "changeset": 184742356,
+      "user": "mapper_G",
+      "uid": 900000007,
+      "members": [
+        {
+          "type": "way",
+          "ref": 1299918268,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623933,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623920,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623919,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623897,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623905,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623908,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1533223622,
+          "role": "outer"
+        },
+        {
+          "type": "node",
+          "ref": 566534670,
+          "role": "admin_centre"
+        }
+      ],
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Singur",
+        "ref:LGD:subdistrict": "2349",
+        "type": "boundary",
+        "wikidata": "Q7524284"
+      }
+    }
+  ]
+}

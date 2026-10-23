@@ -1,0 +1,7 @@
+# Local machine: plain HTTP on http://127.0.0.1:8080 (CSO_SITE_ADDRESS stays ":80"). It replaces the
+# base file's public 443 mapping, so nothing is exposed beyond this machine. Change the host port with
+# CSO_LOCAL_PORT.
+services:
+  stack:
+    ports: !override
+      - "127.0.0.1:${CSO_LOCAL_PORT:-8080}:80"

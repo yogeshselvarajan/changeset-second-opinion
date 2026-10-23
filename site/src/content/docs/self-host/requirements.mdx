@@ -1,0 +1,72 @@
+---
+title: Requirements and sizing
+description: The software, hardware, disk and network ports needed to run Changeset Second Opinion.
+---
+
+*For operators who self-host. Reference.*
+
+## Software
+
+| Item | Needed for | Version or note |
+| --- | --- | --- |
+| Python | Backend, worker, command line | 3.13 (`requires-python` is `>=3.13,<3.14`) |
+| uv | Installing the backend with `uv sync --frozen` | Any recent release |
+| Node and npm | The web app (`npm ci`, `npm run dev`, `npm run build`) | A recent Node. The web image builds on Node 22. |
+| Docker with Compose v2 | The compose stack | `docker compose` |
+| NVIDIA container toolkit | The GPU Decider profile | Needed on the host for `docker-compose.gpu.yml` |
+| `strands-decider` | A Decider server outside Docker | Version 0.1.0, installed with `pip install strands-decider==0.1.0` |
+
+Replay mode needs only Python, uv and Node. It makes no network call to OpenStreetMap, the Decider or Amazon Bedrock, and needs no GPU or AWS account.
+
+## Hardware
+
+| Setup | What it runs on |
+| --- | --- |
+| Replay mode | Any machine that runs Python and Node. |
+| Decider on GPU | An NVIDIA GPU. The AWS template uses a `g6.xlarge` (4 vCPU) and also allows `g5.xlarge`. |
+| Decider on CPU | A CPU only host. The AWS template allows a `c7i.2xlarge` (8 vCPU). The CPU compose file estimates 2 to 30 seconds per request, so use it for background analysis only. |
+
+The README says CPU latency has not been measured.
+
+**Memory minimums have not been measured.** No test in the repository records the RAM the CPU Decider uses or the GPU memory the 2B model needs, so this page gives no minimum. What is known:
+
+- The model weights are about 5 GB on disk, and the Decider loads them into memory when it starts. Plan for at least that much free memory, plus room for the API and the operating system.
+- The AWS GPU host, a `g6.xlarge`, has one NVIDIA L4 with 24 GB of GPU memory and 16 GiB of host memory. The CPU host, a `c7i.2xlarge`, has 16 GiB of memory. The Decider has run on the GPU host; the CPU host has not been timed.
+- The AWS template raises an alarm when GPU memory use passes 90 percent, because the Decider may no longer answer at that point. Watch that figure on your own hardware.
+
+If you measure a smaller setup, please report it in an issue.
+
+## Disk
+
+| What | Size |
+| --- | --- |
+| Decider model weights, downloaded on first run | About 5 GB (the README says about 4.5 GB) |
+| Root volume on the AWS host | 100 GiB by default. The base image snapshot is 75 GiB. |
+| Database | One SQLite file. Its size grows with the number of cases. |
+
+The compose stack keeps the database in the `cso-data` volume and the model cache in the `hf-cache` volume.
+
+## Ports
+
+| Port | Used by | Reachable from |
+| --- | --- | --- |
+| 443 | Caddy, the only published port on the AWS host | The internet |
+| 8080 | Caddy on a local machine, with `docker-compose.local.yml`, mapped to port 80 inside the stack | `127.0.0.1` only |
+| 8000 | The API (`cso api` binds `127.0.0.1` by default) | Loopback only |
+| 8099 | The Decider server | Loopback only. It has no `ports:` entry in compose. |
+| 5173 | The web dev server (`npm run dev`) | Your machine |
+| 22 | Not used. There is no SSH and no key pair. | None |
+
+The Decider server and the API listen on `127.0.0.1` only. Do not publish port 8000 or 8099.
+
+## Outbound network
+
+| To | Why |
+| --- | --- |
+| `api.openstreetmap.org` | Reading changesets. GET only. |
+| `maproulette.org` | Importing tasks. GET only. |
+| `www.openstreetmap.org` | One POST to the token endpoint, for sign-in |
+| Amazon Bedrock in your region | Drafts, in live mode with the gate on |
+| `tiles.openfreemap.org` | The browser loads map tiles for the optional case map |
+
+Next: [Install with Docker Compose](../docker-compose/).

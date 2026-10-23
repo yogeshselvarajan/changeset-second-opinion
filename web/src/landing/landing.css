@@ -1,0 +1,1044 @@
+/* The public pages: home, about, privacy, and the sign-in panel.
+   Everything reads the tokens in ../tokens.css, so light, dark and the workspace accent all apply.
+   Motion is CSS first; the block at the end switches all of it off for visitors who ask. */
+
+/* ------------------------------------------------------------------ type and controls */
+
+/* .display, .eyebrow and the .btn family live in ../tokens.css, shared with the app screens. */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  font-size: 13px;
+  color: var(--color-ink-2);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  animation: ping 2.4s ease-out infinite;
+}
+
+.hl {
+  position: relative;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.hl::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.06em;
+  height: 0.09em;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.35;
+  transform-origin: left;
+  animation: underline 900ms 700ms var(--ease-enter) both;
+}
+
+/* ------------------------------------------------------------------ frame */
+
+.pub-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-canvas) 80%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease;
+}
+
+.pub-nav[data-scrolled="true"] {
+  border-bottom-color: var(--color-line);
+}
+
+.pub-link {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--color-ink-2);
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.pub-link:hover {
+  color: var(--color-ink);
+  background: var(--color-surface-2);
+}
+
+/* The backdrop is a street map, not decoration: a repeating tile of streets, two avenues, building
+   blocks and one dashed box, the box a reviewer is asked to look at. It is a mask, so it takes the
+   ink colour of the theme (light, dark and the workspace accent) and costs one small inline image. */
+:root {
+  --map-tile: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'><g fill='none' stroke='black' stroke-linecap='round'><path d='M0 46H360M0 132H360M0 226H360M0 314H360M62 0V360M154 0V360M256 0V360M330 0V360' stroke-width='1.6'/><path d='M0 250C90 196 190 304 360 250' stroke-width='5' opacity='.8'/><path d='M200 0C176 90 224 160 196 260S210 330 200 360' stroke-width='3.5' opacity='.7'/><rect x='170' y='58' width='72' height='52' rx='8' stroke-dasharray='6 5' stroke-width='1.8'/></g><g fill='black' opacity='.5'><rect x='72' y='56' width='34' height='22' rx='2'/><rect x='112' y='58' width='30' height='20' rx='2'/><rect x='70' y='92' width='44' height='26' rx='2'/><rect x='120' y='94' width='26' height='28' rx='2'/><rect x='266' y='52' width='50' height='30' rx='2'/><rect x='268' y='92' width='32' height='26' rx='2'/><rect x='30' y='142' width='26' height='34' rx='2'/><rect x='70' y='150' width='60' height='32' rx='2'/><rect x='108' y='190' width='40' height='26' rx='2'/><rect x='266' y='148' width='48' height='34' rx='2'/><rect x='270' y='186' width='34' height='28' rx='2'/><rect x='22' y='262' width='36' height='32' rx='2'/><rect x='80' y='262' width='50' height='34' rx='2'/><rect x='270' y='268' width='44' height='38' rx='2'/><rect x='158' y='328' width='30' height='24' rx='2'/></g></svg>");
+}
+
+/* Behind the hero, the closing band, the About page and the sign-in panel: strongest at the top
+   right, fading out. */
+.contours {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* A gradient, not a flat colour: the contrast checker reads a flat translucent layer as a grey
+     slab under the text and ignores the mask, but treats an image as "cannot tell". */
+  background-image: linear-gradient(var(--color-ink), var(--color-ink));
+  opacity: 0.075;
+  -webkit-mask-image:
+    var(--map-tile),
+    radial-gradient(ellipse 70% 80% at 80% 15%, #000 0%, rgb(0 0 0 / 0.5) 45%, transparent 85%);
+  mask-image:
+    var(--map-tile),
+    radial-gradient(ellipse 70% 80% at 80% 15%, #000 0%, rgb(0 0 0 / 0.5) 45%, transparent 85%);
+  -webkit-mask-size:
+    360px 360px,
+    100% 100%;
+  mask-size:
+    360px 360px,
+    100% 100%;
+  -webkit-mask-repeat: repeat, no-repeat;
+  mask-repeat: repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* The same map, much fainter, behind every public page. It sits under the content, never over it. */
+.public-root {
+  isolation: isolate;
+}
+
+.page-map {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(var(--color-ink), var(--color-ink));
+  opacity: 0.032;
+  -webkit-mask-image: var(--map-tile);
+  mask-image: var(--map-tile);
+  -webkit-mask-size: 360px 360px;
+  mask-size: 360px 360px;
+}
+
+/* ------------------------------------------------------------------ reveal and cards */
+
+.reveal {
+  transition:
+    opacity 700ms var(--ease-enter) var(--reveal-delay, 0ms),
+    transform 700ms var(--ease-enter) var(--reveal-delay, 0ms);
+}
+
+.reveal[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+}
+
+.card {
+  position: relative;
+  border-radius: 22px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.spotlight {
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 200ms ease,
+    transform 260ms var(--ease-standard);
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--color-accent) 14%, transparent),
+    transparent 70%
+  );
+  transition: opacity 260ms ease;
+}
+
+.spotlight:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
+  transform: translateY(-3px);
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------ marquee */
+
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 48px;
+  animation: marquee 46s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.marquee-item::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  opacity: 0.55;
+}
+
+/* ------------------------------------------------------------------ the living map */
+
+.living-map {
+  margin: 0;
+  container-type: inline-size;
+  container-name: lm;
+}
+
+.lm-stage {
+  position: relative;
+  aspect-ratio: 960 / 640;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--color-line);
+  background: var(--map-land);
+  isolation: isolate;
+}
+
+.living-map[data-variant="compact"] .lm-stage {
+  border-radius: 20px;
+}
+
+.lm-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.lm-land {
+  fill: var(--map-land);
+}
+
+.lm-depth-1 {
+  translate: calc(var(--px, 0) * 5px) calc(var(--py, 0) * 4px);
+}
+
+.lm-depth-2 {
+  translate: calc(var(--px, 0) * 11px) calc(var(--py, 0) * 8px);
+}
+
+.lm-building {
+  fill: var(--map-building);
+  stroke: var(--map-building-line);
+  stroke-width: 1;
+}
+
+.lm-blocks {
+  animation: fade 900ms ease both;
+}
+
+.lm-street {
+  fill: none;
+  stroke: var(--map-road);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.lm-park {
+  fill: var(--map-park);
+  animation: fade 900ms ease both;
+}
+
+.lm-river-bed {
+  fill: none;
+  stroke: var(--map-water-line);
+  stroke-width: 54;
+  stroke-linecap: round;
+  animation: fade 900ms 200ms ease both;
+}
+
+.lm-river {
+  fill: none;
+  stroke: var(--map-water);
+  stroke-width: 46;
+  stroke-linecap: round;
+}
+
+.lm-avenue-casing {
+  fill: none;
+  stroke: var(--map-road-casing);
+  stroke-width: 20;
+  animation: fade 700ms 300ms ease both;
+}
+
+.lm-avenue {
+  fill: none;
+  stroke: var(--map-road);
+  stroke-width: 15;
+  stroke-linecap: round;
+}
+
+.lm-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.4s cubic-bezier(0.3, 0.6, 0.2, 1) forwards;
+}
+
+.lm-flag-wash {
+  fill: var(--map-flag);
+  opacity: 0;
+  animation:
+    fade-to 700ms 1.2s ease forwards,
+    pulse 3.2s 2s ease-in-out infinite;
+  --to: 0.09;
+}
+
+.lm-flag {
+  fill: none;
+  stroke: var(--map-flag);
+  stroke-width: 2.5;
+  stroke-dasharray: 10 7;
+  opacity: 0;
+  animation:
+    fade 600ms 1.2s ease forwards,
+    march 1.4s linear infinite;
+}
+
+.lm-edit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop 560ms cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+
+.lm-edit-added {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+  stroke-width: 1;
+}
+
+.lm-edit-changed {
+  fill: color-mix(in srgb, var(--map-flag) 28%, transparent);
+  stroke: var(--map-flag);
+  stroke-width: 2;
+}
+
+.lm-edit-deleted {
+  fill: color-mix(in srgb, var(--map-flag) 12%, transparent);
+  stroke: var(--map-flag);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+.lm-leader {
+  fill: none;
+  stroke: var(--map-ink);
+  stroke-width: 1.5;
+  opacity: 0.55;
+}
+
+.lm-pin {
+  fill: var(--color-accent);
+  stroke: var(--map-card);
+  stroke-width: 2.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop 480ms cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+
+.lm-callouts {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.lm-callout {
+  position: absolute;
+  box-sizing: border-box;
+  width: 29%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35cqw;
+  padding: 1.3cqw 1.7cqw;
+  border-radius: 1.7cqw;
+  border: 1px solid var(--color-line);
+  background: var(--map-card);
+  color: var(--map-ink);
+  font-size: clamp(12px, 1.6cqw, 16px);
+  line-height: 1.25;
+  box-shadow: 0 0.8cqw 2.6cqw rgb(20 20 30 / 0.12);
+  opacity: 0;
+  translate: calc(var(--px, 0) * -0.9cqw) calc(var(--py, 0) * -0.7cqw);
+  animation: card 700ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.lm-callout-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+
+.lm-callout[data-tone="flag"] .lm-callout-tag {
+  /* The warm marker colour, deepened so the small caps still read at 4.5 to 1 on the card. */
+  color: color-mix(in srgb, var(--map-flag) 68%, var(--map-ink));
+}
+
+.lm-callout[data-tone="ok"] .lm-callout-tag {
+  color: var(--color-accent);
+}
+
+.lm-callout-title {
+  font-family: var(--font-display);
+  font-size: 1.22em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.lm-callout-detail {
+  color: var(--color-ink-2);
+}
+
+/* A narrow picture keeps two cards and drops the leader lines. */
+@container lm (max-width: 560px) {
+  .lm-callout {
+    width: 46%;
+  }
+  .lm-callout:nth-child(n + 3),
+  .lm-leader {
+    display: none;
+  }
+  .lm-callout:nth-child(2) {
+    left: 51% !important;
+    top: 4% !important;
+  }
+}
+
+/* ------------------------------------------------------------------ vignettes */
+
+.vig {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.vig-float {
+  animation: float 6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.vig-float-2 {
+  animation-delay: -2s;
+}
+
+.vig-float-3 {
+  animation-delay: -4s;
+}
+
+.vig-dot {
+  animation: dot-on 420ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  animation-delay: calc(var(--i, 0) * 120ms + 300ms);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.reveal[data-reveal="hidden"] .vig-dot {
+  animation-play-state: paused;
+}
+
+.vig-caret {
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+/* ------------------------------------------------------------------ keyframes */
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-to {
+  to {
+    opacity: var(--to, 1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.06;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes march {
+  to {
+    stroke-dashoffset: -34;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes card {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 24px));
+  }
+}
+
+@keyframes underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes dot-on {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ pinned story (wide screens) */
+
+.story {
+  display: none;
+  margin-bottom: 4rem;
+}
+
+.story.is-on {
+  display: block;
+}
+
+.story-stage {
+  position: relative;
+  margin-inline: auto;
+  aspect-ratio: 960 / 600;
+  width: min(100%, calc((100vh - 120px) * 1.6));
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--color-line);
+  background: var(--map-land);
+  isolation: isolate;
+}
+
+.story-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.story .st-static {
+  animation: none;
+}
+
+.st-bbox {
+  fill: color-mix(in srgb, var(--map-flag) 9%, transparent);
+  stroke: var(--map-flag);
+  stroke-width: 2.5;
+  stroke-dasharray: 10 7;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.st-edit {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.st-card {
+  fill: var(--map-card);
+  stroke: var(--color-line);
+  stroke-width: 1;
+}
+
+.st-ringbox {
+  opacity: 0.94;
+}
+
+.st-key {
+  fill: var(--color-accent);
+}
+
+.st-bar {
+  fill: var(--map-ink);
+  opacity: 0.55;
+}
+
+.st-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--color-ink-2);
+}
+
+.st-value {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  fill: var(--map-ink);
+}
+
+.st-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--map-ink);
+}
+
+.st-track {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 6;
+}
+
+.st-fill {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.st-ring[data-state="no"] .st-fill {
+  stroke: color-mix(in srgb, var(--color-ink-2) 75%, transparent);
+}
+
+.st-ring[data-state="unknown"] .st-fill {
+  stroke: color-mix(in srgb, var(--color-ink-2) 55%, transparent);
+}
+
+html[data-motion="gsap"] .path-dot[data-human="true"]:not(.is-reached) {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+}
+
+.st-mapper {
+  fill: var(--color-accent);
+  stroke: var(--map-card);
+  stroke-width: 3;
+}
+
+.story-scenes {
+  position: absolute;
+  top: 5%;
+  left: 3.5%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 32%;
+}
+
+.story-scene {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  background: var(--map-card);
+  color: var(--map-ink);
+  box-shadow: 0 10px 30px rgb(20 20 30 / 0.12);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.story-scene strong {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.story-scene:not(:first-child) {
+  opacity: 0;
+}
+
+.story-foot {
+  margin: 0.8rem auto 0;
+  max-width: 70ch;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-ink-2);
+}
+
+/* ------------------------------------------------------------------ motion switches */
+
+/* When the motion module owns the page it also owns reveals, the bars and the path line. */
+html[data-motion="gsap"] .reveal,
+html[data-motion="gsap"] .reveal[data-reveal] {
+  transition: none !important;
+}
+
+html[data-motion="gsap"] .reveal[data-reveal="hidden"],
+html[data-motion="gsap"] .reveal[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+}
+
+html[data-motion="gsap"] .flow-bar {
+  transition: none;
+}
+
+html[data-motion="gsap"] .path-step::after {
+  display: none;
+}
+
+.path-line {
+  display: none;
+}
+
+html[data-motion="gsap"] .path-line {
+  display: block;
+}
+
+@media (max-width: 1023px) {
+  html[data-motion="gsap"] .path-line {
+    display: none;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 700ms var(--ease-enter) both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.mark-bars rect {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+
+.terminal {
+  margin: 0;
+  padding: 1.1rem 1.3rem;
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-ink);
+  white-space: pre-wrap;
+  min-height: 7.6em;
+}
+
+.diff-arrow path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.motion-switch {
+  cursor: pointer;
+  min-height: 2rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-control-border);
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 0.875rem;
+}
+
+.motion-switch:hover {
+  background: var(--color-surface-2);
+}
+
+/* The switch in the footer does what the system setting does, for this site only. */
+html[data-less-motion="true"] *,
+html[data-less-motion="true"] *::before,
+html[data-less-motion="true"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-less-motion="true"] .marquee-track {
+  animation: none !important;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+html[data-less-motion="true"] .marquee-item[aria-hidden="true"] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ decision model flow */
+
+.flow-orb {
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      color-mix(in srgb, var(--color-accent) 16%, transparent),
+      transparent 62%
+    ),
+    var(--color-surface-2);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-accent) 7%, transparent);
+}
+
+.flow-orb::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--color-accent) 45%, transparent);
+  animation: flow-spin 38s linear infinite;
+}
+
+@keyframes flow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.flow-bar {
+  background: var(--color-accent);
+  transform-origin: left center;
+  transition: transform 900ms var(--ease-enter) 150ms;
+}
+
+.flow-bar[data-state="no"] {
+  background: color-mix(in srgb, var(--color-ink-2) 70%, transparent);
+}
+
+.flow-bar[data-state="unknown"] {
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-ink-2) 55%, transparent) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+html:not([data-motion="gsap"]) .reveal[data-reveal="hidden"] .flow-bar {
+  transform: scaleX(0);
+}
+
+html:not([data-motion="gsap"]) .reveal[data-reveal="shown"] .flow-bar {
+  transform: scaleX(1);
+}
+
+.flow-chip {
+  transition:
+    border-color 200ms ease,
+    transform 220ms var(--ease-standard);
+}
+
+.flow-chip:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
+  transform: translateX(4px);
+}
+
+.path-step {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .path-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 1.35rem;
+    left: calc(50% + 1.9rem);
+    right: calc(-50% + 1.9rem);
+    border-top: 2px dashed var(--color-line);
+  }
+}
+
+/* ------------------------------------------------------------------ reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .flow-orb::after {
+    animation: none;
+  }
+
+  .flow-bar,
+  .flow-chip {
+    transition: none;
+  }
+
+  .reveal,
+  .btn,
+  .btn .arrow,
+  .spotlight,
+  .pub-nav {
+    transition: none;
+  }
+
+  .marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    gap: 14px 32px;
+  }
+
+  .marquee-item[aria-hidden="true"] {
+    display: none;
+  }
+
+  .badge-dot,
+  .hl::after,
+  .lm-blocks,
+  .lm-park,
+  .lm-river-bed,
+  .lm-avenue-casing,
+  .lm-edit,
+  .lm-pin,
+  .lm-flag,
+  .lm-flag-wash,
+  .lm-draw,
+  .lm-callout,
+  .vig-float,
+  .vig-dot,
+  .vig-caret {
+    animation: none;
+  }
+
+  .lm-draw {
+    stroke-dashoffset: 0;
+  }
+
+  .lm-flag,
+  .lm-callout {
+    opacity: 1;
+  }
+
+  .lm-flag-wash {
+    opacity: 0.09;
+  }
+
+  .lm-depth-1,
+  .lm-depth-2,
+  .lm-callout {
+    translate: none;
+  }
+}

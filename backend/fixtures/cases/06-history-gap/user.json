@@ -1,0 +1,29 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "user": {
+    "id": 900000010,
+    "display_name": "mapper_I",
+    "account_created": "2024-06-01T09:00:00Z",
+    "description": "",
+    "contributor_terms": {
+      "agreed": true
+    },
+    "roles": [],
+    "changesets": {
+      "count": 300
+    },
+    "traces": {
+      "count": 0
+    },
+    "blocks": {
+      "received": {
+        "count": 0,
+        "active": 0
+      }
+    }
+  }
+}

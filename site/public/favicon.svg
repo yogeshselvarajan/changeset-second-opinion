@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <style>
+    .bar { fill: #1B1A17; }
+    .key { fill: #4E5BD8; }
+    @media (prefers-color-scheme: dark) {
+      .bar { fill: #ECEAE4; }
+      .key { fill: #8E98F2; }
+    }
+  </style>
+  <rect class="key" x="4" y="6"  width="12" height="5" rx="2.5"/>
+  <rect class="bar" x="4" y="14" width="24" height="5" rx="2.5"/>
+  <rect class="bar" x="4" y="22" width="18" height="5" rx="2.5"/>
+</svg>

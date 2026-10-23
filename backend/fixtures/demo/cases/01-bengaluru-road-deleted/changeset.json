@@ -1,0 +1,34 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 190728589,
+    "created_at": "2026-10-19T07:38:28Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 1,
+    "created_count": 0,
+    "modified_count": 0,
+    "deleted_count": 1,
+    "closed_at": "2026-10-19T07:38:30Z",
+    "min_lat": 12.945645,
+    "min_lon": 77.7471687,
+    "max_lat": 12.9456578,
+    "max_lon": 77.747222,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "27394",
+      "comment": "Deleted road (12.945765, 77.747122) as per the source.",
+      "created_by": "iD 2.42.2",
+      "hashtags": "#ola;#2xrdv",
+      "host": "[url removed]",
+      "imagery_used": "Esri World Imagery",
+      "locale": "en-US"
+    },
+    "comments": []
+  }
+}

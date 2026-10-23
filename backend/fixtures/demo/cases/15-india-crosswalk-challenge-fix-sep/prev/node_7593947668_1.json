@@ -1,0 +1,20 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 7593947668,
+      "lat": 8.8962215,
+      "lon": 76.5896322,
+      "timestamp": "2020-06-05T03:34:35Z",
+      "version": 1,
+      "changeset": 86216812,
+      "user": "mapper_D",
+      "uid": 900000004
+    }
+  ]
+}

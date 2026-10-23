@@ -1,0 +1,64 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 900000000005,
+    "created_at": "2026-05-03T11:00:00Z",
+    "open": false,
+    "comments_count": 4,
+    "changes_count": 3,
+    "created_count": 0,
+    "modified_count": 3,
+    "deleted_count": 0,
+    "closed_at": "2026-05-03T11:08:00Z",
+    "min_lat": 48.209,
+    "min_lon": 16.359,
+    "max_lat": 48.211,
+    "max_lon": 16.361,
+    "uid": 900000006,
+    "user": "mapper_F",
+    "tags": {
+      "comment": "Update park name after on-site survey",
+      "created_by": "iD 2.30.0",
+      "source": "survey",
+      "locale": "en-US"
+    },
+    "comments": [
+      {
+        "id": 900000000951,
+        "visible": true,
+        "date": "2026-05-03T18:00:00Z",
+        "uid": 900000007,
+        "user": "mapper_G",
+        "text": "The sign at the main entrance still reads North Meadow. What is the basis for renaming the park?"
+      },
+      {
+        "id": 900000000952,
+        "visible": true,
+        "date": "2026-05-03T19:10:00Z",
+        "uid": 900000006,
+        "user": "mapper_F",
+        "text": "I surveyed on site last Sunday. The council replaced the signs and the new name is Meadow Gardens."
+      },
+      {
+        "id": 900000000953,
+        "visible": true,
+        "date": "2026-05-04T08:20:00Z",
+        "uid": 900000007,
+        "user": "mapper_G",
+        "text": "I walked past on Friday and the old sign was still up. It could be a temporary notice."
+      },
+      {
+        "id": 900000000954,
+        "visible": true,
+        "date": "2026-05-04T09:45:00Z",
+        "uid": 900000006,
+        "user": "mapper_F",
+        "text": "My photos from the visit show the new sign. I can add the survey date as a source tag."
+      }
+    ]
+  }
+}

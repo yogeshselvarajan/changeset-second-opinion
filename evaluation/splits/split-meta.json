@@ -1,0 +1,7 @@
+{
+  "seed": "cso-eval-split-v1",
+  "dev": 60,
+  "heldout": 102,
+  "reserve": 0,
+  "heldout_sha256": "67295a9e8711a7464c6388c403776f55cdf35e04e27fe1ad60d2d291f8d8238b"
+}

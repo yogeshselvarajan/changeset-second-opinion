@@ -1,0 +1,38 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 45056756,
+      "timestamp": "2026-10-19T15:56:36Z",
+      "version": 8,
+      "changeset": 190750593,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "nodes": [
+        571349274,
+        4695592969,
+        4695595764,
+        9064294055,
+        14300063614,
+        4695595824,
+        9064294068,
+        4695595700,
+        9064294085,
+        9064294076,
+        4695595538,
+        571349275
+      ],
+      "tags": {
+        "aeroway": "runway",
+        "name": "10R/28L",
+        "ref": "10R/28L",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

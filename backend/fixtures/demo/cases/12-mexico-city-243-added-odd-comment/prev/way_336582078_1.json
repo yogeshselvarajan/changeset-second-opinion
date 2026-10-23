@@ -1,0 +1,30 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 336582078,
+      "timestamp": "2015-04-03T23:09:59Z",
+      "version": 1,
+      "changeset": 29963022,
+      "user": "mapper_F",
+      "uid": 900000006,
+      "nodes": [
+        679493784,
+        679495620,
+        679493782,
+        679495031,
+        679495023
+      ],
+      "tags": {
+        "highway": "residential",
+        "name": "Tabasco Pte",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

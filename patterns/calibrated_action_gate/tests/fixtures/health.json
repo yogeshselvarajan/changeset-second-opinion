@@ -1,0 +1,11 @@
+{
+ "status": "ok",
+ "model": "strands-decider-2B-qwen3.5-v1-2610",
+ "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+ "base_model": "Qwen/Qwen3.5-2B-Base",
+ "num_slots": 24,
+ "max_length": 4096,
+ "temperature": 1.0545210242263665,
+ "device": "cuda",
+ "prefix_cache": true
+}

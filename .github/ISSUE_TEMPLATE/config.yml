@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question or share an idea
+    url: https://github.com/yogeshselvarajan/changeset-second-opinion/discussions
+    about: Questions, ideas and show-and-tell go to Discussions (turn Discussions on in the repository settings).
+  - name: Report a security problem privately
+    url: https://github.com/yogeshselvarajan/changeset-second-opinion/security/advisories/new
+    about: Please do not open a public issue for a vulnerability. See SECURITY.md for the process.
+  - name: Read the documentation
+    url: https://osm.changesetreview.online/docs/
+    about: Setup, settings, the API reference and the design notes.

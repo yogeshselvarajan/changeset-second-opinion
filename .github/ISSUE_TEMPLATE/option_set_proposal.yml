@@ -1,0 +1,40 @@
+name: Community option-set proposal
+description: Propose different options, thresholds or tone for a mapping community
+title: "config: "
+labels: ["community-config"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Community settings live in `config/communities/`. Each option has a code, a label and a
+        short description that reviewers see. Wording must avoid the words the project bans in
+        reviewer-facing text (see rule 6 in CONTRIBUTING.md); the CI check will fail otherwise.
+  - type: input
+    id: community
+    attributes:
+      label: Community or region
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Which options, rule parameters, bands or tone settings would you change?
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why
+      description: What does your community do differently? Link to a wiki page or a forum thread if you can.
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints I understand
+      options:
+        - label: Rules take parsed evidence only, and the model can only make a lane more cautious
+          required: true
+        - label: Nothing is hidden from reviewers, and a person writes and posts every comment
+          required: true

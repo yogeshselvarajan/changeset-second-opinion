@@ -1,0 +1,66 @@
+---
+title: Tests
+description: What tests the project has, where each kind runs, and how to run one suite or one file.
+---
+
+*For contributors. How-to.*
+
+Tests use fakes for the Decider and Bedrock and need no network. A check that did not run is not a passing check, so say in your pull request what you ran.
+
+## What you need first
+
+A working clone with the backend and web dependencies installed. See [dev setup](../dev-setup/).
+
+## What runs where
+
+| Area | Where | Command |
+| --- | --- | --- |
+| Backend unit tests (domain, adapters, jobs, persistence, evaluation) | `backend/tests/unit/` | `uv run pytest tests/unit -q` |
+| API tests, including sign-in, errors and roles | `backend/tests/api/` | `uv run pytest tests/api -q` |
+| Contract test: the committed OpenAPI file matches the app | `backend/tests/contract/` | `uv run pytest tests/contract -q` |
+| Live and migration tests | `backend/tests/integration/` | Opt in, see below |
+| Lint, format and types | `backend/` | `uv run ruff check . && uv run ruff format --check . && uv run mypy src/cso` |
+| Invariant checks (no OSM writes, no auto actions, policy inputs, wording) | `scripts/ci/` | `uv run python ../scripts/ci/run_all.py` from `backend` |
+| Web unit tests | `web/src/**` | `npx vitest run` |
+| Web lint and types | `web/` | `npm run lint && npx tsc --noEmit` |
+| Browser tests with accessibility checks | `web/playwright/` | `npx playwright test` |
+
+CI runs five required checks: `backend`, `frontend`, `contract`, `security` and `infra`. The list is in [`.github/REQUIRED_CHECKS.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/.github/REQUIRED_CHECKS.md).
+
+## Run one suite
+
+From `backend`:
+
+```sh
+uv run pytest tests/unit/domain -q
+```
+
+One file:
+
+```sh
+uv run pytest tests/unit/domain/test_panel.py -q
+```
+
+Add `-k <part of a test name>` to run only the tests whose names match.
+
+From `web`:
+
+```sh
+npx vitest run
+npx playwright test playwright/queue.spec.ts
+```
+
+## Browser tests
+
+The browser tests run against a built bundle with the API mocked. Build first with `npm run build`. On a small machine add `--workers=1`. To use an installed Chrome, set `PW_CHANNEL=chrome`.
+
+## Live tests are opt in
+
+- The OpenStreetMap test needs `CSO_LIVE_TESTS=1`.
+- The Bedrock test needs both `CSO_MODE=live` and `CSO_LIVE_BEDROCK=1`, and it bills your AWS account. Do not run it on an account that is not yours.
+
+## Check it worked
+
+A run ends with a line such as `passed`, with no failures. For Playwright, the report lists each spec as passed. If a browser test fails in CI, the run keeps its output as an artifact.
+
+Next: [add a question](../add-a-question/).

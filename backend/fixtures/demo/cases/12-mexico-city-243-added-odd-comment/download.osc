@@ -1,0 +1,2880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1299 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14301248409" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1927912" lon="-99.0229073"/>
+ </create>
+ <create>
+  <node id="14301248410" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1927912" lon="-99.0229073"/>
+ </create>
+ <create>
+  <node id="14301248411" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1966619" lon="-99.0234534"/>
+ </create>
+ <create>
+  <node id="14301248412" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1967585" lon="-99.0250098"/>
+ </create>
+ <create>
+  <node id="14301248413" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1974882" lon="-99.0315670"/>
+ </create>
+ <create>
+  <node id="14301248414" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1977677" lon="-99.0324380"/>
+ </create>
+ <create>
+  <node id="14301248415" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1981131" lon="-99.0337270"/>
+ </create>
+ <create>
+  <node id="14301248416" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1982083" lon="-99.0344708"/>
+ </create>
+ <create>
+  <node id="14301248417" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1987429" lon="-99.0351123"/>
+ </create>
+ <create>
+  <node id="14301248418" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1990354" lon="-99.0352898"/>
+ </create>
+ <create>
+  <node id="14301248419" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1991682" lon="-99.0353229"/>
+ </create>
+ <create>
+  <node id="14301248420" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.1993414" lon="-99.0353374"/>
+ </create>
+ <create>
+  <node id="14301248421" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2000738" lon="-99.0350902"/>
+ </create>
+ <create>
+  <node id="14301248422" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2004314" lon="-99.0349078"/>
+ </create>
+ <create>
+  <node id="14301248423" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2030131" lon="-99.0366847"/>
+ </create>
+ <create>
+  <node id="14301248424" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2036151" lon="-99.0388183"/>
+ </create>
+ <create>
+  <node id="14301248425" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2036470" lon="-99.0388920"/>
+ </create>
+ <create>
+  <node id="14301248426" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2036671" lon="-99.0389820"/>
+ </create>
+ <create>
+  <node id="14301248427" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037045" lon="-99.0391982"/>
+ </create>
+ <create>
+  <node id="14301248428" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037198" lon="-99.0394028"/>
+ </create>
+ <create>
+  <node id="14301248429" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037147" lon="-99.0397503"/>
+ </create>
+ <create>
+  <node id="14301248430" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037079" lon="-99.0399055"/>
+ </create>
+ <create>
+  <node id="14301248431" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037015" lon="-99.0400500"/>
+ </create>
+ <create>
+  <node id="14301248432" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037010" lon="-99.0401666"/>
+ </create>
+ <create>
+  <node id="14301248433" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2037228" lon="-99.0402716"/>
+ </create>
+ <create>
+  <node id="14301248434" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2038411" lon="-99.0405441"/>
+ </create>
+ <create>
+  <node id="14301248435" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2039124" lon="-99.0406517"/>
+ </create>
+ <create>
+  <node id="14301248436" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2039845" lon="-99.0407585"/>
+ </create>
+ <create>
+  <node id="14301248437" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2040437" lon="-99.0408543"/>
+ </create>
+ <create>
+  <node id="14301248438" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2041681" lon="-99.0411019"/>
+ </create>
+ <create>
+  <node id="14301248439" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2042169" lon="-99.0412161"/>
+ </create>
+ <create>
+  <node id="14301248440" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2042757" lon="-99.0414004"/>
+ </create>
+ <create>
+  <node id="14301248441" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2043047" lon="-99.0415132"/>
+ </create>
+ <create>
+  <node id="14301248442" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2043267" lon="-99.0415916"/>
+ </create>
+ <create>
+  <node id="14301248443" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2043994" lon="-99.0419209"/>
+ </create>
+ <create>
+  <node id="14301248444" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2044062" lon="-99.0419998"/>
+ </create>
+ <create>
+  <node id="14301248445" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2044181" lon="-99.0422481"/>
+ </create>
+ <create>
+  <node id="14301248446" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2044171" lon="-99.0422726"/>
+ </create>
+ <create>
+  <node id="14301248447" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2044171" lon="-99.0422726"/>
+ </create>
+ <create>
+  <node id="14301248448" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2049553" lon="-99.0442101"/>
+ </create>
+ <create>
+  <node id="14301248449" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2050996" lon="-99.0444885"/>
+ </create>
+ <create>
+  <node id="14301248450" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2051985" lon="-99.0446183"/>
+ </create>
+ <create>
+  <node id="14301248451" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2053748" lon="-99.0448321"/>
+ </create>
+ <create>
+  <node id="14301248452" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2055592" lon="-99.0450197"/>
+ </create>
+ <create>
+  <node id="14301248453" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2058104" lon="-99.0452649"/>
+ </create>
+ <create>
+  <node id="14301248454" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2060649" lon="-99.0455134"/>
+ </create>
+ <create>
+  <node id="14301248455" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2065663" lon="-99.0458954"/>
+ </create>
+ <create>
+  <node id="14301248456" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2068051" lon="-99.0460335"/>
+ </create>
+ <create>
+  <node id="14301248457" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2067503" lon="-99.0460016"/>
+ </create>
+ <create>
+  <node id="14301248458" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2082096" lon="-99.0467863"/>
+ </create>
+ <create>
+  <node id="14301248459" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2095232" lon="-99.0474679"/>
+ </create>
+ <create>
+  <node id="14301248460" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2101290" lon="-99.0477184"/>
+ </create>
+ <create>
+  <node id="14301248461" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2121311" lon="-99.0483540"/>
+ </create>
+ <create>
+  <node id="14301248462" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2124522" lon="-99.0484357"/>
+ </create>
+ <create>
+  <node id="14301248463" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2126191" lon="-99.0484940"/>
+ </create>
+ <create>
+  <node id="14301248464" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2127555" lon="-99.0485416"/>
+ </create>
+ <create>
+  <node id="14301248465" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2139748" lon="-99.0489409"/>
+ </create>
+ <create>
+  <node id="14301248466" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2149068" lon="-99.0493203"/>
+ </create>
+ <create>
+  <node id="14301248467" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2167978" lon="-99.0504843"/>
+ </create>
+ <create>
+  <node id="14301248468" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2169802" lon="-99.0506398"/>
+ </create>
+ <create>
+  <node id="14301248469" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2170936" lon="-99.0507402"/>
+ </create>
+ <create>
+  <node id="14301248470" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2172598" lon="-99.0508586"/>
+ </create>
+ <create>
+  <node id="14301248471" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2175063" lon="-99.0510613"/>
+ </create>
+ <create>
+  <node id="14301248472" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2177939" lon="-99.0513022"/>
+ </create>
+ <create>
+  <node id="14301248473" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2181132" lon="-99.0515753"/>
+ </create>
+ <create>
+  <node id="14301248474" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2199964" lon="-99.0530770"/>
+ </create>
+ <create>
+  <node id="14301248475" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2202615" lon="-99.0532319"/>
+ </create>
+ <create>
+  <node id="14301248476" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2207488" lon="-99.0534409"/>
+ </create>
+ <create>
+  <node id="14301248477" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2209947" lon="-99.0535558"/>
+ </create>
+ <create>
+  <node id="14301248478" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2228602" lon="-99.0543477"/>
+ </create>
+ <create>
+  <node id="14301248479" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2240391" lon="-99.0546677"/>
+ </create>
+ <create>
+  <node id="14301248480" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2244800" lon="-99.0547140"/>
+ </create>
+ <create>
+  <node id="14301248481" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2253564" lon="-99.0546905"/>
+ </create>
+ <create>
+  <node id="14301248482" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2260749" lon="-99.0546475"/>
+ </create>
+ <create>
+  <node id="14301248483" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2264072" lon="-99.0546606"/>
+ </create>
+ <create>
+  <node id="14301248484" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2266619" lon="-99.0547378"/>
+ </create>
+ <create>
+  <node id="14301248485" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2267518" lon="-99.0547525"/>
+ </create>
+ <create>
+  <node id="14301248486" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2270579" lon="-99.0548879"/>
+ </create>
+ <create>
+  <node id="14301248487" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2276160" lon="-99.0551627"/>
+ </create>
+ <create>
+  <node id="14301248488" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2278386" lon="-99.0552409"/>
+ </create>
+ <create>
+  <node id="14301248489" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2279944" lon="-99.0552694"/>
+ </create>
+ <create>
+  <node id="14301248490" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2283796" lon="-99.0552572"/>
+ </create>
+ <create>
+  <node id="14301248491" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2289540" lon="-99.0551643"/>
+ </create>
+ <create>
+  <node id="14301248492" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2295284" lon="-99.0551201"/>
+ </create>
+ <create>
+  <node id="14301248493" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2299150" lon="-99.0552242"/>
+ </create>
+ <create>
+  <node id="14301248494" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2300812" lon="-99.0552803"/>
+ </create>
+ <create>
+  <node id="14301248495" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2303008" lon="-99.0553530"/>
+ </create>
+ <create>
+  <node id="14301248496" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2306722" lon="-99.0554798"/>
+ </create>
+ <create>
+  <node id="14301248497" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2308732" lon="-99.0555229"/>
+ </create>
+ <create>
+  <node id="14301248498" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2311668" lon="-99.0555251"/>
+ </create>
+ <create>
+  <node id="14301248499" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2313831" lon="-99.0554794"/>
+ </create>
+ <create>
+  <node id="14301248500" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2320133" lon="-99.0552730"/>
+ </create>
+ <create>
+  <node id="14301249901" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2326185" lon="-99.0550582"/>
+ </create>
+ <create>
+  <node id="14301249902" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2333052" lon="-99.0549066"/>
+ </create>
+ <create>
+  <node id="14301249903" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2336151" lon="-99.0548757"/>
+ </create>
+ <create>
+  <node id="14301249904" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2348818" lon="-99.0547866"/>
+ </create>
+ <create>
+  <node id="14301249905" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2350669" lon="-99.0547252"/>
+ </create>
+ <create>
+  <node id="14301249906" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2355231" lon="-99.0545117"/>
+ </create>
+ <create>
+  <node id="14301249907" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2357216" lon="-99.0544281"/>
+ </create>
+ <create>
+  <node id="14301249908" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2359215" lon="-99.0543340"/>
+ </create>
+ <create>
+  <node id="14301249909" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2364890" lon="-99.0542166"/>
+ </create>
+ <create>
+  <node id="14301249910" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2367614" lon="-99.0542872"/>
+ </create>
+ <create>
+  <node id="14301249911" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2370712" lon="-99.0543887"/>
+ </create>
+ <create>
+  <node id="14301249912" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2372935" lon="-99.0544668"/>
+ </create>
+ <create>
+  <node id="14301249913" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2393052" lon="-99.0551949"/>
+ </create>
+ <create>
+  <node id="14301249914" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2399514" lon="-99.0551368"/>
+ </create>
+ <create>
+  <node id="14301249915" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2401035" lon="-99.0550826"/>
+ </create>
+ <create>
+  <node id="14301249916" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2406873" lon="-99.0548205"/>
+ </create>
+ <create>
+  <node id="14301249917" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2413585" lon="-99.0545056"/>
+ </create>
+ <create>
+  <node id="14301249918" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2423664" lon="-99.0540433"/>
+ </create>
+ <create>
+  <node id="14301249919" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2426346" lon="-99.0539137"/>
+ </create>
+ <create>
+  <node id="14301249920" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2443443" lon="-99.0543818"/>
+ </create>
+ <create>
+  <node id="14301249921" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2451542" lon="-99.0548676"/>
+ </create>
+ <create>
+  <node id="14301249922" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2454620" lon="-99.0551109"/>
+ </create>
+ <create>
+  <node id="14301249923" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2455564" lon="-99.0552106"/>
+ </create>
+ <create>
+  <node id="14301249924" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2457611" lon="-99.0554808"/>
+ </create>
+ <create>
+  <node id="14301249925" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2459100" lon="-99.0556919"/>
+ </create>
+ <create>
+  <node id="14301249926" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2464868" lon="-99.0563860"/>
+ </create>
+ <create>
+  <node id="14301249927" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2484215" lon="-99.0569019"/>
+ </create>
+ <create>
+  <node id="14301249928" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2494910" lon="-99.0581015"/>
+ </create>
+ <create>
+  <node id="14301249929" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2498365" lon="-99.0584079"/>
+ </create>
+ <create>
+  <node id="14301249930" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2501620" lon="-99.0586638"/>
+ </create>
+ <create>
+  <node id="14301249931" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2505860" lon="-99.0589284"/>
+ </create>
+ <create>
+  <node id="14301249932" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2511056" lon="-99.0592738"/>
+ </create>
+ <create>
+  <node id="14301249933" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2525632" lon="-99.0609998"/>
+ </create>
+ <create>
+  <node id="14301249934" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2529541" lon="-99.0614629"/>
+ </create>
+ <create>
+  <node id="14301249935" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2532375" lon="-99.0617981"/>
+ </create>
+ <create>
+  <node id="14301249936" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2535323" lon="-99.0621646"/>
+ </create>
+ <create>
+  <node id="14301249937" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2537586" lon="-99.0626240"/>
+ </create>
+ <create>
+  <node id="14301249938" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2538691" lon="-99.0628308"/>
+ </create>
+ <create>
+  <node id="14301249939" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2541066" lon="-99.0632644"/>
+ </create>
+ <create>
+  <node id="14301249940" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2542600" lon="-99.0635423"/>
+ </create>
+ <create>
+  <node id="14301249941" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2551247" lon="-99.0648879"/>
+ </create>
+ <create>
+  <node id="14301249942" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2551741" lon="-99.0650382"/>
+ </create>
+ <create>
+  <node id="14301249943" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2551991" lon="-99.0651336"/>
+ </create>
+ <create>
+  <node id="14301249944" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2552374" lon="-99.0652946"/>
+ </create>
+ <create>
+  <node id="14301249945" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2552772" lon="-99.0655576"/>
+ </create>
+ <create>
+  <node id="14301249946" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2552652" lon="-99.0656915"/>
+ </create>
+ <create>
+  <node id="14301249947" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2552574" lon="-99.0657749"/>
+ </create>
+ <create>
+  <node id="14301249948" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2551213" lon="-99.0662956"/>
+ </create>
+ <create>
+  <node id="14301249949" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2550407" lon="-99.0665063"/>
+ </create>
+ <create>
+  <node id="14301249950" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2550269" lon="-99.0665380"/>
+ </create>
+ <create>
+  <node id="14301249951" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2550584" lon="-99.0668346"/>
+ </create>
+ <create>
+  <node id="14301249952" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2552629" lon="-99.0677113"/>
+ </create>
+ <create>
+  <node id="14301249953" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2563506" lon="-99.0726443"/>
+ </create>
+ <create>
+  <node id="14301249954" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2565754" lon="-99.0736843"/>
+ </create>
+ <create>
+  <node id="14301249955" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2567431" lon="-99.0744877"/>
+ </create>
+ <create>
+  <node id="14301249956" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2569419" lon="-99.0754462"/>
+ </create>
+ <create>
+  <node id="14301249957" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2575855" lon="-99.0785864"/>
+ </create>
+ <create>
+  <node id="14301249958" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2590083" lon="-99.0855997"/>
+ </create>
+ <create>
+  <node id="14301249959" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2591779" lon="-99.0881451"/>
+ </create>
+ <create>
+  <node id="14301249960" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2598267" lon="-99.0900100"/>
+ </create>
+ <create>
+  <node id="14301249961" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2612984" lon="-99.0964303"/>
+ </create>
+ <create>
+  <node id="14301249962" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2617421" lon="-99.0985428"/>
+ </create>
+ <create>
+  <node id="14301249963" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2622619" lon="-99.1009956"/>
+ </create>
+ <create>
+  <node id="14301249964" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2645602" lon="-99.1049898"/>
+ </create>
+ <create>
+  <node id="14301249965" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2646252" lon="-99.1052895"/>
+ </create>
+ <create>
+  <node id="14301249966" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2648207" lon="-99.1062000"/>
+ </create>
+ <create>
+  <node id="14301249967" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2648793" lon="-99.1066389"/>
+ </create>
+ <create>
+  <node id="14301249968" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2648822" lon="-99.1067704"/>
+ </create>
+ <create>
+  <node id="14301249969" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2648130" lon="-99.1070167"/>
+ </create>
+ <create>
+  <node id="14301249970" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2647613" lon="-99.1070896"/>
+ </create>
+ <create>
+  <node id="14301249971" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2646726" lon="-99.1072252"/>
+ </create>
+ <create>
+  <node id="14301249972" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2646193" lon="-99.1073196"/>
+ </create>
+ <create>
+  <node id="14301249973" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2645479" lon="-99.1074461"/>
+ </create>
+ <create>
+  <node id="14301249974" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2645017" lon="-99.1075500"/>
+ </create>
+ <create>
+  <node id="14301249975" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2644845" lon="-99.1076488"/>
+ </create>
+ <create>
+  <node id="14301249976" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2644951" lon="-99.1077668"/>
+ </create>
+ <create>
+  <node id="14301249977" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2645251" lon="-99.1079200"/>
+ </create>
+ <create>
+  <node id="14301249978" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2646012" lon="-99.1082896"/>
+ </create>
+ <create>
+  <node id="14301249979" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2652156" lon="-99.1111195"/>
+ </create>
+ <create>
+  <node id="14301249980" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2655149" lon="-99.1124921"/>
+ </create>
+ <create>
+  <node id="14301249981" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2657638" lon="-99.1137158"/>
+ </create>
+ <create>
+  <node id="14301249982" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2660160" lon="-99.1149396"/>
+ </create>
+ <create>
+  <node id="14301249983" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2665666" lon="-99.1155074"/>
+ </create>
+ <create>
+  <node id="14301249984" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2716087" lon="-99.1185471"/>
+ </create>
+ <create>
+  <node id="14301249985" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2746828" lon="-99.1203253"/>
+ </create>
+ <create>
+  <node id="14301249986" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2754979" lon="-99.1208016"/>
+ </create>
+ <create>
+  <node id="14301249987" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2763823" lon="-99.1213120"/>
+ </create>
+ <create>
+  <node id="14301249988" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2774243" lon="-99.1219137"/>
+ </create>
+ <create>
+  <node id="14301249989" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2781234" lon="-99.1223121"/>
+ </create>
+ <create>
+  <node id="14301249990" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2791410" lon="-99.1229043"/>
+ </create>
+ <create>
+  <node id="14301249991" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2801918" lon="-99.1235112"/>
+ </create>
+ <create>
+  <node id="14301249992" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2809093" lon="-99.1239332"/>
+ </create>
+ <create>
+  <node id="14301249993" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2814660" lon="-99.1242605"/>
+ </create>
+ <create>
+  <node id="14301249994" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2833402" lon="-99.1252527"/>
+ </create>
+ <create>
+  <node id="14301249995" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2834990" lon="-99.1252599"/>
+ </create>
+ <create>
+  <node id="14301249996" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2835568" lon="-99.1252555"/>
+ </create>
+ <create>
+  <node id="14301249997" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2836037" lon="-99.1252523"/>
+ </create>
+ <create>
+  <node id="14301249998" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2836467" lon="-99.1252386"/>
+ </create>
+ <create>
+  <node id="14301249999" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2837436" lon="-99.1252009"/>
+ </create>
+ <create>
+  <node id="14301250000" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2838589" lon="-99.1251434"/>
+ </create>
+ <create>
+  <node id="14301250001" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2839090" lon="-99.1251260"/>
+ </create>
+ <create>
+  <node id="14301250002" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2839887" lon="-99.1250848"/>
+ </create>
+ <create>
+  <node id="14301250003" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2843470" lon="-99.1249403"/>
+ </create>
+ <create>
+  <node id="14301250004" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2847232" lon="-99.1248493"/>
+ </create>
+ <create>
+  <node id="14301250005" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2850932" lon="-99.1249168"/>
+ </create>
+ <create>
+  <node id="14301250006" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2852899" lon="-99.1250226"/>
+ </create>
+ <create>
+  <node id="14301250007" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2854375" lon="-99.1251735"/>
+ </create>
+ <create>
+  <node id="14301250008" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2855127" lon="-99.1252576"/>
+ </create>
+ <create>
+  <node id="14301250009" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2856075" lon="-99.1253865"/>
+ </create>
+ <create>
+  <node id="14301250010" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2861381" lon="-99.1261625"/>
+ </create>
+ <create>
+  <node id="14301250011" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2862659" lon="-99.1262048"/>
+ </create>
+ <create>
+  <node id="14301250012" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2863361" lon="-99.1262198"/>
+ </create>
+ <create>
+  <node id="14301250013" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2864860" lon="-99.1262087"/>
+ </create>
+ <create>
+  <node id="14301250014" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2868454" lon="-99.1261549"/>
+ </create>
+ <create>
+  <node id="14301250015" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2873541" lon="-99.1260788"/>
+ </create>
+ <create>
+  <node id="14301250016" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2877590" lon="-99.1260189"/>
+ </create>
+ <create>
+  <node id="14301250017" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2882595" lon="-99.1259670"/>
+ </create>
+ <create>
+  <node id="14301250018" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2887246" lon="-99.1259172"/>
+ </create>
+ <create>
+  <node id="14301250019" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2944674" lon="-99.1253867"/>
+ </create>
+ <create>
+  <node id="14301250020" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2968647" lon="-99.1251989"/>
+ </create>
+ <create>
+  <node id="14301250021" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2986807" lon="-99.1250160"/>
+ </create>
+ <create>
+  <node id="14301250022" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3005947" lon="-99.1248369"/>
+ </create>
+ <create>
+  <node id="14301250023" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3023024" lon="-99.1246572"/>
+ </create>
+ <create>
+  <node id="14301250024" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3027905" lon="-99.1246140"/>
+ </create>
+ <create>
+  <node id="14301250025" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3033137" lon="-99.1245670"/>
+ </create>
+ <create>
+  <node id="14301250026" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3038500" lon="-99.1245162"/>
+ </create>
+ <create>
+  <node id="14301250027" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3062878" lon="-99.1243079"/>
+ </create>
+ <create>
+  <node id="14301250028" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3067672" lon="-99.1242698"/>
+ </create>
+ <create>
+  <node id="14301250029" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3092162" lon="-99.1240696"/>
+ </create>
+ <create>
+  <node id="14301250030" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3110681" lon="-99.1239085"/>
+ </create>
+ <create>
+  <node id="14301250031" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3114385" lon="-99.1238979"/>
+ </create>
+ <create>
+  <node id="14301250032" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3116804" lon="-99.1239244"/>
+ </create>
+ <create>
+  <node id="14301250033" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3141180" lon="-99.1242055"/>
+ </create>
+ <create>
+  <node id="14301250034" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3160797" lon="-99.1252691"/>
+ </create>
+ <create>
+  <node id="14301250035" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3164321" lon="-99.1259361"/>
+ </create>
+ <create>
+  <node id="14301250036" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3188415" lon="-99.1308244"/>
+ </create>
+ <create>
+  <node id="14301250037" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3195803" lon="-99.1316029"/>
+ </create>
+ <create>
+  <node id="14301250038" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3197652" lon="-99.1317457"/>
+ </create>
+ <create>
+  <node id="14301250039" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3200033" lon="-99.1319297"/>
+ </create>
+ <create>
+  <node id="14301250040" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3222958" lon="-99.1337013"/>
+ </create>
+ <create>
+  <node id="14301250041" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3247533" lon="-99.1356038"/>
+ </create>
+ <create>
+  <node id="14301250042" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3257317" lon="-99.1363143"/>
+ </create>
+ <create>
+  <node id="14301250043" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3266768" lon="-99.1367699"/>
+ </create>
+ <create>
+  <node id="14301250044" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3293007" lon="-99.1367457"/>
+ </create>
+ <create>
+  <node id="14301250045" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3310544" lon="-99.1367790"/>
+ </create>
+ <create>
+  <node id="14301250046" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3367457" lon="-99.1368983"/>
+ </create>
+ <create>
+  <node id="14301250047" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3379027" lon="-99.1370037"/>
+ </create>
+ <create>
+  <node id="14301250048" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3389229" lon="-99.1371119"/>
+ </create>
+ <create>
+  <node id="14301250049" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3403116" lon="-99.1372804"/>
+ </create>
+ <create>
+  <node id="14301250050" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3407535" lon="-99.1373335"/>
+ </create>
+ <create>
+  <node id="14301250051" visible="true" version="1" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.3407839" lon="-99.1372518"/>
+ </create>
+ <modify>
+  <node id="8557548752" visible="true" version="2" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2005182" lon="-99.0348648"/>
+ </modify>
+ <modify>
+  <way id="964733112" visible="true" version="2" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8923690414"/>
+   <nd ref="8923686398"/>
+   <nd ref="8923686397"/>
+   <nd ref="8923686396"/>
+   <nd ref="8923686395"/>
+   <nd ref="8923686394"/>
+   <nd ref="8923686393"/>
+   <nd ref="8923686392"/>
+   <nd ref="8923686391"/>
+   <nd ref="8923686390"/>
+   <nd ref="8923686389"/>
+   <nd ref="8923686388"/>
+   <nd ref="14301250020"/>
+   <nd ref="8923686445"/>
+   <tag k="boundary" v="postal_code"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="965242905" visible="true" version="2" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8929290860"/>
+   <nd ref="14301249912"/>
+   <nd ref="14301249911"/>
+   <nd ref="8929289361"/>
+   <nd ref="14301249910"/>
+   <nd ref="8929289360"/>
+   <nd ref="8929289359"/>
+   <nd ref="8929289358"/>
+   <nd ref="14301249907"/>
+   <nd ref="8929289357"/>
+   <nd ref="8929289356"/>
+   <nd ref="14301249905"/>
+   <nd ref="8929289355"/>
+   <nd ref="14301249904"/>
+   <nd ref="8929289354"/>
+   <nd ref="8929289353"/>
+   <nd ref="8929289352"/>
+   <nd ref="8929289351"/>
+   <nd ref="14301249902"/>
+   <nd ref="8929289350"/>
+   <nd ref="8929289349"/>
+   <nd ref="14301249901"/>
+   <nd ref="8929289348"/>
+   <nd ref="14301248500"/>
+   <nd ref="8929289347"/>
+   <nd ref="8929289346"/>
+   <nd ref="14301248499"/>
+   <nd ref="8929289345"/>
+   <nd ref="14301248498"/>
+   <nd ref="8929289344"/>
+   <nd ref="14301248497"/>
+   <nd ref="8929289343"/>
+   <nd ref="14301248496"/>
+   <nd ref="14301248494"/>
+   <nd ref="14301248493"/>
+   <nd ref="8929289342"/>
+   <nd ref="8929289341"/>
+   <nd ref="8929289340"/>
+   <nd ref="8929289339"/>
+   <nd ref="14301248491"/>
+   <nd ref="8929289338"/>
+   <nd ref="14301248490"/>
+   <nd ref="8929289337"/>
+   <nd ref="14301248489"/>
+   <nd ref="8929289336"/>
+   <nd ref="14301248488"/>
+   <nd ref="8929289335"/>
+   <nd ref="14301248487"/>
+   <nd ref="8929289334"/>
+   <nd ref="8929289333"/>
+   <nd ref="8929289332"/>
+   <nd ref="14301248484"/>
+   <nd ref="8929289331"/>
+   <nd ref="8929289330"/>
+   <nd ref="8929290987"/>
+   <tag k="boundary" v="postal_code"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="965243004" visible="true" version="2" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8929291651"/>
+   <nd ref="8929290896"/>
+   <nd ref="8929290895"/>
+   <nd ref="8929290894"/>
+   <nd ref="8929290893"/>
+   <nd ref="8929290892"/>
+   <nd ref="8929290891"/>
+   <nd ref="8929290890"/>
+   <nd ref="8929290889"/>
+   <nd ref="8929290888"/>
+   <nd ref="8929290887"/>
+   <nd ref="8929290886"/>
+   <nd ref="8929290885"/>
+   <nd ref="8929290884"/>
+   <nd ref="8929290883"/>
+   <nd ref="8929290882"/>
+   <nd ref="8929290881"/>
+   <nd ref="8929290880"/>
+   <nd ref="8929290879"/>
+   <nd ref="8929290878"/>
+   <nd ref="8929290877"/>
+   <nd ref="8929290876"/>
+   <nd ref="8929290875"/>
+   <nd ref="8929290874"/>
+   <nd ref="8929290873"/>
+   <nd ref="8929290872"/>
+   <nd ref="8929290871"/>
+   <nd ref="8929290870"/>
+   <nd ref="8929290869"/>
+   <nd ref="8929290868"/>
+   <nd ref="8929290867"/>
+   <nd ref="8929290866"/>
+   <nd ref="8929290865"/>
+   <nd ref="14301249919"/>
+   <nd ref="14301249918"/>
+   <nd ref="8929290864"/>
+   <nd ref="8929290863"/>
+   <nd ref="8929290862"/>
+   <nd ref="8929290861"/>
+   <nd ref="8929290860"/>
+   <tag k="boundary" v="postal_code"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="660576999" visible="true" version="3" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="4076126561"/>
+   <nd ref="8557631620"/>
+   <nd ref="6184701988"/>
+   <nd ref="8557631621"/>
+   <nd ref="8557631622"/>
+   <nd ref="6184701989"/>
+   <nd ref="8557631623"/>
+   <nd ref="6184701990"/>
+   <nd ref="8557631619"/>
+   <nd ref="8557631624"/>
+   <nd ref="6184701991"/>
+   <nd ref="8557631625"/>
+   <nd ref="8557631626"/>
+   <nd ref="8557631627"/>
+   <nd ref="6184702053"/>
+   <nd ref="8557631628"/>
+   <nd ref="8557631629"/>
+   <nd ref="14301248447"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Calle Oriente"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="897913125" visible="true" version="3" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8344792884"/>
+   <nd ref="8344792885"/>
+   <nd ref="8777109954"/>
+   <nd ref="14301249983"/>
+   <nd ref="8344792887"/>
+   <nd ref="8344792888"/>
+   <nd ref="8344792889"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="965242966" visible="true" version="3" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8929290987"/>
+   <nd ref="14301248481"/>
+   <nd ref="8929290540"/>
+   <nd ref="8929290539"/>
+   <nd ref="14301248480"/>
+   <nd ref="8929290538"/>
+   <nd ref="14301248479"/>
+   <nd ref="8929290537"/>
+   <nd ref="8929290536"/>
+   <nd ref="14301248478"/>
+   <nd ref="8929290535"/>
+   <nd ref="14301248477"/>
+   <nd ref="8929290534"/>
+   <nd ref="14301248475"/>
+   <nd ref="14301248474"/>
+   <nd ref="8929290533"/>
+   <nd ref="8929290532"/>
+   <nd ref="8929290531"/>
+   <nd ref="12094621359"/>
+   <nd ref="12094621357"/>
+   <nd ref="8929290530"/>
+   <nd ref="14301248469"/>
+   <nd ref="8929290529"/>
+   <tag k="boundary" v="postal_code"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="966036055" visible="true" version="3" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8929290529"/>
+   <nd ref="14301248468"/>
+   <nd ref="14301248467"/>
+   <nd ref="8936878192"/>
+   <nd ref="8936884690"/>
+   <nd ref="8936886137"/>
+   <nd ref="8936884506"/>
+   <nd ref="8936884086"/>
+   <nd ref="8936882438"/>
+   <nd ref="8936883307"/>
+   <nd ref="8936881100"/>
+   <nd ref="8929290529"/>
+   <tag k="boundary" v="postal_code"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="966036176" visible="true" version="3" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8936881100"/>
+   <nd ref="8936884799"/>
+   <nd ref="8936882728"/>
+   <nd ref="14301248460"/>
+   <nd ref="8936885238"/>
+   <nd ref="8936883609"/>
+   <nd ref="8936883167"/>
+   <nd ref="14301248458"/>
+   <nd ref="8936881531"/>
+   <nd ref="14301248457"/>
+   <nd ref="8936884041"/>
+   <nd ref="8936882389"/>
+   <nd ref="8936881966"/>
+   <nd ref="8936885668"/>
+   <nd ref="14301248450"/>
+   <nd ref="8936881785"/>
+   <nd ref="8936885482"/>
+   <nd ref="8936885050"/>
+   <nd ref="8936883421"/>
+   <nd ref="14301248445"/>
+   <nd ref="8936885909"/>
+   <nd ref="8936884274"/>
+   <nd ref="8936883852"/>
+   <nd ref="8936882207"/>
+   <nd ref="8936881100"/>
+   <tag k="boundary" v="postal_code"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="387265695" visible="true" version="4" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001" lat="19.2003039" lon="-99.0349649"/>
+ </modify>
+ <modify>
+  <way id="336582078" visible="true" version="4" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="679493784"/>
+   <nd ref="679495620"/>
+   <nd ref="679493782"/>
+   <nd ref="679495031"/>
+   <nd ref="14301248409"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Avenida Michoacán Oriente"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="336582079" visible="true" version="4" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="679493780"/>
+   <nd ref="14301248410"/>
+   <nd ref="679495015"/>
+   <nd ref="387261996"/>
+   <nd ref="14301248411"/>
+   <nd ref="387262020"/>
+   <nd ref="14301248412"/>
+   <nd ref="679494386"/>
+   <nd ref="387262018"/>
+   <nd ref="671457783"/>
+   <nd ref="5610871287"/>
+   <nd ref="5610871272"/>
+   <nd ref="2410443087"/>
+   <nd ref="5610871293"/>
+   <nd ref="671457780"/>
+   <nd ref="4081221717"/>
+   <nd ref="14301248413"/>
+   <nd ref="14301248414"/>
+   <nd ref="6184702453"/>
+   <nd ref="671457777"/>
+   <nd ref="14301248415"/>
+   <nd ref="5610871268"/>
+   <nd ref="8557548742"/>
+   <nd ref="6456189670"/>
+   <nd ref="679493758"/>
+   <nd ref="8557548743"/>
+   <nd ref="14301248416"/>
+   <nd ref="8557548746"/>
+   <nd ref="8557548745"/>
+   <nd ref="14301248417"/>
+   <nd ref="8557548747"/>
+   <nd ref="14301248418"/>
+   <nd ref="14301248419"/>
+   <nd ref="14301248420"/>
+   <nd ref="387265697"/>
+   <nd ref="8557548748"/>
+   <nd ref="8557548749"/>
+   <nd ref="8557548750"/>
+   <nd ref="14301248421"/>
+   <nd ref="387265695"/>
+   <nd ref="14301248422"/>
+   <nd ref="8557548752"/>
+   <nd ref="387265694"/>
+   <nd ref="8557548753"/>
+   <nd ref="387265693"/>
+   <nd ref="387265692"/>
+   <nd ref="387265691"/>
+   <nd ref="8557548754"/>
+   <nd ref="387265687"/>
+   <nd ref="8557548757"/>
+   <nd ref="8557548758"/>
+   <nd ref="8557548759"/>
+   <nd ref="8557548761"/>
+   <nd ref="8557548760"/>
+   <nd ref="8557548762"/>
+   <nd ref="387265685"/>
+   <nd ref="8557548763"/>
+   <nd ref="3249194744"/>
+   <nd ref="8557548764"/>
+   <nd ref="387265683"/>
+   <nd ref="387265682"/>
+   <nd ref="14301248423"/>
+   <nd ref="6456189673"/>
+   <nd ref="8557631639"/>
+   <nd ref="14301248424"/>
+   <nd ref="14301248425"/>
+   <nd ref="14301248426"/>
+   <nd ref="14301248427"/>
+   <nd ref="14301248428"/>
+   <nd ref="8557631643"/>
+   <nd ref="14301248429"/>
+   <nd ref="14301248430"/>
+   <nd ref="14301248431"/>
+   <nd ref="14301248432"/>
+   <nd ref="14301248433"/>
+   <nd ref="3249194769"/>
+   <nd ref="8557631645"/>
+   <nd ref="14301248434"/>
+   <nd ref="14301248435"/>
+   <nd ref="14301248436"/>
+   <nd ref="14301248437"/>
+   <nd ref="8557631649"/>
+   <nd ref="14301248438"/>
+   <nd ref="14301248439"/>
+   <nd ref="4076126557"/>
+   <nd ref="14301248440"/>
+   <nd ref="14301248441"/>
+   <nd ref="14301248442"/>
+   <nd ref="3249194782"/>
+   <nd ref="14301248443"/>
+   <nd ref="14301248444"/>
+   <nd ref="14301248445"/>
+   <nd ref="8301838070"/>
+   <nd ref="14301248448"/>
+   <nd ref="4076126551"/>
+   <nd ref="14301248449"/>
+   <nd ref="14301248450"/>
+   <nd ref="14301248451"/>
+   <nd ref="14301248452"/>
+   <nd ref="14301248453"/>
+   <nd ref="14301248454"/>
+   <nd ref="4076126550"/>
+   <nd ref="4076126549"/>
+   <nd ref="14301248455"/>
+   <nd ref="387266246"/>
+   <nd ref="14301248456"/>
+   <nd ref="14301248458"/>
+   <nd ref="286567589"/>
+   <nd ref="14301248459"/>
+   <nd ref="14301248460"/>
+   <nd ref="8302509167"/>
+   <nd ref="14301248461"/>
+   <nd ref="8302509166"/>
+   <nd ref="14301248462"/>
+   <nd ref="14301248463"/>
+   <nd ref="14301248464"/>
+   <nd ref="8302509171"/>
+   <nd ref="8302509160"/>
+   <nd ref="14301248465"/>
+   <nd ref="8302509170"/>
+   <nd ref="14301248466"/>
+   <nd ref="3539135995"/>
+   <nd ref="8299944918"/>
+   <nd ref="387266452"/>
+   <nd ref="8554916300"/>
+   <nd ref="14301248467"/>
+   <nd ref="14301248468"/>
+   <nd ref="14301248469"/>
+   <nd ref="14301248470"/>
+   <nd ref="14301248471"/>
+   <nd ref="14301248472"/>
+   <nd ref="14301248473"/>
+   <nd ref="3539136472"/>
+   <nd ref="14301248474"/>
+   <nd ref="14301248475"/>
+   <nd ref="14301248476"/>
+   <nd ref="14301248477"/>
+   <nd ref="14301248478"/>
+   <nd ref="4076126508"/>
+   <nd ref="14301248479"/>
+   <nd ref="14301248480"/>
+   <nd ref="3538723822"/>
+   <nd ref="14301248481"/>
+   <nd ref="14301248482"/>
+   <nd ref="14301248483"/>
+   <nd ref="14301248484"/>
+   <nd ref="14301248485"/>
+   <nd ref="3539620447"/>
+   <nd ref="14301248486"/>
+   <nd ref="8929289334"/>
+   <nd ref="14301248487"/>
+   <nd ref="14301248488"/>
+   <nd ref="14301248489"/>
+   <nd ref="8929289337"/>
+   <nd ref="14301248490"/>
+   <nd ref="14301248491"/>
+   <nd ref="387266430"/>
+   <nd ref="8929289340"/>
+   <nd ref="14301248492"/>
+   <nd ref="4076126495"/>
+   <nd ref="14301248493"/>
+   <nd ref="14301248494"/>
+   <nd ref="14301248495"/>
+   <nd ref="286567569"/>
+   <nd ref="14301248496"/>
+   <nd ref="14301248497"/>
+   <nd ref="8929289344"/>
+   <nd ref="14301248498"/>
+   <nd ref="4076126492"/>
+   <nd ref="14301248499"/>
+   <nd ref="14301248500"/>
+   <nd ref="14301249901"/>
+   <nd ref="286567566"/>
+   <nd ref="14301249902"/>
+   <nd ref="14301249903"/>
+   <nd ref="8929289353"/>
+   <nd ref="4076126385"/>
+   <nd ref="14301249904"/>
+   <nd ref="14301249905"/>
+   <nd ref="14301249906"/>
+   <nd ref="14301249907"/>
+   <nd ref="14301249908"/>
+   <nd ref="4076126383"/>
+   <nd ref="3538724995"/>
+   <nd ref="14301249909"/>
+   <nd ref="387266412"/>
+   <nd ref="14301249910"/>
+   <nd ref="14301249911"/>
+   <nd ref="14301249912"/>
+   <nd ref="286567558"/>
+   <nd ref="14301249913"/>
+   <nd ref="4076126374"/>
+   <nd ref="4076126375"/>
+   <nd ref="387266405"/>
+   <nd ref="8929290863"/>
+   <nd ref="14301249914"/>
+   <nd ref="14301249915"/>
+   <nd ref="14301249916"/>
+   <nd ref="14301249917"/>
+   <nd ref="14301249918"/>
+   <nd ref="14301249919"/>
+   <nd ref="8512173594"/>
+   <nd ref="4076126368"/>
+   <nd ref="4076126369"/>
+   <nd ref="4076126367"/>
+   <nd ref="3532146302"/>
+   <nd ref="4076126366"/>
+   <nd ref="286567552"/>
+   <nd ref="387266454"/>
+   <nd ref="3532146323"/>
+   <nd ref="14301249920"/>
+   <nd ref="3570773814"/>
+   <nd ref="14301249921"/>
+   <nd ref="4076126365"/>
+   <nd ref="14301249922"/>
+   <nd ref="14301249923"/>
+   <nd ref="14301249924"/>
+   <nd ref="14301249925"/>
+   <nd ref="4076126348"/>
+   <nd ref="14301249926"/>
+   <nd ref="387266480"/>
+   <nd ref="4076126346"/>
+   <nd ref="3537271580"/>
+   <nd ref="14301249927"/>
+   <nd ref="8512201329"/>
+   <nd ref="6456189647"/>
+   <nd ref="2265787170"/>
+   <nd ref="6577517445"/>
+   <nd ref="4076126344"/>
+   <nd ref="6577517446"/>
+   <nd ref="6456189650"/>
+   <nd ref="8512254322"/>
+   <nd ref="8512254318"/>
+   <nd ref="286567538"/>
+   <nd ref="8512254319"/>
+   <nd ref="8299863258"/>
+   <nd ref="14301249928"/>
+   <nd ref="14301249929"/>
+   <nd ref="14301249930"/>
+   <nd ref="14301249931"/>
+   <nd ref="14301249932"/>
+   <nd ref="6148137874"/>
+   <nd ref="2265787010"/>
+   <nd ref="3545810417"/>
+   <nd ref="3545810418"/>
+   <nd ref="2265787025"/>
+   <nd ref="14301249933"/>
+   <nd ref="14301249934"/>
+   <nd ref="14301249935"/>
+   <nd ref="14301249936"/>
+   <nd ref="14301249937"/>
+   <nd ref="14301249938"/>
+   <nd ref="14301249939"/>
+   <nd ref="14301249940"/>
+   <nd ref="6456189652"/>
+   <nd ref="6456189653"/>
+   <nd ref="8370976139"/>
+   <nd ref="8505157191"/>
+   <nd ref="8505157184"/>
+   <nd ref="14301249941"/>
+   <nd ref="14301249942"/>
+   <nd ref="14301249943"/>
+   <nd ref="14301249944"/>
+   <nd ref="6577517440"/>
+   <nd ref="14301249945"/>
+   <nd ref="14301249946"/>
+   <nd ref="14301249947"/>
+   <nd ref="3545810443"/>
+   <nd ref="14301249948"/>
+   <nd ref="14301249949"/>
+   <nd ref="14301249950"/>
+   <nd ref="387262482"/>
+   <nd ref="14301249951"/>
+   <nd ref="14301249952"/>
+   <nd ref="6148138013"/>
+   <nd ref="8370976124"/>
+   <nd ref="6148137364"/>
+   <nd ref="14301249953"/>
+   <nd ref="14301249954"/>
+   <nd ref="14301249955"/>
+   <nd ref="14301249956"/>
+   <nd ref="3459748511"/>
+   <nd ref="14301249957"/>
+   <nd ref="3540494826"/>
+   <nd ref="14301249958"/>
+   <nd ref="3540494839"/>
+   <nd ref="387262485"/>
+   <nd ref="8501647714"/>
+   <nd ref="387262486"/>
+   <nd ref="6348325484"/>
+   <nd ref="387262487"/>
+   <nd ref="387262488"/>
+   <nd ref="14301249959"/>
+   <nd ref="14301249960"/>
+   <nd ref="3540494864"/>
+   <nd ref="6148632127"/>
+   <nd ref="5467927212"/>
+   <nd ref="5467872022"/>
+   <nd ref="14301249961"/>
+   <nd ref="5637183632"/>
+   <nd ref="8377488051"/>
+   <nd ref="6353144018"/>
+   <nd ref="14301249962"/>
+   <nd ref="387262494"/>
+   <nd ref="6191003269"/>
+   <nd ref="14301249963"/>
+   <nd ref="387262495"/>
+   <nd ref="8929291957"/>
+   <nd ref="8338198529"/>
+   <nd ref="14301249964"/>
+   <nd ref="14301249965"/>
+   <nd ref="14301249966"/>
+   <nd ref="11268154850"/>
+   <nd ref="14301249967"/>
+   <nd ref="14301249968"/>
+   <nd ref="667523391"/>
+   <nd ref="14301249969"/>
+   <nd ref="14301249970"/>
+   <nd ref="14301249971"/>
+   <nd ref="14301249972"/>
+   <nd ref="14301249973"/>
+   <nd ref="14301249974"/>
+   <nd ref="14301249975"/>
+   <nd ref="14301249976"/>
+   <nd ref="14301249977"/>
+   <nd ref="10681392860"/>
+   <nd ref="14301249978"/>
+   <nd ref="14301249979"/>
+   <nd ref="14301249980"/>
+   <nd ref="14301249981"/>
+   <nd ref="14301249982"/>
+   <nd ref="8344792885"/>
+   <nd ref="14301249983"/>
+   <nd ref="8344792888"/>
+   <nd ref="8344792889"/>
+   <nd ref="6353144052"/>
+   <nd ref="8497993803"/>
+   <nd ref="8236878001"/>
+   <nd ref="680214446"/>
+   <nd ref="14301249984"/>
+   <nd ref="2692221169"/>
+   <nd ref="1435216231"/>
+   <nd ref="14301249985"/>
+   <nd ref="14301249986"/>
+   <nd ref="14301249987"/>
+   <nd ref="14301249988"/>
+   <nd ref="14301249989"/>
+   <nd ref="14301249990"/>
+   <nd ref="8740116008"/>
+   <nd ref="670764739"/>
+   <nd ref="14301249991"/>
+   <nd ref="14301249992"/>
+   <nd ref="14301249993"/>
+   <nd ref="6182353283"/>
+   <nd ref="275059476"/>
+   <nd ref="8085947195"/>
+   <nd ref="14301249994"/>
+   <nd ref="8085947196"/>
+   <nd ref="8085947191"/>
+   <nd ref="14301249995"/>
+   <nd ref="14301249996"/>
+   <nd ref="14301249997"/>
+   <nd ref="14301249998"/>
+   <nd ref="14301249999"/>
+   <nd ref="8085947188"/>
+   <nd ref="14301250000"/>
+   <nd ref="14301250001"/>
+   <nd ref="14301250002"/>
+   <nd ref="275059479"/>
+   <nd ref="14301250003"/>
+   <nd ref="8085959944"/>
+   <nd ref="14301250004"/>
+   <nd ref="8085959935"/>
+   <nd ref="14301250005"/>
+   <nd ref="8085959932"/>
+   <nd ref="275059481"/>
+   <nd ref="14301250006"/>
+   <nd ref="8085959928"/>
+   <nd ref="14301250007"/>
+   <nd ref="14301250008"/>
+   <nd ref="14301250009"/>
+   <nd ref="8085959924"/>
+   <nd ref="275059485"/>
+   <nd ref="8085943466"/>
+   <nd ref="8085943465"/>
+   <nd ref="14301250010"/>
+   <nd ref="14301250011"/>
+   <nd ref="14301250012"/>
+   <nd ref="14301250013"/>
+   <nd ref="14301250014"/>
+   <nd ref="14301250015"/>
+   <nd ref="14301250016"/>
+   <nd ref="14301250017"/>
+   <nd ref="14301250018"/>
+   <nd ref="8213110264"/>
+   <nd ref="14301250019"/>
+   <nd ref="14301250020"/>
+   <nd ref="14301250021"/>
+   <nd ref="14301250022"/>
+   <nd ref="14301250023"/>
+   <nd ref="14301250024"/>
+   <nd ref="14301250025"/>
+   <nd ref="14301250026"/>
+   <nd ref="14301250027"/>
+   <nd ref="14301250028"/>
+   <nd ref="14301250029"/>
+   <nd ref="14301250030"/>
+   <nd ref="8892538558"/>
+   <nd ref="14301250031"/>
+   <nd ref="14301250032"/>
+   <nd ref="14301250033"/>
+   <nd ref="760647654"/>
+   <nd ref="685334743"/>
+   <nd ref="666113461"/>
+   <nd ref="14301250034"/>
+   <nd ref="4602820998"/>
+   <nd ref="14301250035"/>
+   <nd ref="792631366"/>
+   <nd ref="794049184"/>
+   <nd ref="14301250036"/>
+   <nd ref="666113468"/>
+   <nd ref="14301250037"/>
+   <nd ref="14301250038"/>
+   <nd ref="14301250039"/>
+   <nd ref="14301250040"/>
+   <nd ref="14301250041"/>
+   <nd ref="14301250042"/>
+   <nd ref="666113476"/>
+   <nd ref="14301250043"/>
+   <nd ref="769788031"/>
+   <nd ref="14301250044"/>
+   <nd ref="14301250045"/>
+   <nd ref="683950708"/>
+   <nd ref="683950733"/>
+   <nd ref="14301250046"/>
+   <nd ref="14301250047"/>
+   <nd ref="14301250048"/>
+   <nd ref="14301250049"/>
+   <nd ref="14301250050"/>
+   <nd ref="14301250051"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Avenida Michoacán Oriente"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="893297149" visible="true" version="4" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8302509167"/>
+   <nd ref="14301248461"/>
+   <nd ref="8302509166"/>
+   <nd ref="14301248462"/>
+   <nd ref="14301248463"/>
+   <nd ref="14301248464"/>
+   <nd ref="8302509171"/>
+   <nd ref="8302509164"/>
+   <nd ref="8302509160"/>
+   <nd ref="3539135898"/>
+   <nd ref="8302509172"/>
+   <nd ref="4076126523"/>
+   <nd ref="8302518649"/>
+   <nd ref="14301248465"/>
+   <nd ref="8302509170"/>
+   <nd ref="8302509169"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="60"/>
+   <tag k="name" v="Carretera San Gregorio - Oaxtepec"/>
+   <tag k="nat_ref" v="113"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="661306886" visible="true" version="5" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="286567552"/>
+   <nd ref="4076126366"/>
+   <nd ref="3532146302"/>
+   <nd ref="4076126367"/>
+   <nd ref="4076126369"/>
+   <nd ref="4076126368"/>
+   <nd ref="8512173594"/>
+   <nd ref="387266397"/>
+   <nd ref="14253383125"/>
+   <nd ref="3537271397"/>
+   <nd ref="3537271393"/>
+   <nd ref="3537271382"/>
+   <nd ref="14301249917"/>
+   <nd ref="3537271350"/>
+   <nd ref="387266400"/>
+   <nd ref="14301249916"/>
+   <nd ref="387266402"/>
+   <nd ref="14301249915"/>
+   <nd ref="4076126372"/>
+   <nd ref="14301249914"/>
+   <nd ref="4076126371"/>
+   <nd ref="4076126373"/>
+   <nd ref="387266405"/>
+   <nd ref="4076126375"/>
+   <nd ref="4076126374"/>
+   <nd ref="14301249913"/>
+   <nd ref="4076126376"/>
+   <nd ref="286567558"/>
+   <nd ref="387266409"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="60"/>
+   <tag k="name" v="Avenida Cuauhtémoc"/>
+   <tag k="nat_ref" v="113"/>
+   <tag k="oneway" v="no"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="source" v="Yahoo"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="867499567" visible="true" version="5" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="275059485"/>
+   <nd ref="8085943464"/>
+   <nd ref="8085943466"/>
+   <nd ref="8085943463"/>
+   <nd ref="8085943465"/>
+   <nd ref="8085943460"/>
+   <nd ref="14301250010"/>
+   <nd ref="8085943462"/>
+   <nd ref="8085943459"/>
+   <nd ref="14301250011"/>
+   <nd ref="8085943461"/>
+   <nd ref="8085943457"/>
+   <nd ref="8085943456"/>
+   <nd ref="8085943458"/>
+   <nd ref="14301250013"/>
+   <nd ref="14301250014"/>
+   <nd ref="14301250015"/>
+   <nd ref="674317823"/>
+   <tag k="alt_name" v="Eje Vial 1 Oriente;Eje 1 Oriente"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="3"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="870422266" visible="true" version="5" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8108634320"/>
+   <nd ref="14301250025"/>
+   <nd ref="667288292"/>
+   <nd ref="10045920534"/>
+   <nd ref="666113436"/>
+   <nd ref="14301250026"/>
+   <nd ref="666113453"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="bus:lanes" v="||||designated"/>
+   <tag k="fixme" v="The correct 'ref' key might be EJE 2 OTE instead of EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="5"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="placement" v="left_of:4"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+   <tag k="turn:lanes" v="left|left|through|through|"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="870867568" visible="true" version="5" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8112328289"/>
+   <nd ref="8236936631"/>
+   <nd ref="760643841"/>
+   <nd ref="14301250033"/>
+   <nd ref="8112335828"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="fixme" v="The correct 'ref' key might be EJE 2 OTE instead of EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="3"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="893297150" visible="true" version="5" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8302509167"/>
+   <nd ref="3539135515"/>
+   <nd ref="387266453"/>
+   <nd ref="4076126535"/>
+   <nd ref="4076126538"/>
+   <nd ref="14301248459"/>
+   <nd ref="3249194849"/>
+   <nd ref="4076126545"/>
+   <nd ref="286567589"/>
+   <nd ref="4076126537"/>
+   <nd ref="4076126548"/>
+   <nd ref="14301248456"/>
+   <nd ref="387266246"/>
+   <nd ref="14301248455"/>
+   <nd ref="4076126549"/>
+   <nd ref="4076126550"/>
+   <nd ref="387266249"/>
+   <nd ref="14301248454"/>
+   <nd ref="14301248453"/>
+   <nd ref="14301248452"/>
+   <nd ref="3539220844"/>
+   <nd ref="8558253729"/>
+   <nd ref="14301248451"/>
+   <nd ref="3539220841"/>
+   <nd ref="387266261"/>
+   <nd ref="387266262"/>
+   <nd ref="14301248449"/>
+   <nd ref="4076126551"/>
+   <nd ref="3249194797"/>
+   <nd ref="14301248448"/>
+   <nd ref="4076126552"/>
+   <nd ref="286567593"/>
+   <nd ref="8301838070"/>
+   <nd ref="8301850893"/>
+   <nd ref="3249194787"/>
+   <nd ref="8301838044"/>
+   <nd ref="14301248446"/>
+   <nd ref="387266170"/>
+   <nd ref="8557631653"/>
+   <nd ref="8557631654"/>
+   <nd ref="4076126553"/>
+   <nd ref="387266196"/>
+   <nd ref="3249194764"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="60"/>
+   <tag k="name" v="Carretera San Gregorio - Oaxtepec"/>
+   <tag k="nat_ref" v="113"/>
+   <tag k="oneway" v="no"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="source" v="Yahoo"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="405405061" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="6456189647"/>
+   <nd ref="8512201329"/>
+   <nd ref="387266479"/>
+   <nd ref="14301249927"/>
+   <nd ref="8512201330"/>
+   <nd ref="3537271580"/>
+   <nd ref="3509041871"/>
+   <nd ref="8512201334"/>
+   <nd ref="286567544"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="40"/>
+   <tag k="name" v="Avenida Cuauhtémoc"/>
+   <tag k="oneway" v="no"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="700414534" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="6456189652"/>
+   <nd ref="670013980"/>
+   <nd ref="14301249940"/>
+   <nd ref="14301249939"/>
+   <nd ref="670013984"/>
+   <nd ref="14301249938"/>
+   <nd ref="670013987"/>
+   <nd ref="14301249937"/>
+   <nd ref="6577517435"/>
+   <nd ref="387266517"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida México-Poniente"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="867502181" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="275059481"/>
+   <nd ref="8085959931"/>
+   <nd ref="8085959933"/>
+   <nd ref="8085959928"/>
+   <nd ref="14301250007"/>
+   <nd ref="8085959930"/>
+   <nd ref="14301250008"/>
+   <nd ref="8085959927"/>
+   <nd ref="8085959926"/>
+   <nd ref="14301250009"/>
+   <nd ref="8085959929"/>
+   <nd ref="8085959923"/>
+   <nd ref="8085959925"/>
+   <nd ref="8085959922"/>
+   <nd ref="8085959924"/>
+   <nd ref="275059485"/>
+   <tag k="bridge" v="yes"/>
+   <tag k="destination" v="Avenida Canal de Miramontes;Calzada Acoxpa"/>
+   <tag k="destination:ref" v="EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="3"/>
+   <tag k="layer" v="1"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="867506139" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8085959941"/>
+   <nd ref="14301250004"/>
+   <nd ref="8085959938"/>
+   <nd ref="8085959937"/>
+   <nd ref="8085959940"/>
+   <nd ref="8085959935"/>
+   <nd ref="8085959936"/>
+   <nd ref="8085959934"/>
+   <nd ref="8085959932"/>
+   <nd ref="275059481"/>
+   <tag k="bridge" v="yes"/>
+   <tag k="destination:ref" v="EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="5"/>
+   <tag k="layer" v="1"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="867506140" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8085959943"/>
+   <nd ref="14301250003"/>
+   <nd ref="1435168718"/>
+   <nd ref="8085959942"/>
+   <nd ref="8085959944"/>
+   <nd ref="8085959939"/>
+   <nd ref="8085959941"/>
+   <tag k="bridge" v="yes"/>
+   <tag k="destination:ref" v="EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="4"/>
+   <tag k="layer" v="1"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="870422267" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="680349128"/>
+   <nd ref="8109658300"/>
+   <nd ref="685916135"/>
+   <nd ref="8219236378"/>
+   <nd ref="685916437"/>
+   <nd ref="4657187915"/>
+   <nd ref="14301250019"/>
+   <nd ref="4595627339"/>
+   <nd ref="4600282511"/>
+   <nd ref="685916300"/>
+   <nd ref="4595627327"/>
+   <nd ref="8104910074"/>
+   <nd ref="4595627330"/>
+   <nd ref="665961082"/>
+   <nd ref="666272555"/>
+   <nd ref="667271914"/>
+   <nd ref="14301250021"/>
+   <nd ref="666113331"/>
+   <nd ref="14301250022"/>
+   <nd ref="4595614302"/>
+   <nd ref="667288290"/>
+   <nd ref="4602741500"/>
+   <nd ref="14301250023"/>
+   <nd ref="8108628331"/>
+   <nd ref="14301250024"/>
+   <nd ref="8108634320"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="fixme" v="The correct 'ref' key might be EJE 2 OTE instead of EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="4"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="870866507" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="666113457"/>
+   <nd ref="14301250031"/>
+   <nd ref="8112328290"/>
+   <nd ref="14301250032"/>
+   <nd ref="8112328289"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="fixme" v="The correct 'ref' key might be EJE 2 OTE instead of EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="4"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="883092528" visible="true" version="6" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="5737236345"/>
+   <nd ref="6148631874"/>
+   <nd ref="3540494821"/>
+   <nd ref="8377637086"/>
+   <nd ref="8504144522"/>
+   <nd ref="3540494823"/>
+   <nd ref="3540494826"/>
+   <nd ref="3540494829"/>
+   <nd ref="2265772489"/>
+   <nd ref="3540494832"/>
+   <nd ref="3540494833"/>
+   <nd ref="14301249958"/>
+   <nd ref="3540494838"/>
+   <nd ref="3540494839"/>
+   <nd ref="387262485"/>
+   <nd ref="8501647714"/>
+   <nd ref="387262486"/>
+   <nd ref="6348325484"/>
+   <nd ref="387262487"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Avenida Nuevo León"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="217302956" visible="true" version="7" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="286567548"/>
+   <nd ref="14301249923"/>
+   <nd ref="8512265293"/>
+   <nd ref="4076126350"/>
+   <nd ref="14301249924"/>
+   <nd ref="2265787070"/>
+   <nd ref="14301249925"/>
+   <nd ref="4076126357"/>
+   <nd ref="4076126351"/>
+   <nd ref="387266481"/>
+   <nd ref="4076126348"/>
+   <nd ref="4076126347"/>
+   <nd ref="14301249926"/>
+   <nd ref="387266480"/>
+   <nd ref="4076126346"/>
+   <nd ref="286567544"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="40"/>
+   <tag k="name" v="Avenida Cuauhtémoc"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="661300126" visible="true" version="7" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="669995922"/>
+   <nd ref="11268154850"/>
+   <nd ref="14301249967"/>
+   <nd ref="667523390"/>
+   <nd ref="14301249968"/>
+   <nd ref="8501210242"/>
+   <nd ref="667523391"/>
+   <nd ref="3439728879"/>
+   <nd ref="14301249969"/>
+   <nd ref="14301249970"/>
+   <nd ref="667523392"/>
+   <nd ref="14301249971"/>
+   <nd ref="14301249972"/>
+   <nd ref="9661582814"/>
+   <nd ref="14301249973"/>
+   <nd ref="667523393"/>
+   <nd ref="14301249974"/>
+   <nd ref="8501210249"/>
+   <nd ref="14301249975"/>
+   <nd ref="667523394"/>
+   <nd ref="14301249976"/>
+   <nd ref="14301249977"/>
+   <nd ref="1134851332"/>
+   <tag k="alt_name" v="Calle Pino"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Calle Pino"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="901861697" visible="true" version="7" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="3545810443"/>
+   <nd ref="387262481"/>
+   <nd ref="14301249948"/>
+   <nd ref="4393646583"/>
+   <nd ref="14301249949"/>
+   <nd ref="14301249950"/>
+   <nd ref="387262482"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="lanes" v="2"/>
+   <tag k="maxheight" v="4.5"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Chapultepec"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="688470976" visible="true" version="8" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="3545810442"/>
+   <nd ref="14301249945"/>
+   <nd ref="6476678777"/>
+   <nd ref="8505157186"/>
+   <nd ref="14301249946"/>
+   <nd ref="6456189664"/>
+   <nd ref="14301249947"/>
+   <nd ref="3545810443"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="884695439" visible="true" version="8" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="8212152868"/>
+   <nd ref="8377637099"/>
+   <nd ref="14301249961"/>
+   <nd ref="5637183632"/>
+   <nd ref="8377488051"/>
+   <nd ref="6353144018"/>
+   <nd ref="14301249962"/>
+   <nd ref="387262494"/>
+   <nd ref="6191003269"/>
+   <nd ref="6191003243"/>
+   <nd ref="6190997581"/>
+   <nd ref="3447031883"/>
+   <nd ref="14301249963"/>
+   <nd ref="387262495"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Avenida Nuevo León"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1072833269" visible="true" version="8" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="1435216231"/>
+   <nd ref="4407367331"/>
+   <nd ref="14301249985"/>
+   <nd ref="670758019"/>
+   <nd ref="5639768769"/>
+   <nd ref="671362067"/>
+   <nd ref="14301249986"/>
+   <nd ref="671361892"/>
+   <nd ref="3732206717"/>
+   <nd ref="14301249987"/>
+   <nd ref="670429588"/>
+   <nd ref="670764571"/>
+   <nd ref="670764573"/>
+   <nd ref="14301249988"/>
+   <nd ref="670764570"/>
+   <nd ref="14301249989"/>
+   <nd ref="5639768751"/>
+   <nd ref="3732206676"/>
+   <nd ref="3732209403"/>
+   <nd ref="14301249990"/>
+   <nd ref="8237984404"/>
+   <nd ref="8740116008"/>
+   <nd ref="670764739"/>
+   <nd ref="670764577"/>
+   <nd ref="14301249991"/>
+   <nd ref="3732206685"/>
+   <nd ref="14301249992"/>
+   <nd ref="14301249993"/>
+   <nd ref="3732206681"/>
+   <nd ref="6182353386"/>
+   <nd ref="1435168699"/>
+   <nd ref="6182353283"/>
+   <nd ref="1435168700"/>
+   <nd ref="8311258221"/>
+   <nd ref="8311258224"/>
+   <nd ref="275059476"/>
+   <nd ref="1435168704"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Prolongación División del Norte"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="217302955" visible="true" version="9" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="286567548"/>
+   <nd ref="14301249922"/>
+   <nd ref="4076126364"/>
+   <nd ref="4076126365"/>
+   <nd ref="4076126363"/>
+   <nd ref="14301249921"/>
+   <nd ref="3570773814"/>
+   <nd ref="3532146333"/>
+   <nd ref="14301249920"/>
+   <nd ref="3532146328"/>
+   <nd ref="3532146323"/>
+   <nd ref="387266454"/>
+   <nd ref="286567552"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="60"/>
+   <tag k="name" v="Avenida Cuauhtémoc"/>
+   <tag k="oneway" v="no"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="318512211" visible="true" version="9" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="6456189673"/>
+   <nd ref="8557631639"/>
+   <nd ref="14301248424"/>
+   <nd ref="6345632489"/>
+   <nd ref="14301248425"/>
+   <nd ref="8557631640"/>
+   <nd ref="14301248426"/>
+   <nd ref="8557631641"/>
+   <nd ref="14301248427"/>
+   <nd ref="8557631642"/>
+   <nd ref="14301248428"/>
+   <nd ref="6345632490"/>
+   <nd ref="8557631643"/>
+   <nd ref="14301248429"/>
+   <nd ref="14301248430"/>
+   <nd ref="14301248431"/>
+   <nd ref="6345632491"/>
+   <nd ref="14301248432"/>
+   <nd ref="8557631644"/>
+   <nd ref="3249194769"/>
+   <nd ref="8557631645"/>
+   <nd ref="14301248434"/>
+   <nd ref="8557631646"/>
+   <nd ref="14301248435"/>
+   <nd ref="8557631647"/>
+   <nd ref="14301248436"/>
+   <nd ref="8557631648"/>
+   <nd ref="14301248437"/>
+   <nd ref="8557631649"/>
+   <nd ref="14301248438"/>
+   <nd ref="8557631650"/>
+   <nd ref="14301248439"/>
+   <nd ref="4076126557"/>
+   <nd ref="14301248440"/>
+   <nd ref="8557631651"/>
+   <nd ref="14301248442"/>
+   <nd ref="3249194782"/>
+   <nd ref="14301248443"/>
+   <nd ref="8557631652"/>
+   <nd ref="14301248444"/>
+   <nd ref="3249194784"/>
+   <tag k="destination:ref" v="MEX 113"/>
+   <tag k="highway" v="primary_link"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="634405615" visible="true" version="9" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="2410443087"/>
+   <nd ref="5610871311"/>
+   <nd ref="5610871293"/>
+   <nd ref="671457780"/>
+   <nd ref="4081221717"/>
+   <nd ref="5610871262"/>
+   <nd ref="671457778"/>
+   <nd ref="14301248413"/>
+   <nd ref="5610871258"/>
+   <nd ref="14301248414"/>
+   <nd ref="6184702453"/>
+   <nd ref="671457777"/>
+   <nd ref="14301248415"/>
+   <nd ref="679493760"/>
+   <nd ref="5610871268"/>
+   <nd ref="8557548742"/>
+   <nd ref="6456189670"/>
+   <nd ref="679493758"/>
+   <nd ref="8557548743"/>
+   <nd ref="387265701"/>
+   <tag k="foot" v="yes"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="name" v="Avenida Nuevo León"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="sidewalk" v="both"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="754728132" visible="true" version="9" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387262482"/>
+   <nd ref="14301249951"/>
+   <nd ref="14301249952"/>
+   <nd ref="8370976121"/>
+   <nd ref="4393646576"/>
+   <nd ref="5737236366"/>
+   <nd ref="5653882999"/>
+   <nd ref="6148137355"/>
+   <nd ref="6148137329"/>
+   <nd ref="4393646579"/>
+   <nd ref="6148138013"/>
+   <nd ref="8370976124"/>
+   <nd ref="6148137364"/>
+   <nd ref="5653882991"/>
+   <nd ref="14301249953"/>
+   <nd ref="2265780355"/>
+   <nd ref="6148137786"/>
+   <nd ref="8314684096"/>
+   <nd ref="14301249954"/>
+   <nd ref="8314684098"/>
+   <nd ref="6148137987"/>
+   <nd ref="14301249955"/>
+   <nd ref="8314684100"/>
+   <nd ref="8314684102"/>
+   <nd ref="14301249956"/>
+   <nd ref="670434465"/>
+   <nd ref="8314684103"/>
+   <nd ref="3459748511"/>
+   <nd ref="2265780416"/>
+   <nd ref="2265780373"/>
+   <nd ref="2258478472"/>
+   <nd ref="2265780368"/>
+   <nd ref="2258478535"/>
+   <nd ref="14301249957"/>
+   <nd ref="6148631849"/>
+   <nd ref="8504836558"/>
+   <nd ref="2258478619"/>
+   <nd ref="4393646581"/>
+   <nd ref="2258478285"/>
+   <nd ref="6148632261"/>
+   <nd ref="2258478752"/>
+   <nd ref="2258478702"/>
+   <nd ref="8501647716"/>
+   <nd ref="387262484"/>
+   <nd ref="7050588270"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Avenida Nuevo León"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="867501345" visible="true" version="9" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="1435168704"/>
+   <nd ref="8085947195"/>
+   <nd ref="275059477"/>
+   <nd ref="8085947194"/>
+   <nd ref="14301249994"/>
+   <nd ref="8085947196"/>
+   <nd ref="8085947191"/>
+   <nd ref="14301249995"/>
+   <nd ref="8085947193"/>
+   <nd ref="14301249996"/>
+   <nd ref="8085947190"/>
+   <nd ref="14301249998"/>
+   <nd ref="8085947192"/>
+   <nd ref="14301249999"/>
+   <nd ref="8085947188"/>
+   <nd ref="14301250000"/>
+   <nd ref="8085947187"/>
+   <nd ref="14301250002"/>
+   <nd ref="8085947189"/>
+   <nd ref="8085947186"/>
+   <nd ref="275059479"/>
+   <tag k="destination" v="Viaducto Tlalpan;Avenida Canal de Miramontes"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="lanes" v="3"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Prolongación División del Norte"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="870866509" visible="true" version="9" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="666113453"/>
+   <nd ref="10045920538"/>
+   <nd ref="8218740154"/>
+   <nd ref="14301250027"/>
+   <nd ref="685713409"/>
+   <nd ref="5319518588"/>
+   <nd ref="5319518586"/>
+   <nd ref="14301250028"/>
+   <nd ref="8086039903"/>
+   <nd ref="4602801533"/>
+   <nd ref="666113419"/>
+   <nd ref="677151177"/>
+   <nd ref="8236395993"/>
+   <nd ref="3554771682"/>
+   <nd ref="5116430847"/>
+   <nd ref="5116430846"/>
+   <nd ref="14301250029"/>
+   <nd ref="5116430853"/>
+   <nd ref="685706115"/>
+   <nd ref="685706113"/>
+   <nd ref="8109665899"/>
+   <nd ref="14301250030"/>
+   <nd ref="5122571600"/>
+   <nd ref="666113457"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="bus:lanes" v="|||designated"/>
+   <tag k="fixme" v="The correct 'ref' key might be EJE 2 OTE instead of EJE 1 OTE"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="4"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="677711635" visible="true" version="12" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="3249194753"/>
+   <nd ref="8301838081"/>
+   <nd ref="6347444809"/>
+   <nd ref="8558253735"/>
+   <nd ref="8558253736"/>
+   <nd ref="387265669"/>
+   <nd ref="8558253737"/>
+   <nd ref="8558253738"/>
+   <nd ref="6184702389"/>
+   <nd ref="387265672"/>
+   <nd ref="8558253739"/>
+   <nd ref="387265673"/>
+   <nd ref="8558253774"/>
+   <nd ref="8558253775"/>
+   <nd ref="3249194751"/>
+   <nd ref="4076126561"/>
+   <nd ref="8557631618"/>
+   <nd ref="8557631617"/>
+   <nd ref="387265676"/>
+   <nd ref="8301838101"/>
+   <nd ref="8359777645"/>
+   <nd ref="387265678"/>
+   <nd ref="387265679"/>
+   <nd ref="8557627315"/>
+   <nd ref="387265680"/>
+   <nd ref="8557627313"/>
+   <nd ref="8557627314"/>
+   <nd ref="6456189673"/>
+   <nd ref="14301248423"/>
+   <nd ref="8359777631"/>
+   <nd ref="387265682"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="name" v="Avenida Miguel Hidalgo"/>
+   <tag k="oneway" v="no"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="348441120" visible="true" version="13" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="6456189652"/>
+   <nd ref="6456189653"/>
+   <nd ref="8370976139"/>
+   <nd ref="6456189654"/>
+   <nd ref="8505157191"/>
+   <nd ref="8505157184"/>
+   <nd ref="6456189665"/>
+   <nd ref="14301249941"/>
+   <nd ref="8505157185"/>
+   <nd ref="14301249942"/>
+   <nd ref="8505157192"/>
+   <nd ref="14301249943"/>
+   <nd ref="6577517439"/>
+   <nd ref="14301249944"/>
+   <nd ref="3545810440"/>
+   <nd ref="6577517440"/>
+   <nd ref="3545810442"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida México-Poniente"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="33812111" visible="true" version="15" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387262895"/>
+   <nd ref="8338198530"/>
+   <nd ref="3300700769"/>
+   <nd ref="8338198529"/>
+   <nd ref="10717928194"/>
+   <nd ref="387262530"/>
+   <nd ref="669995928"/>
+   <nd ref="5637653911"/>
+   <nd ref="14301249964"/>
+   <nd ref="669995940"/>
+   <nd ref="14301249965"/>
+   <nd ref="14301249966"/>
+   <nd ref="669995922"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Calle Pino"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="52834964" visible="true" version="15" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387266517"/>
+   <nd ref="14301249936"/>
+   <nd ref="14301249935"/>
+   <nd ref="3545810424"/>
+   <nd ref="14301249934"/>
+   <nd ref="670014702"/>
+   <nd ref="3545810420"/>
+   <nd ref="14301249933"/>
+   <nd ref="2265791941"/>
+   <nd ref="670014704"/>
+   <nd ref="2265787025"/>
+   <nd ref="3545810418"/>
+   <nd ref="3545810417"/>
+   <nd ref="8323495102"/>
+   <nd ref="2265787010"/>
+   <nd ref="670014709"/>
+   <nd ref="6148137874"/>
+   <nd ref="14301249932"/>
+   <nd ref="8512250316"/>
+   <nd ref="670014714"/>
+   <nd ref="14301249931"/>
+   <nd ref="3545809890"/>
+   <nd ref="14301249930"/>
+   <nd ref="670014716"/>
+   <nd ref="14301249929"/>
+   <nd ref="670014718"/>
+   <nd ref="8299863254"/>
+   <nd ref="14301249928"/>
+   <nd ref="8299863258"/>
+   <nd ref="8512254319"/>
+   <nd ref="8512254317"/>
+   <nd ref="286567538"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Calle San Pedro Actopan"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="336716178" visible="true" version="15" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387265691"/>
+   <nd ref="387265692"/>
+   <nd ref="387265693"/>
+   <nd ref="8557548753"/>
+   <nd ref="387265694"/>
+   <nd ref="8557548752"/>
+   <nd ref="14301248422"/>
+   <nd ref="387265695"/>
+   <nd ref="8557548751"/>
+   <nd ref="14301248421"/>
+   <nd ref="8557548750"/>
+   <nd ref="8557548749"/>
+   <nd ref="8557548748"/>
+   <nd ref="387265697"/>
+   <nd ref="14301248420"/>
+   <nd ref="387265698"/>
+   <nd ref="14301248419"/>
+   <nd ref="14301248418"/>
+   <nd ref="6184702538"/>
+   <nd ref="8557548747"/>
+   <nd ref="14301248417"/>
+   <nd ref="387265700"/>
+   <nd ref="8557548745"/>
+   <nd ref="8557548746"/>
+   <nd ref="8557548744"/>
+   <nd ref="14301248416"/>
+   <nd ref="387265701"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="name" v="Calle Miguel Hidalgo"/>
+   <tag k="oneway" v="no"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="130731434" visible="true" version="24" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="275058974"/>
+   <nd ref="1130113769"/>
+   <nd ref="1130113698"/>
+   <nd ref="275059015"/>
+   <nd ref="275058976"/>
+   <nd ref="275059086"/>
+   <nd ref="2459003315"/>
+   <nd ref="11418294525"/>
+   <nd ref="670405474"/>
+   <nd ref="670405487"/>
+   <nd ref="8483799432"/>
+   <nd ref="670405437"/>
+   <nd ref="275059087"/>
+   <nd ref="275059816"/>
+   <nd ref="1435168725"/>
+   <nd ref="14301250005"/>
+   <nd ref="8140141257"/>
+   <nd ref="667195408"/>
+   <nd ref="667195426"/>
+   <nd ref="275059339"/>
+   <nd ref="7511977604"/>
+   <tag k="alt_name" v="Lateral Periférico"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="lanes" v="3"/>
+   <tag k="maxspeed" v="40"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Boulevard Adolfo Ruiz Cortines"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="53825885" visible="true" version="25" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387261996"/>
+   <nd ref="8323702452"/>
+   <nd ref="14301248411"/>
+   <nd ref="5610871301"/>
+   <nd ref="387262020"/>
+   <nd ref="14301248412"/>
+   <nd ref="679494532"/>
+   <nd ref="387262019"/>
+   <nd ref="679494386"/>
+   <nd ref="5610871284"/>
+   <nd ref="387262018"/>
+   <nd ref="3311072172"/>
+   <nd ref="5610871256"/>
+   <nd ref="5610871307"/>
+   <nd ref="671457783"/>
+   <nd ref="679493748"/>
+   <nd ref="5610871283"/>
+   <nd ref="8557548739"/>
+   <nd ref="5610871287"/>
+   <nd ref="671457782"/>
+   <nd ref="5610871272"/>
+   <nd ref="5610871274"/>
+   <nd ref="2410443087"/>
+   <tag k="foot" v="yes"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="name" v="Avenida Nuevo León"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="sidewalk" v="both"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="847133358" visible="true" version="29" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="666113460"/>
+   <nd ref="685334743"/>
+   <nd ref="666113461"/>
+   <nd ref="4687864134"/>
+   <nd ref="14301250034"/>
+   <nd ref="4687864132"/>
+   <nd ref="8247536633"/>
+   <nd ref="4602820998"/>
+   <nd ref="666113465"/>
+   <nd ref="14301250035"/>
+   <nd ref="792631334"/>
+   <nd ref="4687864126"/>
+   <nd ref="792631366"/>
+   <nd ref="664302481"/>
+   <nd ref="665661091"/>
+   <nd ref="665661098"/>
+   <nd ref="665661106"/>
+   <nd ref="794049183"/>
+   <nd ref="664302477"/>
+   <nd ref="794049184"/>
+   <nd ref="4987429412"/>
+   <nd ref="4987429413"/>
+   <nd ref="665661096"/>
+   <nd ref="678834186"/>
+   <nd ref="678834209"/>
+   <nd ref="14301250036"/>
+   <nd ref="8793354570"/>
+   <nd ref="6984350535"/>
+   <nd ref="8082058409"/>
+   <nd ref="666113468"/>
+   <nd ref="666113469"/>
+   <nd ref="8233861260"/>
+   <nd ref="14301250037"/>
+   <nd ref="14301250038"/>
+   <nd ref="6096202211"/>
+   <nd ref="14301250039"/>
+   <nd ref="6096202212"/>
+   <nd ref="14301250040"/>
+   <nd ref="8234511701"/>
+   <nd ref="8113030364"/>
+   <nd ref="380222399"/>
+   <nd ref="766663174"/>
+   <nd ref="769788039"/>
+   <nd ref="769788056"/>
+   <nd ref="14301250041"/>
+   <nd ref="6150126551"/>
+   <nd ref="8116692392"/>
+   <nd ref="11098786432"/>
+   <nd ref="769788041"/>
+   <nd ref="769788047"/>
+   <nd ref="666113474"/>
+   <nd ref="14301250042"/>
+   <nd ref="666113476"/>
+   <nd ref="666113477"/>
+   <nd ref="769788052"/>
+   <nd ref="8573486996"/>
+   <nd ref="769788031"/>
+   <nd ref="14301250044"/>
+   <nd ref="1126794609"/>
+   <nd ref="685181509"/>
+   <nd ref="765714235"/>
+   <nd ref="864612057"/>
+   <nd ref="14301250045"/>
+   <nd ref="770122955"/>
+   <nd ref="683942066"/>
+   <nd ref="683950708"/>
+   <nd ref="1135157956"/>
+   <nd ref="1135157902"/>
+   <nd ref="683950733"/>
+   <nd ref="685228565"/>
+   <nd ref="14301250046"/>
+   <nd ref="685228606"/>
+   <nd ref="14301250047"/>
+   <nd ref="683956224"/>
+   <nd ref="14301250048"/>
+   <nd ref="685228468"/>
+   <nd ref="685667122"/>
+   <nd ref="8131367439"/>
+   <nd ref="14301250049"/>
+   <nd ref="11513475740"/>
+   <nd ref="14301250050"/>
+   <nd ref="11513475741"/>
+   <nd ref="11513475742"/>
+   <nd ref="666113481"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="bus:lanes" v="|||designated"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="4"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="52834209" visible="true" version="31" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387262488"/>
+   <nd ref="8504150303"/>
+   <nd ref="14301249959"/>
+   <nd ref="387262489"/>
+   <nd ref="8504150305"/>
+   <nd ref="3540494843"/>
+   <nd ref="8504150312"/>
+   <nd ref="3540494850"/>
+   <nd ref="6148632103"/>
+   <nd ref="6148631801"/>
+   <nd ref="3540494858"/>
+   <nd ref="14301249960"/>
+   <nd ref="6148632168"/>
+   <nd ref="3540494864"/>
+   <nd ref="387262491"/>
+   <nd ref="6148632194"/>
+   <nd ref="10224695019"/>
+   <nd ref="6348326694"/>
+   <nd ref="6148632127"/>
+   <nd ref="5467927212"/>
+   <nd ref="5467872022"/>
+   <nd ref="6348326695"/>
+   <nd ref="8212152867"/>
+   <tag k="highway" v="tertiary"/>
+   <tag k="name" v="Avenida Nuevo León"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="130226150" visible="true" version="38" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="674317823"/>
+   <nd ref="14301250016"/>
+   <nd ref="667272984"/>
+   <nd ref="8109587893"/>
+   <nd ref="671407510"/>
+   <nd ref="8085943505"/>
+   <nd ref="671403166"/>
+   <nd ref="14301250018"/>
+   <nd ref="8109597797"/>
+   <nd ref="665960955"/>
+   <nd ref="8109597780"/>
+   <nd ref="671407630"/>
+   <nd ref="667272981"/>
+   <nd ref="671411566"/>
+   <nd ref="4600294824"/>
+   <nd ref="8086003698"/>
+   <nd ref="665960940"/>
+   <nd ref="8213110264"/>
+   <nd ref="685916035"/>
+   <nd ref="275059474"/>
+   <nd ref="4602977531"/>
+   <tag k="alt_name" v="Eje 1 Oriente;Eje Vial 1 Oriente"/>
+   <tag k="highway" v="primary"/>
+   <tag k="lanes" v="4"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Canal de Miramontes"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="EJE 1 OTE"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="52502838" visible="true" version="44" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="674109010"/>
+   <nd ref="14301249978"/>
+   <nd ref="6191004319"/>
+   <nd ref="6191003064"/>
+   <nd ref="14301249979"/>
+   <nd ref="669995946"/>
+   <nd ref="680228761"/>
+   <nd ref="14301249980"/>
+   <nd ref="14301249981"/>
+   <nd ref="8682038919"/>
+   <nd ref="11507343530"/>
+   <nd ref="14301249982"/>
+   <nd ref="11507343531"/>
+   <nd ref="11507343532"/>
+   <nd ref="8344792885"/>
+   <nd ref="8344792882"/>
+   <nd ref="1155101048"/>
+   <nd ref="667282215"/>
+   <nd ref="13455486716"/>
+   <nd ref="8382869547"/>
+   <nd ref="8382860120"/>
+   <nd ref="8497993800"/>
+   <nd ref="8497993787"/>
+   <nd ref="8497993788"/>
+   <nd ref="6099314554"/>
+   <nd ref="8359857103"/>
+   <nd ref="8359874124"/>
+   <nd ref="8359857106"/>
+   <nd ref="1798892254"/>
+   <nd ref="667282216"/>
+   <nd ref="8359857112"/>
+   <nd ref="8359857109"/>
+   <nd ref="8360556802"/>
+   <nd ref="667282217"/>
+   <nd ref="681939991"/>
+   <nd ref="6512275636"/>
+   <nd ref="8359874132"/>
+   <nd ref="8359874135"/>
+   <nd ref="8359874137"/>
+   <nd ref="13411650527"/>
+   <nd ref="670386090"/>
+   <nd ref="10563244819"/>
+   <nd ref="8359874139"/>
+   <nd ref="8359857095"/>
+   <nd ref="1130113723"/>
+   <nd ref="876600234"/>
+   <nd ref="667282219"/>
+   <nd ref="13411650528"/>
+   <nd ref="667282220"/>
+   <nd ref="667282221"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Avenida Guadalupe I. Ramírez"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="52502854" visible="true" version="49" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="286567505"/>
+   <nd ref="670000951"/>
+   <nd ref="13409096246"/>
+   <nd ref="8349009896"/>
+   <nd ref="13111734301"/>
+   <nd ref="13409107732"/>
+   <nd ref="1130113692"/>
+   <nd ref="8348882946"/>
+   <nd ref="8348967710"/>
+   <nd ref="8348967713"/>
+   <nd ref="674100494"/>
+   <nd ref="13409107875"/>
+   <nd ref="679498419"/>
+   <nd ref="667282342"/>
+   <nd ref="8500640124"/>
+   <nd ref="667282346"/>
+   <nd ref="666164335"/>
+   <nd ref="1435216206"/>
+   <nd ref="1435216208"/>
+   <nd ref="674100503"/>
+   <nd ref="6512258067"/>
+   <nd ref="679498427"/>
+   <nd ref="8367173366"/>
+   <nd ref="6512258065"/>
+   <nd ref="13409107735"/>
+   <nd ref="670385992"/>
+   <nd ref="876600161"/>
+   <nd ref="1130113583"/>
+   <nd ref="876600149"/>
+   <nd ref="679498379"/>
+   <nd ref="13429074851"/>
+   <nd ref="13429074846"/>
+   <nd ref="670035642"/>
+   <nd ref="13429074849"/>
+   <nd ref="8344883301"/>
+   <nd ref="8344792879"/>
+   <nd ref="13429074836"/>
+   <nd ref="1155101011"/>
+   <nd ref="1155101048"/>
+   <nd ref="680213679"/>
+   <nd ref="8344792890"/>
+   <nd ref="8344792889"/>
+   <nd ref="6353144052"/>
+   <nd ref="8497993803"/>
+   <nd ref="3732209362"/>
+   <nd ref="8497993813"/>
+   <nd ref="8236878001"/>
+   <nd ref="3732206697"/>
+   <nd ref="8247079610"/>
+   <nd ref="8236878008"/>
+   <nd ref="3732209341"/>
+   <nd ref="680214446"/>
+   <nd ref="4621405696"/>
+   <nd ref="14301249984"/>
+   <nd ref="3732209401"/>
+   <nd ref="8336733770"/>
+   <nd ref="8336733776"/>
+   <nd ref="8336733779"/>
+   <nd ref="2692221169"/>
+   <nd ref="9842702563"/>
+   <nd ref="9846939808"/>
+   <nd ref="275059475"/>
+   <tag k="highway" v="secondary"/>
+   <tag k="maxheight:signed" v="no"/>
+   <tag k="maxspeed" v="50"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Prolongación División del Norte"/>
+   <tag k="oneway" v="yes"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="28283963" visible="true" version="56" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="387266409"/>
+   <nd ref="8299902565"/>
+   <nd ref="3537270634"/>
+   <nd ref="387266412"/>
+   <nd ref="14301249909"/>
+   <nd ref="4076126382"/>
+   <nd ref="3538724995"/>
+   <nd ref="4076126383"/>
+   <nd ref="286567562"/>
+   <nd ref="14301249908"/>
+   <nd ref="3539159555"/>
+   <nd ref="14301249906"/>
+   <nd ref="3539159544"/>
+   <nd ref="4076126384"/>
+   <nd ref="387266416"/>
+   <nd ref="4076126385"/>
+   <nd ref="4076126386"/>
+   <nd ref="3539159522"/>
+   <nd ref="387266419"/>
+   <nd ref="3539159512"/>
+   <nd ref="14301249903"/>
+   <nd ref="4076126387"/>
+   <nd ref="4076126388"/>
+   <nd ref="286567566"/>
+   <nd ref="3539159190"/>
+   <nd ref="3538724475"/>
+   <nd ref="3538724464"/>
+   <nd ref="387266423"/>
+   <nd ref="4076126491"/>
+   <nd ref="4076126492"/>
+   <nd ref="4076126490"/>
+   <nd ref="4076126489"/>
+   <nd ref="4076126494"/>
+   <nd ref="4076126493"/>
+   <nd ref="286567569"/>
+   <nd ref="14301248495"/>
+   <nd ref="387266427"/>
+   <nd ref="4076126495"/>
+   <nd ref="14301248492"/>
+   <nd ref="4076126497"/>
+   <nd ref="4076126496"/>
+   <nd ref="387266430"/>
+   <nd ref="387266432"/>
+   <nd ref="4076126500"/>
+   <nd ref="4076126499"/>
+   <nd ref="4076126502"/>
+   <nd ref="4076126501"/>
+   <nd ref="387266441"/>
+   <nd ref="4076126498"/>
+   <nd ref="286567571"/>
+   <nd ref="14301248486"/>
+   <nd ref="3539620447"/>
+   <nd ref="14301248485"/>
+   <nd ref="387266444"/>
+   <nd ref="4076126504"/>
+   <nd ref="14301248483"/>
+   <nd ref="4076126503"/>
+   <nd ref="14301248482"/>
+   <nd ref="286567574"/>
+   <nd ref="4076126505"/>
+   <nd ref="3538723822"/>
+   <nd ref="4076126506"/>
+   <nd ref="387266448"/>
+   <nd ref="8313798172"/>
+   <nd ref="3538723783"/>
+   <nd ref="4076126507"/>
+   <nd ref="387266450"/>
+   <nd ref="4076126508"/>
+   <nd ref="286567576"/>
+   <nd ref="4076126509"/>
+   <nd ref="3539136807"/>
+   <nd ref="14301248476"/>
+   <nd ref="286567580"/>
+   <nd ref="4076126510"/>
+   <nd ref="4076126511"/>
+   <nd ref="387266451"/>
+   <nd ref="3539136472"/>
+   <nd ref="8313974338"/>
+   <nd ref="4076126512"/>
+   <nd ref="4076126513"/>
+   <nd ref="14301248473"/>
+   <nd ref="14301248472"/>
+   <nd ref="3539136332"/>
+   <nd ref="14301248471"/>
+   <nd ref="14301248470"/>
+   <nd ref="8299941512"/>
+   <nd ref="286567582"/>
+   <nd ref="8554916300"/>
+   <nd ref="387266452"/>
+   <nd ref="8299944918"/>
+   <nd ref="4076126514"/>
+   <nd ref="3539135995"/>
+   <nd ref="8299944919"/>
+   <nd ref="286567584"/>
+   <nd ref="14301248466"/>
+   <nd ref="8302509169"/>
+   <tag k="alt_name" v="Nueva Carretera a Oaxtepec"/>
+   <tag k="highway" v="primary"/>
+   <tag k="maxspeed" v="60"/>
+   <tag k="name" v="Carretera San Gregorio - Oaxtepec"/>
+   <tag k="nat_ref" v="113"/>
+   <tag k="oneway" v="no"/>
+   <tag k="ref" v="MEX 113"/>
+   <tag k="source" v="Yahoo"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="4754727" visible="true" version="90" changeset="190765359" timestamp="2026-10-19T22:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="275060720"/>
+   <nd ref="8109524684"/>
+   <nd ref="3066096709"/>
+   <nd ref="275060624"/>
+   <nd ref="1717510898"/>
+   <nd ref="7511977607"/>
+   <nd ref="30380318"/>
+   <nd ref="30380317"/>
+   <nd ref="30380316"/>
+   <nd ref="14301250006"/>
+   <nd ref="3066096711"/>
+   <nd ref="3732209325"/>
+   <nd ref="3065298327"/>
+   <nd ref="3732209406"/>
+   <nd ref="3732206692"/>
+   <nd ref="3732206722"/>
+   <nd ref="3732209383"/>
+   <nd ref="3732209332"/>
+   <nd ref="3066096712"/>
+   <nd ref="3732209397"/>
+   <nd ref="3732206712"/>
+   <nd ref="3732209355"/>
+   <nd ref="30380309"/>
+   <nd ref="3688236900"/>
+   <nd ref="7511977596"/>
+   <nd ref="3732209389"/>
+   <nd ref="30380308"/>
+   <nd ref="8088814554"/>
+   <nd ref="8088814553"/>
+   <nd ref="30380307"/>
+   <nd ref="3066096714"/>
+   <nd ref="30380305"/>
+   <tag k="highway" v="motorway"/>
+   <tag k="lanes" v="3"/>
+   <tag k="maxspeed" v="80"/>
+   <tag k="maxspeed:type" v="sign"/>
+   <tag k="name" v="Anillo Periférico"/>
+   <tag k="oneway" v="yes"/>
+   <tag k="ref" v="PERIF N1"/>
+   <tag k="surface" v="asphalt"/>
+   <tag k="wikidata" v="Q3366724"/>
+  </way>
+ </modify>
+</osmChange>

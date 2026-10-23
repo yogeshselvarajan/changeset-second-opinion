@@ -1,0 +1,30 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 900000000006,
+    "created_at": "2026-05-20T09:00:00Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 6,
+    "created_count": 0,
+    "modified_count": 6,
+    "deleted_count": 0,
+    "closed_at": "2026-05-20T09:10:00Z",
+    "min_lat": 45.4,
+    "min_lon": 9.18,
+    "max_lat": 45.41,
+    "max_lon": 9.19,
+    "uid": 900000010,
+    "user": "mapper_I",
+    "tags": {
+      "comment": "Update road names and surfaces",
+      "created_by": "iD 2.30.0",
+      "locale": "en-US"
+    },
+    "comments": []
+  }
+}

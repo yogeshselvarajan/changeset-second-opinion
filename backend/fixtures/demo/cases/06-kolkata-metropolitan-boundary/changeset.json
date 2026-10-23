@@ -1,0 +1,34 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 190699738,
+    "created_at": "2026-10-18T14:34:22Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 166,
+    "created_count": 133,
+    "modified_count": 32,
+    "deleted_count": 1,
+    "closed_at": "2026-10-18T14:34:25Z",
+    "min_lat": 22.5720513,
+    "min_lon": 88.0078561,
+    "max_lat": 23.0756626,
+    "max_lon": 88.7061376,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "2613",
+      "comment": "Modified Administrative Boundary: Kolkata Metropolitan Area",
+      "created_by": "iD 2.42.2",
+      "host": "[url removed]",
+      "imagery_used": "Esri World Imagery",
+      "locale": "en-US",
+      "warnings:impossible_oneway:waterway": "2"
+    },
+    "comments": []
+  }
+}

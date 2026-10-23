@@ -1,0 +1,27 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 14288440901,
+      "lat": -36.7399439,
+      "lon": 174.7419333,
+      "timestamp": "2026-10-16T00:06:44Z",
+      "version": 1,
+      "changeset": 190581333,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "tags": {
+        "addr:housenumber": "518",
+        "addr:street": "East Coast Road",
+        "craft": "key_cutter",
+        "name": "Armstrong",
+        "phone": "+64 9 475 5515"
+      }
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+---
+title: Deploy on AWS
+description: Run the whole stack on one AWS host from one CloudFormation template, with SSM only and no SSH.
+---
+
+*For operators who self-host. How-to.*
+
+One `g6.xlarge` (or a CPU fallback) runs everything with Docker Compose, from one CloudFormation template. This page has every command you need, from the template in [`infra/cloudformation/`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/infra/cloudformation/cso-single-host.yaml) to the first sign-in. Read it through before you deploy.
+
+The steps were written before a full deployment from the template. The template passed static checks only, and the first deploy is the real test. Run each step yourself, with your own AWS credentials.
+
+Two templates live in [`infra/cloudformation/`](https://github.com/yogeshselvarajan/changeset-second-opinion/tree/main/infra/cloudformation). `cso-single-host.yaml` is the full stack below. `cso-replay-demo.yaml` is a much smaller one for a public replay demo, with no GPU and no model, and it is the first section of this page.
+
+## Replay demo on one small instance
+
+*Checked for syntax only. It has not been deployed. See "What is tested" below.*
+
+This profile serves the fifteen recorded changesets in `CSO_MODE=replay` from one small instance, for a public demo at a name such as `osm.changesetreview.online`. It runs Caddy, the API and the worker. There is no Decider, no GPU, no Amazon Bedrock and no S3 bucket, and the app never calls OpenStreetMap. It suits 5 to 10 people at once and a few hundred visits a day.
+
+### What you buy
+
+| Item | Choice | Why |
+| --- | --- | --- |
+| Instance | `t4g.small` (arm64, 2 GiB), or `t3.small` (x86), or `t4g.micro` (arm64, 1 GiB) | The stack uses about 200 MiB at rest. The first image build is the heavy part. |
+| Disk | 20 GiB gp3, encrypted | Two images, the build cache and a small SQLite file. |
+| Address | One Elastic IP | The DNS record needs an address that survives a restart. |
+| Domain | `changesetreview.online`, already at Hostinger | You add two DNS records. Nothing else to buy. |
+
+Nothing else is needed: no load balancer, no NAT gateway, no database service.
+
+### Costs, US East (N. Virginia)
+
+The `t4g.small` instance figure was supplied by the project owner and the others are derived from it with the same method. None of it was checked against the live AWS price pages, so check the [EC2 pricing page](https://aws.amazon.com/ec2/pricing/on-demand/) before you rely on it.
+
+| Line | `t4g.small` | `t4g.micro` | `t3.small` |
+| --- | --- | --- | --- |
+| Instance, always on | 12.26 | about 6.13 | about 15.18 |
+| 20 GiB gp3 | 1.60 | 1.60 | 1.60 |
+| Public IPv4 address (Elastic IP) | 3.65 | 3.65 | 3.65 |
+| Nightly snapshots (3 kept) | about 0.50 | about 0.50 | about 0.50 |
+| **Per month, US dollars** | **about 18** | **about 12** | **about 21** |
+
+Alarms (three, inside the free ten), Session Manager, the SNS topic and Parameter Store standard parameters cost nothing at this size. Traffic of 100 to 300 visits a day is far below the monthly free outbound transfer. A burstable instance runs in unlimited mode by default, so a sustained load bills a small charge for extra CPU credits. The first image build is the only expected spike, and the `CpuHighAlarm` tells you if something keeps the CPU busy.
+
+### Before you deploy
+
+1. **AWS CLI v2** with a profile for the account, and the Session Manager plugin. Choose a region, for example `export AWS_REGION=us-east-1`. The template finds the Ubuntu image through a public Systems Manager parameter, so any region works.
+2. **A VPC and a public subnet** in a zone that offers the instance type. Every account has a default VPC unless it was removed. These read-only commands find them:
+
+   ```sh
+   VPC=$(aws ec2 describe-vpcs --filters Name=is-default,Values=true --query 'Vpcs[0].VpcId' --output text)
+   aws ec2 describe-subnets --filters Name=vpc-id,Values=$VPC Name=default-for-az,Values=true \
+     --query 'Subnets[].[SubnetId,AvailabilityZone]' --output table
+   aws ec2 describe-instance-type-offerings --location-type availability-zone \
+     --filters Name=instance-type,Values=t4g.small --query 'InstanceTypeOfferings[].Location' --output text
+   ```
+
+   Pick a subnet whose zone is in the last list.
+3. **Repository access.** The instance clones `RepoUrl` over HTTPS at first boot. If the repository is public, nothing else is needed. If it is private, create a read-only fine-grained token for it and store it as a SecureString that only the instance role can read:
+
+   ```sh
+   aws ssm put-parameter --name /cso/demo/git_token --type SecureString --value '<token>'
+   ```
+
+4. Nothing else. Replay mode needs no User-Agent, no OpenStreetMap app and no secret. Optional sign-in is at the end of this section.
+
+### Deploy
+
+```sh
+aws cloudformation deploy \
+  --template-file infra/cloudformation/cso-replay-demo.yaml \
+  --stack-name cso-replay \
+  --capabilities CAPABILITY_IAM \
+  --tags project=cso-replay \
+  --parameter-overrides VpcId=vpc-... SubnetId=subnet-... AlertEmail=you@example.org
+aws cloudformation describe-stacks --stack-name cso-replay --query 'Stacks[0].Outputs' --output table
+```
+
+Note the `PublicIp` output. Confirm the two emails that AWS sends (SNS and Budgets), or the alarms cannot reach you. Leave `AlertEmail` out to skip the alarm emails and the budget.
+
+| Parameter | Default | Meaning |
+| --- | --- | --- |
+| `InstanceType` | `t4g.small` | `t4g.small`, `t4g.micro` or `t3.small`. The image is chosen to match (arm64 or x86). |
+| `DomainName` | `osm.changesetreview.online` | The public name. It becomes the certificate name, `CSO_PUBLIC_ORIGIN` and the sign-in redirect host. |
+| `ApexDomainName` | `changesetreview.online` | A second name that only redirects to `DomainName`. Empty turns it off. |
+| `UseElasticIp` | `true` | Keeps one address. `false` gives an address that changes each time the instance is paused and resumed. |
+| `OpenHttpPort` | `true` | Opens 80/tcp, which only redirects to https. `false` leaves 443 as the only open port. |
+| `RootVolumeGiB` | `20` | gp3, encrypted. |
+| `EnableSnapshots` | `true` | One snapshot a night, three kept. |
+| `AlertEmail`, `BudgetUsd` | empty, 30 | With an email: alarm emails and a budget alert at 80 and 100 percent, and at a 100 percent forecast. |
+| `GitRef` | `main` | Branch or tag to deploy. Prefer a release tag. |
+| `Stage` | `demo` | Where optional settings live in Parameter Store: `/cso/<Stage>/`. |
+
+What the stack creates: one instance, one security group, one instance role (SSM agent, and read of `/cso/<Stage>/*` only), one Elastic IP, three alarms (status check, system recovery, CPU above 80 percent for 15 minutes), the snapshot schedule, and with an email an SNS topic and a budget. The security group allows 443/tcp in (and 80/tcp when enabled) and only 443 and 80 out. There is no SSH, no key pair, and the metadata service needs session tokens (IMDSv2) with a hop limit of 1, so containers cannot read the instance role.
+
+### DNS records at Hostinger
+
+Create these records as soon as you have the `PublicIp` output. The first boot builds images for 10 to 25 minutes before Caddy starts, so the records are normally in place by then. Caddy asks Let's Encrypt for the certificates when it starts, and retries with a back-off if the name does not resolve yet.
+
+1. Sign in to Hostinger, open **Domains**, choose `changesetreview.online` and open **DNS / Nameservers**. The menu names in Hostinger's panel can change. The records matter, not the menu path.
+2. Delete any existing `A`, `AAAA` or `CNAME` record for the names `@` and `osm`. New domains often carry a parking record. An `AAAA` record would send visitors to an address this host does not have.
+3. Add these records:
+
+   | Type | Name | Points to | TTL |
+   | --- | --- | --- | --- |
+   | A | `osm` | the `PublicIp` value | 300 |
+   | A | `@` | the same `PublicIp` value | 300 |
+
+   The second record is only for the optional redirect from `https://changesetreview.online` to `https://osm.changesetreview.online`. Skip it, and set `ApexDomainName` to an empty value, if you do not want the redirect. Hostinger's own domain forwarding is another route for the bare name, but it may not answer on https.
+4. If the domain does not use Hostinger's nameservers, add the same records where its DNS is hosted.
+
+### Confirm that HTTPS works
+
+Give DNS a few minutes, then from your own machine:
+
+```sh
+dig +short osm.changesetreview.online A
+curl -fsSI https://osm.changesetreview.online/readyz
+curl -fsSI http://osm.changesetreview.online/ | head -3
+curl -fsSI https://changesetreview.online/ | head -3
+curl -fsS https://osm.changesetreview.online/sitemap.xml | head -3
+```
+
+Expect the address you set, `200` for `/readyz`, a `301` or `308` from the `http://` and bare-name requests with `location: https://osm.changesetreview.online/`, and sitemap URLs that start with `https://osm.changesetreview.online`. In a browser, the lock icon should show a certificate for `osm.changesetreview.online`. To check what is open from outside: `nmap -Pn -p 22,80,443,8000,8099 <PublicIp>` should list 443 (and 80 if you left it on) and nothing else.
+
+On the host, open a shell with Session Manager, then run the health check and look at the build log:
+
+```sh
+ID=$(aws cloudformation describe-stacks --stack-name cso-replay --query "Stacks[0].Outputs[?OutputKey=='InstanceId'].OutputValue" --output text)
+aws ssm start-session --target "$ID"
+# on the host:
+sudo tail -f /var/log/cso-bootstrap.log
+sudo bash /opt/cso/infra/scripts/healthcheck.sh --public
+```
+
+If the certificate is not issued after the name resolves, read the Caddy log with `sudo bash /opt/cso/infra/scripts/compose.sh logs caddy`.
+
+### Seed the data
+
+Nothing to run. The compose file loads the demo set with `cso seed` after the migrations and before the API starts, at every start. The command is safe to repeat. To check, or to load again by hand:
+
+```sh
+sudo bash /opt/cso/infra/scripts/compose.sh exec api cso seed
+```
+
+It answers `seeded 0 new and 15 existing cases` when everything is in place. The queue in the browser then lists 15 cases. Make an admin invite code if you want to sign in with a code:
+
+```sh
+sudo bash /opt/cso/infra/scripts/compose.sh exec api cso auth create-invite \
+  --role admin --max-uses 1 --ttl-hours 24 --label first-admin
+```
+
+### The settings that carry the domain
+
+None of these is written into the code or the image definition. The bootstrap script writes them to `/opt/cso/.env` from the stack parameters. Change the domain by editing `/etc/cso/bootstrap.env`, running `sudo bash /opt/cso/infra/scripts/bootstrap-replay.sh`, and pointing DNS at the host.
+
+| Setting | Value for the demo | Used for |
+| --- | --- | --- |
+| `CSO_SITE_ADDRESS` | `osm.changesetreview.online` | The Caddy site name and its Let's Encrypt certificate. |
+| `CSO_APEX_ADDRESS` | `changesetreview.online` | The second name that redirects to the first. Left unset when `ApexDomainName` is empty. |
+| `CSO_PUBLIC_ORIGIN` | `https://osm.changesetreview.online` | Read when the web image is built: canonical links, `sitemap.xml` and `robots.txt`. A change needs the image rebuilt (`compose.sh up -d --build`). |
+| `CSO_OSM_OAUTH_REDIRECT_URL` | `https://osm.changesetreview.online/api/v1/auth/osm/callback` | Only when sign-in with OpenStreetMap is set up. It has to be https. |
+| `CSO_TRUST_PROXY`, `CSO_COOKIE_SECURE` | `true`, `true` | The API reads the client address Caddy writes, and cookies are sent over https only. |
+| `CSO_HTTP_BIND` | `0.0.0.0`, or `127.0.0.1` when `OpenHttpPort` is `false` | Which address publishes port 80. |
+| `CSO_MODE` | `replay` | Fixed by the demo compose file. It does not come from `.env`. |
+
+Optional sign-in with OpenStreetMap: register the app as in [Register the OSM sign-in app](../register-the-osm-app/), with the redirect URL above. Then store `/cso/demo/osm_oauth_client_id` (String), `/cso/demo/osm_oauth_client_secret` (SecureString), and for the first admin `/cso/demo/bootstrap_admin_osm_uids` (String), and run the bootstrap script again. The secret is read into a memory-backed file at each boot and is not written to the disk. See [Set up the first admin](../../administer/first-admin/).
+
+### Update
+
+From your workstation, with `export CSO_STACK_NAME=cso-replay`:
+
+| Task | Command |
+| --- | --- |
+| Deploy a release or branch | `bash infra/scripts/deploy.sh v0.1.0` |
+| Go back one release | `bash infra/scripts/deploy.sh --rollback` |
+| Shell on the host | `aws ssm start-session --target "$ID"` |
+| Free disk after many updates | on the host: `sudo docker builder prune -f` |
+
+The update script fetches the ref, rebuilds, restarts, runs the health check and puts the previous release back if the check fails. On this profile it skips the S3 backup, because there is no bucket. A deploy replaces the containers in a few seconds. Visitors see a short error during that time.
+
+### Roll back
+
+- **A bad release.** `bash infra/scripts/deploy.sh --rollback` restores the previous commit and the previous images without a rebuild.
+- **A bad stack change.** CloudFormation rolls a failed update back by itself. For a stack you no longer trust, delete it and deploy again. The demo data is rebuilt by the seed step, so nothing is lost except sign-in accounts and any case you added.
+- **A damaged disk.** The nightly snapshots (three kept) are the safety net. Restoring from one is not scripted and was not rehearsed.
+
+### Remove everything
+
+```sh
+aws cloudformation delete-stack --stack-name cso-replay
+aws cloudformation wait stack-delete-complete --stack-name cso-replay
+aws ec2 describe-snapshots --owner-ids self --filters Name=tag:project,Values=cso-replay \
+  --query 'Snapshots[].SnapshotId' --output text
+```
+
+Deleting the stack removes the instance, its volume, the Elastic IP, the alarms, the topic and the budget. It does not remove the snapshots, which remain and bill a few cents a month. Delete each with `aws ec2 delete-snapshot --snapshot-id <id>`. Delete the Parameter Store entries you made (`aws ssm delete-parameter --name /cso/demo/git_token`), and remove the two DNS records at Hostinger. After that nothing bills.
+
+### What is tested
+
+Run on 2026-10-20 on a Windows machine, not on AWS:
+
+- `cfn-lint` 1.57.2 passes on `cso-replay-demo.yaml`. `bash -n` passes on every script in `infra/scripts/`.
+- The Caddy configuration validates with the stock Caddy image (`scripts/ci/validate_caddy.py`).
+- Every pinned base image in the two Dockerfiles (alpine, node, both Caddy images, Python, uv) publishes both amd64 and arm64.
+- The arm64 backend and web images were built with `docker buildx` on an x86 Windows machine and started under QEMU emulation with the base, demo and replay-aws compose files, under their own project name. `cso seed` loaded `seeded 15 new and 0 existing cases`, and a second run said `seeded 0 new and 15 existing cases`. The API answered `/readyz` with 200 and listed 15 cases, the docs page loaded, and `sitemap.xml` and `robots.txt` carried `https://osm.changesetreview.online`. Caddy redirected `http://` and the second name to the first. This ran with Caddy's local certificate authority and `localhost`, not a public certificate. The Caddy binary reported `aarch64` and has the rate-limit module.
+- The web Dockerfile builds the site and cross-compiles Caddy on the machine that builds, so an arm64 image needs no emulation for those steps. A native `t4g.small` builds for its own architecture as before.
+
+Not tested:
+
+- No stack was created. The template has never run in AWS, so the first deploy is the real test. Instance recovery on a failed system check, the budget, the snapshot schedule and the Elastic IP association are untested.
+- The bootstrap script has never run on a real Ubuntu 24.04 host. The Docker package source, the swap file and the Compose version it installs are untested there.
+- Certificate issuance for the two names is untested: no real domain was used. Caddy's local certificates were used in the local run.
+- Image build time and memory on a real `t4g.small`, and on `t4g.micro`, were not measured. Emulated builds on a desktop are not a guide. The API healthcheck reported unhealthy under emulation because its 3 second limit is too short for emulated Python. That is an artifact of the emulation, but it was not seen on real arm64 hardware.
+- The Hostinger steps were written from the records needed, not from a live session.
+- Optional sign-in with OpenStreetMap was not run on this profile.
+
+## How the host is put together
+
+- **One network namespace.** Caddy, the API, the worker and the Decider share one. Only port 443 is published. The Decider listens on `127.0.0.1:8099` and the API on `127.0.0.1:8000`.
+- **No SSH, no key pair, no port 22.** You administer the host with SSM Session Manager. The security group has one rule: 443/tcp from anywhere.
+- **TLS.** Caddy gets a Let's Encrypt certificate for your domain with the TLS-ALPN-01 challenge, which needs only port 443. With port 80 closed, use `https://` links.
+- **Secrets stay off the disk.** The OSM client secret is read from SSM Parameter Store at each boot into a tmpfs file. The settings file `/opt/cso/.env` holds no secret.
+- **State.** SQLite at `/data/cso/cso.db` and the model cache at `/data/models`, on an encrypted gp3 volume.
+- **Roles.** The instance role has Bedrock invoke on two ARNs, CloudWatch Logs, SSM parameter read under `/cso/<Stage>/*`, the backup bucket and CloudWatch metrics for the `CSO` namespace.
+
+One residual risk is documented: all containers share one IP, so any of them can reach the role credentials. The role is least privilege to limit this.
+
+## What you need first
+
+1. **AWS CLI v2** with a profile for the account, and the Session Manager plugin. Set `export AWS_REGION=us-east-1`.
+2. **GPU quota.** "Running On-Demand G and VT instances" defaults to 0. A `g6.xlarge` needs 4 vCPU. Request a raise early, because approval can take a day:
+
+   ```sh
+   aws service-quotas request-service-quota-increase --service-code ec2 --quota-code L-DB2E81BA --desired-value 8
+   ```
+
+3. **Bedrock access.** Submit the one-time Anthropic use-case form. See [Connect Amazon Bedrock](../connect-bedrock/).
+4. **A DNS name** you can point at an Elastic IP.
+5. **A VPC and a public subnet** with capacity for the instance type. If launch fails with `InsufficientInstanceCapacity`, try another subnet or `g5.xlarge`.
+6. **A real User-Agent in SSM.** Live mode refuses to start with the placeholder:
+
+   ```sh
+   aws ssm put-parameter --name /cso/prod/user_agent --type String \
+     --value 'ChangesetSecondOpinion/0.1 (+https://github.com/<owner>/<repo>; <contact email>)'
+   ```
+
+7. Optional sign-in parameters. Follow [Register the OSM sign-in app](../register-the-osm-app/) and [Set up the first admin](../../administer/first-admin/).
+8. Optional model-written drafts. Create the String parameter `/cso/<Stage>/live_bedrock` with the value `1` before you run the bootstrap script, or add it later and run the script again. The script copies it into `/opt/cso/.env` as `CSO_LIVE_BEDROCK=1`. See [Connect Amazon Bedrock](../connect-bedrock/).
+
+## Deploy
+
+```sh
+aws cloudformation deploy \
+  --template-file infra/cloudformation/cso-single-host.yaml \
+  --stack-name cso \
+  --capabilities CAPABILITY_IAM \
+  --tags project=cso \
+  --parameter-overrides DomainName=cso.example.org VpcId=vpc-... SubnetId=subnet-... AlertEmail=you@example.org
+aws cloudformation describe-stacks --stack-name cso --query 'Stacks[0].Outputs' --output table
+```
+
+Confirm the two subscription emails (SNS and Budgets). Then create an A record from your domain to the `PublicIp` output. Certificate issuance starts once the name resolves.
+
+The main parameters: `Stage` (default `prod`), `DomainName`, `VpcId`, `SubnetId`, `AlertEmail` (required), `InstanceType` (default `g6.xlarge`; `g5.xlarge` and `c7i.2xlarge` also allowed), `RootVolumeGiB` (default 100), `GitRef` (prefer a release tag), `BudgetUsd` (default 60) and `EnableNightlyStop` (default true, 23:00 India time).
+
+## First boot
+
+The first boot takes 10 to 25 minutes. It installs Docker, builds three images and downloads the model (about 5 GB). Open a shell with SSM and watch it:
+
+```sh
+ID=$(aws cloudformation describe-stacks --stack-name cso --query "Stacks[0].Outputs[?OutputKey=='InstanceId'].OutputValue" --output text)
+aws ssm start-session --target "$ID"
+# on the host:
+sudo tail -f /var/log/cso-bootstrap.log
+sudo bash /opt/cso/infra/scripts/healthcheck.sh --public
+```
+
+Expect the containers `stack`, `api`, `worker`, `decider` and `caddy` up, and `/readyz` at 200. It returns 503 until the Decider finishes loading.
+
+## Make the first admin
+
+Either name an admin account (see [Set up the first admin](../../administer/first-admin/)) or make an admin invite code on the host. The code prints once:
+
+```sh
+sudo bash /opt/cso/infra/scripts/compose.sh exec api cso auth create-invite \
+  --role admin --max-uses 1 --ttl-hours 24 --label first-admin
+```
+
+## Day to day
+
+| Task | Command, from your workstation |
+| --- | --- |
+| Deploy a release | `bash infra/scripts/deploy.sh v0.1.0`. It backs up the database first and rolls itself back if the health check fails. |
+| Go back one release | `bash infra/scripts/deploy.sh --rollback` |
+| Start and wait for readiness | `bash infra/scripts/start.sh` |
+| Shell on the host | `aws ssm start-session --target "$ID"` |
+| Logs | CloudWatch log group `/cso/app` (14 days) |
+
+The scripts live in `infra/scripts/` and talk to the host through SSM Run Command, so nothing needs opening in the security group. A script there also pauses the host to save money. A paused instance bills only the volume and the address. Do not terminate the instance to save money: the root volume, with the model cache and the database, is deleted on termination.
+
+## What is watched
+
+Alarms notify one SNS topic (`AlertEmail`): more than 5 percent 5xx over 5 minutes, `ReadyzOk` below 1 for 3 minutes, disk above 80 percent, GPU memory above 90 percent, two failed EC2 status checks, no backup in a day, and AWS Budgets at 20 USD, 50 USD, 80 percent and 100 percent of `BudgetUsd`. The budget covers the whole account.
+
+## Cost
+
+The estimate for a `g6.xlarge` is about 0.805 US dollars per hour, so 30 hours of demo time is about 24 US dollars and a month always on is about 588. Prices were not checked against the live pricing pages. Backups and restores are in [Back up, upgrade and migrate](../backup-upgrade-migrate/).
+
+## Check that it worked
+
+```sh
+curl -fsS https://cso.example.org/readyz
+nmap -Pn -p 22,80,443,8000,8099 <PublicIp>
+```
+
+`/readyz` answers 200, and only 443 is open. Sign in, add a changeset id, wait for the analysis and open the case.
+
+Next: [Back up, upgrade and migrate](../backup-upgrade-migrate/).

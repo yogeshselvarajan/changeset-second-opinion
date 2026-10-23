@@ -1,0 +1,44 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 867501345,
+      "timestamp": "2025-10-09T06:21:43Z",
+      "version": 8,
+      "changeset": 173033093,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        1435168704,
+        8085947195,
+        275059477,
+        8085947194,
+        8085947196,
+        8085947191,
+        8085947193,
+        8085947190,
+        8085947192,
+        8085947188,
+        8085947187,
+        8085947189,
+        8085947186,
+        275059479
+      ],
+      "tags": {
+        "destination": "Viaducto Tlalpan;Avenida Canal de Miramontes",
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Avenida Prolongación División del Norte",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 242031001,
+      "timestamp": "2025-03-10T05:28:49Z",
+      "version": 11,
+      "changeset": 163426120,
+      "user": "mapper_H",
+      "uid": 900000008,
+      "nodes": [
+        2496042854,
+        7597487953,
+        7597487952,
+        3377457602,
+        3377456609,
+        2496042857
+      ],
+      "tags": {
+        "access": "no",
+        "foot": "yes",
+        "highway": "unclassified",
+        "motor_vehicle": "no",
+        "name": "Chinnakkada - Railway Station Shortcut"
+      }
+    }
+  ]
+}

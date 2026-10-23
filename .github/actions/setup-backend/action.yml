@@ -1,0 +1,28 @@
+name: Set up the backend
+description: Python 3.13 with uv, the uv cache keyed on the lock file, and the locked environment.
+
+inputs:
+  sync:
+    description: Run `uv sync --frozen` in backend/ after setup ("true" or "false").
+    default: "true"
+  extra-sync-args:
+    description: Extra arguments for uv sync, for example "--no-dev".
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+      with:
+        python-version: "3.13"
+        enable-cache: true
+        cache-dependency-glob: backend/uv.lock
+    - if: inputs.sync == 'true'
+      shell: bash
+      working-directory: backend
+      env:
+        EXTRA_SYNC_ARGS: ${{ inputs.extra-sync-args }}
+      # The extra arguments are a fixed word list written in a workflow, so they are split on purpose.
+      run: |
+        # shellcheck disable=SC2086
+        uv sync --frozen ${EXTRA_SYNC_ARGS}

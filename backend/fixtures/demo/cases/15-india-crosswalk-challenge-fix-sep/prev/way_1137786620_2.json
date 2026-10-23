@@ -1,0 +1,30 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1137786620,
+      "timestamp": "2023-10-05T09:23:48Z",
+      "version": 2,
+      "changeset": 142180231,
+      "user": "mapper_L",
+      "uid": 900000012,
+      "nodes": [
+        10605733907,
+        10605733912,
+        10605733908,
+        10605733909,
+        3353345689,
+        10605733910,
+        10605733911
+      ],
+      "tags": {
+        "highway": "service"
+      }
+    }
+  ]
+}

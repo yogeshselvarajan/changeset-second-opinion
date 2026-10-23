@@ -1,0 +1,60 @@
+---
+title: Read a receipt
+description: Open the receipt for an analysis, understand each field, and check a reading against the evidence.
+---
+
+import ThemedShot from '../../../components/ThemedShot.astro';
+
+*For reviewers. How-to.*
+
+A receipt is the record of one analysis. It shows every fact the model read, the rules that fired, how complete the evidence was, the lane that resulted and the configuration that was used. This guide shows how to open one and how to check a reading with it.
+
+A receipt is read only. The tool **never writes to OpenStreetMap**, and **lanes only order the queue**, so a receipt explains a suggestion and does not act on anything.
+
+You need a case that has been analyzed, or the link to a receipt that someone shared.
+
+## Open a receipt
+
+From a case, choose **Copy receipt link** next to the lane and band, or press `l`. Paste the link where you want to share it. A receipt lives at `/r/<run id>`, where the run id is the id of the analysis.
+
+If the page says "Receipt not found", the link may be wrong, or the run does not exist.
+
+<ThemedShot
+  name="receipt"
+  alt="A decision receipt page for a changeset, with the lane and band at the top, the date and model, and a list titled What the checks read that gives each fact with its reading and probability, followed by the rules that fired."
+  caption="A receipt. The facts the checks read come first, then the rules that fired."
+/>
+
+A receipt never carries a reviewer's name, a draft, a decision or the evidence text. It is safe to share with someone outside your workspace.
+
+## Read the fields
+
+From the top of the page down:
+
+- **Title.** "Decision receipt for changeset" and its number.
+- **Lane and band.** The lane the case landed in, and the band that says how decisive the model was.
+- **Analyzed on.** The date and the model that read the evidence, for example `strands-decider-2b-qwen3.5-v1-2610`.
+- **Open the changeset on openstreetmap.org.** A plain link to the public changeset.
+- **What the checks read.** One line per question, with a sign, the reading (Yes, No or Unknown) and the probability the model gave to yes. Each fact is read as no, unknown or yes, and unknown is the cautious reading.
+- **Rules that fired.** Each rule with its code, name, severity and a plain sentence. `R1`, for example, is "Mature deletion" and blocks reassurance.
+- **Coverage.** A meter and a sentence such as "Coverage score 1.00. 32 of 32 elements have details." If some elements had gaps in their history, the page says how many.
+- **Configuration.** The version of the configuration used. Every analysis keeps the version that was active when it ran.
+
+The stored record has more fields than the page shows, such as the evidence version, the question hashes, the timings and any errors. See [receipt schema](../../reference/receipt-schema/) for the full list.
+
+## Check a reading
+
+A receipt lets you test the model's reading against the evidence instead of trusting it.
+
+1. Pick a fact on the receipt, for example "The account is new or has very few changesets".
+2. Open the changeset link, or open the case in the tool. The evidence for that fact is in the Account block.
+3. Compare. The age and changeset count in the evidence should fit the reading.
+4. Look at the probability. A value close to the cut points is a weaker reading than one far from them. The cut points are shown on the case, above the fact panel.
+5. Check the coverage. A reading on thin coverage deserves less weight, because the model saw less.
+6. Check the rules. A rule reads parsed counts and ages. It does not depend on the model, so it is the firmer part of the record.
+
+## Check that it worked
+
+You have read a receipt correctly when you can say, for one fact, what the evidence shows, what the model read and whether they agree. If they do not agree, record that when you record your decision. A disagreement lets you mark which facts were read wrongly, and that helps an admin refit the cut points later. See [record and correct an outcome](../record-and-correct-an-outcome/).
+
+Next, learn how to turn a case into a reply in [draft and send a comment](../draft-and-send-a-comment/).

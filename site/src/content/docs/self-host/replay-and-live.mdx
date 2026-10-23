@@ -1,0 +1,50 @@
+---
+title: Replay mode and live mode
+description: What changes between replay and live mode, the User-Agent rule, and the spend and daily caps.
+---
+
+*For operators who self-host. Explanation.*
+
+`CSO_MODE` has two values. Replay is the default. Live is for real work. The choice decides what the server is allowed to reach.
+
+## Replay mode
+
+Replay serves saved changesets. It never calls OpenStreetMap, the Decider or Amazon Bedrock. The app shows a banner that says it is a demo and that nothing is fetched live or posted to OpenStreetMap.
+
+Replay suits a first look, screenshots and tests. It needs no GPU, no AWS account and no network. If no Decider is running, a case is shown with its evidence and rules only, in the Rules only lane. With a Decider running, readings come from the model.
+
+Anyone can browse in replay mode. Drafts come from an offline template.
+
+## Live mode
+
+Live mode fetches evidence from OpenStreetMap. Every request is a GET, to `api.openstreetmap.org` and `maproulette.org`. It needs a Decider to be ready, so `/readyz` answers 503 until the model has loaded. Live mode needs a sign-in for every action.
+
+Real drafts from Amazon Bedrock need one more gate. See [Connect Amazon Bedrock](../connect-bedrock/).
+
+### The User-Agent rule
+
+The OpenStreetMap usage policy asks every client to identify itself with a real repository address and a contact email. `CSO_USER_AGENT` carries that:
+
+```sh
+CSO_USER_AGENT="ChangesetSecondOpinion/0.1 (+<repository URL>; <contact email>)"
+```
+
+Live mode refuses to start while the placeholders `<REPO_URL>` or `<CONTACT_EMAIL>` are still in it. The OpenStreetMap operators use the contact to reach you if your server misbehaves. The collector also keeps within the policy: at most 2 requests at a time and a budget of 50 calls per changeset, and it records what it could not fetch.
+
+## Caps that limit use and spend
+
+Each cap counts per UTC day. The analysis cap is counted from the jobs table, so a restart does not reset it.
+
+| Setting | Default | What it limits |
+| --- | --- | --- |
+| `CSO_DAILY_ANALYSIS_CAP` | 200 | Analyses per day |
+| `CSO_DAILY_DRAFT_CAP` | 100 | Drafts per day |
+| `CSO_BEDROCK_DAILY_USD_CAP` | 10.0 | Estimated Bedrock spend per day, in US dollars. Past it, drafts fall back to the offline template. |
+
+For the two counts, 0 allows none, and a negative value turns the cap off. The same holds for the Bedrock spend cap: 0 allows no Bedrock call, so every draft uses the template, and a negative value turns the cap off. The Bedrock estimate uses a built-in price table. Check it against current Bedrock pricing, and override it with `CSO_BEDROCK_INPUT_USD_PER_MTOK` and `CSO_BEDROCK_OUTPUT_USD_PER_MTOK` if needed.
+
+The AWS template adds an account level budget alarm too. See [Deploy on AWS](../deploy-on-aws/).
+
+The full list of settings is in the [settings reference](../../reference/settings/).
+
+Next: [Monitor and troubleshoot](../monitor-and-troubleshoot/).

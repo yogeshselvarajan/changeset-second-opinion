@@ -1,0 +1,154 @@
+{
+  "changeset_id": 900000000004,
+  "config_version": "sha256:21dfdbd28be18286fb2b3659db6be5d6754e27f74055748887babea7d0f5ac63",
+  "evidence_version": "sha256:4ff89b87144d75600c2432936a34206e3405f1fb1cc1affae162fb59d10b5d3d",
+  "identity": {
+    "base_model": "Qwen/Qwen3.5-2B-Base",
+    "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+    "device": "cuda",
+    "max_length": 4096,
+    "model": "strands-decider-2B-qwen3.5-v1-2610",
+    "prefix_cache": true,
+    "server_git_sha": null,
+    "temperature": 1.0545210242263665
+  },
+  "input_tokens": 3450,
+  "latency_ms": 1368,
+  "output_tokens": 8,
+  "outputs": {
+    "nature": {
+      "argmax": "needs_local_knowledge",
+      "confidence_agg": 0.20426666666666668,
+      "order_sensitivity": 0.3268,
+      "probabilities": {
+        "consistent_edit": 0.15696666666666667,
+        "likely_good_faith_mistake": 0.08463333333333334,
+        "needs_local_knowledge": 0.4032,
+        "possible_deliberate_damage": 0.35519999999999996
+      }
+    },
+    "nouls": {
+      "comment_matches_changes": 0.6231,
+      "mature_feature_deleted_probe": 0.7412
+    },
+    "permutations": [
+      {
+        "confidence": 0.2655,
+        "name": "nature_p0",
+        "order": [
+          "consistent_edit",
+          "likely_good_faith_mistake",
+          "possible_deliberate_damage",
+          "needs_local_knowledge"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.0985,
+          "likely_good_faith_mistake": 0.0676,
+          "needs_local_knowledge": 0.3848,
+          "possible_deliberate_damage": 0.4491
+        }
+      },
+      {
+        "confidence": 0.2724,
+        "name": "nature_p1",
+        "order": [
+          "likely_good_faith_mistake",
+          "possible_deliberate_damage",
+          "needs_local_knowledge",
+          "consistent_edit"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.1836,
+          "likely_good_faith_mistake": 0.0764,
+          "needs_local_knowledge": 0.4543,
+          "possible_deliberate_damage": 0.2857
+        }
+      },
+      {
+        "confidence": 0.1607,
+        "name": "nature_p2",
+        "order": [
+          "possible_deliberate_damage",
+          "needs_local_knowledge",
+          "consistent_edit",
+          "likely_good_faith_mistake"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.1888,
+          "likely_good_faith_mistake": 0.1099,
+          "needs_local_knowledge": 0.3705,
+          "possible_deliberate_damage": 0.3308
+        }
+      },
+      {
+        "confidence": 0.2427,
+        "name": "response_p0",
+        "order": [
+          "no_action_suggested",
+          "welcome_and_tips",
+          "ask_source_question",
+          "request_local_check",
+          "escalate_to_experienced_reviewer"
+        ],
+        "probabilities": {
+          "ask_source_question": 0.2858,
+          "escalate_to_experienced_reviewer": 0.3941,
+          "no_action_suggested": 0.1876,
+          "request_local_check": 0.1069,
+          "welcome_and_tips": 0.0255
+        }
+      },
+      {
+        "confidence": 0.2112,
+        "name": "response_p1",
+        "order": [
+          "welcome_and_tips",
+          "ask_source_question",
+          "request_local_check",
+          "escalate_to_experienced_reviewer",
+          "no_action_suggested"
+        ],
+        "probabilities": {
+          "ask_source_question": 0.2554,
+          "escalate_to_experienced_reviewer": 0.369,
+          "no_action_suggested": 0.2299,
+          "request_local_check": 0.1226,
+          "welcome_and_tips": 0.0231
+        }
+      },
+      {
+        "confidence": 0.2094,
+        "name": "response_p2",
+        "order": [
+          "request_local_check",
+          "escalate_to_experienced_reviewer",
+          "no_action_suggested",
+          "welcome_and_tips",
+          "ask_source_question"
+        ],
+        "probabilities": {
+          "ask_source_question": 0.2592,
+          "escalate_to_experienced_reviewer": 0.3675,
+          "no_action_suggested": 0.2485,
+          "request_local_check": 0.1089,
+          "welcome_and_tips": 0.016
+        }
+      }
+    ],
+    "response": {
+      "argmax": "escalate_to_experienced_reviewer",
+      "confidence_agg": 0.22108333333333335,
+      "order_sensitivity": 0.12560000000000004,
+      "probabilities": {
+        "ask_source_question": 0.2668,
+        "escalate_to_experienced_reviewer": 0.3768666666666667,
+        "no_action_suggested": 0.22199999999999998,
+        "request_local_check": 0.1128,
+        "welcome_and_tips": 0.02153333333333333
+      }
+    }
+  },
+  "questions_hash": "sha256:760cdc6c475100cae62a3b5a6ffe803ce335fda41e787abd792d211077e06982",
+  "rendered_tokens_estimate": 1186,
+  "server_latency_ms": 771.1
+}

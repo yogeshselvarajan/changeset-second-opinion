@@ -1,0 +1,48 @@
+---
+title: FAQ
+description: The ten questions people ask first, answered from the repository.
+---
+
+*For anyone curious. Explanation.*
+
+The tool never writes to OpenStreetMap, and lanes only order the queue. Everything below is checked against the repository. Where something has not been measured, the answer says so.
+
+## Is it free?
+
+The code is free and open source under the Apache-2.0 licence. See [licence and notices](../licence-and-notices/). Running it can cost money that is yours. Replay mode on your own machine costs nothing. A live setup can use a GPU host and Amazon Bedrock on your AWS account. The app has a daily Bedrock spend cap, set by `CSO_BEDROCK_DAILY_USD_CAP` (default 10), and drafts fall back to plain templates when the cap is reached. See [connect Amazon Bedrock](../../self-host/connect-bedrock/).
+
+## Does it write to OpenStreetMap?
+
+No. The OpenStreetMap client allows GET requests to `api.openstreetmap.org` and `maproulette.org` only. The one other call is a POST to the OpenStreetMap token endpoint so people can sign in, and it asks for `read_prefs` only. No write scope exists. A check in CI fails if any other kind of request appears. A person posts any comment by hand. See [why lanes only order the queue](../../concepts/why-lanes-only-order-the-queue/).
+
+## What model does it use?
+
+Two, each with one small job. The Strands Decider 2B (`StrandsAgents/strands-decider-2B-qwen3.5-v1-2610`) answers ten yes or no questions about the evidence. Claude Haiku 4.5 on Amazon Bedrock writes a comment draft, only when a reviewer asks. Drafting is off unless you turn it on for live use. See [how a verdict is made](../../concepts/how-a-verdict-is-made/).
+
+## Does it need a GPU?
+
+Not to try it. Replay mode uses recorded changesets that already carry real readings, and needs no network, GPU or AWS account. For live readings you run the Decider server, on a GPU or on a CPU. The project has not measured CPU speed. The client waits up to 45 seconds on a GPU and 90 seconds on a CPU. See [requirements](../../self-host/requirements/) and [run the Decider](../../self-host/run-the-decider/).
+
+## Can I run it for my community?
+
+Yes. It is built to be self-hosted, with one workspace per server. A community pack sets the option labels, the thresholds, the rule parameters and the tone, and the repository ships four. See [install with Docker Compose](../../self-host/docker-compose/) and [tune it to your community](../../administer/tune-to-your-community/).
+
+## How are admins set up?
+
+Sign-in is with OpenStreetMap or with an invite code. On a fresh workspace, only an OpenStreetMap account named in the `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` setting can claim it and become the admin, once. With that setting empty, an admin invite code is the way in. See [first admin](../../administer/first-admin/) and [roles and permissions](../../reference/roles-and-permissions/).
+
+## Is my data kept?
+
+The tool keeps the public evidence it read, its readings, drafts, outcomes and an audit log. These records are never changed or deleted. A correction is a new row. It does not store an OpenStreetMap access token: the token is used once to read the account name and then dropped. Sessions are stored as hashes. See [privacy](../../administer/privacy/).
+
+## How accurate is it?
+
+Not shown to be better than guessing, yet. On 60 real edits, against an answer key written by an AI, the model matched on 85.5 percent of readings where it gave a clear answer. Always guessing the commonest answer matched on 85.2 percent. No person validated the key, and the sample has no clear example of deliberate damage. Read [what it cannot do](../../concepts/what-it-cannot-do/) before relying on any reading.
+
+## Who built it?
+
+Yogesh Selvarajan built it for the AWS Agent Experience Hackathon: Strands Decider. The README says the code, tests and documents were written largely by AI agents (Claude Code) under his direction, with automated checks gating every change.
+
+## How do I contribute?
+
+Start with [dev setup](../../contribute/dev-setup/). The most useful contributions are fixtures, community option sets, bug reports, and fixes that stay inside the project's rules. Read [`CONTRIBUTING.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CONTRIBUTING.md) and the [code of conduct](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CODE_OF_CONDUCT.md). Report a security problem as `SECURITY.md` describes, not in a public issue.

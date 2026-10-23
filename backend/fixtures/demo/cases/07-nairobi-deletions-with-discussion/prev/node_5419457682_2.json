@@ -1,0 +1,26 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 5419457682,
+      "lat": -36.7146069,
+      "lon": 174.744076,
+      "timestamp": "2018-11-02T09:04:35Z",
+      "version": 2,
+      "changeset": 64105456,
+      "user": "mapper_H",
+      "uid": 900000008,
+      "tags": {
+        "addr:city": "Auckland",
+        "addr:housenumber": "36",
+        "addr:street": "Bute Road",
+        "addr:suburb": "Browns Bay"
+      }
+    }
+  ]
+}

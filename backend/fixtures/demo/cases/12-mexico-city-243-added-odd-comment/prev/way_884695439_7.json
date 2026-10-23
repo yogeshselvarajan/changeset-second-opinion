@@ -1,0 +1,35 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 884695439,
+      "timestamp": "2023-02-20T17:49:59Z",
+      "version": 7,
+      "changeset": 132802062,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        8212152868,
+        8377637099,
+        5637183632,
+        8377488051,
+        6353144018,
+        387262494,
+        6191003269,
+        6191003243,
+        6190997581,
+        3447031883,
+        387262495
+      ],
+      "tags": {
+        "highway": "tertiary",
+        "name": "Avenida Nuevo León"
+      }
+    }
+  ]
+}

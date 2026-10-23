@@ -1,0 +1,50 @@
+---
+// A screenshot taken in both themes; the page shows the one that matches the reader's theme.
+// The files live in src/assets/screens/<name>-light.png and <name>-dark.png and are made by
+// scripts/screenshots.mjs from the app running in replay mode on the demo changesets.
+import { Image } from "astro:assets";
+
+interface Props {
+  name: string;
+  alt: string;
+  caption?: string;
+}
+
+const { name, alt, caption } = Astro.props;
+const shots = import.meta.glob("../assets/screens/*.png", { eager: true });
+const light = shots[`../assets/screens/${name}-light.png`] as { default: ImageMetadata } | undefined;
+const dark = shots[`../assets/screens/${name}-dark.png`] as { default: ImageMetadata } | undefined;
+if (!light || !dark) {
+  throw new Error(`ThemedShot: missing screenshot "${name}" (run npm run screenshots in site/)`);
+}
+---
+
+<figure class="themed-shot">
+  <Image class="shot-light" src={light.default} alt={alt} widths={[640, 960, 1280]} sizes="(min-width: 50rem) 46rem, 100vw" />
+  <Image class="shot-dark" src={dark.default} alt={alt} widths={[640, 960, 1280]} sizes="(min-width: 50rem) 46rem, 100vw" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .themed-shot {
+    margin: 1.5rem 0;
+  }
+  .themed-shot img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--sl-color-gray-5);
+  }
+  .themed-shot figcaption {
+    margin-top: 0.5rem;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+  :global(:root[data-theme="dark"]) .shot-light,
+  :global(:root:not([data-theme="light"])) .shot-light {
+    display: none;
+  }
+  :global(:root[data-theme="light"]) .shot-dark {
+    display: none;
+  }
+</style>

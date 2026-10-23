@@ -1,0 +1,117 @@
+---
+title: Review your first changeset
+description: Walk one demo case from the queue to a recorded decision, with a draft along the way.
+---
+
+import ThemedShot from '../../../components/ThemedShot.astro';
+
+*For reviewers. Tutorial.*
+
+In this tutorial you review two cases on the demo data. You open a case, read the evidence, look at the suggested response, write and check a draft comment, and record a decision. When you finish, your decision shows up in the history.
+
+You need the demo running. If it is not, do the [quickstart](../../start/quickstart/) first.
+
+Two things to keep in mind as you go. The tool **never writes to OpenStreetMap**, so nothing you do here changes the map. And **lanes only order the queue**: every case stays in the list, nothing closes by itself and nothing is posted by itself.
+
+## 1. Sign in as a reviewer
+
+Open the sign-in page. Enter the invite code that `cso auth create-invite` printed, add a display name, and choose **Sign in**. The display name is shown next to the decisions you record.
+
+<ThemedShot
+  name="login"
+  alt="The sign-in page with a button to sign in with OpenStreetMap, then fields for an invite code and a display name, and a link to browse as a viewer."
+  caption="The sign-in page. Without signing in you can browse as a viewer, but you cannot record anything."
+/>
+
+The top bar now shows your role instead of **Viewer**. The queue and the cases are the same as before.
+
+## 2. Open a case from the queue
+
+Go to the queue. Choose the **Review suggested** lane, either from the tabs or by pressing `2`. Open changeset 190380899.
+
+<ThemedShot
+  name="queue"
+  alt="The queue with lane tabs, a search box, a status filter, and one row per changeset showing its place, the mapper's comment and a band."
+  caption="The queue. Each row shows the changeset, the editor, the place, the mapper's comment, the change counts and a band."
+/>
+
+The row tells you a few things before you open it. The mapper said "This is not a road anymore - houses were built and there is no way through". The place is Nairobi, Kenya. The flags `New mapper` and `R1` are shown below the comment.
+
+## 3. Read the top of the case
+
+The top of the case names the changeset and shows its lane and band. Here the lane is **Review suggested** and the band is **Model is confident**. Some cases also show an evidence strip with the tag changes in the edit, as they were before and after. This one has none, because it only deletes and moves elements.
+
+<ThemedShot
+  name="case"
+  alt="A case page for changeset 190380899 in Nairobi, Kenya. The top shows a Review suggested lane label and a Model is confident band. Below are the Evidence column, starting with Coverage, and the Recommendation column, starting with the suggested response."
+  caption="The top of a case, with the coverage and the start of the recommendation."
+/>
+
+## 4. Read the evidence
+
+Scroll the left column. Each block is plain text, and you can jump from block to block with `j` and `k`.
+
+- **Coverage** tells you how much of the changeset the tool could read. Here, 7 of 7 elements have details, so nothing was skipped. A low coverage score is the first thing to check when a lane says Insufficient evidence.
+- **Changeset and account** shows the mapper's comment, the editor, the times, the counts of created, modified and deleted elements, and the account's age and changeset count at the time of the edit.
+- **Place** shows the bounding box. Choose **Show map** (or press `m`) to see it on a map, and **Open on osm.org** to open the changeset on OpenStreetMap in your own browser tab.
+- **Deleted features by age** and **Tag changes** show what was removed and what changed, element by element.
+
+<ThemedShot
+  name="case-evidence"
+  alt="The evidence column of a case showing the mapper's comment, the changes (0 created, 2 modified, 5 deleted), the account details, the place with a bounding box and the deleted features by age. The start of the fact panel is visible on the right."
+  caption="The evidence column. Every value is shown as text and none of it is a link."
+/>
+
+## 5. Read the recommendation
+
+The right column starts with **What the checks suggest**. The suggested response here is **Escalate to an experienced reviewer**, and the kind of edit is **Possible deliberate damage**. The band says **Model is confident**, which means the answers were decisive. It does not say how likely the edit is to be harmful.
+
+Scroll to the **Fact panel**. It lists ten questions. For each one you see the reading (yes, no or unknown) and a probability. The probability is the one the model gave to yes. For the first question, "An old or heavily edited feature was deleted", the reading is **Yes** with a probability of 0.79, so 0.21 went to no.
+
+<ThemedShot
+  name="case-readings"
+  alt="The fact panel table on the right, with each question, its reading (Yes or No) and its probability, next to the evidence column on the left."
+  caption="The recommendation column. Each question has a reading and the probability the model gave to yes."
+/>
+
+Further down, **Rules that fired** lists `R1`, the mature deletion rule. It is based on parsed evidence: a feature older than a year, or with five or more earlier versions, was deleted. That rules out a Looks consistent lane and a no-action response.
+
+For more on each question, see [read the evidence](../read-the-evidence/).
+
+## 6. Try to draft, then record a decision
+
+Look at the action bar along the bottom. **Draft comment** is greyed out, and the text above the bar says "The suggested response is not a comment, so there is nothing to draft." Escalating to an experienced reviewer is a decision for a person, not a message to send, so this case has no draft.
+
+Record your decision instead. Choose **Agree** (or press `a`). A dialog opens. Add a short note if you like, for example "Passing this to a local reviewer who knows Nairobi". Choose **Record decision**.
+
+A line appears that reads "Latest decision: Agreed by" followed by your name and the time. Recording adds a new entry, and earlier entries are never changed.
+
+## 7. Write a draft on a second case
+
+Press `u` to go back to the queue. Open a case where **Draft comment** is available. The draft screenshot in these docs was taken on changeset 190761641. If that button is greyed out on the case you open, try another.
+
+Choose **Draft comment** (or press `d`). The page offers the kind of comment the case allows, with the recommended kind marked. Choose **Write a draft** and wait a few seconds.
+
+<ThemedShot
+  name="draft"
+  alt="The draft page for changeset 190761641 with an Offline template badge and a draft comment that asks where the information came from. A checklist on the right shows that all checks pass, and buttons below offer Approve and copy and Reject draft."
+  caption="The draft page after the draft is written. The wording comes from the offline template."
+/>
+
+The draft appears in a text area. On the demo, no model writes it: a badge says **Offline template** and explains that the wording comes from a fixed template. The checklist under the text shows whether the draft meets the rules, for example that it asks a question and describes what is visible without blame.
+
+Edit the text so it sounds like you. When the checklist says "All checks pass.", choose **Approve and copy**. The text is copied and your decision is recorded. The tool does not post it. To send it, paste it on the changeset page on openstreetmap.org yourself. See [draft and send a comment](../draft-and-send-a-comment/).
+
+## 8. Check that it worked
+
+Open **History** from the side bar, or press `g` then `h`. Your two decisions are listed with the changeset, the lane and band at the time, your name and the time in UTC.
+
+<ThemedShot
+  name="history"
+  alt="The decision history page with filters for reviewer, decision and dates, and a table of recorded decisions below. On a fresh demo it reads No decisions yet."
+  caption="The history page. On a fresh demo it is empty until you record a decision."
+/>
+
+## Where to go next
+
+Learn how to find the cases that matter most in [work the queue](../work-the-queue/).

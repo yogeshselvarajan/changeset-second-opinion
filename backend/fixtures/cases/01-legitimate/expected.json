@@ -1,0 +1,22 @@
+{
+  "fixture_id": "01-legitimate",
+  "description": "StreetComplete surface=* additions by an experienced mapper",
+  "changeset_id": 900000000001,
+  "coverage": {
+    "elements_in_changeset": 3,
+    "elements_detailed": 3,
+    "elements_skipped_budget": 0,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 1.0
+  },
+  "flags": [],
+  "rules": [],
+  "nature": "consistent_edit",
+  "response": "no_action_suggested",
+  "lane": "looks_consistent",
+  "notes": "looks_consistent applies only if the aggregated band is confident; otherwise review_suggested.",
+  "receipt": null
+}

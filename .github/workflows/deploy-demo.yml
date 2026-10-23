@@ -1,0 +1,83 @@
+name: deploy demo
+
+# Deploys the serverless replay demo (infra/aws-serverless-demo) with infra/aws-serverless-demo/deploy.sh.
+# AWS access is OIDC only: the job assumes the role named in the repository variable AWS_DEPLOY_ROLE_ARN
+# (created once from infra/aws-github-oidc/github-oidc-deploy-role.yaml). The `demo` environment
+# holds the protection rules (required reviewer, branches and tags allowed to deploy). No AWS key is
+# stored in GitHub.
+#
+# Repository variables (Settings, Secrets and variables, Variables):
+#   AWS_DEPLOY_ROLE_ARN   role to assume (required)
+#   DEMO_CERT_ARN         ISSUED ACM certificate in us-east-1 for the domain (required)
+#   DEMO_ALERT_EMAIL      address for the alarm and budget notices (required)
+#   DEMO_DOMAIN           optional, defaults to osm.changesetreview.online
+#   DEMO_STACK            optional, defaults to cso-demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Tag, branch or commit to deploy (a release tag is the normal choice)
+        type: string
+        required: true
+        default: main
+  workflow_call:
+    inputs:
+      ref:
+        description: Tag to deploy
+        type: string
+        required: true
+
+permissions: {}
+
+concurrency:
+  group: deploy-demo
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: demo
+      url: https://${{ vars.DEMO_DOMAIN || 'osm.changesetreview.online' }}/
+    permissions:
+      id-token: write
+      contents: read
+    env:
+      AWS_REGION: us-east-1
+      DOMAIN: ${{ vars.DEMO_DOMAIN || 'osm.changesetreview.online' }}
+      STACK: ${{ vars.DEMO_STACK || 'cso-demo' }}
+      CERT_ARN: ${{ vars.DEMO_CERT_ARN }}
+      ALERT_EMAIL: ${{ vars.DEMO_ALERT_EMAIL }}
+      ROLE_ARN: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - name: The repository variables are set
+        run: |
+          missing=""
+          for name in ROLE_ARN CERT_ARN ALERT_EMAIL; do
+            [ -n "${!name}" ] || missing="$missing $name"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Set these repository variables first (AWS_DEPLOY_ROLE_ARN, DEMO_CERT_ARN, DEMO_ALERT_EMAIL). Empty:${missing}"
+            exit 1
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: gha-deploy-demo
+          role-duration-seconds: 3600
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build, push and deploy
+        run: bash infra/aws-serverless-demo/deploy.sh
+      - name: The site answers
+        run: curl --fail --silent --show-error --retry 6 --retry-delay 10 --retry-all-errors --output /dev/null "https://${DOMAIN}/"

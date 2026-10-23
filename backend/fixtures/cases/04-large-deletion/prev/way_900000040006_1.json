@@ -1,0 +1,28 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 900000040006,
+      "timestamp": "2020-04-01T09:00:00Z",
+      "version": 1,
+      "changeset": 899999999200,
+      "user": "mapper_Z",
+      "uid": 900000009,
+      "visible": true,
+      "tags": {
+        "highway": "service"
+      },
+      "nodes": [
+        900000041021,
+        900000041022,
+        900000041023,
+        900000041024
+      ]
+    }
+  ]
+}

@@ -1,0 +1,992 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Changeset Second Opinion, cloud native reference (design note, not yet deployed): CloudFront in
+  front of an S3 site bucket and a VPC origin (internal ALB), one Fargate task for the API and the
+  worker with SQLite replicated to S3 by Litestream, Secrets Manager, Bedrock through the task
+  role, and a Decider that is either an ECS GPU service that scales to zero or an external URL.
+  Read infra/aws-cloud-native/README.md first. Nothing here is created until you deploy it.
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label: { default: Application }
+        Parameters: [Stage, BackendImage, UserAgent, OsmClientId, OsmRedirectUrl, BootstrapAdminOsmUids]
+      - Label: { default: Network }
+        Parameters: [VpcId, SubnetIds, CloudFrontPrefixListId, AssignPublicIp]
+      - Label: { default: Decider }
+        Parameters: [DeciderMode, DeciderExternalUrl, DeciderImage, DeciderProxyImage, DeciderInstanceType, DeciderUpCron, DeciderDownCron, DeciderCronTimeZone]
+      - Label: { default: Edge }
+        Parameters: [DomainName, CloudFrontCertificateArn]
+      - Label: { default: Operations }
+        Parameters: [AlertEmail, LitestreamImage, TaskCpu, TaskMemory]
+
+Parameters:
+  Stage:
+    Type: String
+    Default: prod
+    AllowedPattern: '^[a-z][a-z0-9-]{1,15}$'
+    Description: Name of this deployment. Used in resource names.
+  BackendImage:
+    Type: String
+    Description: Backend image URI (infra/compose/backend.Dockerfile), ideally pinned by digest, built for linux/arm64.
+  UserAgent:
+    Type: String
+    Description: The OpenStreetMap User-Agent, "ChangesetSecondOpinion/0.1 (+repository URL; contact email)" with real values. Live mode refuses a placeholder.
+    MinLength: 20
+  OsmClientId:
+    Type: String
+    Default: ""
+    Description: Optional. Client id of your OpenStreetMap OAuth app. Leave empty to run without sign-in (only an admin invite code gets in).
+  OsmRedirectUrl:
+    Type: String
+    Default: ""
+    Description: Optional. Ends in /api/v1/auth/osm/callback on your public https address.
+  BootstrapAdminOsmUids:
+    Type: String
+    Default: ""
+    AllowedPattern: '^[0-9, ]*$'
+    Description: Optional. Comma-separated OpenStreetMap user ids that may claim a new workspace.
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+  SubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: At least two subnets in two Availability Zones. The ALB is internal, so give it subnets that do not hand out public addresses to it. The VPC needs an internet gateway.
+  CloudFrontPrefixListId:
+    Type: String
+    AllowedPattern: '^pl-[0-9a-f]+$'
+    Description: Id of the managed prefix list com.amazonaws.global.cloudfront.origin-facing in this Region (aws ec2 describe-managed-prefix-lists).
+  AssignPublicIp:
+    Type: String
+    Default: ENABLED
+    AllowedValues: [ENABLED, DISABLED]
+    Description: ENABLED puts the tasks in public subnets with a locked security group and no NAT gateway (cheapest). DISABLED needs private subnets with NAT or VPC endpoints.
+  TaskCpu:
+    Type: String
+    Default: "512"
+    AllowedValues: ["256", "512", "1024", "2048"]
+  TaskMemory:
+    Type: String
+    Default: "2048"
+    Description: MiB. Needs to be a valid Fargate pairing for TaskCpu.
+  LitestreamImage:
+    Type: String
+    Default: litestream/litestream:0.3.13
+    Description: Litestream image for replication and restore. The tag was not re-checked on 2026-10-20; pin a digest you have tested.
+  DeciderMode:
+    Type: String
+    Default: ecs-gpu
+    AllowedValues: [ecs-gpu, external, none]
+    Description: ecs-gpu runs the Decider on a GPU instance that scales to zero. external uses DeciderExternalUrl (needs the hosted mode code change). none leaves the Rules only lane.
+  DeciderExternalUrl:
+    Type: String
+    Default: ""
+    Description: Used only when DeciderMode is external.
+  DeciderImage:
+    Type: String
+    Default: ""
+    Description: Decider image (infra/compose/decider.Dockerfile), linux/amd64. Required for ecs-gpu.
+  DeciderProxyImage:
+    Type: String
+    Default: ""
+    Description: Required for ecs-gpu. A small image that listens on 8099, checks the bearer token in the environment variable DECIDER_TOKEN and forwards to 127.0.0.1:8098. It does not exist yet (see the README).
+  DeciderInstanceType:
+    Type: String
+    Default: g6.xlarge
+    AllowedValues: [g6.xlarge, g5.xlarge]
+  DeciderUpCron:
+    Type: String
+    Default: ""
+    Description: Optional cron (Application Auto Scaling syntax, for example "cron(0 9 ? * MON-FRI *)") that starts the Decider.
+  DeciderDownCron:
+    Type: String
+    Default: ""
+    Description: Optional cron that shuts it down again.
+  DeciderCronTimeZone:
+    Type: String
+    Default: UTC
+  DomainName:
+    Type: String
+    Default: ""
+    Description: Optional custom domain. Needs CloudFrontCertificateArn. You create the DNS record that points at the distribution.
+  CloudFrontCertificateArn:
+    Type: String
+    Default: ""
+    Description: ACM certificate in us-east-1 for DomainName.
+  AlertEmail:
+    Type: String
+    AllowedPattern: '^[^@\s]+@[^@\s]+\.[^@\s]+$'
+
+Conditions:
+  DeciderGpu: !Equals [!Ref DeciderMode, ecs-gpu]
+  DeciderExternal: !Equals [!Ref DeciderMode, external]
+  HasDecider: !Not [!Equals [!Ref DeciderMode, none]]
+  HasOsmApp: !Not [!Equals [!Ref OsmClientId, ""]]
+  HasDomain: !And
+    - !Not [!Equals [!Ref DomainName, ""]]
+    - !Not [!Equals [!Ref CloudFrontCertificateArn, ""]]
+  HasUpCron: !And
+    - !Equals [!Ref DeciderMode, ecs-gpu]
+    - !Not [!Equals [!Ref DeciderUpCron, ""]]
+  HasDownCron: !And
+    - !Equals [!Ref DeciderMode, ecs-gpu]
+    - !Not [!Equals [!Ref DeciderDownCron, ""]]
+  HasRedirect: !Not [!Equals [!Ref OsmRedirectUrl, ""]]
+
+Resources:
+  # ------------------------------------------------------------------ storage
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - { Key: project, Value: cso }
+
+  BackupBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      VersioningConfiguration: { Status: Enabled }
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-old-versions
+            Status: Enabled
+            NoncurrentVersionExpiration: { NoncurrentDays: 35 }
+            AbortIncompleteMultipartUpload: { DaysAfterInitiation: 2 }
+      Tags:
+        - { Key: project, Value: cso }
+
+  BackupBucketTls:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref BackupBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: TlsOnly
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - !GetAtt BackupBucket.Arn
+              - !Sub "${BackupBucket.Arn}/*"
+            Condition:
+              Bool: { "aws:SecureTransport": "false" }
+
+  # ------------------------------------------------------------------ secrets
+  OsmClientSecret:
+    Type: AWS::SecretsManager::Secret
+    Condition: HasOsmApp
+    Properties:
+      Description: OpenStreetMap OAuth client secret. Set the real value after the stack exists (see the README).
+      SecretString: replace-me-after-deploy
+      Tags:
+        - { Key: project, Value: cso }
+
+  DeciderToken:
+    Type: AWS::SecretsManager::Secret
+    Condition: HasDecider
+    Properties:
+      Description: Bearer token between the API and the Decider proxy.
+      GenerateSecretString:
+        PasswordLength: 48
+        ExcludePunctuation: true
+      Tags:
+        - { Key: project, Value: cso }
+
+  # ------------------------------------------------------------------ network
+  AlbSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Internal ALB. Only CloudFront origin-facing addresses, port 80.
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: CloudFront VPC origin
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          SourcePrefixListId: !Ref CloudFrontPrefixListId
+      Tags:
+        - { Key: Name, Value: !Sub "cso-${Stage}-alb" }
+
+  ApiSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: API and worker task. Port 8000 from the ALB only. Outbound open for OpenStreetMap, Bedrock and S3.
+      VpcId: !Ref VpcId
+      Tags:
+        - { Key: Name, Value: !Sub "cso-${Stage}-api" }
+
+  ApiFromAlb:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref ApiSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8000
+      ToPort: 8000
+      SourceSecurityGroupId: !Ref AlbSecurityGroup
+      Description: ALB to API
+
+  DeciderSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Condition: DeciderGpu
+    Properties:
+      GroupDescription: Decider proxy. Port 8099 from the API task only.
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: API to Decider proxy
+          IpProtocol: tcp
+          FromPort: 8099
+          ToPort: 8099
+          SourceSecurityGroupId: !Ref ApiSecurityGroup
+      Tags:
+        - { Key: Name, Value: !Sub "cso-${Stage}-decider" }
+
+  LoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Type: application
+      Scheme: internal
+      SecurityGroups: [!Ref AlbSecurityGroup]
+      Subnets: !Ref SubnetIds
+      LoadBalancerAttributes:
+        - { Key: idle_timeout.timeout_seconds, Value: "60" }
+        - { Key: routing.http.drop_invalid_header_fields.enabled, Value: "true" }
+      Tags:
+        - { Key: project, Value: cso }
+
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      TargetType: ip
+      Protocol: HTTP
+      Port: 8000
+      VpcId: !Ref VpcId
+      # The ALB checks /healthz (process alive). /readyz also needs the Decider, so using it here
+      # would drain the API whenever the GPU is asleep.
+      HealthCheckPath: /healthz
+      HealthCheckIntervalSeconds: 15
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Matcher: { HttpCode: "200" }
+      TargetGroupAttributes:
+        - { Key: deregistration_delay.timeout_seconds, Value: "30" }
+
+  Listener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref LoadBalancer
+      Protocol: HTTP
+      Port: 80
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroup
+
+  # ------------------------------------------------------------------ identity
+  ExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: ECS agent. Pulls images, writes logs, reads the two secrets at launch.
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ecs-tasks.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals: { "aws:SourceAccount": !Ref "AWS::AccountId" }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      Policies:
+        - PolicyName: read-own-secrets
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: secretsmanager:GetSecretValue
+                Resource:
+                  - !If [HasOsmApp, !Ref OsmClientSecret, !Ref "AWS::NoValue"]
+                  - !If [HasDecider, !Ref DeciderToken, !Ref "AWS::NoValue"]
+
+  ApiTaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: The API and worker. Bedrock draft calls and the Litestream bucket, nothing else.
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ecs-tasks.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals: { "aws:SourceAccount": !Ref "AWS::AccountId" }
+      Policies:
+        - PolicyName: cso-least-privilege
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [bedrock:InvokeModel]
+                Resource:
+                  - !Sub "arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0"
+                  - "arn:aws:bedrock:*::foundation-model/anthropic.claude-haiku-4-5-20251001-v1:0"
+              - Effect: Allow
+                Action: [s3:ListBucket, s3:GetBucketLocation]
+                Resource: !GetAtt BackupBucket.Arn
+              - Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:DeleteObject, s3:AbortMultipartUpload, s3:ListMultipartUploadParts]
+                Resource: !Sub "${BackupBucket.Arn}/*"
+
+  # ------------------------------------------------------------------ logs
+  ApiLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/cso/${Stage}/app"
+      RetentionInDays: 14
+
+  DeciderLogGroup:
+    Type: AWS::Logs::LogGroup
+    Condition: DeciderGpu
+    Properties:
+      LogGroupName: !Sub "/cso/${Stage}/decider"
+      RetentionInDays: 14
+
+  # ------------------------------------------------------------------ cluster
+  Cluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Sub "cso-${Stage}"
+      ClusterSettings:
+        - { Name: containerInsights, Value: disabled }
+
+  ApiTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: !Sub "cso-${Stage}-api"
+      RequiresCompatibilities: [FARGATE]
+      NetworkMode: awsvpc
+      Cpu: !Ref TaskCpu
+      Memory: !Ref TaskMemory
+      RuntimePlatform: { CpuArchitecture: ARM64, OperatingSystemFamily: LINUX }
+      ExecutionRoleArn: !GetAtt ExecutionRole.Arn
+      TaskRoleArn: !GetAtt ApiTaskRole.Arn
+      # Fargate gives every task 20 GiB of ephemeral storage that the containers share. It is not
+      # durable: Litestream restores the database from S3 each time a task starts.
+      Volumes:
+        - Name: data
+      ContainerDefinitions:
+        - Name: restore
+          Image: !Ref LitestreamImage
+          Essential: false
+          User: "10001"
+          EntryPoint: [litestream]
+          Command: [restore, -if-db-not-exists, -if-replica-exists, -o, /data/cso.db, !Sub "s3://${BackupBucket}/litestream/cso"]
+          Environment:
+            - { Name: AWS_REGION, Value: !Ref "AWS::Region" }
+          MountPoints:
+            - { SourceVolume: data, ContainerPath: /data }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref ApiLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: restore
+        - Name: migrate
+          Image: !Ref BackendImage
+          Essential: false
+          Command: [db, upgrade]
+          DependsOn:
+            - { ContainerName: restore, Condition: SUCCESS }
+          Environment:
+            - { Name: CSO_DATABASE_URL, Value: "sqlite+aiosqlite:////data/cso.db" }
+          MountPoints:
+            - { SourceVolume: data, ContainerPath: /data }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref ApiLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: migrate
+        - Name: replicate
+          Image: !Ref LitestreamImage
+          Essential: true
+          User: "10001"
+          EntryPoint: [litestream]
+          Command: [replicate, /data/cso.db, !Sub "s3://${BackupBucket}/litestream/cso"]
+          # Ends after the API (reverse dependency order), so the last commits are shipped.
+          StopTimeout: 30
+          DependsOn:
+            - { ContainerName: migrate, Condition: SUCCESS }
+          Environment:
+            - { Name: AWS_REGION, Value: !Ref "AWS::Region" }
+          MountPoints:
+            - { SourceVolume: data, ContainerPath: /data }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref ApiLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: replicate
+        - Name: api
+          Image: !Ref BackendImage
+          Essential: true
+          # One process: the API with the embedded worker. There is exactly one writer, so the service
+          # runs one task and never overlaps two (see DeploymentConfiguration).
+          Command: [api, --host, 0.0.0.0]
+          StopTimeout: 60
+          PortMappings:
+            - { ContainerPort: 8000, Protocol: tcp }
+          DependsOn:
+            - { ContainerName: replicate, Condition: START }
+          Environment:
+            - { Name: CSO_MODE, Value: live }
+            - { Name: CSO_LIVE_BEDROCK, Value: "1" }
+            - { Name: CSO_DATABASE_URL, Value: "sqlite+aiosqlite:////data/cso.db" }
+            - { Name: CSO_BEDROCK_REGION, Value: !Ref "AWS::Region" }
+            - { Name: CSO_USER_AGENT, Value: !Ref UserAgent }
+            - { Name: CSO_TRUST_PROXY, Value: "true" }
+            - { Name: CSO_JOBS_WORKER_ENABLED, Value: "true" }
+            - { Name: CSO_BOOTSTRAP_ADMIN_OSM_UIDS, Value: !Ref BootstrapAdminOsmUids }
+            - !If
+              - HasOsmApp
+              - { Name: CSO_OSM_OAUTH_CLIENT_ID, Value: !Ref OsmClientId }
+              - !Ref "AWS::NoValue"
+            - !If
+              - HasRedirect
+              - { Name: CSO_OSM_OAUTH_REDIRECT_URL, Value: !Ref OsmRedirectUrl }
+              - !Ref "AWS::NoValue"
+            - !If
+              - DeciderGpu
+              - { Name: CSO_DECIDER_URL, Value: !Sub "http://decider.${Stage}.cso.internal:8099" }
+              - !If
+                - DeciderExternal
+                - { Name: CSO_DECIDER_URL, Value: !Ref DeciderExternalUrl }
+                - !Ref "AWS::NoValue"
+            - !If
+              - DeciderGpu
+              - { Name: CSO_DECIDER_DEVICE_CLASS, Value: gpu }
+              - !Ref "AWS::NoValue"
+          Secrets:
+            - !If
+              - HasOsmApp
+              - { Name: CSO_OSM_OAUTH_CLIENT_SECRET, ValueFrom: !Ref OsmClientSecret }
+              - !Ref "AWS::NoValue"
+            # CSO_DECIDER_TOKEN is read by the hosted mode code change (see the README). The
+            # current client ignores it.
+            - !If
+              - HasDecider
+              - { Name: CSO_DECIDER_TOKEN, ValueFrom: !Ref DeciderToken }
+              - !Ref "AWS::NoValue"
+          MountPoints:
+            - { SourceVolume: data, ContainerPath: /data }
+          HealthCheck:
+            Command:
+              - CMD
+              - python
+              - -c
+              - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=3)"
+            Interval: 15
+            Timeout: 5
+            Retries: 5
+            StartPeriod: 30
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref ApiLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: api
+
+  ApiService:
+    Type: AWS::ECS::Service
+    DependsOn: Listener
+    Properties:
+      ServiceName: !Sub "cso-${Stage}-api"
+      Cluster: !Ref Cluster
+      LaunchType: FARGATE
+      DesiredCount: 1
+      TaskDefinition: !Ref ApiTaskDefinition
+      # SQLite has one writer. End the old task before the new one starts. A deploy costs about a
+      # minute of downtime and cannot make two writers.
+      DeploymentConfiguration:
+        MinimumHealthyPercent: 0
+        MaximumPercent: 100
+        DeploymentCircuitBreaker: { Enable: true, Rollback: true }
+      HealthCheckGracePeriodSeconds: 90
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: !Ref AssignPublicIp
+          SecurityGroups: [!Ref ApiSecurityGroup]
+          Subnets: !Ref SubnetIds
+      LoadBalancers:
+        - ContainerName: api
+          ContainerPort: 8000
+          TargetGroupArn: !Ref TargetGroup
+      PropagateTags: SERVICE
+
+  # ------------------------------------------------------------------ decider (GPU, scale to zero)
+  DeciderNamespace:
+    Type: AWS::ServiceDiscovery::PrivateDnsNamespace
+    Condition: DeciderGpu
+    Properties:
+      Name: !Sub "${Stage}.cso.internal"
+      Vpc: !Ref VpcId
+
+  DeciderDiscovery:
+    Type: AWS::ServiceDiscovery::Service
+    Condition: DeciderGpu
+    Properties:
+      Name: decider
+      NamespaceId: !GetAtt DeciderNamespace.Id
+      DnsConfig:
+        RoutingPolicy: MULTIVALUE
+        DnsRecords:
+          - { Type: A, TTL: 10 }
+
+  DeciderInstanceRole:
+    Type: AWS::IAM::Role
+    Condition: DeciderGpu
+    Properties:
+      Description: GPU container instance. Registers with ECS, pulls images, SSM Session Manager.
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ec2.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+
+  DeciderInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Condition: DeciderGpu
+    Properties:
+      Roles: [!Ref DeciderInstanceRole]
+
+  DeciderLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Condition: DeciderGpu
+    Properties:
+      LaunchTemplateData:
+        # ECS-optimized GPU AMI (NVIDIA drivers and runtime included). Check the parameter name
+        # against the ECS developer guide before the first deploy.
+        ImageId: "{{resolve:ssm:/aws/service/ecs/optimized-ami/amazon-linux-2023/gpu/recommended/image_id}}"
+        InstanceType: !Ref DeciderInstanceType
+        IamInstanceProfile: { Arn: !GetAtt DeciderInstanceProfile.Arn }
+        MetadataOptions: { HttpTokens: required, HttpPutResponseHopLimit: 2 }
+        BlockDeviceMappings:
+          - DeviceName: /dev/xvda
+            Ebs: { VolumeSize: 100, VolumeType: gp3, Encrypted: true, DeleteOnTermination: true }
+        NetworkInterfaces:
+          - DeviceIndex: 0
+            AssociatePublicIpAddress: !If [DeciderGpu, true, false]
+            Groups: [!Ref DeciderSecurityGroup]
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            echo "ECS_CLUSTER=${Cluster}" >> /etc/ecs/ecs.config
+
+  DeciderAsg:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Condition: DeciderGpu
+    Properties:
+      MinSize: "0"
+      MaxSize: "1"
+      DesiredCapacity: "0"
+      VPCZoneIdentifier: !Ref SubnetIds
+      NewInstancesProtectedFromScaleIn: true
+      LaunchTemplate:
+        LaunchTemplateId: !Ref DeciderLaunchTemplate
+        Version: !GetAtt DeciderLaunchTemplate.LatestVersionNumber
+      Tags:
+        - { Key: Name, Value: !Sub "cso-${Stage}-decider", PropagateAtLaunch: true }
+        - { Key: project, Value: cso, PropagateAtLaunch: true }
+
+  DeciderCapacityProvider:
+    Type: AWS::ECS::CapacityProvider
+    Condition: DeciderGpu
+    Properties:
+      AutoScalingGroupProvider:
+        AutoScalingGroupArn: !Ref DeciderAsg
+        ManagedTerminationProtection: ENABLED
+        ManagedScaling:
+          Status: ENABLED
+          TargetCapacity: 100
+          MinimumScalingStepSize: 1
+          MaximumScalingStepSize: 1
+
+  ClusterCapacity:
+    Type: AWS::ECS::ClusterCapacityProviderAssociations
+    Condition: DeciderGpu
+    Properties:
+      Cluster: !Ref Cluster
+      CapacityProviders: [FARGATE, !Ref DeciderCapacityProvider]
+      DefaultCapacityProviderStrategy:
+        - { CapacityProvider: FARGATE, Weight: 1 }
+
+  DeciderTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Condition: DeciderGpu
+    Properties:
+      Family: !Sub "cso-${Stage}-decider"
+      RequiresCompatibilities: [EC2]
+      NetworkMode: awsvpc
+      ExecutionRoleArn: !GetAtt ExecutionRole.Arn
+      ContainerDefinitions:
+        # The model server keeps listening on loopback only (invariant 7). The proxy is the only
+        # thing on the task address, and it refuses a request without the bearer token.
+        - Name: decider
+          Image: !Ref DeciderImage
+          Essential: true
+          Memory: 12288
+          Command:
+            - serve
+            - StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+            - --host
+            - 127.0.0.1
+            - --port
+            - "8098"
+          ResourceRequirements:
+            - { Type: GPU, Value: "1" }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref DeciderLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: decider
+        - Name: proxy
+          Image: !Ref DeciderProxyImage
+          Essential: true
+          Memory: 256
+          PortMappings:
+            - { ContainerPort: 8099, Protocol: tcp }
+          Secrets:
+            - { Name: DECIDER_TOKEN, ValueFrom: !Ref DeciderToken }
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref DeciderLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: proxy
+
+  DeciderService:
+    Type: AWS::ECS::Service
+    Condition: DeciderGpu
+    DependsOn: ClusterCapacity
+    Properties:
+      ServiceName: !Sub "cso-${Stage}-decider"
+      Cluster: !Ref Cluster
+      DesiredCount: 0
+      TaskDefinition: !Ref DeciderTaskDefinition
+      CapacityProviderStrategy:
+        - { CapacityProvider: !Ref DeciderCapacityProvider, Weight: 1 }
+      DeploymentConfiguration: { MinimumHealthyPercent: 0, MaximumPercent: 100 }
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: DISABLED
+          SecurityGroups: [!Ref DeciderSecurityGroup]
+          Subnets: !Ref SubnetIds
+      ServiceRegistries:
+        - RegistryArn: !GetAtt DeciderDiscovery.Arn
+
+  DeciderScalableTarget:
+    Type: AWS::ApplicationAutoScaling::ScalableTarget
+    Condition: DeciderGpu
+    Properties:
+      ServiceNamespace: ecs
+      ScalableDimension: ecs:service:DesiredCount
+      ResourceId: !Sub "service/${Cluster}/${DeciderService.Name}"
+      MinCapacity: 0
+      MaxCapacity: 1
+      ScheduledActions:
+        - !If
+          - HasUpCron
+          - ScheduledActionName: decider-up
+            Schedule: !Ref DeciderUpCron
+            Timezone: !Ref DeciderCronTimeZone
+            ScalableTargetAction: { MinCapacity: 1, MaxCapacity: 1 }
+          - !Ref "AWS::NoValue"
+        - !If
+          - HasDownCron
+          - ScheduledActionName: decider-down
+            Schedule: !Ref DeciderDownCron
+            Timezone: !Ref DeciderCronTimeZone
+            ScalableTargetAction: { MinCapacity: 0, MaxCapacity: 0 }
+          - !Ref "AWS::NoValue"
+
+  # ------------------------------------------------------------------ edge
+  SiteOac:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "cso-${Stage}-site"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  AlbVpcOrigin:
+    Type: AWS::CloudFront::VpcOrigin
+    Properties:
+      VpcOriginEndpointConfig:
+        Name: !Sub "cso-${Stage}-alb"
+        Arn: !Ref LoadBalancer
+        HTTPPort: 80
+        HTTPSPort: 443
+        OriginProtocolPolicy: http-only
+
+  RewriteFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub "cso-${Stage}-rewrite"
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Folder index files for the docs and the app shell for client routes.
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+          var r = event.request;
+          var u = r.uri;
+          var last = u.substring(u.lastIndexOf('/') + 1);
+          if (u === '/docs') { return { statusCode: 301, statusDescription: 'Moved Permanently', headers: { location: { value: '/docs/' } } }; }
+          if (u.indexOf('/docs/') === 0) {
+            if (u.charAt(u.length - 1) === '/') { r.uri = u + 'index.html'; }
+            else if (last.indexOf('.') === -1) { r.uri = u + '/index.html'; }
+            return r;
+          }
+          if (u === '/') { r.uri = '/index.html'; return r; }
+          // Pages the build writes as files (for example /about/index.html) belong in this list.
+          var written = [];
+          if (written.indexOf(u) !== -1) { r.uri = u + '/index.html'; return r; }
+          if (last.indexOf('.') === -1) { r.uri = '/_shell.html'; }
+          return r;
+        }
+
+  SiteCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: !Sub "cso-${Stage}-site"
+        MinTTL: 0
+        DefaultTTL: 0
+        MaxTTL: 31536000
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          CookiesConfig: { CookieBehavior: none }
+          HeadersConfig: { HeaderBehavior: none }
+          QueryStringsConfig: { QueryStringBehavior: none }
+
+  AppHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub "cso-${Stage}-app"
+        SecurityHeadersConfig:
+          StrictTransportSecurity: { AccessControlMaxAgeSec: 31536000, Override: true }
+          ContentTypeOptions: { Override: true }
+          ReferrerPolicy: { ReferrerPolicy: no-referrer, Override: true }
+          ContentSecurityPolicy:
+            Override: true
+            ContentSecurityPolicy: "default-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; child-src 'self' blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+        CustomHeadersConfig:
+          Items:
+            - { Header: Permissions-Policy, Value: "camera=(), microphone=(), geolocation=()", Override: true }
+            - { Header: Cross-Origin-Opener-Policy, Value: same-origin, Override: true }
+            - { Header: Cross-Origin-Resource-Policy, Value: same-origin, Override: true }
+
+  DocsHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub "cso-${Stage}-docs"
+        SecurityHeadersConfig:
+          StrictTransportSecurity: { AccessControlMaxAgeSec: 31536000, Override: true }
+          ContentTypeOptions: { Override: true }
+          ReferrerPolicy: { ReferrerPolicy: no-referrer, Override: true }
+          ContentSecurityPolicy:
+            Override: true
+            ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub "Changeset Second Opinion ${Stage}"
+        HttpVersion: http2
+        PriceClass: PriceClass_100
+        Aliases: !If [HasDomain, [!Ref DomainName], !Ref "AWS::NoValue"]
+        ViewerCertificate: !If
+          - HasDomain
+          - { AcmCertificateArn: !Ref CloudFrontCertificateArn, SslSupportMethod: sni-only, MinimumProtocolVersion: TLSv1.2_2021 }
+          - { CloudFrontDefaultCertificate: true }
+        Origins:
+          - Id: site
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt SiteOac.Id
+            S3OriginConfig: { OriginAccessIdentity: "" }
+          - Id: api
+            DomainName: !GetAtt LoadBalancer.DNSName
+            VpcOriginConfig:
+              VpcOriginId: !GetAtt AlbVpcOrigin.Id
+        DefaultCacheBehavior:
+          TargetOriginId: site
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          Compress: true
+          CachePolicyId: !Ref SiteCachePolicy
+          ResponseHeadersPolicyId: !Ref AppHeaders
+          FunctionAssociations:
+            - { EventType: viewer-request, FunctionARN: !GetAtt RewriteFunction.FunctionMetadata.FunctionARN }
+        CacheBehaviors:
+          - PathPattern: /docs/*
+            TargetOriginId: site
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD]
+            Compress: true
+            CachePolicyId: !Ref SiteCachePolicy
+            ResponseHeadersPolicyId: !Ref DocsHeaders
+            FunctionAssociations:
+              - { EventType: viewer-request, FunctionARN: !GetAtt RewriteFunction.FunctionMetadata.FunctionARN }
+          # API paths: never cached, every cookie and header passed through (the session cookie
+          # and the CSRF header), plus CloudFront-Viewer-Address for the client address.
+          - PathPattern: /api/*
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD, OPTIONS, PUT, PATCH, POST, DELETE]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+            OriginRequestPolicyId: 33f36d7e-f396-46d9-90e0-52428a34d9dc
+          - PathPattern: /healthz
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+            OriginRequestPolicyId: 33f36d7e-f396-46d9-90e0-52428a34d9dc
+          - PathPattern: /readyz
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+            OriginRequestPolicyId: 33f36d7e-f396-46d9-90e0-52428a34d9dc
+          - PathPattern: /site.webmanifest
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+            OriginRequestPolicyId: 33f36d7e-f396-46d9-90e0-52428a34d9dc
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: CloudFrontRead
+            Effect: Allow
+            Principal: { Service: cloudfront.amazonaws.com }
+            Action: s3:GetObject
+            Resource: !Sub "${SiteBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                "AWS:SourceArn": !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
+          - Sid: TlsOnly
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - !GetAtt SiteBucket.Arn
+              - !Sub "${SiteBucket.Arn}/*"
+            Condition:
+              Bool: { "aws:SecureTransport": "false" }
+
+  # ------------------------------------------------------------------ alarms
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+        - { Protocol: email, Endpoint: !Ref AlertEmail }
+
+  ServiceDownAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The API task is not running.
+      Namespace: ECS/ContainerInsights
+      MetricName: RunningTaskCount
+      Dimensions:
+        - { Name: ClusterName, Value: !Ref Cluster }
+        - { Name: ServiceName, Value: !GetAtt ApiService.Name }
+      Statistic: Minimum
+      Period: 60
+      EvaluationPeriods: 3
+      Threshold: 1
+      ComparisonOperator: LessThanThreshold
+      TreatMissingData: breaching
+      AlarmActions: [!Ref AlertTopic]
+
+  UnhealthyTargetAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The ALB has no healthy API target.
+      Namespace: AWS/ApplicationELB
+      MetricName: HealthyHostCount
+      Dimensions:
+        - { Name: TargetGroup, Value: !GetAtt TargetGroup.TargetGroupFullName }
+        - { Name: LoadBalancer, Value: !GetAtt LoadBalancer.LoadBalancerFullName }
+      Statistic: Minimum
+      Period: 60
+      EvaluationPeriods: 3
+      Threshold: 1
+      ComparisonOperator: LessThanThreshold
+      TreatMissingData: breaching
+      AlarmActions: [!Ref AlertTopic]
+
+  Http5xxAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The API answered with 5xx more than 10 times in 5 minutes.
+      Namespace: AWS/ApplicationELB
+      MetricName: HTTPCode_Target_5XX_Count
+      Dimensions:
+        - { Name: LoadBalancer, Value: !GetAtt LoadBalancer.LoadBalancerFullName }
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 10
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+
+Outputs:
+  DistributionDomain:
+    Description: Public address (point your DNS name at it when you use a custom domain).
+    Value: !GetAtt Distribution.DomainName
+  SiteBucketName:
+    Description: Upload the built web app and docs here (see the README).
+    Value: !Ref SiteBucket
+  DistributionId:
+    Value: !Ref Distribution
+  ClusterName:
+    Value: !Ref Cluster
+  DeciderServiceName:
+    Condition: DeciderGpu
+    Description: Start it with aws ecs update-service --desired-count 1.
+    Value: !GetAtt DeciderService.Name
+  BackupBucketName:
+    Value: !Ref BackupBucket

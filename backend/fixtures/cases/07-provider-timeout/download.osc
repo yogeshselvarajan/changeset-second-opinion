@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="synthetic fixture (CC0)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <modify>
+  <way id="900000070001" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071002"/>
+   <nd ref="900000071003"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="1"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070002" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071004"/>
+   <nd ref="900000071005"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="2"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070003" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071006"/>
+   <nd ref="900000071007"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="3"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070004" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071008"/>
+   <nd ref="900000071009"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="4"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070005" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071010"/>
+   <nd ref="900000071011"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="5"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070006" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071012"/>
+   <nd ref="900000071013"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="6"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070007" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071014"/>
+   <nd ref="900000071015"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="7"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070008" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071016"/>
+   <nd ref="900000071017"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="8"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070009" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071018"/>
+   <nd ref="900000071019"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="9"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070010" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071020"/>
+   <nd ref="900000071021"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="10"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070011" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071022"/>
+   <nd ref="900000071023"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="11"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070012" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071024"/>
+   <nd ref="900000071025"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="12"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070013" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071026"/>
+   <nd ref="900000071027"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="13"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070014" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071028"/>
+   <nd ref="900000071029"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="14"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070015" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071030"/>
+   <nd ref="900000071031"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="15"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000070016" visible="true" version="2" changeset="900000000007" timestamp="2026-06-08T12:05:00Z" user="mapper_J" uid="900000011">
+   <nd ref="900000071032"/>
+   <nd ref="900000071033"/>
+   <tag k="building" v="yes"/>
+   <tag k="addr:street" v="Harbour Road"/>
+   <tag k="addr:housenumber" v="16"/>
+  </way>
+ </modify>
+</osmChange>

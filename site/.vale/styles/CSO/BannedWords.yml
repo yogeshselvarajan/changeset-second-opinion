@@ -1,0 +1,12 @@
+extends: existence
+message: "'%s' is a word the product never uses, and it labels a person. Describe the edit instead."
+level: error
+ignorecase: true
+tokens:
+  - vandal
+  - vandals
+  - vandalism
+  - spam
+  - spammer
+  - spammers
+  - illegal

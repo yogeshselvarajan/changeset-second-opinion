@@ -1,0 +1,99 @@
+version: 2
+
+# One weekly run per ecosystem. Minor and patch updates are grouped so one pull request carries them
+# together; majors come alone. Third party actions are pinned to full commit SHAs (with the tag in a
+# trailing comment) and Dependabot rewrites both. A cooldown skips releases younger than a few days,
+# which is the cheapest defence against a just-published malicious version.
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: "chore(ci)"
+    labels: ["dependencies", "ci"]
+
+  - package-ecosystem: "uv"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    groups:
+      python-minor-and-patch:
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: "chore(deps)"
+    labels: ["dependencies", "python"]
+
+  - package-ecosystem: "uv"
+    directory: "/patterns/calibrated_action_gate"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "chore(deps)"
+    labels: ["dependencies", "python"]
+
+  - package-ecosystem: "npm"
+    directory: "/web"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    groups:
+      web-minor-and-patch:
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: "chore(deps)"
+    labels: ["dependencies", "javascript"]
+
+  - package-ecosystem: "npm"
+    directory: "/site"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    groups:
+      site-minor-and-patch:
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: "chore(deps)"
+    labels: ["dependencies", "javascript"]
+
+  - package-ecosystem: "docker"
+    directories:
+      - "/infra/compose"
+      - "/infra/aws-serverless-demo"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "chore(infra)"
+    labels: ["dependencies", "infra"]
+
+  - package-ecosystem: "docker-compose"
+    directory: "/infra/compose"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "chore(infra)"
+    labels: ["dependencies", "infra"]

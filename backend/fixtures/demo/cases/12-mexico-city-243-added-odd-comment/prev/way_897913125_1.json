@@ -1,0 +1,29 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 897913125,
+      "timestamp": "2021-01-21T09:55:36Z",
+      "version": 1,
+      "changeset": 97894806,
+      "user": "mapper_O",
+      "uid": 900000015,
+      "nodes": [
+        8344792884,
+        8344792885,
+        8344792887,
+        8344792888,
+        8344792889
+      ],
+      "tags": {
+        "highway": "secondary",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

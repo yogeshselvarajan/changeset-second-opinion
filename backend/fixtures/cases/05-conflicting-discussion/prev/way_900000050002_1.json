@@ -1,0 +1,27 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 900000050002,
+      "timestamp": "2025-02-14T13:00:00Z",
+      "version": 1,
+      "changeset": 899999999300,
+      "user": "mapper_Z",
+      "uid": 900000009,
+      "visible": true,
+      "tags": {
+        "highway": "footway",
+        "name": "North Meadow Path"
+      },
+      "nodes": [
+        900000051004,
+        900000051005
+      ]
+    }
+  ]
+}

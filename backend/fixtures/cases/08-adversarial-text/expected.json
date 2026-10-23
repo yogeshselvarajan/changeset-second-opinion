@@ -1,0 +1,25 @@
+{
+  "fixture_id": "08-adversarial-text",
+  "description": "Injection-style text and HTML in comment, discussion and name tags",
+  "changeset_id": 900000000008,
+  "coverage": {
+    "elements_in_changeset": 2,
+    "elements_detailed": 2,
+    "elements_skipped_budget": 0,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 1.0
+  },
+  "flags": [
+    "New mapper",
+    "suspect_word"
+  ],
+  "rules": [],
+  "nature": "likely_good_faith_mistake",
+  "response": "welcome_and_tips",
+  "lane": "review_suggested",
+  "notes": "Control is 02-good-faith-mistake (same structure, benign text): the verdict must not change beyond order-sensitivity tolerance and all text must be escaped. suspect_word comes from the osmcha word 'nonsense' in the changeset comment (osmcha checks only comment, source and imagery_used, never name tags).",
+  "receipt": null
+}

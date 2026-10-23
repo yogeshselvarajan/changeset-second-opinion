@@ -1,0 +1,800 @@
+/* Design tokens: "Evidence desk".
+   Light values live in @theme; dark values override the same variables, either explicitly
+   (data-theme="dark") or from the system setting when no explicit choice was made.
+   The brief's names (canvas, surface-2, line, ink, ink-2, accent) sit beside the original
+   names (bg, border, text, text-muted, focus), which stay because components and tests use them;
+   each pair holds the same value. */
+
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "JetBrains Mono Variable";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("./fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+/* Display face for headlines and the wordmark: a warm, high-contrast serif with a soft edge. */
+@font-face {
+  font-family: "Fraunces Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/fraunces-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@theme {
+  --font-display: "Fraunces Variable", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --color-canvas: #f6f5f2;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0eee9;
+  --color-line: #e2dfd8;
+  --color-ink: #1b1a17;
+  --color-ink-2: #6b6960;
+  --color-accent: #4e5bd8;
+  --color-accent-fg: #ffffff;
+
+  --color-bg: #f6f5f2;
+  --color-border: #e2dfd8;
+  --color-control-border: #76736b;
+  --color-text: #1b1a17;
+  --color-text-muted: #6b6960;
+  --color-focus: #4e5bd8;
+
+  --color-lane-consistent-bg: #e8f0ea;
+  --color-lane-consistent-fg: #14532d;
+  --color-lane-review-bg: #f8efd8;
+  --color-lane-review-fg: #7a4b00;
+  --color-lane-local-bg: #e9edf6;
+  --color-lane-local-fg: #1e3a8a;
+  --color-lane-insufficient-bg: #eeede9;
+  --color-lane-insufficient-fg: #3f3f3b;
+  --color-lane-rules-only-bg: #eeede9;
+  --color-lane-rules-only-fg: #3f3f3b;
+
+  --color-diff-added: #dcfce7;
+  --color-diff-removed: #fee2e2;
+  --color-diff-changed: #fef3c7;
+
+  /* Cartography for the illustrations (decorative only: never behind text that has to be read). */
+  --map-land: #efebe1;
+  --map-land-2: #e8e3d6;
+  --map-water: #c9dde8;
+  --map-water-line: #b3cddc;
+  --map-park: #d5e3cb;
+  --map-road: #fffdf8;
+  --map-road-casing: #d8d1bf;
+  --map-building: #e1dac9;
+  --map-building-line: #d1c9b5;
+  --map-flag: #c4650a;
+  --map-card: #ffffff;
+  --map-ink: #1b1a17;
+
+  /* Text scale 12/13/15/18/24 px, body 13 px, line height 1.45 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+
+  /* Radius by role: controls, panes, chips */
+  --radius-control: 10px;
+  --radius-pane: 16px;
+  --radius-chip: 999px;
+
+  /* 4-point spacing steps */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+}
+
+:root {
+  --row-h: 40px; /* comfortable */
+  --motion: 120ms;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --ease-enter: cubic-bezier(0.2, 0, 0, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-standard: 220ms;
+  --rail-w: 220px;
+  --bottom-bar-h: 0px;
+  color-scheme: light;
+}
+
+:root[data-density="compact"] {
+  --row-h: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-canvas: #0f1012;
+    --color-surface: #16171a;
+    --color-surface-2: #1d1e22;
+    --color-line: #26282d;
+    --color-ink: #eceae4;
+    --color-ink-2: #9a978f;
+    --color-accent: #8e98f2;
+    --color-accent-fg: #0f1012;
+    --color-bg: #0f1012;
+    --color-border: #26282d;
+    --color-control-border: #8b919b;
+    --color-text: #eceae4;
+    --color-text-muted: #9a978f;
+    --color-focus: #8e98f2;
+    --color-lane-consistent-bg: #16301f;
+    --color-lane-consistent-fg: #86efac;
+    --color-lane-review-bg: #3a2e0c;
+    --color-lane-review-fg: #fcd34d;
+    --color-lane-local-bg: #1b2740;
+    --color-lane-local-fg: #bfdbfe;
+    --color-lane-insufficient-bg: #262a30;
+    --color-lane-insufficient-fg: #c9c9c4;
+    --color-lane-rules-only-bg: #262a30;
+    --color-lane-rules-only-fg: #c9c9c4;
+    --color-diff-added: #0f2e1b;
+    --color-diff-removed: #3b1212;
+    --color-diff-changed: #3a2e0c;
+    --map-land: #17181b;
+    --map-land-2: #1b1c20;
+    --map-water: #172a38;
+    --map-water-line: #1f3a4d;
+    --map-park: #1a2a20;
+    --map-road: #2c2f36;
+    --map-road-casing: #3a3e47;
+    --map-building: #22252b;
+    --map-building-line: #2d3138;
+    --map-flag: #f59e0b;
+    --map-card: #1d1e22;
+    --map-ink: #eceae4;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-canvas: #0f1012;
+  --color-surface: #16171a;
+  --color-surface-2: #1d1e22;
+  --color-line: #26282d;
+  --color-ink: #eceae4;
+  --color-ink-2: #9a978f;
+  --color-accent: #8e98f2;
+  --color-accent-fg: #0f1012;
+  --color-bg: #0f1012;
+  --color-border: #26282d;
+  --color-control-border: #8b919b;
+  --color-text: #eceae4;
+  --color-text-muted: #9a978f;
+  --color-focus: #8e98f2;
+  --color-lane-consistent-bg: #16301f;
+  --color-lane-consistent-fg: #86efac;
+  --color-lane-review-bg: #3a2e0c;
+  --color-lane-review-fg: #fcd34d;
+  --color-lane-local-bg: #1b2740;
+  --color-lane-local-fg: #bfdbfe;
+  --color-lane-insufficient-bg: #262a30;
+  --color-lane-insufficient-fg: #c9c9c4;
+  --color-lane-rules-only-bg: #262a30;
+  --color-lane-rules-only-fg: #c9c9c4;
+  --color-diff-added: #0f2e1b;
+  --color-diff-removed: #3b1212;
+  --color-diff-changed: #3a2e0c;
+  --map-land: #17181b;
+  --map-land-2: #1b1c20;
+  --map-water: #172a38;
+  --map-water-line: #1f3a4d;
+  --map-park: #1a2a20;
+  --map-road: #2c2f36;
+  --map-road-casing: #3a3e47;
+  --map-building: #22252b;
+  --map-building-line: #2d3138;
+  --map-flag: #f59e0b;
+  --map-card: #1d1e22;
+  --map-ink: #eceae4;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  min-width: 320px;
+}
+
+/* App polish: one gentle easing for every control, a short entrance for each screen, a frosted top
+   strip and a clear marker for the current rail item. All of it stops for reduced motion. */
+:where(a, button, [role="button"], input, select, textarea, summary) {
+  transition:
+    background-color 160ms var(--ease-standard),
+    border-color 160ms var(--ease-standard),
+    color 160ms var(--ease-standard),
+    box-shadow 160ms var(--ease-standard),
+    opacity 160ms var(--ease-standard);
+}
+
+:where(button, [role="button"]):not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.cso-main > * {
+  animation: cso-page-in 380ms var(--ease-enter) both;
+}
+
+/* Movement only, never opacity: text stays at full strength while the screen settles. */
+@keyframes cso-page-in {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.cso-top {
+  background: color-mix(in srgb, var(--color-surface) 84%, transparent) !important;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+.cso-rail a[aria-current="page"]:not(.cso-rail-brand) {
+  background: var(--color-surface);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(a, button, [role="button"], input, select, textarea, summary) {
+    transition: none;
+  }
+
+  .cso-main > * {
+    animation: none;
+  }
+}
+
+/* Page titles and the wordmark in the app use the display face, so the product and its front door
+   read as one brand. Body text and data stay in the sans face. */
+.cso-column h1,
+.cso-rail-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* One focus ring for every interactive control: 2 px solid, 2 px offset. */
+:where(a, button, input, select, textarea, summary, [tabindex], [role="button"]):focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* Anchors must not be hidden by the sticky bar when focus scrolls them into view. */
+:where(main, [id]) {
+  scroll-margin-top: var(--sp-8);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--sp-2);
+  top: var(--sp-2);
+  z-index: 100;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* App frame: a rail on the left, a top strip and the content.
+   The rail narrows to icons under 1100 px and becomes a bottom bar under 800 px. */
+.cso-frame {
+  display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.cso-rail {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  overflow-y: auto;
+  background: var(--color-surface-2);
+  border-right: 1px solid var(--color-line);
+}
+
+.cso-column {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cso-top {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+@media (max-width: 1099px) {
+  :root {
+    --rail-w: 56px;
+  }
+
+  .cso-rail .cso-rail-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 799px) {
+  :root {
+    --rail-w: 0px;
+    --bottom-bar-h: 56px;
+  }
+
+  .cso-frame {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cso-rail {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 45;
+    height: var(--bottom-bar-h);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 var(--sp-2);
+    overflow: hidden;
+    border-right: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .cso-rail .cso-rail-section {
+    display: contents;
+  }
+
+  .cso-rail .cso-rail-brand {
+    display: none;
+  }
+
+  .cso-main {
+    padding-bottom: var(--bottom-bar-h);
+  }
+}
+
+/* ------------------------------------------------------------------------------------------
+   App skin: one look for every signed-in screen (queue, case, draft, history, config, settings).
+   Cards sit on the warm canvas, pills carry status, one accent marks the current place. It reads
+   the same tokens as the public pages, so light, dark and a workspace accent all follow.
+   ------------------------------------------------------------------------------------------ */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 560;
+  letter-spacing: -0.028em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 560;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    transform 180ms var(--ease-standard),
+    background-color 180ms var(--ease-standard),
+    border-color 180ms var(--ease-standard);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--color-accent) 88%, var(--color-ink));
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-control-border);
+}
+
+.btn-ghost:hover {
+  background: var(--color-surface-2);
+}
+
+.btn .arrow {
+  transition: transform 220ms var(--ease-standard);
+}
+
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* Inside the app the same buttons are a size smaller. */
+.cso-main .btn,
+.cso-claim .btn {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: 14px;
+}
+
+.cso-dock {
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-line);
+  border-bottom: 0;
+  border-radius: var(--radius-pane, 16px) var(--radius-pane, 16px) 0 0;
+  box-shadow: 0 -10px 30px -18px color-mix(in srgb, var(--color-ink) 28%, transparent);
+}
+
+.cso-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: var(--sp-5, 24px);
+  border: 1px dashed var(--color-control-border);
+  border-radius: var(--radius-pane, 16px);
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  color: var(--color-ink-2);
+}
+
+.cso-main {
+  background:
+    radial-gradient(
+      900px 320px at 88% -80px,
+      color-mix(in srgb, var(--color-accent) 8%, transparent),
+      transparent 70%
+    ),
+    var(--color-canvas);
+}
+
+.cso-page {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: var(--sp-6, 24px) var(--sp-6, 24px) var(--sp-8, 40px);
+}
+
+.cso-page-wide {
+  max-width: 90rem;
+}
+
+@media (max-width: 799px) {
+  .cso-page {
+    padding-inline: var(--sp-3, 12px);
+  }
+}
+
+.cso-pagehead {
+  padding-bottom: var(--sp-4, 16px);
+}
+
+.cso-pagehead h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.cso-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pane, 16px);
+  padding: var(--sp-5, 20px);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--color-ink) 5%, transparent),
+    0 10px 28px -16px color-mix(in srgb, var(--color-ink) 16%, transparent);
+}
+
+.cso-card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.005em;
+}
+
+.cso-listcard {
+  padding: 0;
+}
+
+.cso-hero {
+  position: relative;
+  overflow: hidden;
+  padding: var(--sp-5, 20px) var(--sp-6, 24px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pane, 16px);
+  box-shadow: 0 10px 28px -18px color-mix(in srgb, var(--color-ink) 18%, transparent);
+}
+
+.cso-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    color-mix(in srgb, var(--color-accent) 20%, transparent)
+  );
+}
+
+.cso-hero h1 {
+  margin-top: 0.5rem;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+}
+
+.cso-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 1.75rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.cso-ghostbtn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.85rem;
+  border: 1px solid var(--color-control-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.cso-ghostbtn:hover {
+  background: var(--color-surface-2);
+}
+
+.cso-search {
+  border: 1px solid var(--color-control-border);
+  border-radius: 999px;
+  background: var(--color-canvas);
+  cursor: text;
+}
+
+.cso-search:hover {
+  background: var(--color-surface);
+}
+
+.cso-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding-left: 0.65rem;
+  border: 1px solid var(--color-control-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink-2);
+}
+
+.cso-select select {
+  min-height: 1.875rem;
+  padding: 0 0.6rem 0 0.1rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  color-scheme: inherit;
+}
+
+/* The ring belongs on the rounded pill, not on the square select inside it. */
+.cso-select select:focus-visible {
+  outline: none;
+}
+
+.cso-select:has(select:focus-visible) {
+  outline: 2px solid var(--color-focus, var(--color-accent));
+  outline-offset: 2px;
+}
+
+.cso-select option {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.cso-note {
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
+}
+
+.cso-claim {
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
+}
+
+.cso-lanetabs {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-line);
+  border-radius: 22px;
+}
+
+.cso-lanetabs [role="tab"] {
+  border-radius: 999px;
+  min-height: 1.875rem;
+  padding-inline: 0.85rem;
+}
+
+.cso-lanetabs [role="tab"][data-selected] {
+  border-color: var(--color-line);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+/* Queue rows: a hover wash and an accent edge, never a layout shift. */
+.cso-listcard [role="row"],
+.cso-listcard [role="gridcell"] {
+  transition: background-color 140ms var(--ease-standard);
+}
+
+.cso-listcard [data-testid="case-row"][data-hovered],
+.cso-listcard [data-testid="case-row"][data-focus-visible] {
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+/* The second line of a row is always there; the compact density folds it away until the row is
+   hovered, focused or marked. */
+:root[data-density="compact"] .cso-listcard [data-testid="row-detail"] {
+  display: none;
+}
+
+:root[data-density="compact"]
+  .cso-listcard
+  :is([data-hovered], [data-focus-visible], [data-selected])
+  [data-testid="row-detail"] {
+  display: flex;
+}
+
+.cso-listcard [data-testid="case-row"]:last-child {
+  border-bottom: 0;
+}
+
+.cso-rail-brand {
+  font-size: 1.05rem;
+  line-height: 1.15;
+}
+
+.cso-rail {
+  background: color-mix(in srgb, var(--color-surface-2) 70%, var(--color-canvas));
+}
+
+/* Form controls inside the app share one shape. */
+.cso-main
+  :where(
+    input[type="text"],
+    input[type="search"],
+    input[type="password"],
+    input:not([type]),
+    select,
+    textarea
+  ) {
+  border-radius: var(--radius-control, 10px);
+}
+
+.cso-main :where(table) {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+@keyframes cso-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.cso-pop {
+  animation: cso-pop var(--dur-standard) var(--ease-enter);
+}
+
+/* A row that was not in the previous list slides in from above. */
+@keyframes cso-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.cso-row-in {
+  animation: cso-row-in var(--dur-standard) var(--ease-enter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

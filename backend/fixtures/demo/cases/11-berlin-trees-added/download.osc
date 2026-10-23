@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1301 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14300907488" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4341069" lon="13.3255536">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907489" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4340314" lon="13.3256657">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907490" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4340264" lon="13.3254780">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907491" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4339496" lon="13.3255893">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer pseudoplatanus"/>
+   <tag k="species:de" v="Berg-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907492" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4338654" lon="13.3255075">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907493" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4338797" lon="13.3253409">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907494" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4337975" lon="13.3254387">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907495" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4337726" lon="13.3252431">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907496" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4337200" lon="13.3253702">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907497" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4336341" lon="13.3252824">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907498" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4336158" lon="13.3250890">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907499" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4335716" lon="13.3252231">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer pseudoplatanus"/>
+   <tag k="species:de" v="Berg-Ahorn"/>
+  </node>
+ </create>
+ <create>
+  <node id="14300907500" visible="true" version="1" changeset="190761641" timestamp="2026-10-19T20:33:08Z" user="mapper_A" uid="900000001" lat="52.4335195" lon="13.3249966">
+   <tag k="genus" v="Acer"/>
+   <tag k="genus:de" v="Ahorn"/>
+   <tag k="leaf_cycle" v="deciduous"/>
+   <tag k="leaf_type" v="broadleaved"/>
+   <tag k="natural" v="tree"/>
+   <tag k="species" v="Acer platanoides"/>
+   <tag k="species:de" v="Spitz-Ahorn"/>
+  </node>
+ </create>
+</osmChange>

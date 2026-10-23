@@ -1,0 +1,63 @@
+---
+title: What Changeset Second Opinion is
+description: The problem the tool solves, who it is for, and what it does and does not do.
+---
+
+import ThemedShot from '../../../components/ThemedShot.astro';
+
+*For anyone new to the project. Explanation.*
+
+Changeset Second Opinion is a tool for reviewing flagged OpenStreetMap edits. It gathers the evidence for a changeset, asks a small decision model ten yes/no questions about that evidence, shows every answer, and suggests where the case belongs in your queue. If a reply to the mapper would help, it drafts one that you can edit. A person decides. A person posts.
+
+## The problem
+
+OpenStreetMap is edited by volunteers, and a lot of edits get flagged: by OSMCha, by a MapRoulette challenge, or by a validator's own sense that something looks off. Someone then has to look at each one. That person often has twenty more in the queue and ten minutes.
+
+Most of the work in a review is gathering. You open the changeset, work out what each element used to look like, check how old the account is, read the discussion, and look for a source. Only after that do you start to judge. The judging needs a person. The gathering does not.
+
+## What the tool does
+
+- **Gathers the evidence.** It reads the public changeset, the tag changes, the account profile and the discussion into one screen. It also keeps a coverage record that says what it could not fetch.
+- **Asks ten questions.** The Decider, a small model, answers ten fixed yes/no questions about that evidence. Each answer is shown with its probability, so you can see how sure the model was. See [read the evidence](../../review/read-the-evidence/).
+- **Applies rules to parsed facts.** Counts, ages and coverage decide the rules. A model answer can make a case more cautious. It cannot make a case less cautious than the rules say.
+- **Suggests a lane and a response.** The lane places the case in the queue. The response is a suggested next step, such as asking for the source.
+- **Drafts a reply when you ask.** For responses that are comments, an Amazon Bedrock model (Claude Haiku 4.5) can write a first draft. A checklist tests the draft, and you edit it. See [draft and send a comment](../../review/draft-and-send-a-comment/).
+- **Keeps a receipt.** Every analysis has a page that shows each answer, the rules that fired, the coverage and the configuration used. See [read a receipt](../../review/read-a-receipt/).
+
+<ThemedShot
+  name="case"
+  alt="A case in Changeset Second Opinion: the changeset and its place on the left, the suggested response and the fact panel on the right, and the case actions along the bottom."
+  caption="A case on the demo data. The evidence is on the left and the recommendation is on the right."
+/>
+
+## What it does not do
+
+- **It never writes to OpenStreetMap.** It reads public data. The one extra request to OpenStreetMap is the sign-in exchange, which asks for read-only scope and keeps nothing. There is no map write and no write credential anywhere in the tool.
+- **Lanes only order the queue.** Every case stays in the list. Nothing is hidden, nothing closes by itself, and nothing is posted by itself.
+- **It does not decide for you.** The model reads a limited amount of evidence, and it can be wrong. A suggestion is a place to start.
+- **It does not call mappers names.** The words in the interface and in drafts describe what is visible in the edit. They do not assign blame or intent.
+
+For the limits stated with real numbers, see [what it cannot do](../../concepts/what-it-cannot-do/).
+
+## Who it is for
+
+- **Reviewers** on an OpenStreetMap validation team, who decide on flagged changesets and reply to mappers. Start with [review your first changeset](../../review/first-changeset/).
+- **Community admins**, who invite people and set the tone of drafts. Start with [set up the first admin](../../administer/first-admin/).
+- **Operators**, who run a copy of the tool. Start with [install with Docker Compose](../../self-host/docker-compose/).
+- **Contributors**, who fix bugs or add questions and community packs. Start with [dev setup](../../contribute/dev-setup/).
+
+## Why it works this way
+
+Three rules shape the design, and the code enforces them.
+
+1. **Nothing writes to OpenStreetMap.** The HTTP client can only send GET requests, to two hosts, apart from the sign-in exchange. A check in CI keeps it that way.
+2. **Nothing is hidden from reviewers.** A lane is a way to order work, not a way to remove it.
+3. **Rules read parsed evidence.** The model's answers never decide a rule. They can only add caution.
+
+The reasoning behind each rule is in [why lanes only order the queue](../../concepts/why-lanes-only-order-the-queue/) and [how a verdict is made](../../concepts/how-a-verdict-is-made/).
+
+## Status
+
+This is a hackathon project and a first release. The demo runs on fifteen real changesets that were recorded on 20 October 2026. The evaluation labels behind the early results were written by an AI, not by people, and the docs say so wherever the numbers appear.
+
+To see it for yourself, follow the [quickstart](../quickstart/). For the terms used on this site, see the [glossary](../glossary/).

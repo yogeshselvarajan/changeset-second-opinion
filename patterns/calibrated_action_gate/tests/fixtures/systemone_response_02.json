@@ -1,0 +1,87 @@
+{
+ "model": "strands-decider-2B-qwen3.5-v1-2610",
+ "answers": {
+  "nature_p0": {
+   "type": "choice",
+   "choice": "needs_local_knowledge",
+   "probabilities": {
+    "consistent_edit": 0.283,
+    "likely_good_faith_mistake": 0.1446,
+    "possible_deliberate_damage": 0.1125,
+    "needs_local_knowledge": 0.4599
+   },
+   "confidence": 0.2799
+  },
+  "nature_p1": {
+   "type": "choice",
+   "choice": "needs_local_knowledge",
+   "probabilities": {
+    "likely_good_faith_mistake": 0.124,
+    "possible_deliberate_damage": 0.1245,
+    "needs_local_knowledge": 0.3891,
+    "consistent_edit": 0.3624
+   },
+   "confidence": 0.1855
+  },
+  "nature_p2": {
+   "type": "choice",
+   "choice": "consistent_edit",
+   "probabilities": {
+    "possible_deliberate_damage": 0.0974,
+    "needs_local_knowledge": 0.3312,
+    "consistent_edit": 0.3423,
+    "likely_good_faith_mistake": 0.2292
+   },
+   "confidence": 0.123
+  },
+  "response_p0": {
+   "type": "choice",
+   "choice": "no_action_suggested",
+   "probabilities": {
+    "no_action_suggested": 0.3263,
+    "welcome_and_tips": 0.0446,
+    "ask_source_question": 0.2946,
+    "request_local_check": 0.2453,
+    "escalate_to_experienced_reviewer": 0.0893
+   },
+   "confidence": 0.1579
+  },
+  "response_p1": {
+   "type": "choice",
+   "choice": "no_action_suggested",
+   "probabilities": {
+    "welcome_and_tips": 0.0511,
+    "ask_source_question": 0.2119,
+    "request_local_check": 0.2115,
+    "escalate_to_experienced_reviewer": 0.086,
+    "no_action_suggested": 0.4395
+   },
+   "confidence": 0.2993
+  },
+  "response_p2": {
+   "type": "choice",
+   "choice": "no_action_suggested",
+   "probabilities": {
+    "request_local_check": 0.2049,
+    "escalate_to_experienced_reviewer": 0.1029,
+    "no_action_suggested": 0.358,
+    "welcome_and_tips": 0.0391,
+    "ask_source_question": 0.2951
+   },
+   "confidence": 0.1975
+  },
+  "comment_matches_changes": {
+   "type": "noul",
+   "noul": 0.3995
+  },
+  "mature_feature_deleted_probe": {
+   "type": "noul",
+   "noul": 0.1091
+  }
+ },
+ "usage": {
+  "input_tokens": 1631,
+  "output_tokens": 8
+ },
+ "latency_ms": 443.97
+}

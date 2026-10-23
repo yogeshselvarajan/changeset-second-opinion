@@ -1,0 +1,29 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1455214007,
+      "timestamp": "2026-06-18T04:22:08Z",
+      "version": 2,
+      "changeset": 184253124,
+      "user": "mapper_F",
+      "uid": 900000006,
+      "nodes": [
+        13345291781,
+        13345291782
+      ],
+      "tags": {
+        "crossing": "uncontrolled",
+        "crossing:markings": "yes",
+        "footway": "crossing",
+        "highway": "footway",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

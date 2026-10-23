@@ -1,0 +1,89 @@
+---
+title: Connect Amazon Bedrock
+description: Turn on real comment drafts with Claude Haiku 4.5, with the region, model id, IAM and a daily spend cap.
+---
+
+*For operators who self-host. How-to.*
+
+Drafts come from Amazon Bedrock (Claude Haiku 4.5) through one gated tool. Until you turn this on, drafts come from an offline template. A person always edits a draft and posts it themselves.
+
+## What you need first
+
+- An AWS account with access to the model. Submit the one-time Anthropic use-case form in the Bedrock console.
+- Live mode. See [Replay mode and live mode](../replay-and-live/).
+- Credentials the server can find. On the AWS host that is the instance role.
+
+## Steps
+
+1. Check that the model answers from the same account:
+
+   ```sh
+   aws bedrock-runtime converse --model-id us.anthropic.claude-haiku-4-5-20251001-v1:0 \
+     --messages '[{"role":"user","content":[{"text":"Say ok."}]}]'
+   ```
+
+2. Set the region and model id if yours differ from the defaults:
+
+   ```sh
+   CSO_BEDROCK_REGION=us-east-1
+   CSO_BEDROCK_MODEL_ID=us.anthropic.claude-haiku-4-5-20251001-v1:0
+   ```
+
+3. Turn on the gate. A real Bedrock call needs both `CSO_MODE=live` and `CSO_LIVE_BEDROCK=1`:
+
+   ```sh
+   CSO_MODE=live
+   CSO_LIVE_BEDROCK=1
+   ```
+
+   With either one missing, drafts use the offline template and no AWS client is created.
+
+4. Set the spend guard. The default is 10 US dollars per UTC day:
+
+   ```sh
+   CSO_BEDROCK_DAILY_USD_CAP=10
+   ```
+
+   Past the cap, drafts fall back to the template. `CSO_DAILY_DRAFT_CAP` (default 100) limits the number of drafts per day. See [Replay mode and live mode](../replay-and-live/) for how the caps count.
+
+5. Restart the API and the worker.
+
+On the AWS host, do not edit `/opt/cso/.env` by hand. `infra/scripts/bootstrap.sh` rewrites that file from SSM Parameter Store each time it runs, so a hand edit is lost. Set the gate with an optional parameter instead. It is a switch, not a secret, so a plain `String` is right:
+
+```sh
+aws ssm put-parameter --name /cso/prod/live_bedrock --type String --value 1 --overwrite
+```
+
+Use your own stage in place of `prod`. Then run the bootstrap script again through SSM Session Manager. It is safe to repeat, it writes `CSO_LIVE_BEDROCK=1` into `/opt/cso/.env` and it restarts the stack:
+
+```sh
+aws ssm start-session --target "$ID"
+sudo bash /opt/cso/infra/scripts/bootstrap.sh
+```
+
+The host runs in live mode already (`CSO_MODE=live`), so the second half of the gate is set. Only the exact value `1` turns drafts on. Delete the parameter (or set it to `0`) and run the script again to go back to offline templates. The instance role already allows `bedrock:InvokeModel` for the two ARNs under IAM below.
+
+## IAM
+
+The server needs `bedrock:InvokeModel` on two resources only: the inference profile and the foundation model for Claude Haiku 4.5. The AWS template gives the instance role exactly that:
+
+```json
+{"Effect":"Allow","Action":["bedrock:InvokeModel"],
+ "Resource":["arn:aws:bedrock:us-east-1:<account id>:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0",
+             "arn:aws:bedrock:*::foundation-model/anthropic.claude-haiku-4-5-20251001-v1:0"]}
+```
+
+Invoking any other model should return `AccessDenied`. Use that as a test of the scope. Give the credentials to the server through a role, never through a key in a file or in the web app.
+
+## What the gate does
+
+A Strands agent has one tool, and a hook reads the stored decision. It cancels the call unless that response type is allowed for that lane. A checker then reviews words, links, length and that every cited evidence id exists. See [Draft and send a comment](../../review/draft-and-send-a-comment/).
+
+## Check that it worked
+
+- Request a draft in the app on a case where drafting is allowed, and confirm it arrives.
+- The spend counter stays under the cap. Past it, the next draft comes from the template.
+
+The draft carries a badge. **Model draft** means the model wrote it. **Offline template** means no model wrote it and the wording came from a fixed template, with the note "No model wrote this."
+
+Next: [Deploy on AWS](../deploy-on-aws/).

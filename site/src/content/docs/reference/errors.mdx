@@ -1,0 +1,75 @@
+---
+title: Errors reference
+description: The problem response format the API uses for every error, and the codes it can return.
+---
+
+*For operators and contributors who call the API. Reference.*
+
+Every error from `/api/v1` is an [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) problem response, with the media type `application/problem+json`. Source: `backend/src/cso/api/problems.py`.
+
+## Response body
+
+| Member | Type | Always present | Meaning |
+| --- | --- | --- | --- |
+| `type` | string | Yes | A stable URN, `urn:cso:problem:<code>`. See the code table below |
+| `title` | string | Yes | The standard HTTP reason phrase for `status` |
+| `status` | integer | Yes | The HTTP status code |
+| `detail` | string | No | A sentence about this occurrence. Always a string |
+| `instance` | string | No | The request path |
+| `request_id` | string | Yes | The id of the request, also sent in the `X-Request-ID` response header |
+| `errors` | array | No | Present for validation failures. See below |
+
+Members that are empty are left out. Some errors add extension members, listed after the code table.
+
+### The `errors` array
+
+Each entry describes one failed field. It never repeats the value that was sent.
+
+| Member | Type | Meaning |
+| --- | --- | --- |
+| `loc` | array of strings and integers | Where the problem is, for example `["body", "changeset_id"]` |
+| `msg` | string | What is wrong |
+| `type` | string | A stable machine code for the failure |
+
+## Request id
+
+If a request carries an `X-Request-ID` header made of 1 to 64 letters, digits, dots, underscores or hyphens, the server uses it. Otherwise it makes one. Quote the `request_id` when you report a problem.
+
+## Codes
+
+| `status` | Code in `type` | When it is returned |
+| --- | --- | --- |
+| 400 | `bad_request` | A query parameter, header value or changeset id is malformed |
+| 400 | `invalid_cursor` | The pagination cursor is malformed or was altered |
+| 401 | `unauthorized` | The endpoint needs a session and there is none |
+| 403 | `forbidden` | The session role is too low for the endpoint |
+| 404 | `not_found` | The resource does not exist, or a path id is malformed |
+| 405 | `method_not_allowed` | The path does not allow that method |
+| 409 | `conflict` | The request conflicts with current state, for example an analysis is already queued |
+| 412 | `precondition_failed` | The `If-Match` header does not match the current version |
+| 422 | `validation_error` | The body is well formed but a field does not fit |
+| 422 | `final_text_invalid` | An edited comment breaks the drafting rules |
+| 428 | `precondition_required` | The request needs an `If-Match` header |
+| 429 | `rate_limited` | Too many requests. A `Retry-After` header gives whole seconds, at least 1 |
+| 500 | `internal_error` | An unexpected failure. The detail is generic and the cause is logged on the server, never returned |
+| 502 | `upstream_unavailable` | An outside source, such as MapRoulette, could not be reached |
+| 503 | `service_unavailable` | A dependency is not ready. `GET /readyz` returns this |
+| other | `http_error` | Any other HTTP error raised by the framework |
+
+A malformed query value gives 400, a malformed path id gives 404, and a malformed body gives 422. A bad `changeset_id` in a body gives 400.
+
+## Extension members
+
+| Code | Extra member | Meaning |
+| --- | --- | --- |
+| `conflict` on `POST /cases/{id}/analyses` | `job_id` | The id of the job that is already queued or running. `detail` stays a string |
+| `conflict` on cancelling a finished job | `job_id` | The id of the job |
+| `precondition_failed` | `current` | The live record, so the client can merge. For outcomes it is the current outcome. For settings it holds the current `version` |
+| `final_text_invalid` | `violations` | The list of drafting rules the text broke |
+| `service_unavailable` on `GET /readyz` | `db`, `decider` | Whether the database is ready, and the state of the Decider |
+
+## Notes
+
+- Cookie-authenticated mutations need the `X-CSRF` header. The REST API pages of this site list the statuses each operation can return.
+- The per-caller rate limits (sign-in attempts, analyses and drafts per hour or day, writes per minute, and receipt views) are fixed in code. The daily caps on analyses, drafts and Bedrock spend are settings. See the [settings reference](../settings/).
+- A 409 on drafting means the requested response type is not allowed by the latest reading. See [draft and send a comment](../../review/draft-and-send-a-comment/).

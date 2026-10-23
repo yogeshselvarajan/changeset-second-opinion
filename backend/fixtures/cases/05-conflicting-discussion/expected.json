@@ -1,0 +1,22 @@
+{
+  "fixture_id": "05-conflicting-discussion",
+  "description": "Four comments in which two mappers disagree; the author cites an on-site survey",
+  "changeset_id": 900000000005,
+  "coverage": {
+    "elements_in_changeset": 3,
+    "elements_detailed": 3,
+    "elements_skipped_budget": 0,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 1.0
+  },
+  "flags": [],
+  "rules": [],
+  "nature": "needs_local_knowledge",
+  "response": "request_local_check",
+  "lane": "needs_local_knowledge",
+  "notes": "Author has 85 changesets so osmcha New mapper does not fire. The disagreement cannot be settled from API data.",
+  "receipt": null
+}

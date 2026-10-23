@@ -1,0 +1,63 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 15608586,
+      "timestamp": "2026-10-18T14:34:24Z",
+      "version": 6,
+      "changeset": 190699738,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "members": [
+        {
+          "type": "way",
+          "ref": 1299847412,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299841990,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752305838,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752305836,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752305826,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1569467824,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1154654616,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Chakdaha",
+        "ref:LGD:subdistrict": "2314",
+        "type": "boundary",
+        "wikidata": "Q5068305"
+      }
+    }
+  ]
+}

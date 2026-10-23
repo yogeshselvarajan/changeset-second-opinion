@@ -1,0 +1,24 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 5057225481,
+      "lat": -36.7397835,
+      "lon": 174.7419268,
+      "timestamp": "2020-10-29T00:50:28Z",
+      "version": 2,
+      "changeset": 93205505,
+      "user": "mapper_G",
+      "uid": 900000007,
+      "tags": {
+        "name": "Windsor Park Bakery Espresso",
+        "shop": "bakery"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 11263593150,
+      "lat": -36.7164377,
+      "lon": 174.7452881,
+      "timestamp": "2023-10-15T01:17:58Z",
+      "version": 1,
+      "changeset": 142596526,
+      "user": "mapper_B",
+      "uid": 900000002,
+      "tags": {
+        "addr:city": "Auckland",
+        "addr:housenumber": "201/39",
+        "addr:street": "Anzac Road",
+        "addr:suburb": "Browns Bay",
+        "ref:linz:address_id": "3046441"
+      }
+    }
+  ]
+}

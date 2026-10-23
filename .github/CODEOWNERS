@@ -1,0 +1,10 @@
+# Every path needs a review from the owner. Narrower lines below exist so the paths that change
+# how the project is built, released or deployed are visible in the file.
+*                         @yogeshselvarajan
+/.github/                 @yogeshselvarajan
+/infra/                   @yogeshselvarajan
+/backend/pyproject.toml   @yogeshselvarajan
+/backend/uv.lock          @yogeshselvarajan
+/backend/openapi/         @yogeshselvarajan
+/web/package.json         @yogeshselvarajan
+/SECURITY.md              @yogeshselvarajan

@@ -1,0 +1,38 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 100989363,
+      "timestamp": "2022-05-16T09:09:19Z",
+      "version": 5,
+      "changeset": 121041518,
+      "user": "mapper_G",
+      "uid": 900000007,
+      "nodes": [
+        1166511398,
+        1166511601,
+        1166511368,
+        2586669284,
+        1166512012,
+        2586669282,
+        8842890428,
+        1166511978,
+        2586669283,
+        1166511641,
+        2586669281,
+        1166511752,
+        347199986
+      ],
+      "tags": {
+        "highway": "service",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

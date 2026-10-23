@@ -1,0 +1,21 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "user": {
+    "id": 900000001,
+    "display_name": "mapper_A",
+    "account_created": "2022-09-12T09:00:53Z",
+    "changesets": {
+      "count": 3
+    },
+    "blocks": {
+      "received": {
+        "count": 0,
+        "active": 0
+      }
+    }
+  }
+}

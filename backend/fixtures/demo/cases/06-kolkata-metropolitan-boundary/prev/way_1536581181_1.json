@@ -1,0 +1,27 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1536581181,
+      "timestamp": "2026-07-08T16:37:59Z",
+      "version": 1,
+      "changeset": 185353630,
+      "user": "mapper_E",
+      "uid": 900000005,
+      "nodes": [
+        13998051367,
+        13998051366
+      ],
+      "tags": {
+        "layer": "-1",
+        "tunnel": "culvert",
+        "waterway": "canal"
+      }
+    }
+  ]
+}

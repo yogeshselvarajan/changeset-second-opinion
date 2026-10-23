@@ -1,0 +1,39 @@
+# Context for web.Dockerfile (repository root).
+.git
+.github
+docs
+infra
+# Only the OpenAPI file (the docs site reads it) and each demo case's expected.json (the home page
+# quotes figures from them) are needed; the rest of the backend is not.
+backend/*
+!backend/openapi
+!backend/fixtures
+backend/fixtures/*
+!backend/fixtures/demo
+backend/fixtures/demo/*
+!backend/fixtures/demo/cases
+backend/fixtures/demo/cases/*/*
+!backend/fixtures/demo/cases/*/expected.json
+site/node_modules
+site/dist
+site/.astro
+# The web build reads three evaluation files for the figures on the home page (web/scripts/landing-numbers.mjs).
+evaluation/*
+!evaluation/labels
+evaluation/labels/*
+!evaluation/labels/dev.jsonl
+!evaluation/labels/dev.adjudicated.jsonl
+!evaluation/results
+evaluation/results/*
+!evaluation/results/spike-2026-10-17.json
+config
+**/__pycache__
+web/node_modules
+web/dist
+web/dist-ssr
+web/test-results
+web/playwright-report
+**/.env
+**/.env.*
+**/*.db
+**/*.db-*

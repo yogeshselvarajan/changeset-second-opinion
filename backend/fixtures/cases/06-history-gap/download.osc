@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="synthetic fixture (CC0)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <modify>
+  <way id="900000060001" visible="true" version="3" changeset="900000000006" timestamp="2026-05-20T09:05:00Z" user="mapper_I" uid="900000010">
+   <nd ref="900000061002"/>
+   <nd ref="900000061003"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Orchard Lane 1"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000060002" visible="true" version="3" changeset="900000000006" timestamp="2026-05-20T09:05:00Z" user="mapper_I" uid="900000010">
+   <nd ref="900000061004"/>
+   <nd ref="900000061005"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Orchard Lane 2"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000060003" visible="true" version="3" changeset="900000000006" timestamp="2026-05-20T09:05:00Z" user="mapper_I" uid="900000010">
+   <nd ref="900000061006"/>
+   <nd ref="900000061007"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Orchard Lane 3"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000060004" visible="true" version="3" changeset="900000000006" timestamp="2026-05-20T09:05:00Z" user="mapper_I" uid="900000010">
+   <nd ref="900000061008"/>
+   <nd ref="900000061009"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Orchard Lane 4"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000060005" visible="true" version="3" changeset="900000000006" timestamp="2026-05-20T09:05:00Z" user="mapper_I" uid="900000010">
+   <nd ref="900000061010"/>
+   <nd ref="900000061011"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Orchard Lane 5"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="900000060006" visible="true" version="3" changeset="900000000006" timestamp="2026-05-20T09:05:00Z" user="mapper_I" uid="900000010">
+   <nd ref="900000061012"/>
+   <nd ref="900000061013"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Orchard Lane 6"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+</osmChange>

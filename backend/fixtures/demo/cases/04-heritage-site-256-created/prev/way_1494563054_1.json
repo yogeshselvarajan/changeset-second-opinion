@@ -1,0 +1,37 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1494563054,
+      "timestamp": "2026-03-31T10:40:47Z",
+      "version": 1,
+      "changeset": 180666357,
+      "user": "mapper_I",
+      "uid": 900000009,
+      "nodes": [
+        13694936747,
+        13694936748,
+        13694936749,
+        13694936750,
+        13694936751,
+        13694936752,
+        13694936753,
+        13694936754,
+        13694936755,
+        13694936756,
+        13694936747
+      ],
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "Shri Tulja Bhavani Mandir Pratapgad",
+        "religion": "hindu"
+      }
+    }
+  ]
+}

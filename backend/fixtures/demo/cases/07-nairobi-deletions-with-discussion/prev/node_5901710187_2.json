@@ -1,0 +1,30 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 5901710187,
+      "lat": -36.788688,
+      "lon": 174.769178,
+      "timestamp": "2026-07-13T23:01:13Z",
+      "version": 2,
+      "changeset": 185683179,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "tags": {
+        "addr:housenumber": "19",
+        "addr:postcode": "0622",
+        "addr:street": "Como Street",
+        "amenity": "cafe",
+        "cuisine": "regional",
+        "name": "Flourish Cafe",
+        "opening_hours": "Mo-Fr 07:00-15:00",
+        "phone": "+64 9 489 2266"
+      }
+    }
+  ]
+}

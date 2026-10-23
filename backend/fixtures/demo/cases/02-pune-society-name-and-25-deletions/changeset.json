@@ -1,0 +1,35 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 190740714,
+    "created_at": "2026-10-19T12:28:42Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 30,
+    "created_count": 5,
+    "modified_count": 0,
+    "deleted_count": 25,
+    "closed_at": "2026-10-19T12:28:44Z",
+    "min_lat": 18.4695466,
+    "min_lon": 73.8302189,
+    "max_lat": 18.4699511,
+    "max_lon": 73.8307701,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "1",
+      "comment": "Society Name added",
+      "created_by": "iD 2.42.2",
+      "host": "[url removed]",
+      "ideditor:walkthrough_progress": "welcome;navigation;point;area;line;startEditing",
+      "ideditor:walkthrough_started": "yes",
+      "imagery_used": "Bing Maps Aerial",
+      "locale": "en-US"
+    },
+    "comments": []
+  }
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1300 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14299364942" visible="true" version="1" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001" lat="18.4699511" lon="73.8303557"/>
+ </create>
+ <create>
+  <node id="14299364943" visible="true" version="1" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001" lat="18.4697845" lon="73.8307701"/>
+ </create>
+ <create>
+  <node id="14299364944" visible="true" version="1" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001" lat="18.4695466" lon="73.8306279"/>
+ </create>
+ <create>
+  <node id="14299364945" visible="true" version="1" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001" lat="18.4697044" lon="73.8302189"/>
+ </create>
+ <create>
+  <way id="1569696256" visible="true" version="1" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001">
+   <nd ref="14299364942"/>
+   <nd ref="14299364943"/>
+   <nd ref="14299364944"/>
+   <nd ref="14299364945"/>
+   <nd ref="14299364942"/>
+   <tag k="addr:city" v="pune"/>
+   <tag k="addr:district" v="Maharashtra"/>
+   <tag k="addr:postcode" v="411041"/>
+   <tag k="landuse" v="residential"/>
+   <tag k="name" v="Meenakshi Puram A Building"/>
+   <tag k="residential" v="apartments"/>
+  </way>
+ </create>
+ <delete>
+  <node id="3648659339" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659343" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659345" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659346" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659347" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659348" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659349" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659351" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659353" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659354" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659356" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659357" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659358" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659359" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659360" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659361" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659362" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659363" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659364" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659365" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659366" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659367" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659368" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3648659370" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="360291737" visible="false" version="2" changeset="190740714" timestamp="2026-10-19T12:28:44Z" user="mapper_A" uid="900000001"/>
+ </delete>
+</osmChange>

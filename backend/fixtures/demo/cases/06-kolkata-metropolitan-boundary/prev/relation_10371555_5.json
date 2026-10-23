@@ -1,0 +1,61 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 10371555,
+      "timestamp": "2024-07-08T07:47:53Z",
+      "version": 5,
+      "changeset": 153690374,
+      "user": "mapper_B",
+      "uid": 900000002,
+      "members": [
+        {
+          "type": "way",
+          "ref": 1299936657,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299929189,
+          "role": "outer"
+        },
+        {
+          "type": "node",
+          "ref": 7156005591,
+          "role": "admin_centre"
+        },
+        {
+          "type": "way",
+          "ref": 752623897,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623907,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623895,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623893,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Chanditala - I",
+        "type": "boundary"
+      }
+    }
+  ]
+}

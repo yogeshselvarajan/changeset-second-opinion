@@ -1,0 +1,59 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 10371556,
+      "timestamp": "2025-12-16T18:09:53Z",
+      "version": 9,
+      "changeset": 176018096,
+      "user": "mapper_F",
+      "uid": 900000006,
+      "members": [
+        {
+          "type": "way",
+          "ref": 1299928426,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299928078,
+          "role": "outer"
+        },
+        {
+          "type": "node",
+          "ref": 7156005592,
+          "role": "admin_centre"
+        },
+        {
+          "type": "way",
+          "ref": 752623907,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623904,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752623905,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Chanditala - II",
+        "ref:LGD:subdistrict": "2352",
+        "type": "boundary",
+        "wikidata": "Q5071109",
+        "wikipedia": "en:Chanditala II"
+      }
+    }
+  ]
+}

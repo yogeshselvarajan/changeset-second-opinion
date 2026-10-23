@@ -1,0 +1,68 @@
+---
+title: Repo tour
+description: A map of the repository folders and where to look for each kind of change.
+---
+
+*For contributors. Reference with short notes.*
+
+This page lists what lives where. To set up a machine first, see [dev setup](../dev-setup/). For the shape of the running system, see [architecture](../../concepts/architecture/).
+
+## Top level
+
+| Path | What it holds |
+| --- | --- |
+| `backend/` | The FastAPI app, the worker, the command line, tests and fixtures |
+| `web/` | The React single-page app, the public pages and the browser tests |
+| `site/` | This documentation site (Starlight), served at `/docs/` on the product website |
+| `config/communities/` | Community packs: option labels, thresholds, rule parameters and tone |
+| `evaluation/` | Committed labels, splits and result files |
+| `patterns/calibrated_action_gate/` | A standalone, reusable version of the gate pattern with no dependency on the app |
+| `infra/` | Compose files, Caddy, CloudFormation, Litestream and scripts |
+| `scripts/ci/` | The invariant checks that CI runs |
+| `.github/` | Workflows, issue and pull request templates |
+
+## Backend: `backend/src/cso/`
+
+| Folder | What it holds |
+| --- | --- |
+| `domain/` | The rules (`policy.py`), the fact panel (`panel.py`), the table and lanes (`lanes.py`), the evidence model, the sanitiser and the community config. Plain Python, no input or output |
+| `adapters/osm/` | The read-only OpenStreetMap client, the replay loader, the collector and the sign-in code |
+| `adapters/decider/` | The Decider client and the ten question definitions sent to it |
+| `adapters/bedrock/` | The Bedrock drafting client, its checks and the template fallback |
+| `agent/` | The Strands drafting agent and its gate |
+| `jobs/` | The durable job queue, the worker and the step handlers |
+| `persistence/` | Tables, repositories, migrations and the immutability guard |
+| `api/` | Routers under `v1/`, schemas, errors (`problems.py`), sign-in and rate limits |
+| `evaluation/` | Labelling, baselines, metrics and report tools behind `cso eval` |
+| `observability/` | Logging, metrics, readiness and spend guards |
+| `tools/` | Small scripts such as `export_openapi` and `export_docs` |
+| `cli.py`, `settings.py` | The `cso` command and the `CSO_` settings |
+
+Other backend folders: `backend/tests/` (see [tests](../tests/)), `backend/fixtures/` (recorded changesets, with the layout in `schema.md`) and `backend/openapi/v1.json` (the committed API description).
+
+## Web: `web/`
+
+| Path | What it holds |
+| --- | --- |
+| `src/routes/` | One file per route: queue, case, draft, history, config, settings, receipt and login |
+| `src/components/` | Shared interface parts |
+| `src/api/` | The generated API client. Do not edit it by hand |
+| `src/messages/en.json` | Interface text |
+| `src/landing/` | The public home page, including `numbers.json` |
+| `playwright/` | Browser tests |
+
+The web app shows what the backend computed. It computes no lane, band or diff of its own.
+
+## Where to look for common changes
+
+- A new question, see [add a question](../add-a-question/).
+- Wording in the interface: `web/src/messages/en.json`. Keep to the avoid-list in the community pack.
+- A threshold or an option label: a file in `config/communities/`.
+- A new API field: the schema in `backend/src/cso/api/schemas.py`, then regenerate the OpenAPI file.
+- A new command: `backend/src/cso/cli.py`. The command-line reference page is generated from it.
+
+## Check it worked
+
+Open a folder above and confirm the paths exist in your clone. If one does not, the page is out of date. Please fix it, as described in [write docs](../write-docs/).
+
+Next: [tests](../tests/).

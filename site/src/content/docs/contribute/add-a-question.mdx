@@ -1,0 +1,66 @@
+---
+title: Add a question
+description: The steps to define a new yes or no question in the fact panel, and every file that has to agree.
+---
+
+*For contributors. How-to.*
+
+Adding a question changes how readings become a response, so it is a design change, not a small fix. Open an issue first and describe the effect. The tool never writes to OpenStreetMap, lanes only order the queue, and a new question cannot change either.
+
+## What you need first
+
+- A working clone and passing tests. See [dev setup](../dev-setup/) and [tests](../tests/).
+- Read [how a verdict is made](../../concepts/how-a-verdict-is-made/), so you know what a yes, a no and an unknown do.
+- A question that can be answered from the evidence text alone, as a yes or no about one fact. The model is weak on multi-way judgement and on facts the evidence does not show.
+
+## How the panel is defined
+
+The ten questions live in `backend/src/cso/domain/panel.py`. Four tables there have to list the same ids, and one more file lists them per community.
+
+| Where | What it holds |
+| --- | --- |
+| `PANEL_NOUL_IDS` in `domain/panel.py` | The ids, in the order they are asked |
+| `PANEL_INSTRUCTIONS` in `domain/panel.py` | The exact question text. It is a constant, sent to the model as written, and never contains evidence |
+| `PANEL_LABELS` in `domain/panel.py` | The plain label reviewers see. It names the fact asked, not a conclusion about the mapper |
+| `YES_MEANS` in `domain/panel.py` | Whether a yes raises concern or reassures |
+| `panel.noul_ids` in each file in `config/communities/` | The ids that pack expects |
+
+Interface text for a question does not live in the web app. The label reaches the app through the API, from `PANEL_LABELS`, so there is no per-question entry in `web/src/messages/en.json`.
+
+## Steps
+
+1. Write the question in `PANEL_INSTRUCTIONS`, with the same id key as in `PANEL_NOUL_IDS`. The adapter in `adapters/decider/panel.py` refuses to start if the two tables differ in ids or order.
+2. Add the id to `PANEL_NOUL_IDS`, a plain label to `PANEL_LABELS`, and its polarity to `YES_MEANS`.
+3. Add the id to `panel.noul_ids` in every pack under `config/communities/`. The config loader requires each pack to list exactly the ids in `PANEL_NOUL_IDS`.
+4. Decide how the table uses it. Edit the response and nature tables in `domain/lanes.py` (`compose_panel`), or leave the question as cross-check only by adding it to `CROSS_CHECK_ONLY_PROBES`, or as advisory by adding it to `ADVISORY_PROBES`.
+5. If the answer can be worked out from parsed evidence, add a parsed fact in `domain/policy.py` (`parsed_facts`). A true parsed fact then reads yes whatever the model said, which keeps the rule that a model answer can only add caution.
+6. Raise `COMPOSITION_VERSION` in `domain/panel.py` if you changed how readings become a response or nature. It is part of every configuration's hash.
+7. Decide about labelling. `evaluation/labels.py` lists unlabelled probes in `UNLABELLED_PROBES`. A probe that is asked but cannot yet be labelled belongs there.
+8. Update the tests. `backend/tests/unit/domain/test_panel.py` checks that there are exactly ten ids, and `test_panel_composition.py` covers the table. Add a case for the new question.
+9. If the panel the API returns changes shape, regenerate the OpenAPI file and the client. Those are shared files and go through the maintainer. See [dev setup](../dev-setup/).
+
+## What happens to the demo receipts
+
+The recorded demo cases in `backend/fixtures/demo/cases` each carry a stored receipt, with one reading per question. After you add a question, those receipts are out of date and need to be recorded again. Two checks in the code show why:
+
+- A configuration's version is a hash of the whole pack file and of `COMPOSITION_VERSION`. Step 3 edits every pack, so the version changes. `cso seed` compares each receipt's `config_version` with the active one and, if they differ, skips that run and names the case in its report. The case and its evidence still load, but it shows no stored decision.
+- The composition code in `domain/lanes.py` refuses a panel that lacks any question in `panel.noul_ids`. A stored panel with the old number of readings cannot be composed under the new pack.
+
+To record the receipts again, run each demo case through a live Decider with the new pack and copy the receipt it stores into that case's `expected.json`. No command does the copy for you. The fixtures for the older `backend/fixtures/cases` set have no stored receipt and are not affected.
+
+## Keep the wording kind
+
+The label and the question describe a fact, for example "The account is new or has very few changesets". They do not accuse. Words on the avoid-list in `tone.banned_words` fail a CI check.
+
+## Check it worked
+
+From `backend`:
+
+```sh
+uv run ruff check . && uv run mypy src/cso && uv run pytest -q
+uv run python ../scripts/ci/run_all.py
+```
+
+Then analyse a case with a running Decider and find the question in the fact panel table, with its probability and reading.
+
+Next: [write docs](../write-docs/), because a new question needs a line on [read the evidence](../../review/read-the-evidence/).

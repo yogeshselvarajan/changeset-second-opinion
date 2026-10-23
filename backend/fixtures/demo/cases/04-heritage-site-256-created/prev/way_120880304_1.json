@@ -1,0 +1,48 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 120880304,
+      "timestamp": "2011-07-09T00:30:59Z",
+      "version": 1,
+      "changeset": 8670832,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "nodes": [
+        1354334869,
+        1354334806,
+        1354334786,
+        1354334764,
+        1354334865,
+        1354334824,
+        1354334873,
+        1354334778,
+        1354334847,
+        1354334838,
+        1354334772,
+        1354334776,
+        1354334774,
+        1354334807,
+        1354334832,
+        1354334837,
+        1354334840,
+        1354334767,
+        1354334849,
+        1354334833,
+        1354334756,
+        1354334861,
+        1354334835,
+        1354334869
+      ],
+      "tags": {
+        "historic": "archaeological_site",
+        "name": "Pavangadh Fort"
+      }
+    }
+  ]
+}

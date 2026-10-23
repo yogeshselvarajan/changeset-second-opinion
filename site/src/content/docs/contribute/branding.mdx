@@ -1,0 +1,120 @@
+---
+title: Branding
+description: The name, tagline, voice, colours, repository settings, social preview and release announcement checklist for maintainers.
+---
+
+*For maintainers. Reference, with decisions marked.*
+
+This page keeps the public face of the project in one place, so the README, the repository settings, the website and a release post say the same thing. Items marked **Decision needed** are the maintainer's call. Nothing here changes the product rules in [Responsible use](../../concepts/responsible-use/).
+
+## Name and one line
+
+- **Name:** Changeset Second Opinion. Short form in running text: "Second Opinion". Do not abbreviate it to an acronym in public text. The code and the command line use `cso`.
+- **One line:** A second opinion on flagged OpenStreetMap edits. Evidence first; a person decides and posts.
+- **Two sentences, for a package page or a talk:** Changeset Second Opinion collects the public evidence for a flagged OpenStreetMap changeset, asks a small decision model ten yes/no questions, shows every probability and orders the queue into lanes. It drafts a kind comment for the reviewer to edit and post. It never writes to OpenStreetMap.
+
+## Tagline options
+
+| Option | Notes |
+| --- | --- |
+| A second opinion on flagged OpenStreetMap edits. | Says what it is and who it is for. Used in the README and the social preview. |
+| Evidence first; a human posts. | The current in-app tagline. Short, but only makes sense after you know the product. |
+| Every flagged edit deserves a second opinion. | The website headline. Good for a page, long for a repository description. |
+| Ten questions, every probability shown. | Describes the method. Use it as a sub line, not as the name's partner. |
+
+**Recommendation:** use the first one wherever space allows (README, repository description, package page, social preview) and keep the second as the in-app tagline. **Decision needed:** confirm, or pick another.
+
+## Voice
+
+- Plain sentences. Say what the tool does and what it does not do. Give a number or a name where you have one.
+- First person singular is fine in the README and release notes ("I built this"). The docs use "you".
+- Say the limits next to the claims. The evaluation labels were written by an AI, and the README says so.
+- No sales words (powerful, seamless, robust, game-changing). No stacks of three adjectives. No em or en dashes, which CI also checks.
+- Never use the accusing or commanding words the product avoids. The list is under `tone.banned_words` in `config/communities/default.yaml`, and CI scans for it. Do not show a single "% bad" figure. Show all option probabilities and the backend band.
+- Describe people as reviewers, mappers and volunteers. The tool gives a second opinion. It does not judge a mapper.
+- Sentence case for every heading.
+- The independence notice appears in the README, on the website footer and on the About page. Wording: "Changeset Second Opinion is an independent open source tool for OpenStreetMap reviewers. It is not endorsed by, sponsored by or affiliated with the OpenStreetMap Foundation. OpenStreetMap is a trademark of the OpenStreetMap Foundation, used under its trademark policy."
+
+## Logo and colours
+
+The mark is three rounded bars: a short accent bar above two longer grey bars, like a queue with the first case marked. The source is `site/src/assets/mark.svg`, and a copy for the README is `assets/mark.svg`. The wordmark is set in Fraunces. Body text is Inter, and code is JetBrains Mono. All three fonts are in `web/src/fonts`.
+
+| Token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `canvas` | `#f6f5f2` | `#0f1012` | Page background |
+| `surface` | `#ffffff` | `#16171a` | Cards and panes |
+| `line` | `#e2dfd8` | `#26282d` | Borders |
+| `ink` | `#1b1a17` | `#eceae4` | Text |
+| `ink-2` | `#6b6960` | `#9a978f` | Secondary text |
+| `accent` | `#4e5bd8` | `#8e98f2` | The first bar of the mark, links, focus |
+| Mark grey | `#8e8b83` | same | The two long bars of the mark |
+
+Lane colours (background and text pairs) live in `web/src/tokens.css` under `--color-lane-*`. They are the only place where colour carries meaning, so do not reuse them as decoration.
+
+## Naming conventions
+
+- **Repository:** `changeset-second-opinion`.
+- **Releases:** semantic versions with a leading `v`, such as `v0.1.0`. Stay on `0.y.z` while the project is young. A release title is the version and a plain phrase about what changed, for example `v0.2.0: sign in with OpenStreetMap`. There is no tagged release yet. **Decision needed:** whether the first tag is `v0.1.0` at the hackathon freeze, as the [releases page](../releases/) plans.
+- **Python package and command:** the command is `cso` and the project metadata name is `cso`. That name is short and probably taken on PyPI. **Decision needed:** choose a PyPI name, for example `changeset-second-opinion`, check it is free, and update `backend/pyproject.toml` through the integration owner. Until then, do not add a PyPI badge. The README holds a commented placeholder.
+- **Container images:** `cso-backend` and `cso-web`, tagged with the release version. The compose files build them locally today.
+- **Community packs:** lowercase file names in `config/communities/`, named for the community, such as `newcomers.yaml`.
+- **Commits:** Conventional Commits with the scopes in `CONTRIBUTING.md`.
+
+## GitHub repository settings
+
+**Description (under 350 characters):**
+
+> A second opinion on flagged OpenStreetMap changesets. Collects public evidence, asks the Strands Decider 2B ten yes/no questions, shows every probability, orders the queue into lanes and drafts a kind comment. Never writes to OpenStreetMap.
+
+**Website:** `https://osm.changesetreview.online`
+
+**Topics** (lowercase, precise): `openstreetmap`, `osm`, `changeset-review`, `quality-assurance`, `strands-agents`, `strands-decider`, `amazon-bedrock`, `fastapi`, `react`, `human-in-the-loop`, `ai-agents`, `open-source`.
+
+GitHub allows 20 topics. **Decision needed:** keep `strands-decider` and `strands-agents` only if the Strands team is happy to be listed that way, and add `hackathon` if you want the entry to be findable.
+
+Settings to turn on: Issues, Discussions (the support page mentions them), private vulnerability reporting (the security policy points to it), and the Releases and Packages sidebar entries only once they hold something.
+
+## Social preview image
+
+- **Spec:** PNG, 1280 by 640 pixels, under 1 MB, solid background, text readable at about 300 pixels wide. GitHub accepts anything from 640 by 320 up, and 1280 by 640 is the recommended size.
+- **Files:** `assets/social-preview.png` (the upload) and `assets/social-preview.svg` (the editable source). Both use the tokens above: the canvas background, the mark, the wordmark in Fraunces, the one-line tagline, three lane chips, a card that shows ten questions with every answer drawn, and the line "Never writes to OpenStreetMap".
+- **Set it:** the image is not applied by committing it. Open the repository, then Settings, then General, then Social preview, and upload `assets/social-preview.png`.
+- **Rebuild it:** edit the SVG and render it with headless Chromium at 1280 by 640 with the three fonts loaded. If you change the tagline or the tokens, change this page too.
+- **Website:** the website has its own share image. Keep the wording the same.
+
+## PyPI project description
+
+Use this once a package name is chosen. PyPI shows the README of the package, so it should work without the repository's images. **Decision needed:** whether to publish a package at all. The app is a service with a web app and a model server, so a PyPI release would only carry the backend and the `cso` command.
+
+> Changeset Second Opinion collects the public evidence for a flagged OpenStreetMap changeset, asks a small decision model ten yes/no questions, shows every probability and orders review into lanes. It drafts a comment that a person edits and posts. It never writes to OpenStreetMap.
+>
+> This package is the backend and the `cso` command line. The web app, docs and deployment files are in the repository. Not endorsed by, sponsored by or affiliated with the OpenStreetMap Foundation.
+
+Project URLs to set: Homepage (the demo), Documentation (`/docs/`), Source, Issues, Changelog.
+
+## The "like" calls to action
+
+The project asks for attention in a few fixed places and nowhere else.
+
+| Where | What it says | Why there |
+| --- | --- | --- |
+| README, badge row | The GitHub stars badge | Shows the count and links to the stargazers page |
+| README, after "What it does not do" | One sentence: if you like it, a star helps other reviewers find it | The reader has just seen what the tool is |
+| Website footer and About page | A link to the repository | Visitors of the demo can reach the code |
+| Release announcement | One line near the end with the repository link | Readers who got that far can act |
+
+There is no star-gating, no popup and no request in the app itself. A reviewer at work should never see a request for attention.
+
+**Sponsor button:** `.github/FUNDING.yml` does not exist, because the repository names no sponsor or donation handle. **Decision needed:** if you want a Sponsor button, create a GitHub Sponsors profile or pick Open Collective, Ko-fi or Liberapay, then add that handle to `.github/FUNDING.yml`. Do not add a handle that is not yours.
+
+## Release announcement checklist
+
+1. `main` is green on the five required checks, and the changelog has a dated section for the release.
+2. The version is raised in `backend/pyproject.toml` and `web/package.json`, the tag is pushed and the release page has notes in plain words: what changed for a reviewer, what changed for an operator, and what is still missing.
+3. The README commands were run once on a clean machine, including the Docker demo.
+4. The demo at the live address still loads 15 cases, and the screenshots in `assets/` match the current look.
+5. The independence notice is in the post. The limits are in the post, including that the evaluation labels were written by an AI.
+6. The post links to the demo, the docs and the repository, and says the hosted demo is replay only.
+7. Run the post text through the banned-word list, check it for dashes, and make sure it shows no single-percentage figure.
+8. Ask for feedback from reviewers: what did the lane or the draft get wrong?
+9. After posting, add the links to the changelog and the README if they changed.

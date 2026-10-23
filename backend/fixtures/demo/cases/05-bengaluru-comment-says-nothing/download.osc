@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1326 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14298758622" visible="true" version="1" changeset="190729750" timestamp="2026-10-19T08:11:45Z" user="mapper_A" uid="900000001" lat="12.8717694" lon="77.6524182">
+   <tag k="addr:city" v="Bengaluru"/>
+   <tag k="addr:district" v="Bengaluru"/>
+   <tag k="addr:housenumber" v="#45"/>
+   <tag k="addr:postcode" v="560068"/>
+   <tag k="amenity" v="bank"/>
+   <tag k="name" v="corelink bank"/>
+  </node>
+ </create>
+</osmChange>

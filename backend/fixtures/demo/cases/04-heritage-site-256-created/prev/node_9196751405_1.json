@@ -1,0 +1,24 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 9196751405,
+      "lat": 20.7238038,
+      "lon": 73.9447698,
+      "timestamp": "2021-10-24T03:43:01Z",
+      "version": 1,
+      "changeset": 112892304,
+      "user": "mapper_D",
+      "uid": 900000004,
+      "tags": {
+        "historic": "fort",
+        "name": "Salher fort"
+      }
+    }
+  ]
+}

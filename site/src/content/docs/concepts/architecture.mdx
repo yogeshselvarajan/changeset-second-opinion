@@ -1,0 +1,88 @@
+---
+title: Architecture
+description: The shape of the system in one picture and one table, and the decisions behind it.
+---
+
+import Diagram from '../../../components/Diagram.astro';
+
+*For contributors, operators and curious readers. Explanation.*
+
+The tool never writes to OpenStreetMap, and lanes only order the queue. The architecture is built to keep both true.
+
+## One process, a few helpers
+
+It is a modular monolith. One FastAPI process serves the API, and Caddy serves the web app's static files and passes API requests on. A worker inside the same process runs the slow jobs. A small model server runs beside it on the same machine. There are no microservices, no message broker and no vector store.
+
+<Diagram
+  name="request-path-and-worker-pipeline"
+  alt="Architecture diagram. A browser reaches Caddy over HTTPS, and Caddy forwards to the FastAPI application at /api/v1, which has sign-in, cases, runs, drafts, outcomes and config. Below it a background worker holds five stages in a row: OpenStreetMap reader, evidence writer, Decider client, policy gate and drafting agent. The reader talks to OpenStreetMap (GET only), the Decider client to the Strands Decider on 127.0.0.1:8099, and the drafting agent to Claude Haiku 4.5 on Amazon Bedrock. Results are kept in SQLite."
+  caption="Figure 1. The request path and the worker. The picture is simplified, and the list below states the details it leaves out."
+/>
+
+In words, following the figure from left to right and top to bottom:
+
+- The browser talks HTTPS to Caddy, the reverse proxy. Caddy passes requests to the FastAPI application, which serves everything under `/api/v1`: sign-in, cases, runs, drafts, outcomes and config.
+- The API does not do slow work itself. It stores a job in the database, and the worker, which runs inside the same process, picks it up.
+- The OpenStreetMap reader makes GET requests to OpenStreetMap and nothing else.
+- The evidence writer turns what was read into plain text, coverage first.
+- The Decider client sends the ten questions to the Strands Decider, a separate model server that listens on `127.0.0.1:8099`.
+- The policy gate applies the rules, the table and the lane to parsed evidence.
+- The drafting agent calls Claude Haiku 4.5 on Amazon Bedrock.
+- SQLite holds the results. The worker writes the evidence snapshot, the run and receipt, and the draft. The three outside services never touch the database.
+
+Two details differ from a straight left-to-right reading of the picture. The first four stages run as one analysis job. The drafting agent runs as its own job, and only when a reviewer asks for a draft and the stored decision allows it. The OpenStreetMap server, the Decider and Bedrock are outside services, even though the picture draws them close to the worker.
+
+## The parts
+
+| Part | Job |
+| --- | --- |
+| `domain` | The rules, the table, the lanes and the evidence model. Plain Python with no network or disk access. |
+| `adapters/osm` | Reads changesets from OpenStreetMap, or from recorded files in replay mode. GET only, to allowed hosts. |
+| `adapters/decider` | Builds the ten questions, sends them, and checks the answers strictly. It never invents a default. |
+| `adapters/bedrock` | Asks Claude Haiku 4.5 for a draft, checks it, and falls back to a plain template. |
+| `agent` | A Strands agent with one tool, `draft_comment`, and a hook that checks the stored decision first. |
+| `jobs` | The durable job queue, the worker and the pipeline steps. |
+| `persistence` | Tables, repositories and migrations. Records are never updated or deleted. |
+| `api` | The HTTP contract, sign-in, errors and pagination. |
+| `web` | The single-page app. It shows what the backend computed and computes no lane of its own. |
+
+The web app and the API are separate programs. A contributor tour is in [repo tour](../../contribute/repo-tour/).
+
+## One analysis, step by step
+
+1. A reviewer adds a changeset id. The API stores a case and queues a job.
+2. The worker collects the public evidence within a call budget and records how much it saw.
+3. It renders the evidence as text, with the coverage block first and untrusted fields cleaned.
+4. It sends one request to the Decider with the ten questions.
+5. The policy gate applies the rules, the table, the band and the lane, and stores a receipt.
+6. The reviewer reads the case. A draft is made only when the reviewer asks and the stored decision allows it.
+7. The reviewer records an outcome. A correction is a new row.
+
+For the reasoning, read [how a verdict is made](../how-a-verdict-is-made/).
+
+## Modes
+
+In replay mode the tool reads recorded changesets and needs no network, GPU or AWS account. In live mode it reads from OpenStreetMap and uses the live Decider and Bedrock. See [replay and live](../../self-host/replay-and-live/).
+
+## Where trust ends
+
+Anything inside evidence text is untrusted. The tool cleans it, shows it as quoted text and never opens a link from it. The model server listens on `127.0.0.1` only. Secrets stay out of code, logs and the web bundle.
+
+## Decisions that shaped it
+
+These choices were made on purpose and are settled for the current version. Each row gives the choice and the reason.
+
+| Decision | What was chosen | Why |
+| --- | --- | --- |
+| Process shape | A modular monolith, with durable jobs kept in the database and run by a worker in the same process | One thing to deploy and debug on one host. A job that is interrupted is picked up again, so no broker is needed. |
+| Storage | SQLite, through a SQLAlchemy schema written to be portable | One file is easy to back up and run anywhere. Nothing in the schema ties it to SQLite, so a larger database can replace it later. |
+| Finding changesets | A reviewer adds a changeset by its id. The tool does not poll OpenStreetMap | It keeps the number of requests small and polite, and a person chooses what to look at. |
+| What the lanes do | Lanes order the queue. Nothing is hidden, closed or posted, and nothing is written to OpenStreetMap | A small model can be wrong with confidence, and flagged queues are noisy. See [why lanes only order the queue](../why-lanes-only-order-the-queue/). |
+| How the verdict is formed | One request with ten fixed yes or no questions, then rules and a table on parsed evidence | Every probability is shown and every step is kept in a receipt. A model answer can add caution and never remove it. See [how a verdict is made](../how-a-verdict-is-made/). |
+| Front end | A React single-page app built with Vite, TypeScript, Tailwind and TanStack Query | It shows what the backend computed and computes no lane of its own. |
+| Hosting | One GPU host on AWS, with a CPU fallback, from one CloudFormation template | The Decider needs a GPU to be quick, and one host is the least to run. See [deploy on AWS](../../self-host/deploy-on-aws/). |
+| Drafting | Claude Haiku 4.5 on Amazon Bedrock, reached through one Strands tool that checks the stored decision first | A draft can only be made when the decision allows it, and a plain template is the fallback. |
+| Calibration | The cut points can be refitted from reviewers' recorded outcomes, and applying a refit is an audited, versioned change | The people who check the readings tune how cautious they are. See [calibration](../../administer/calibration/). |
+| Sign-in | Sign in with OpenStreetMap, asking for the `read_prefs` scope only | It proves who a person is and gives the tool no way to write to the map. |
+
+Before the ten-question design, an earlier version asked independent questions and reconciled the answers with fixed code. The ten-question panel replaced that approach for the product.

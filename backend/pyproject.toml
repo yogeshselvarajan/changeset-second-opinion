@@ -1,0 +1,104 @@
+[project]
+name = "changeset-second-opinion"
+version = "0.1.0"
+description = "Second-opinion review tool for flagged OpenStreetMap changesets: evidence, typed decisions, a lane-ordered queue and comment drafts for a person to edit."
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Yogesh Selvarajan", email = "yogeshselvarajan@gmail.com" }]
+keywords = ["openstreetmap", "osm", "changeset", "review", "fastapi", "strands", "decision-support"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: FastAPI",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+dependencies = [
+    "fastapi==0.143.3",
+    "starlette==1.8.0",
+    "pydantic==2.14.1",
+    "pydantic-settings==2.16.0",
+    "uvicorn[standard]==0.54.0",
+    "httpx[http2]==0.28.1",
+    "anyio==4.15.1",
+    "sqlalchemy[asyncio]==2.0.55",
+    "alembic==1.20.0",
+    "aiosqlite==0.22.1",
+    "psycopg[binary,pool]==3.3.6",
+    "defusedxml==0.7.1",
+    "structlog==26.1.0",
+    "boto3==1.43.114",
+    "strands-agents==1.61.1",
+    "argon2-cffi",
+    "pyyaml",
+]
+
+[project.urls]
+Homepage = "https://osm.changesetreview.online/"
+Documentation = "https://osm.changesetreview.online/docs/"
+Repository = "https://github.com/yogeshselvarajan/changeset-second-opinion"
+Issues = "https://github.com/yogeshselvarajan/changeset-second-opinion/issues"
+Changelog = "https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CHANGELOG.md"
+
+[project.scripts]
+cso = "cso.cli:main"
+
+[dependency-groups]
+dev = [
+    "ruff==0.17.1",
+    "mypy==2.4.0",
+    "pytest==9.1.1",
+    "pytest-asyncio==1.4.0",
+    "respx==0.23.1",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cso"]
+
+# Runtime data for an installed copy (the Docker image copies the same folders next to the code).
+# They land under cso/_data/. Point CSO_FIXTURES_DIR and CSO_COMMUNITY_CONFIG at them; see README.md.
+[tool.hatch.build.targets.wheel.force-include]
+"fixtures/demo" = "cso/_data/fixtures/demo"
+"fixtures/schema.md" = "cso/_data/fixtures/schema.md"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/cso", "fixtures/demo", "fixtures/schema.md", "alembic.ini", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = false
+files = ["src/cso"]
+
+[[tool.mypy.overrides]]
+module = ["cso.domain.*", "cso.persistence.*", "cso.adapters.*"]
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+testpaths = ["tests"]
+
+[tool.uv]
+# The mcp 1.30.0 pin (CVE fix, commit d28528c) is declared here so `uv lock --upgrade` cannot move it to 2.x.
+constraint-dependencies = ["mcp==1.30.0"]

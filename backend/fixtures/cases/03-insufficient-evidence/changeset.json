@@ -1,0 +1,31 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 900000000003,
+    "created_at": "2026-04-02T10:00:00Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 300,
+    "created_count": 0,
+    "modified_count": 300,
+    "deleted_count": 0,
+    "closed_at": "2026-04-02T10:20:00Z",
+    "min_lat": 47.1,
+    "min_lon": 8.1,
+    "max_lat": 47.3,
+    "max_lon": 8.4,
+    "uid": 900000004,
+    "user": "mapper_D",
+    "tags": {
+      "comment": "Bulk reclassification of road tags",
+      "created_by": "JOSM/1.5 (19439 en)",
+      "source": "local survey notes",
+      "locale": "en-US"
+    },
+    "comments": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 342119741,
+      "lat": 16.04279,
+      "lon": 73.46009,
+      "timestamp": "2009-02-06T16:35:28Z",
+      "version": 1,
+      "changeset": 201106,
+      "user": "mapper_B",
+      "uid": 900000002,
+      "tags": {
+        "name": "SINDHUDURG FORT",
+        "place": "suburb"
+      }
+    }
+  ]
+}

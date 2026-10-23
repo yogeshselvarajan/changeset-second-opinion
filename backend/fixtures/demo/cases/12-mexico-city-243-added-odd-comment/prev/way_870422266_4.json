@@ -1,0 +1,40 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 870422266,
+      "timestamp": "2025-10-11T04:27:30Z",
+      "version": 4,
+      "changeset": 173120810,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        8108634320,
+        667288292,
+        10045920534,
+        666113436,
+        666113453
+      ],
+      "tags": {
+        "alt_name": "Eje 1 Oriente;Eje Vial 1 Oriente",
+        "bus:lanes": "||||designated",
+        "fixme": "The correct 'ref' key might be EJE 2 OTE instead of EJE 1 OTE",
+        "highway": "primary",
+        "lanes": "5",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Avenida Canal de Miramontes",
+        "oneway": "yes",
+        "placement": "left_of:4",
+        "ref": "EJE 1 OTE",
+        "surface": "asphalt",
+        "turn:lanes": "left|left|through|through|"
+      }
+    }
+  ]
+}

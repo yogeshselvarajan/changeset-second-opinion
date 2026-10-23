@@ -1,0 +1,78 @@
+---
+title: Monitor and troubleshoot
+description: Check health and logs, and read the sign-in errors that the login page can show.
+---
+
+*For operators who self-host. How-to.*
+
+## What you need first
+
+- A running stack. See [Install with Docker Compose](../docker-compose/).
+- Shell access to the host. On AWS that is an SSM session, never SSH.
+
+## Check health
+
+The API has two checks, both at the site root.
+
+| Check | What it tells you | Answers |
+| --- | --- | --- |
+| `/healthz` | The process is alive | 200 |
+| `/readyz` | The database answers and its migrations are at the code's head. In live mode, the Decider also answers its own health check. | 200 when ready, 503 with the part that failed |
+
+```sh
+curl -fsS https://<your domain>/readyz
+```
+
+`/readyz` answers 503 while the model is still loading, so a slow start shows as not ready, never as a half-working app. Replay mode does not need the Decider for `/readyz`.
+
+On the AWS host, one script checks containers, listeners and readiness:
+
+```sh
+sudo bash /opt/cso/infra/scripts/healthcheck.sh --public
+```
+
+It reports a failure if port 8000 or 8099 listens beyond `127.0.0.1`. The host also publishes `ReadyzOk`, `DiskUsedPercent` and, on GPU types, `GpuMemoryPercent` to CloudWatch every minute.
+
+## Read the logs
+
+- **Compose:** from the repository root, add `logs -f api` to the same `docker compose -f ...` file list you used to start. Use `worker`, `decider` or `caddy` for the other services.
+- **AWS host:** `sudo bash /opt/cso/infra/scripts/compose.sh logs -f api`, or the CloudWatch log group `/cso/app`, which keeps 14 days.
+- **Format:** `CSO_LOG_FORMAT=auto` writes JSON in live mode and a readable console format in replay mode. `CSO_LOG_LEVEL` sets the detail: `DEBUG`, `INFO`, `WARNING` or `ERROR`.
+
+Logs hold no invite codes, session ids or CSRF tokens, and no evidence text.
+
+## Sign-in errors on the login page
+
+When Sign in with OpenStreetMap fails, the browser returns to `/login?osm_error=<code>` and the page shows a message. No code carries a secret. The server logs the reason on its side as `auth.osm_refused`.
+
+| Code | Message on the page | Likely cause and fix |
+| --- | --- | --- |
+| `denied` | OpenStreetMap sign-in was cancelled, so nobody was signed in. | The person chose Deny, or OpenStreetMap returned an error. Try again. |
+| `expired` | That sign-in link has expired or was already used. Start again from this page. | The link is older than 10 minutes, was used twice, or the cookie did not come back. Locally, open the site at `http://127.0.0.1:5173`, not `localhost`. A callback started in another browser is refused on purpose. Sign-in being switched off mid-flow also gives this. |
+| `failed` | OpenStreetMap did not complete the sign-in. Try again in a moment. | The token exchange or the profile read failed. Check the client id and secret and the redirect URL in `CSO_OSM_OAUTH_*`. See [Register the OSM sign-in app](../register-the-osm-app/). |
+| `busy` | Too many sign-in attempts. Wait a little and try again. | The limit is 10 attempts per 15 minutes per client address. Behind a proxy, check `CSO_TRUST_PROXY`, or every client shares one bucket. |
+| `not_allowed` | This OpenStreetMap account is not on the list for this service. Ask an admin for an invite code. | The account's id is not in `CSO_OSM_SIGNIN_ALLOWED_UIDS`. Add it, or give the person an invite code. |
+
+The error "Client authentication failed due to unknown client" means the client id or secret is wrong, or the app was deleted in OpenStreetMap. Register a new app and replace both values.
+
+If the button is missing, or the routes answer "Sign in with OpenStreetMap is not set up.", the client id, secret or redirect URL is not set, or an admin switched sign-in off under Settings, Access.
+
+Invite code errors:
+
+| Message | What to do |
+| --- | --- |
+| That invite code was not accepted. | Check the code. It may be expired, used up or revoked. See [Invite and remove reviewers](../../administer/invite-and-remove-reviewers/). |
+| Too many attempts. Try again in a number of seconds. | Wait. The limit is shared by all sign-in attempts from one address. |
+
+## Other things to check
+
+- **The server will not start in live mode.** `CSO_USER_AGENT` still has a placeholder. See [Replay mode and live mode](../replay-and-live/).
+- **The server will not start and names a list.** `CSO_OSM_SIGNIN_ALLOWED_UIDS` or `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` has something other than comma separated numbers, or `CSO_WEB_BASE_URL` ends with a slash.
+- **Every case sits in the Rules only lane.** No Decider is reachable. See [Run the Decider](../run-the-decider/).
+- **Drafts come from the template.** The Bedrock gate is off, or a daily cap was reached. See [Connect Amazon Bedrock](../connect-bedrock/).
+
+## Check that it worked
+
+`/readyz` answers 200, the login page shows no error, and a person can sign in and reach the queue.
+
+Next: [Run the Decider](../run-the-decider/).

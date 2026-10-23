@@ -1,0 +1,50 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 130731434,
+      "timestamp": "2025-10-16T04:07:17Z",
+      "version": 23,
+      "changeset": 173345570,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        275058974,
+        1130113769,
+        1130113698,
+        275059015,
+        275058976,
+        275059086,
+        2459003315,
+        11418294525,
+        670405474,
+        670405487,
+        8483799432,
+        670405437,
+        275059087,
+        275059816,
+        1435168725,
+        8140141257,
+        667195408,
+        667195426,
+        275059339,
+        7511977604
+      ],
+      "tags": {
+        "alt_name": "Lateral Periférico",
+        "highway": "secondary",
+        "lanes": "3",
+        "maxspeed": "40",
+        "maxspeed:type": "sign",
+        "name": "Boulevard Adolfo Ruiz Cortines",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

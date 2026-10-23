@@ -1,0 +1,219 @@
+# Edge for the single host (ADR-007). Runs in the shared network namespace of the `stack` service,
+# so the API is reached on 127.0.0.1:8000 and is never published. Only 443 is published (AWS).
+#
+# Image: infra/compose/web.Dockerfile (Caddy built with the rate-limit module, SPA copied to /srv).
+# CSO_SITE_ADDRESS: a domain name for automatic Let's Encrypt TLS (TLS-ALPN-01 works with only
+# 443 open), or ":80" for plain HTTP in local mode.
+#
+# `scripts/ci/validate_caddy.py` checks this file with the stock Caddy image by removing the two
+# things stock Caddy does not know (the `order rate_limit` line and the `rate_limit` blocks inside
+# the snippets below). Keep rate limits inside those snippets so that stays possible.
+{
+	admin off
+	order rate_limit before basicauth
+	servers {
+		# HTTP/3 needs UDP/443, which is not published or opened in the security group.
+		protocols h1 h2
+	}
+}
+
+# The API trusts X-Forwarded-For (CSO_TRUST_PROXY=true) and takes its RIGHTMOST hop as the client.
+# Caddy discards any X-Forwarded-* a client sends (no trusted_proxies is configured) and sets its own;
+# the explicit header_up lines make that overwrite part of the config instead of a default.
+(cso_upstream) {
+	header_up X-Forwarded-For {remote_host}
+	header_up X-Forwarded-Proto {scheme}
+	header_up X-Forwarded-Host {host}
+}
+
+# Rate limits apply to the API only. Static files, the icons and the landing assets are never
+# counted, so a page load with forty small files cannot lock a visitor out.
+# 10 requests per second per client address (security doc, abuse and cost).
+(cso_rate_api) {
+	rate_limit {
+		zone api_per_ip {
+			key {remote_host}
+			events 10
+			window 1s
+		}
+	}
+}
+
+# Sign-in and the OpenStreetMap redirects: one request per second per client address.
+(cso_rate_auth) {
+	rate_limit {
+		zone auth_per_ip {
+			key {remote_host}
+			events 1
+			window 1s
+		}
+	}
+}
+
+# Optional second name that only redirects to the main one (the bare domain of the replay demo).
+# CSO_APEX_ADDRESS is a host name, for example changesetreview.online; Caddy then gets a certificate
+# for it as well (same TLS-ALPN-01 challenge). Unset, the block answers only an address that no
+# visitor uses, so it changes nothing.
+{$CSO_APEX_ADDRESS:http://apex-redirect.invalid} {
+	redir https://{$CSO_SITE_ADDRESS::80}{uri} permanent
+}
+
+{$CSO_SITE_ADDRESS::80} {
+	encode zstd gzip
+
+	# One JSON line per request on stdout, which docker ships to CloudWatch (group /cso/app, kept
+	# 14 days). It feeds the 5xx alarm and nothing else, so it is kept small and free of anything
+	# personal: no headers (cookies, CSRF token, user agent), no query (the sign-in callback carries
+	# a one-time code), and the visitor's address with its last part removed. The privacy page says
+	# the same; change both together.
+	log {
+		output stdout
+		format filter {
+			wrap json
+			request>headers delete
+			request>tls delete
+			resp_headers delete
+			request>uri regexp \?.* ""
+			request>remote_ip ip_mask 24 56
+			request>client_ip ip_mask 24 56
+		}
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Cross-Origin-Opener-Policy "same-origin"
+		Cross-Origin-Resource-Policy "same-origin"
+		# See the security model on the docs site.
+		# style-src keeps 'unsafe-inline' on purpose: Tailwind 4 emits some runtime style
+		# attributes and the motion primitives set inline styles for transforms. Removing it needs
+		# a nonce or hash pipeline for those, which this build does not have yet. Scripts do not
+		# get the same allowance: script-src falls back to 'self' only.
+		# Everything is revalidated unless a handler below says otherwise (hashed assets) or the
+		# upstream sets its own value (the `?` keeps an existing header).
+		?Cache-Control "no-cache"
+		-Server
+	}
+
+	# One policy per area, chosen here and nowhere else (a header set again inside a handle loses
+	# to the deferred `?Cache-Control` block above, so it is not repeated there).
+	# The app keeps the tight policy. The docs pages carry small inline scripts (theme, search) and
+	# search loads WebAssembly, so scripts there are allowed inline and nothing else is loosened.
+	@docs path /docs /docs/*
+	@app not path /docs /docs/*
+	header @app Content-Security-Policy "default-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; child-src 'self' blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+	header @docs Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+
+	# Sign-in routes first: they have the tighter limit and the small body limit.
+	handle /api/v1/auth/* {
+		import cso_rate_auth
+		request_body {
+			max_size 64KB
+		}
+		reverse_proxy 127.0.0.1:8000 {
+			import cso_upstream
+		}
+	}
+
+	# Importing a case posts a small JSON body; the bigger allowance is for that route only.
+	handle /api/v1/cases/import {
+		import cso_rate_api
+		request_body {
+			max_size 1MB
+		}
+		reverse_proxy 127.0.0.1:8000 {
+			import cso_upstream
+		}
+	}
+
+	# Request bodies are limited to 64 KB (security doc, input validation).
+	handle /api/* {
+		import cso_rate_api
+		request_body {
+			max_size 64KB
+		}
+		reverse_proxy 127.0.0.1:8000 {
+			import cso_upstream
+		}
+	}
+
+	# The web manifest follows the workspace name, so the API answers it. The copy in the
+	# built files is only what the dev server and a static preview use.
+	handle /site.webmanifest {
+		import cso_rate_api
+		reverse_proxy 127.0.0.1:8000 {
+			import cso_upstream
+		}
+	}
+
+	handle /healthz {
+		reverse_proxy 127.0.0.1:8000 {
+			import cso_upstream
+		}
+	}
+	handle /readyz {
+		reverse_proxy 127.0.0.1:8000 {
+			import cso_upstream
+		}
+	}
+
+	# The docs site (site/), built with base /docs and copied to /srv/docs. /docs goes to /docs/,
+	# folders answer with their index.html, and a miss gets the docs 404 page (see handle_errors),
+	# never the app shell. Astro's hashed files live under /docs/_astro and are cached for a year.
+	handle /docs {
+		redir * /docs/ permanent
+	}
+	handle /docs/_astro/* {
+		root * /srv
+		header Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
+	handle /docs/* {
+		root * /srv
+		# The docs content policy is set at the top of this block (@docs).
+		header Cache-Control "public, max-age=300"
+		file_server
+	}
+
+	# Built assets carry a content hash in their name, so they can be cached for a year.
+	handle /assets/* {
+		root * /srv
+		header Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
+
+	# Files that must be files: a miss is a 404, never the app shell (a crawler or a browser asking
+	# for /favicon.ico should not be handed HTML).
+	@static path /favicon.ico /favicon.svg /apple-touch-icon.png /icon-192.png /icon-512.png /icon-maskable-512.png /robots.txt /sitemap.xml /og.png /brand/*
+	handle @static {
+		root * /srv
+		file_server
+	}
+
+	# Everything else: a written page (/about/index.html), else the app shell, which draws the
+	# queue, the case screens and the receipt pages in the browser.
+	handle {
+		root * /srv
+		try_files {path} {path}/index.html /_shell.html
+		file_server
+	}
+
+	# A missing static file (and anything else that ends in a 404 here) gets the written 404 page
+	# with its 404 status. API paths are proxied above and keep their own problem responses.
+	handle_errors {
+		@docsmiss expression {err.status_code} == 404 && path('/docs/*')
+		handle @docsmiss {
+			root * /srv
+			rewrite * /docs/404.html
+			file_server
+		}
+		@notfound expression {err.status_code} == 404
+		handle @notfound {
+			root * /srv
+			rewrite * /404.html
+			file_server
+		}
+	}
+}

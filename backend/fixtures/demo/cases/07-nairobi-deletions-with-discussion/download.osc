@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (3163968 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14295166060" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7163198" lon="174.7453215">
+   <tag k="name" v="code planning"/>
+   <tag k="office" v="yes"/>
+  </node>
+ </create>
+ <create>
+  <node id="14295166061" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7165461" lon="174.7453162">
+   <tag k="name" v="Lewis Mortimer"/>
+   <tag k="office" v="yes"/>
+  </node>
+ </create>
+ <create>
+  <node id="14295166062" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7151699" lon="174.7456154"/>
+ </create>
+ <create>
+  <node id="14295166063" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7151756" lon="174.7458681"/>
+ </create>
+ <create>
+  <node id="14295166064" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7154904" lon="174.7456445"/>
+ </create>
+ <create>
+  <node id="14295166065" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146368" lon="174.7456700">
+   <tag k="amenity" v="parking"/>
+  </node>
+ </create>
+ <create>
+  <node id="14295166066" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7447604" lon="174.7575496">
+   <tag k="addr:housenumber" v="278"/>
+   <tag k="addr:street" v="Beach Road"/>
+   <tag k="addr:suburb" v="Campbells Bay"/>
+   <tag k="healthcare" v="alternative"/>
+   <tag k="healthcare:speciality" v="chiropractic"/>
+  </node>
+ </create>
+ <create>
+  <node id="14295166067" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7894307" lon="174.7693805"/>
+ </create>
+ <create>
+  <node id="14295166068" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7893115" lon="174.7696165"/>
+ </create>
+ <create>
+  <node id="14295166069" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7894264" lon="174.7696970"/>
+ </create>
+ <create>
+  <node id="14295166070" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7895456" lon="174.7694663"/>
+ </create>
+ <create>
+  <node id="14295166071" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7882922" lon="174.7718294"/>
+ </create>
+ <create>
+  <node id="14295166072" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7884618" lon="174.7719802"/>
+ </create>
+ <create>
+  <node id="14295166073" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7885328" lon="174.7718723"/>
+ </create>
+ <create>
+  <node id="14295166074" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7922543" lon="174.7714929">
+   <tag k="addr:housenumber" v="26"/>
+   <tag k="addr:street" v="Bracken Avenue"/>
+   <tag k="addr:suburb" v="Takapuna"/>
+   <tag k="amenity" v="doctors"/>
+   <tag k="healthcare" v="doctor"/>
+   <tag k="healthcare:speciality" v="plastic_surgery"/>
+   <tag k="name" v="Cosmetic"/>
+  </node>
+ </create>
+ <create>
+  <way id="1569283600" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="259751527"/>
+   <nd ref="6960778070"/>
+   <nd ref="11746878313"/>
+   <nd ref="9699444725"/>
+   <nd ref="1301737966"/>
+   <tag k="cycleway:both" v="no"/>
+   <tag k="highway" v="residential"/>
+   <tag k="lanes" v="2"/>
+   <tag k="name" v="Glen Road"/>
+   <tag k="name:en" v="Glen Road"/>
+   <tag k="name:mi" v="Te Huarahi o Glen"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569283601" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="14295166062"/>
+   <nd ref="14295166063"/>
+   <tag k="highway" v="footway"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569283602" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="1011927283"/>
+   <nd ref="14295166064"/>
+   <tag k="highway" v="footway"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569283603" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="14295166067"/>
+   <nd ref="14295166068"/>
+   <nd ref="14295166069"/>
+   <nd ref="14295166070"/>
+   <nd ref="14295166067"/>
+   <tag k="building" v="yes"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569283604" visible="true" version="1" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="724047801"/>
+   <nd ref="14295166071"/>
+   <nd ref="14295166072"/>
+   <nd ref="14295166073"/>
+   <nd ref="724047801"/>
+   <tag k="building" v="yes"/>
+  </way>
+ </create>
+ <modify>
+  <node id="1301737966" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7151887" lon="174.7455255"/>
+ </modify>
+ <modify>
+  <node id="3442505669" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146390" lon="174.7438170"/>
+ </modify>
+ <modify>
+  <node id="3442505670" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146406" lon="174.7439965"/>
+ </modify>
+ <modify>
+  <node id="3442505671" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146396" lon="174.7441847"/>
+ </modify>
+ <modify>
+  <node id="3442505672" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146423" lon="174.7445029"/>
+ </modify>
+ <modify>
+  <node id="3442505673" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146715" lon="174.7439961"/>
+ </modify>
+ <modify>
+  <node id="3442505674" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146732" lon="174.7441843"/>
+ </modify>
+ <delete>
+  <node id="3442505681" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3442505682" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="3442505683" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7148021" lon="174.7438149"/>
+ </modify>
+ <modify>
+  <node id="3442505684" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7148030" lon="174.7439142"/>
+ </modify>
+ <modify>
+  <node id="3442505685" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7148095" lon="174.7442240"/>
+ </modify>
+ <modify>
+  <node id="3442505686" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7148119" lon="174.7445007"/>
+ </modify>
+ <delete>
+  <node id="3442505711" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3442505712" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3442505713" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3442505719" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="3442505720" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="3442505729" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7152839" lon="174.7438084"/>
+ </modify>
+ <modify>
+  <node id="3442505730" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7152848" lon="174.7439077"/>
+ </modify>
+ <modify>
+  <node id="3442505731" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7152903" lon="174.7442176"/>
+ </modify>
+ <modify>
+  <node id="3442505732" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7152927" lon="174.7444942"/>
+ </modify>
+ <modify>
+  <node id="3442505744" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7153858" lon="174.7439801"/>
+ </modify>
+ <modify>
+  <node id="3442505745" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7153874" lon="174.7441663"/>
+ </modify>
+ <modify>
+  <node id="3442505753" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7154584" lon="174.7438060"/>
+ </modify>
+ <modify>
+  <node id="3442505754" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7154599" lon="174.7439791"/>
+ </modify>
+ <modify>
+  <node id="3442505755" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7154615" lon="174.7441653"/>
+ </modify>
+ <modify>
+  <node id="3442505756" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7154643" lon="174.7444919"/>
+ </modify>
+ <delete>
+  <node id="3593742348" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="5057312354" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="5057312368" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="5787567579" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164468" lon="174.7450380"/>
+ </modify>
+ <modify>
+  <node id="5787567580" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164833" lon="174.7450373"/>
+ </modify>
+ <modify>
+  <node id="5787567581" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164836" lon="174.7450650"/>
+ </modify>
+ <modify>
+  <node id="5787567582" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164471" lon="174.7450656"/>
+ </modify>
+ <modify>
+  <node id="5787567583" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7162492" lon="174.7451590"/>
+ </modify>
+ <modify>
+  <node id="5787567584" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7166384" lon="174.7451522"/>
+ </modify>
+ <modify>
+  <node id="5787567585" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7166374" lon="174.7450623"/>
+ </modify>
+ <modify>
+  <node id="5787567586" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7162482" lon="174.7450691"/>
+ </modify>
+ <modify>
+  <node id="7293805707" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7163781" lon="174.7460536"/>
+ </modify>
+ <modify>
+  <node id="7293805714" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164505" lon="174.7460541"/>
+ </modify>
+ <modify>
+  <node id="7293805715" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164561" lon="174.7460393"/>
+ </modify>
+ <modify>
+  <node id="7293805716" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7166456" lon="174.7459464"/>
+ </modify>
+ <modify>
+  <node id="7293805717" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7166250" lon="174.7459158"/>
+ </modify>
+ <delete>
+  <node id="9699444726" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11176665205" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11263593148" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11263593149" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11263593150" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11263593151" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="13057784254" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="14288439703" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7396741" lon="174.7419127">
+   <tag k="shop" v="laundry"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14288440801" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7397524" lon="174.7419167">
+   <tag k="amenity" v="fast_food"/>
+   <tag k="name" v="Sip n Chill"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14288440901" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7399267" lon="174.7419239">
+   <tag k="name" v="Armstrong - security"/>
+   <tag k="office" v="yes"/>
+  </node>
+ </modify>
+ <delete>
+  <node id="14294683504" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="14294684702" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="14295129201" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7165149" lon="174.7453182">
+   <tag k="addr:housenumber" v="39"/>
+   <tag k="addr:street" v="Anzac Road"/>
+   <tag k="name" v="John &amp; Associates"/>
+   <tag k="office" v="lawyer"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14295129301" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164805" lon="174.7453191">
+   <tag k="addr:housenumber" v="39"/>
+   <tag k="addr:street" v="Anzac Road"/>
+   <tag k="healthcare" v="physiotherapist"/>
+   <tag k="name" v="Physio Care"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14295129302" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7164514" lon="174.7453194">
+   <tag k="addr:housenumber" v="39"/>
+   <tag k="addr:street" v="Anzac Road"/>
+   <tag k="name" v="I-national Info Svcs"/>
+   <tag k="office" v="company"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14295129303" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7162810" lon="174.7453229">
+   <tag k="addr:housenumber" v="39"/>
+   <tag k="addr:street" v="Anzac Road"/>
+   <tag k="amenity" v="clinic"/>
+   <tag k="healthcare" v="clinic"/>
+   <tag k="name" v="Dr. Sophie - Psychologist"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14295129401" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7163988" lon="174.7453200">
+   <tag k="addr:housenumber" v="39"/>
+   <tag k="addr:street" v="Anzac Road"/>
+   <tag k="name" v="St Mark Law"/>
+   <tag k="office" v="lawyer"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="14295129501" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7163654" lon="174.7453204">
+   <tag k="addr:housenumber" v="39"/>
+   <tag k="addr:street" v="Anzac Road"/>
+   <tag k="name" v="Control Concepts"/>
+   <tag k="office" v="company"/>
+  </node>
+ </modify>
+ <delete>
+  <way id="337148416" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <way id="337148466" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <way id="1264356376" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="854458551"/>
+   <nd ref="11739755345"/>
+   <nd ref="11739755346"/>
+   <nd ref="11746878312"/>
+   <nd ref="11746878311"/>
+   <nd ref="11746878310"/>
+   <nd ref="11746878309"/>
+   <nd ref="11746878308"/>
+   <nd ref="11746878307"/>
+   <tag k="footway" v="sidewalk"/>
+   <tag k="highway" v="footway"/>
+   <tag k="surface" v="concrete"/>
+  </way>
+ </modify>
+ <delete>
+  <way id="1264356377" visible="false" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <way id="1567474321" visible="true" version="2" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="14275370870"/>
+   <nd ref="3593742556"/>
+   <nd ref="14275370871"/>
+   <tag k="crossing" v="marked"/>
+   <tag k="crossing:markings" v="yes"/>
+   <tag k="footway" v="crossing"/>
+   <tag k="highway" v="footway"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="804615354" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="43.6783576" lon="-79.2848540">
+   <tag k="country" v="BR"/>
+   <tag k="flag:name" v="Brazil"/>
+   <tag k="flag:type" v="national"/>
+   <tag k="flag:wikidata" v="Q82194"/>
+   <tag k="man_made" v="flagpole"/>
+   <tag k="source" v="CanVec 6.0 - NRCan"/>
+   <tag k="subject" v="Brazil"/>
+   <tag k="subject:wikidata" v="Q155"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="3313851899" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7893011" lon="174.7696220"/>
+ </modify>
+ <modify>
+  <node id="3313851906" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7894217" lon="174.7697191"/>
+ </modify>
+ <modify>
+  <node id="3442505825" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7163780" lon="174.7457212"/>
+ </modify>
+ <modify>
+  <node id="3442505843" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7166261" lon="174.7457229"/>
+ </modify>
+ <modify>
+  <node id="3442505844" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7166424" lon="174.7460349"/>
+ </modify>
+ <modify>
+  <node id="3558121470" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146349" lon="174.7457653">
+   <tag k="amenity" v="parking"/>
+   <tag k="parking" v="surface"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="4706086954" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7156001" lon="174.7456448">
+   <tag k="direction" v="both"/>
+   <tag k="surface" v="asphalt"/>
+   <tag k="traffic_calming" v="hump"/>
+  </node>
+ </modify>
+ <delete>
+  <node id="5034143145" visible="false" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="5057225480" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7396981" lon="174.7419109">
+   <tag k="name" v="Windsor Park Superette"/>
+   <tag k="opening_hours" v="Mo-We 06:30-20:00; Th,Fr 06:30-21:00; Sa,Su,PH 07:00-20:30"/>
+   <tag k="post_office" v="post_partner"/>
+   <tag k="post_office:brand" v="New Zealand Post"/>
+   <tag k="post_office:brand:wikidata" v="Q1144511"/>
+   <tag k="shop" v="convenience"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="5057225481" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7398007" lon="174.7419322">
+   <tag k="name" v="Windsor Park Bakery Espresso"/>
+   <tag k="shop" v="bakery"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="5419457682" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7146725" lon="174.7441028">
+   <tag k="addr:city" v="Auckland"/>
+   <tag k="addr:housenumber" v="36"/>
+   <tag k="addr:street" v="Bute Road"/>
+   <tag k="addr:suburb" v="Browns Bay"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="5421853000" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7153867" lon="174.7440826">
+   <tag k="addr:city" v="Auckland"/>
+   <tag k="addr:housenumber" v="27"/>
+   <tag k="addr:street" v="Inverness Road"/>
+   <tag k="addr:suburb" v="Browns Bay"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="5504676725" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7894568" lon="174.7697486"/>
+ </modify>
+ <delete>
+  <node id="5901710187" visible="false" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="11739755344" visible="false" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="14275320810" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7395547" lon="174.7534436">
+   <tag k="addr:housenumber" v="368a"/>
+   <tag k="addr:street" v="Beach Road"/>
+   <tag k="name" v="bay barbers"/>
+   <tag k="opening_hours" v="Mo-Su 07:00-15:00"/>
+   <tag k="shop" v="hairdresser"/>
+  </node>
+ </modify>
+ <modify>
+  <way id="353597583" visible="true" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="5057215390"/>
+   <nd ref="5413523093"/>
+   <nd ref="10963152609"/>
+   <nd ref="10963152615"/>
+   <nd ref="3594107671"/>
+   <nd ref="3594107670"/>
+   <nd ref="3594107668"/>
+   <nd ref="3594107667"/>
+   <nd ref="10963152605"/>
+   <nd ref="3594107669"/>
+   <nd ref="5057215390"/>
+   <tag k="addr:city" v="Auckland"/>
+   <tag k="addr:housenumber" v="83"/>
+   <tag k="addr:street" v="Browns Bay Road"/>
+   <tag k="addr:suburb" v="Browns Bay"/>
+   <tag k="building" v="yes"/>
+   <tag k="name" v="Imperial"/>
+   <tag k="ref:linz:address_id" v="1086049"/>
+   <tag k="shop" v="car"/>
+  </way>
+ </modify>
+ <delete>
+  <way id="1055572367" visible="false" version="3" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <way id="324494350" visible="true" version="4" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="3312046793"/>
+   <nd ref="14295166072"/>
+   <nd ref="3312046797"/>
+   <nd ref="3312046796"/>
+   <nd ref="3312046795"/>
+   <nd ref="3312046798"/>
+   <nd ref="3312046791"/>
+   <nd ref="3312060603"/>
+   <nd ref="3312046790"/>
+   <nd ref="3312046789"/>
+   <nd ref="9812138339"/>
+   <nd ref="3312046793"/>
+   <tag k="building" v="retail"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="10181614437" visible="true" version="5" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7382670" lon="174.7533573">
+   <tag k="addr:city" v="Auckland"/>
+   <tag k="addr:housenumber" v="437"/>
+   <tag k="addr:postcode" v="0630"/>
+   <tag k="addr:street" v="Beach Road"/>
+   <tag k="addr:suburb" v="Mairangi Bay"/>
+   <tag k="amenity" v="restaurant"/>
+   <tag k="cuisine" v="thai"/>
+   <tag k="name" v="Pattaya Thai Cuisine"/>
+   <tag k="opening_hours" v="Mo-Th 16:30-21:00; Fr-Su 12:00-15:00, 16:30-21:00"/>
+   <tag k="phone" v="+64 9 479 5297"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="3593838521" visible="true" version="6" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7263755" lon="174.7409969">
+   <tag k="name" v="Browns Bay Road"/>
+   <tag k="natural" v="beach"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="5504680915" visible="true" version="6" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7893847" lon="174.7698883"/>
+ </modify>
+ <modify>
+  <node id="6960778054" visible="true" version="6" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001" lat="-36.7167863" lon="174.7452647">
+   <tag k="crossing" v="uncontrolled"/>
+   <tag k="crossing:island" v="no"/>
+   <tag k="crossing:markings" v="yes"/>
+   <tag k="highway" v="crossing"/>
+   <tag k="tactile_paving" v="yes"/>
+  </node>
+ </modify>
+ <modify>
+  <way id="115084404" visible="true" version="6" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="1011927262"/>
+   <nd ref="1301737987"/>
+   <nd ref="6253213407"/>
+   <nd ref="14295166063"/>
+   <nd ref="1301737968"/>
+   <tag k="highway" v="footway"/>
+   <tag k="lit" v="yes"/>
+   <tag k="surface" v="concrete"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="71890638" visible="true" version="7" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="854458546"/>
+   <nd ref="854458547"/>
+   <nd ref="9699444703"/>
+   <nd ref="9699444702"/>
+   <nd ref="9699444701"/>
+   <nd ref="854458548"/>
+   <nd ref="854458549"/>
+   <nd ref="9699444700"/>
+   <nd ref="9699444727"/>
+   <nd ref="9699444712"/>
+   <nd ref="9699444713"/>
+   <nd ref="9699444714"/>
+   <nd ref="854458550"/>
+   <nd ref="9699444728"/>
+   <nd ref="9699444729"/>
+   <nd ref="11739755345"/>
+   <nd ref="854458551"/>
+   <nd ref="14295166062"/>
+   <nd ref="854458546"/>
+   <tag k="leisure" v="park"/>
+   <tag k="name" v="Browns Bay Village Green"/>
+   <tag k="wikidata" v="Q130457405"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="86978358" visible="true" version="7" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="1011927283"/>
+   <nd ref="6253213411"/>
+   <nd ref="1011927273"/>
+   <nd ref="1011927429"/>
+   <nd ref="5034143152"/>
+   <nd ref="5034143137"/>
+   <nd ref="5034143150"/>
+   <nd ref="5034143143"/>
+   <nd ref="5034143141"/>
+   <tag k="highway" v="footway"/>
+   <tag k="lit" v="no"/>
+   <tag k="surface" v="paving_stones"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="23959972" visible="true" version="19" changeset="190675129" timestamp="2026-10-18T01:00:26Z" user="mapper_A" uid="900000001">
+   <nd ref="1301737966"/>
+   <nd ref="1011927427"/>
+   <nd ref="6253213405"/>
+   <nd ref="259751528"/>
+   <nd ref="10767739297"/>
+   <nd ref="1990625638"/>
+   <nd ref="5742235663"/>
+   <nd ref="12757714576"/>
+   <nd ref="10767739298"/>
+   <nd ref="259751529"/>
+   <tag k="cycleway:both" v="no"/>
+   <tag k="highway" v="residential"/>
+   <tag k="lanes" v="2"/>
+   <tag k="name" v="Glen Road"/>
+   <tag k="name:en" v="Glen Road"/>
+   <tag k="name:mi" v="Te Huarahi o Glen"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+</osmChange>

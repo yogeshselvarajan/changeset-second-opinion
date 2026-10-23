@@ -1,0 +1,38 @@
+{
+  "fixture_id": "07-provider-timeout",
+  "description": "User profile and three prior versions time out; the run still completes",
+  "changeset_id": 900000000007,
+  "coverage": {
+    "elements_in_changeset": 16,
+    "elements_detailed": 16,
+    "elements_skipped_budget": 0,
+    "history_gaps": [
+      {
+        "osm_type": "way",
+        "osm_id": 900000070002,
+        "reason": "timeout"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000070009,
+        "reason": "timeout"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000070014,
+        "reason": "timeout"
+      }
+    ],
+    "user_profile": "failed",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.73125
+  },
+  "flags": [],
+  "rules": [],
+  "nature": "consistent_edit",
+  "response": "no_action_suggested",
+  "lane": null,
+  "notes": "16 elements keep gaps at 3/16 (18.75%, below the 20% R3 limit). score = 16/16 x (1 - 3/16) x 0.9 = 0.73125. Lane is left open: the model may legitimately differ.",
+  "receipt": null
+}

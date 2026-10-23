@@ -1,0 +1,27 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 900000030019,
+      "timestamp": "2025-06-10T08:00:00Z",
+      "version": 3,
+      "changeset": 899999999100,
+      "user": "mapper_Z",
+      "uid": 900000009,
+      "visible": true,
+      "tags": {
+        "highway": "secondary",
+        "name": "Route 19"
+      },
+      "nodes": [
+        900000031038,
+        900000031039
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 318512211,
+      "timestamp": "2021-03-24T16:08:22Z",
+      "version": 8,
+      "changeset": 101660238,
+      "user": "mapper_E",
+      "uid": 900000005,
+      "nodes": [
+        6456189673,
+        8557631639,
+        6345632489,
+        8557631640,
+        8557631641,
+        8557631642,
+        6345632490,
+        8557631643,
+        6345632491,
+        8557631644,
+        3249194769,
+        8557631645,
+        8557631646,
+        8557631647,
+        8557631648,
+        8557631649,
+        8557631650,
+        4076126557,
+        8557631651,
+        3249194782,
+        8557631652,
+        3249194784
+      ],
+      "tags": {
+        "destination:ref": "MEX 113",
+        "highway": "primary_link",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

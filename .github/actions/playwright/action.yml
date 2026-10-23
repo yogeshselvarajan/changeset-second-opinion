@@ -1,0 +1,19 @@
+name: Playwright Chromium
+description: Installs the Chromium that web/ pins, restoring the browser download from the cache when the Playwright version has not changed.
+
+runs:
+  using: composite
+  steps:
+    - id: cache
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-${{ runner.os }}-${{ hashFiles('web/package-lock.json') }}
+    - if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      working-directory: web
+      run: npx playwright install --with-deps chromium
+    - if: steps.cache.outputs.cache-hit == 'true'
+      shell: bash
+      working-directory: web
+      run: npx playwright install-deps chromium

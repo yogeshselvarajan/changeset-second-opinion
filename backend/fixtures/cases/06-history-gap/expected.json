@@ -1,0 +1,55 @@
+{
+  "fixture_id": "06-history-gap",
+  "description": "Every prior version is redacted (403)",
+  "changeset_id": 900000000006,
+  "coverage": {
+    "elements_in_changeset": 6,
+    "elements_detailed": 6,
+    "elements_skipped_budget": 0,
+    "history_gaps": [
+      {
+        "osm_type": "way",
+        "osm_id": 900000060001,
+        "reason": "redacted"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000060002,
+        "reason": "redacted"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000060003,
+        "reason": "redacted"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000060004,
+        "reason": "redacted"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000060005,
+        "reason": "redacted"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000060006,
+        "reason": "redacted"
+      }
+    ],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.0
+  },
+  "flags": [],
+  "rules": [
+    "R3"
+  ],
+  "nature": null,
+  "response": null,
+  "lane": "insufficient_evidence",
+  "notes": "All six gaps are recorded as redacted. score = 6/6 x (1 - 6/6) = 0, so R3 fires. History fallback is not replayable.",
+  "receipt": null
+}

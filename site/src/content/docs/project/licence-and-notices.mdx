@@ -1,0 +1,63 @@
+---
+title: Licence and notices
+description: The licence for the code, the data attribution that OpenStreetMap requires, and where to find third-party notices.
+---
+
+*For anyone reusing the code or the data. Reference.*
+
+This page is a plain summary, not legal advice. The files in the repository are the source of truth.
+
+## Independence and trademark
+
+Changeset Second Opinion is an independent open source tool for OpenStreetMap reviewers. It is not endorsed by, sponsored by or affiliated with the OpenStreetMap Foundation. OpenStreetMap is a trademark of the OpenStreetMap Foundation, used under its [trademark policy](https://osmfoundation.org/wiki/Trademark_Policy). The project runs on a subdomain that contains the name, which the policy allows for a service based on OpenStreetMap that follows its notice and no-endorsement rules. The site uses no OpenStreetMap logo.
+
+## Code
+
+The code is licensed under Apache-2.0. The full text is in [`LICENSE`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/LICENSE). The backend (`backend/pyproject.toml`) declares the same licence.
+
+## OpenStreetMap data
+
+OpenStreetMap data and anything derived from it are © OpenStreetMap contributors and available under the [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/). See [openstreetmap.org/copyright](https://www.openstreetmap.org/copyright).
+
+| What | Licence |
+| --- | --- |
+| Recorded fixtures, including the fifteen demo changesets | ODbL 1.0, © OpenStreetMap contributors |
+| Changeset ids and statistics in `evaluation/` | ODbL 1.0, © OpenStreetMap contributors |
+| The optional map in the case screen | Shows its own attribution. Tiles come from OpenFreeMap, which carries its own attribution |
+| Synthetic fixtures (changeset ids from 900000000000) | CC0 1.0 |
+
+If you record a fixture, record only what you may redistribute under that licence, and do not use real mapper names. The recorder replaces names with placeholders and removes emails and links from changeset tags and comments, but it does not clean tags on map elements, so read the output. See [`CONTRIBUTING.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CONTRIBUTING.md).
+
+## Models
+
+| Model | Licence |
+| --- | --- |
+| Strands Decider 2B, `StrandsAgents/strands-decider-2B-qwen3.5-v1-2610` | Apache-2.0 per its model card. The base model is `Qwen/Qwen3.5-2B-Base`, whose licence the project has not checked. Weights are downloaded at runtime and are not in the repository |
+| Claude Haiku 4.5 on Amazon Bedrock | AWS service terms and the model provider's terms |
+
+## Fonts
+
+The web app ships three variable fonts, each under the SIL Open Font Licence 1.1, with the licence text beside the file in `web/src/fonts/`.
+
+| Font | Licence text |
+| --- | --- |
+| Inter | `Inter-OFL.txt` |
+| JetBrains Mono | `JetBrainsMono-OFL.txt` |
+| Fraunces | `Fraunces-OFL.txt` |
+
+## Third-party notices
+
+[`THIRD_PARTY_NOTICES.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/THIRD_PARTY_NOTICES.md) lists the Python and JavaScript packages the project depends on, with their declared licences. It was generated from the lockfiles on 17 October 2026. Licence names come from package metadata and have not been checked by a lawyer. Regenerate it after any lockfile change.
+
+The file marks a few items for attention:
+
+- `psycopg` stays LGPL-3.0-only and is used unmodified for the optional Postgres path.
+- `certifi` and `lightningcss` are MPL-2.0. The second is a build-time tool that is not in the shipped bundle.
+
+Earlier versions depended on `osmcha`, which is GPL-3.0-or-later. It was removed on 23 October 2026, and the backend no longer depends on it. The eight automated flags are computed by the project's own code in `backend/src/cso/adapters/osm/flags.py`, and the list of suspect words in `suspect_words.txt` was written for this project under Apache-2.0. The count thresholds there are this project's own choices, so a few borderline changesets can be flagged differently than before. A test checks that no backend module imports `osmcha`.
+
+## Documentation
+
+This documentation lives in the same repository, in `site/`, and is under the repository's licence, Apache-2.0. No separate licence applies to the text. The screenshots show the demo set, which comes from real changesets, so the map data in them is © OpenStreetMap contributors, under the Open Database Licence.
+
+Next: [roadmap](../roadmap/).

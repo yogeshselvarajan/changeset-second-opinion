@@ -1,0 +1,83 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 10370849,
+      "timestamp": "2025-12-16T18:09:53Z",
+      "version": 27,
+      "changeset": 176018096,
+      "user": "mapper_F",
+      "uid": 900000006,
+      "members": [
+        {
+          "type": "way",
+          "ref": 1299847081,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299846802,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299845848,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299845306,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299845057,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299844783,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299844784,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299843250,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752701478,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1154654618,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 752305826,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Haringhata",
+        "ref:LGD:subdistrict": "2315",
+        "type": "boundary",
+        "wikidata": "Q5657632"
+      }
+    }
+  ]
+}

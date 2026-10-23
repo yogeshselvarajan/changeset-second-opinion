@@ -1,0 +1,48 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 360291737,
+      "timestamp": "2015-07-13T10:06:54Z",
+      "version": 1,
+      "changeset": 32598387,
+      "user": "mapper_B",
+      "uid": 900000002,
+      "nodes": [
+        3648659370,
+        3648659368,
+        3648659367,
+        3648659363,
+        3648659366,
+        3648659362,
+        3648659358,
+        3648659357,
+        3648659359,
+        3648659356,
+        3648659339,
+        3648659343,
+        3648659346,
+        3648659347,
+        3648659345,
+        3648659348,
+        3648659351,
+        3648659354,
+        3648659349,
+        3648659353,
+        3648659361,
+        3648659360,
+        3648659364,
+        3648659365,
+        3648659370
+      ],
+      "tags": {
+        "building": "yes"
+      }
+    }
+  ]
+}

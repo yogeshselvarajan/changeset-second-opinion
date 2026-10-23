@@ -1,0 +1,39 @@
+name: stale
+
+# A gentle sweep. Items wait two months before a reminder and another month before closing, and
+# anything labelled as planned, security related or help wanted is left alone. A comment brings an
+# item back.
+
+on:
+  schedule:
+    - cron: "11 6 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        with:
+          days-before-stale: 60
+          days-before-close: 30
+          operations-per-run: 60
+          exempt-issue-labels: "security,planned,help wanted,good first issue,pinned"
+          exempt-pr-labels: "security,planned,pinned,dependencies"
+          exempt-all-milestones: true
+          stale-issue-label: stale
+          stale-pr-label: stale
+          stale-issue-message: >-
+            This has been quiet for 60 days. If it still matters, a comment here keeps it open.
+            Otherwise it will be closed in 30 days, and anyone can reopen it later.
+          stale-pr-message: >-
+            This pull request has been quiet for 60 days. A comment or a push keeps it open.
+            Otherwise it will be closed in 30 days, and it can be reopened later.
+          close-issue-message: Closed after 90 days without activity. Reopen it if it is still relevant.
+          close-pr-message: Closed after 90 days without activity. Reopen it if it is still relevant.

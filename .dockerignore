@@ -1,0 +1,20 @@
+# Safety net for any build that uses the repository root as its context without a Dockerfile of its
+# own ignore file. The images in infra/compose each have a <Dockerfile>.dockerignore next to them,
+# and that file takes precedence for them.
+.git
+.github
+**/.env
+**/.env.*
+**/*.db
+**/*.db-*
+**/node_modules
+**/.venv
+**/__pycache__
+**/.mypy_cache
+**/.ruff_cache
+**/.pytest_cache
+web/dist
+site/dist
+site/.astro
+web/test-results
+web/playwright-report

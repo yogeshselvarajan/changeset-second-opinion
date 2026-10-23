@@ -1,0 +1,31 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 688470976,
+      "timestamp": "2025-10-09T06:21:43Z",
+      "version": 7,
+      "changeset": 173033093,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        3545810442,
+        6476678777,
+        8505157186,
+        6456189664,
+        3545810443
+      ],
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Changeset Second Opinion",
+  "short_name": "Second Opinion",
+  "description": "A second opinion on flagged OpenStreetMap edits. Evidence first; a human posts.",
+  "start_url": "/queue",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F6F5F2",
+  "theme_color": "#4E5BD8",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

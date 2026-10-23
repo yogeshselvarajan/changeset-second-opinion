@@ -1,0 +1,33 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 190681585,
+    "created_at": "2026-10-18T07:28:26Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 1,
+    "created_count": 0,
+    "modified_count": 1,
+    "deleted_count": 0,
+    "closed_at": "2026-10-18T07:28:30Z",
+    "min_lat": -14.7608358,
+    "min_lon": -180.0,
+    "max_lat": 71.5889534,
+    "max_lon": 180.0,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "112",
+      "comment": "Danish name",
+      "created_by": "iD 2.42.2",
+      "host": "[url removed]",
+      "imagery_used": "Bing Maps Aerial",
+      "locale": "fr"
+    },
+    "comments": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 190750593,
+    "created_at": "2026-10-19T15:56:35Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 348,
+    "created_count": 336,
+    "modified_count": 9,
+    "deleted_count": 3,
+    "closed_at": "2026-10-19T15:56:37Z",
+    "min_lat": 13.2733559,
+    "min_lon": 75.1923367,
+    "max_lat": 17.6332353,
+    "max_lon": 78.4601868,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "385",
+      "comment": "added features to areas",
+      "created_by": "iD 2.42.2",
+      "host": "[url removed]",
+      "imagery_used": "Esri World Imagery;Bing Maps Aerial",
+      "locale": "en-IN",
+      "resolved:crossing_ways:aeroway-highway": "1",
+      "resolved:missing_tag:any": "1"
+    },
+    "comments": []
+  }
+}

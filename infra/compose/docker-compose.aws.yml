@@ -1,0 +1,61 @@
+# AWS host: container logs to CloudWatch Logs (group /cso/app is created by the stack), secrets read
+# from the tmpfs file that infra/scripts/boot.sh writes at every boot, and continuous replication of
+# the database to S3. Region comes from AWS_REGION in the compose environment file written by
+# bootstrap.sh.
+# `!override` replaces the base file's json-file rotation options instead of merging into them.
+x-awslogs: &awslogs !override
+  driver: awslogs
+  options:
+    awslogs-region: ${AWS_REGION:-us-east-1}
+    awslogs-group: /cso/app
+    awslogs-create-group: "false"
+    tag: "{{.Name}}"
+
+# Secrets live only in /run/cso/secrets.env (a tmpfs, root only, rebuilt from SSM Parameter Store at
+# every boot). `required: false` keeps a host without any secret (no OpenStreetMap sign-in) working.
+x-secrets: &secrets
+  env_file:
+    - path: /run/cso/secrets.env
+      required: false
+
+services:
+  stack:
+    logging: *awslogs
+  migrate:
+    logging: *awslogs
+  api:
+    <<: *secrets
+    logging: *awslogs
+  worker:
+    <<: *secrets
+    logging: *awslogs
+  decider:
+    logging: *awslogs
+  caddy:
+    logging: *awslogs
+
+  # Streams every committed change to s3://$CSO_BACKUP_BUCKET/litestream/cso within 15 seconds.
+  # The image is pinned. It shares the API's data volume and user so it can read the database and
+  # keep its small metadata folder next to it. Restore with: infra/scripts/restore.sh litestream
+  litestream:
+    image: litestream/litestream:0.3.13
+    command: ["replicate", "-config", "/etc/litestream.yml"]
+    user: "10001:10001"
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cpus: "1.0"
+    mem_limit: 256m
+    environment:
+      # bootstrap.sh writes it to /opt/cso/.env; empty makes Litestream refuse to start, loudly.
+      CSO_BACKUP_BUCKET: ${CSO_BACKUP_BUCKET:-}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+    volumes:
+      - ${CSO_DATA_DIR:-cso-data}:/data
+      - ../litestream/litestream.yml:/etc/litestream.yml:ro
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    logging: *awslogs

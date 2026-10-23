@@ -1,0 +1,272 @@
+{
+  "fixture_id": "07-nairobi-deletions-with-discussion",
+  "description": "Deletions explained as land surveys, with two discussion comments",
+  "place_label": "Worldwide (very wide area)",
+  "changeset_id": 190675129,
+  "coverage": {
+    "elements_in_changeset": 115,
+    "elements_detailed": 40,
+    "elements_skipped_budget": 75,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.347826
+  },
+  "flags": [],
+  "rules": [
+    "R1",
+    "R3"
+  ],
+  "nature": "needs_local_knowledge",
+  "response": "escalate_to_experienced_reviewer",
+  "lane": "insufficient_evidence",
+  "notes": "Real run: strands-decider-2B-qwen3.5-v1-2610, config sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9, recorded 2026-10-20.",
+  "receipt": {
+    "receipt_version": "1",
+    "case_id": "409c2336-0dd1-4654-9c4d-1625b35d5355",
+    "snapshot_id": "b3a464b5-4670-49f8-a56c-7f04f63f9089",
+    "evidence_version": "sha256:03914d1ef997a2724b9363ea33e4ec9c639aa66b76b8b26de4f971f9087e7050",
+    "coverage": {
+      "elements_in_changeset": 115,
+      "elements_detailed": 40,
+      "elements_skipped_budget": 75,
+      "history_gaps": [],
+      "user_profile": "fetched",
+      "discussion": "fetched",
+      "snapshot_truncated": false,
+      "score": 0.347826
+    },
+    "decider": {
+      "model": "strands-decider-2B-qwen3.5-v1-2610",
+      "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+      "device": "cuda",
+      "max_length": 4096,
+      "temperature": 1.0545210242263665,
+      "base_model": "Qwen/Qwen3.5-2B-Base",
+      "prefix_cache": true,
+      "server_git_sha": null
+    },
+    "config_version": "sha256:6e99c65ec41326aa7b04628c6dbe0f96be3d51f66f761d7e575c3c414731dba9",
+    "questions_hash": null,
+    "state_tokens": 722,
+    "permutations": [],
+    "aggregated": {},
+    "nouls": {},
+    "panel": {
+      "low": 0.35,
+      "high": 0.65,
+      "readings": {
+        "mature_feature_deleted": {
+          "id": "mature_feature_deleted",
+          "probability": 0.752,
+          "state": "yes"
+        },
+        "nonsense_or_offensive_values": {
+          "id": "nonsense_or_offensive_values",
+          "probability": 0.1648,
+          "state": "no"
+        },
+        "comment_matches_changes": {
+          "id": "comment_matches_changes",
+          "probability": 0.5823,
+          "state": "unknown"
+        },
+        "conventions_followed": {
+          "id": "conventions_followed",
+          "probability": 0.5312,
+          "state": "unknown"
+        },
+        "new_account_first_edits": {
+          "id": "new_account_first_edits",
+          "probability": 0.1021,
+          "state": "no"
+        },
+        "deleted_own_recent_additions": {
+          "id": "deleted_own_recent_additions",
+          "probability": 0.7843,
+          "state": "yes"
+        },
+        "real_world_change_claimed": {
+          "id": "real_world_change_claimed",
+          "probability": 0.2677,
+          "state": "no"
+        },
+        "discussion_cites_source": {
+          "id": "discussion_cites_source",
+          "probability": 0.1249,
+          "state": "no"
+        },
+        "mass_retag_single_key": {
+          "id": "mass_retag_single_key",
+          "probability": 0.3586,
+          "state": "unknown"
+        },
+        "evidence_sufficient": {
+          "id": "evidence_sufficient",
+          "probability": 0.3496,
+          "state": "no"
+        }
+      },
+      "advisory_nature": {
+        "advisory": true,
+        "order": [
+          "consistent_edit",
+          "likely_good_faith_mistake",
+          "possible_deliberate_damage",
+          "needs_local_knowledge"
+        ],
+        "probabilities": {
+          "consistent_edit": 0.156,
+          "likely_good_faith_mistake": 0.4311,
+          "possible_deliberate_damage": 0.1291,
+          "needs_local_knowledge": 0.2838
+        },
+        "choice": "likely_good_faith_mistake",
+        "confidence": 0.2415
+      },
+      "ids": [
+        "mature_feature_deleted",
+        "nonsense_or_offensive_values",
+        "comment_matches_changes",
+        "conventions_followed",
+        "new_account_first_edits",
+        "deleted_own_recent_additions",
+        "real_world_change_claimed",
+        "discussion_cites_source",
+        "mass_retag_single_key",
+        "evidence_sufficient"
+      ]
+    },
+    "panel_questions_hash": "sha256:d0cd31c9b190f6734322679a27db5a9e6a1c770641452db44e6141a12dc6dd21",
+    "panel_composition": {
+      "nature": "needs_local_knowledge",
+      "response": "escalate_to_experienced_reviewer",
+      "band": "unsure",
+      "nature_row": "N2",
+      "response_row": "P1",
+      "yes": [
+        "mature_feature_deleted",
+        "deleted_own_recent_additions"
+      ],
+      "unknown": [
+        "comment_matches_changes",
+        "conventions_followed",
+        "mass_retag_single_key"
+      ]
+    },
+    "panel_cross_checks": {
+      "mature_feature_deleted": "agree",
+      "new_account_first_edits": "agree",
+      "deleted_own_recent_additions": "agree",
+      "mass_retag_single_key": "undecided",
+      "evidence_sufficient": "agree"
+    },
+    "band": "unsure",
+    "rules_fired": [
+      {
+        "code": "R1",
+        "label": "Mature deletion",
+        "severity": "block",
+        "triggered_by": {
+          "count": 24,
+          "elements": [
+            {
+              "type": "node",
+              "id": 3442505681,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3442505682,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3442505711,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3442505712,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3442505713,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3442505719,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3442505720,
+              "age_days": 4211,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 3593742348,
+              "age_days": 4143,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 5057312354,
+              "age_days": 3341,
+              "version_before": 1
+            },
+            {
+              "type": "node",
+              "id": 5057312368,
+              "age_days": 3341,
+              "version_before": 1
+            }
+          ],
+          "min_age_days": 365,
+          "min_prior_versions": 5
+        }
+      },
+      {
+        "code": "R3",
+        "label": "Coverage",
+        "severity": "warn",
+        "triggered_by": {
+          "score": 0.347826,
+          "min_score": 0.5,
+          "gap_ratio": 0.0,
+          "max_gap_ratio": 0.2,
+          "elements_in_changeset": 115,
+          "elements_detailed": 40,
+          "history_gaps": 0,
+          "elements_skipped_budget": 75,
+          "drafting_limited_to": "ask_source_question"
+        }
+      }
+    ],
+    "reconciliation": {
+      "applied": false,
+      "from": null,
+      "to": "escalate_to_experienced_reviewer"
+    },
+    "lane": "insufficient_evidence",
+    "timing_ms": {
+      "fetch": 1425,
+      "snapshot": 30,
+      "decide": 1253,
+      "decide_server": 695,
+      "total": 2708
+    },
+    "errors": [],
+    "human_outcome_ids": []
+  }
+}

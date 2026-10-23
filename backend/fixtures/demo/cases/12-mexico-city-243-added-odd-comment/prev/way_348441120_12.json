@@ -1,0 +1,40 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 348441120,
+      "timestamp": "2025-10-09T06:21:43Z",
+      "version": 12,
+      "changeset": 173033093,
+      "user": "mapper_C",
+      "uid": 900000003,
+      "nodes": [
+        6456189652,
+        6456189653,
+        8370976139,
+        6456189654,
+        8505157191,
+        8505157184,
+        6456189665,
+        8505157185,
+        8505157192,
+        6577517439,
+        3545810440,
+        6577517440,
+        3545810442
+      ],
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Avenida México-Poniente",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

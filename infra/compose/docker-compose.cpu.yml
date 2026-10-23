@@ -1,0 +1,36 @@
+# CPU decider profile (2 to 30 s per request, async use only). Add it to the base file; the Decider
+# does not exist in the base stack. First start downloads the model weights (about 5 GB) into the
+# `hf-cache` volume (or CSO_HF_DIR). Memory limit: CSO_DECIDER_MEMORY (default 12g).
+services:
+  decider:
+    extends:
+      file: decider.service.yml
+      service: decider
+    image: cso-decider:local
+    build:
+      args:
+        TORCH_INDEX: https://download.pytorch.org/whl/cpu
+    command:
+      - serve
+      - StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+      - --host
+      - 127.0.0.1
+      - --port
+      - "8099"
+      - --device
+      - cpu
+    mem_limit: ${CSO_DECIDER_MEMORY:-12g}
+  api:
+    environment:
+      CSO_DECIDER_URL: http://127.0.0.1:8099
+      CSO_DECIDER_DEVICE_CLASS: cpu
+    depends_on:
+      decider:
+        condition: service_started
+  worker:
+    environment:
+      CSO_DECIDER_URL: http://127.0.0.1:8099
+      CSO_DECIDER_DEVICE_CLASS: cpu
+    depends_on:
+      decider:
+        condition: service_started

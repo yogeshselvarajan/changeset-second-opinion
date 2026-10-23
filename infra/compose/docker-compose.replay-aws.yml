@@ -1,0 +1,30 @@
+# Replay demo on one small AWS instance (infra/cloudformation/cso-replay-demo.yaml). Use it after
+# docker-compose.yml and docker-compose.demo.yml:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.replay-aws.yml ...
+#
+# The demo file already forces CSO_MODE=replay, adds the `seed` job and has no Decider. This file
+# publishes the site for the internet (443, and 80 only to redirect), puts the settings file back
+# (public origin, secure cookies, optional OpenStreetMap sign-in) and keeps Docker's own log rotation:
+# no CloudWatch Logs and no Litestream, so the stack needs no S3 bucket. CSO_MODE stays replay
+# because the demo file sets it in `environment`, which wins over the settings file.
+x-settings: &settings
+  env_file: !override
+    - path: ../../.env
+      required: false
+    # Written from SSM Parameter Store into a tmpfs at every boot by infra/scripts/boot.sh.
+    - path: /run/cso/secrets.env
+      required: false
+
+services:
+  stack:
+    ports: !override
+      - "443:443"
+      # Port 80 only redirects to https (and can answer an HTTP-01 challenge). The security group
+      # decides who can reach it; CSO_HTTP_BIND=127.0.0.1 also keeps it off the network here.
+      - "${CSO_HTTP_BIND:-0.0.0.0}:80:80"
+
+  api:
+    <<: *settings
+  worker:
+    <<: *settings

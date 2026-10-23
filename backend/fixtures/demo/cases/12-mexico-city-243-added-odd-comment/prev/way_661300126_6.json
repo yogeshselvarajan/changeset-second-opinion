@@ -1,0 +1,38 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 661300126,
+      "timestamp": "2024-11-26T01:16:26Z",
+      "version": 6,
+      "changeset": 159595239,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "nodes": [
+        669995922,
+        11268154850,
+        667523390,
+        8501210242,
+        667523391,
+        3439728879,
+        667523392,
+        9661582814,
+        667523393,
+        8501210249,
+        667523394,
+        1134851332
+      ],
+      "tags": {
+        "alt_name": "Calle Pino",
+        "highway": "tertiary",
+        "name": "Calle Pino",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

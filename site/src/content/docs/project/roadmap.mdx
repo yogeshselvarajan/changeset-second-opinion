@@ -1,0 +1,47 @@
+---
+title: Roadmap
+description: What is known to be missing, what the maintainers have written down as next, and what is not promised.
+---
+
+*For adopters and contributors. Explanation.*
+
+This is a hackathon project with one maintainer. No dates are promised on this page. The lists below are the project's own statement of where it stands on 20 October 2026. The tool never writes to OpenStreetMap, and no item below changes that.
+
+## Known gaps today
+
+These are not done or not verified.
+
+- **Evidence for accuracy is thin.** All labels are written by an AI. The held-out evaluation, the Haiku-only and rules-plus-Haiku comparisons, the larger-model comparison, Bedrock calls avoided and cost per review have not been run. No live Bedrock result is recorded. See [what it cannot do](../../concepts/what-it-cannot-do/).
+- **Parts of the deploy path have not been run.** As of that date nothing had been deployed from the template. Backup replication and restore, the alarms, and the rollback script are written and linted but were not exercised. Docker images had not been built on the author's machine.
+- **CI had not run on a hosted runner** on that date, because the repository had no remote then.
+- **Sign in with OpenStreetMap has not been tested against the real service.** It needs a registered OAuth app. See [register the OSM app](../../self-host/register-the-osm-app/).
+- **The demo queue has no example in the looks-consistent lane.** The fifteen recorded changesets landed in other lanes.
+- **Open security items.** An independent review left these open or only reduced: no database triggers for immutability, invite defaults that allow unlimited uses and no expiry, containers that share one network namespace on the single host, and images that are not pinned by digest.
+
+## Left out on purpose
+
+These are deliberate omissions for now:
+
+- per-receipt link previews and a server-rendered receipt head
+- editing cut points in the settings page (the table stores them, but nothing reads them)
+- archiving a workspace (one workspace per server)
+- font preloads
+
+## Written down as next
+
+These are the directions the project has written down. They are intentions, not commitments.
+
+- **Human labels.** Have people label some of the sample, so the evaluation can report agreement between people and the AI answer key. The project counts this as its most important missing piece.
+- **A recorded live Bedrock draft**, so the drafting path has a measured result.
+- **Model-size comparison.** The command exists, `cso eval ablate-model`. It needs a GPU run.
+- **Per-community workspaces** with their own pack, and calibration per workspace.
+- **OSMCha write-back under the reviewer's own token.** It would still be a human action, and it would need its own design decision, because today no write scope exists.
+- **Other items deferred after the hackathon:** polling or replication feeds, Postgres on AWS, CloudFront, drafting in more languages, a per-community configuration screen, SageMaker hosting and OpenTelemetry.
+
+Open sign-up is not planned. It should happen only if a community asks for it, and never with Bedrock spend attached to an anonymous account.
+
+## How to influence it
+
+Open an issue with the templates in `.github/ISSUE_TEMPLATE`: bug report, idea, fixture proposal, option set proposal or docs problem. The most useful contributions are fixtures, community option sets and fixes that stay inside the rules. See [dev setup](../../contribute/dev-setup/) and the [changelog](../changelog/).
+
+Next: [licence and notices](../licence-and-notices/).

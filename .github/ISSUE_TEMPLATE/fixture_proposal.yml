@@ -1,0 +1,43 @@
+name: Fixture proposal
+description: Propose a replay fixture that covers a case the current ones do not
+title: "fixture: "
+labels: ["fixture"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fixtures are synthetic or anonymised and live under `backend/fixtures/cases/`.
+        Data derived from OpenStreetMap is (c) OpenStreetMap contributors, ODbL 1.0; synthetic
+        fixtures are CC0. Please read `backend/fixtures/README.md` and `schema.md` first.
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario
+      description: What situation should the fixture cover, and why do the existing ones not?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: Coverage, history gaps, rules that fire, and the lane you expect.
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Where the data comes from
+      options:
+        - Synthetic (invented ids from 900000000000 upward)
+        - Recorded with `cso record` and anonymised
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: Mapper names, user ids, emails and links are removed or replaced
+          required: true
+        - label: I have not included free text that identifies a person
+          required: true

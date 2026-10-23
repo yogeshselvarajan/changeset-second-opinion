@@ -1,0 +1,457 @@
+name: ci
+
+# Pull requests and main. Jobs are path filtered by the `changes` job, and the single required check
+# for branch protection is `ci-passed` (a skipped job counts as passed there, a failed one does not).
+# See .github/REQUIRED_CHECKS.md and .github/RULESETS.md.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  UV_NO_PROGRESS: "1"
+  NPM_CONFIG_FUND: "false"
+  NPM_CONFIG_AUDIT: "false"
+
+jobs:
+  changes:
+    name: changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      backend: ${{ steps.paths.outputs.backend }}
+      web: ${{ steps.paths.outputs.web }}
+      site: ${{ steps.paths.outputs.site }}
+      infra: ${{ steps.paths.outputs.infra }}
+      lockfiles: ${{ steps.paths.outputs.lockfiles }}
+      workflows: ${{ steps.paths.outputs.workflows }}
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - id: paths
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: bash .github/scripts/changed_paths.sh
+
+  backend:
+    name: backend
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      CSO_DATABASE_URL: sqlite+aiosqlite:///./ci-migrate.db
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - name: Lock file matches pyproject.toml
+        run: uv lock --check
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy src/cso
+      - name: Migrations apply cleanly and match the models (SQLite)
+        run: |
+          uv run alembic upgrade head
+          uv run alembic check
+      - name: Tests (the live and slow tests are not part of the default run)
+        run: uv run pytest -q
+
+  contract:
+    name: contract
+    needs: changes
+    if: needs.changes.outputs.backend == 'true' || needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - uses: ./.github/actions/setup-web
+      - name: OpenAPI document matches the application
+        working-directory: backend
+        run: uv run python -m cso.tools.export_openapi --check
+      - name: CI check scripts and their tests
+        working-directory: backend
+        run: |
+          uv run ruff check ../scripts/ci
+          uv run ruff format --check ../scripts/ci
+          uv run python -m pytest ../scripts/ci -q -p no:cacheprovider
+      - name: Generated TypeScript client matches the OpenAPI document
+        working-directory: web
+        run: |
+          npm run generate:api
+          if [ -n "$(git status --porcelain -- ../web/src/api ../backend/openapi)" ]; then
+            echo "::error::The generated client or the OpenAPI document is out of date."
+            git --no-pager status --short -- ../web/src/api ../backend/openapi
+            git --no-pager diff --stat -- ../web/src/api ../backend/openapi
+            exit 1
+          fi
+
+  invariants:
+    name: invariants
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - name: No OSM writes, no auto actions, policy inputs, banned words, no dashes, document links
+        run: uv run --project backend --frozen python scripts/ci/run_all.py
+      - name: Security policy cross check (contact, CODEOWNERS, issue chooser, no unsafe triggers)
+        run: bash .github/scripts/check_security_policy.sh
+
+  secrets:
+    name: secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Only needed when the repository moves to an organisation.
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+  web:
+    name: web
+    needs: changes
+    if: needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # the docs pages inside the build read last-updated dates from git
+          persist-credentials: false
+      - uses: ./.github/actions/setup-web
+        with:
+          site: "true"
+      - run: npx prettier --check .
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npx vitest run
+      - run: npm run build
+      - name: Bundle size budget (entry and home page)
+        run: npm run size
+
+  e2e:
+    name: e2e
+    needs: changes
+    if: needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: ./.github/actions/setup-web
+        with:
+          site: "true"
+      - uses: ./.github/actions/playwright
+      - name: Playwright landing, seo, shell, auth and docs specs (replay mode, API mocked)
+        working-directory: web
+        run: npx playwright test --grep "@shell|@landing|@seo|@auth|@docs"
+        env:
+          CI: "true"
+      - name: Keep Playwright output when a test fails
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-output
+          path: web/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  docs-site:
+    name: docs-site
+    needs: changes
+    if: needs.changes.outputs.site == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      checks: write # the Vale reporter writes a check run with its findings
+      pull-requests: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # the last-updated date on each page comes from git
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+      - uses: ./.github/actions/setup-web
+        with:
+          site: "true"
+      - name: Prose rules (no dashes, no banned words)
+        working-directory: site
+        run: npm run check:prose
+      - name: Vale
+        uses: errata-ai/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3.0.0
+        with:
+          files: site/src/content/docs
+          vale_flags: "--config=site/.vale.ini"
+          fail_on_error: true
+          reporter: github-check
+      - name: Build, including the internal link check
+        working-directory: site
+        run: npm run build
+      - name: The committed reference pages match the code
+        working-directory: site
+        run: |
+          (cd ../backend && uv run python -m cso.tools.export_openapi --check)
+          node scripts/check-generated.mjs
+      - uses: ./.github/actions/playwright
+      - name: Accessibility (axe), light and dark, on every built page
+        working-directory: site
+        run: node scripts/axe.mjs
+      - name: Keep the built site for inspection
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: docs-site-dist
+          path: site/dist/
+          retention-days: 3
+
+  infra:
+    name: infra
+    needs: changes
+    if: needs.changes.outputs.infra == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+        with:
+          sync: "false"
+      - name: CloudFormation lint (every template)
+        # W1028 is a known unreachable-branch note in the cloud-native template (GPU switch).
+        run: >-
+          uvx cfn-lint --ignore-checks W1028
+          infra/cloudformation/*.yaml infra/aws-serverless-demo/template.yaml
+          infra/aws-cloud-native/cso-cloud-native.yaml infra/aws-github-oidc/*.yaml
+      - name: Dockerfiles (hadolint)
+        run: bash .github/scripts/hadolint.sh
+      - name: Compose files validate in every supported combination
+        run: |
+          set -eu
+          base="-f infra/compose/docker-compose.yml"
+          for combo in \
+            "" \
+            "-f infra/compose/docker-compose.cpu.yml" \
+            "-f infra/compose/docker-compose.gpu.yml" \
+            "-f infra/compose/docker-compose.gpu.yml -f infra/compose/docker-compose.aws.yml" \
+            "-f infra/compose/docker-compose.cpu.yml -f infra/compose/docker-compose.local.yml"; do
+            echo "docker compose $base $combo config"
+            # shellcheck disable=SC2086
+            docker compose $base $combo config --quiet
+          done
+      - name: Caddyfile validates (stock Caddy image, rate-limit directives removed)
+        run: python3 scripts/ci/validate_caddy.py
+      - name: Shell scripts (syntax and shellcheck)
+        run: |
+          set -eu
+          for script in infra/scripts/*.sh infra/aws-serverless-demo/deploy.sh .github/scripts/*.sh; do
+            bash -n "$script"
+          done
+          shellcheck -x -P SCRIPTDIR -S style infra/scripts/*.sh infra/aws-serverless-demo/deploy.sh .github/scripts/*.sh
+
+  workflows:
+    name: workflows
+    needs: changes
+    if: needs.changes.outputs.workflows == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+        with:
+          sync: "false"
+      - name: actionlint (workflow syntax, expressions, shellcheck of run blocks)
+        run: uvx --from actionlint-py==1.7.12.25 actionlint -color
+      - name: zizmor (workflow security audit; pedantic findings are reported, not fatal)
+        run: uvx zizmor==1.31.1 --min-severity medium .github
+
+  package:
+    name: package
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+        with:
+          sync: "false"
+      - name: The wheel licence file is the repository licence
+        run: cmp LICENSE backend/LICENSE
+      - name: Build, check and smoke test the distribution (the release does the same)
+        run: bash .github/scripts/package_check.sh backend "$RUNNER_TEMP/dist"
+
+  licenses:
+    name: licenses
+    needs: changes
+    if: needs.changes.outputs.backend == 'true' || needs.changes.outputs.lockfiles == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+        with:
+          sync: "false"
+      - name: Runtime dependencies carry no GPL or AGPL licence (allow list in .github/license-allowlist.txt)
+        run: bash .github/scripts/license_check.sh
+
+  audit:
+    name: audit
+    needs: changes
+    if: needs.changes.outputs.lockfiles == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-backend
+        with:
+          sync: "false"
+      - uses: ./.github/actions/setup-web
+        with:
+          web: "false"
+      - name: Python dependency audit
+        run: |
+          uv export --project backend --frozen --no-dev --no-hashes --no-emit-project \
+            -o "$RUNNER_TEMP/requirements-audit.txt"
+          uvx pip-audit --requirement "$RUNNER_TEMP/requirements-audit.txt" --no-deps --disable-pip
+      - name: JavaScript dependency audit (web and site)
+        run: |
+          (cd web && npm audit --audit-level=high)
+          (cd site && npm audit --audit-level=high)
+
+  ci-passed:
+    name: ci-passed
+    if: always()
+    needs:
+      - changes
+      - backend
+      - contract
+      - invariants
+      - secrets
+      - web
+      - e2e
+      - docs-site
+      - infra
+      - workflows
+      - package
+      - licenses
+      - audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Every needed job succeeded or was skipped by a path filter
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          echo "$NEEDS" | jq -r 'to_entries[] | "\(.key): \(.value.result)"'
+          bad="$(echo "$NEEDS" | jq -r '[to_entries[] | select(.value.result != "success" and .value.result != "skipped") | .key] | join(", ")')"
+          if [ -n "$bad" ]; then
+            echo "::error::These jobs did not pass: $bad"
+            exit 1
+          fi

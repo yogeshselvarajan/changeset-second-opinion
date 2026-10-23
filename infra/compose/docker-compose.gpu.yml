@@ -1,0 +1,40 @@
+# NVIDIA GPU decider profile (needs the NVIDIA container toolkit on the host). Add it to the base
+# file; the Decider does not exist in the base stack. First start downloads the model weights (about
+# 5 GB) into the `hf-cache` volume (or CSO_HF_DIR).
+services:
+  decider:
+    extends:
+      file: decider.service.yml
+      service: decider
+    image: cso-decider:local
+    command:
+      - serve
+      - StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+      - --host
+      - 127.0.0.1
+      - --port
+      - "8099"
+      - --device
+      - cuda
+    mem_limit: ${CSO_DECIDER_MEMORY:-12g}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  api:
+    environment:
+      CSO_DECIDER_URL: http://127.0.0.1:8099
+      CSO_DECIDER_DEVICE_CLASS: gpu
+    depends_on:
+      decider:
+        condition: service_started
+  worker:
+    environment:
+      CSO_DECIDER_URL: http://127.0.0.1:8099
+      CSO_DECIDER_DEVICE_CLASS: gpu
+    depends_on:
+      decider:
+        condition: service_started

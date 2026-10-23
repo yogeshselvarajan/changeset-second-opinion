@@ -1,0 +1,178 @@
+{
+ "receipt_version": "1",
+ "case_id": null,
+ "snapshot_id": null,
+ "evidence_version": "sha256:b8d495cfa764967b79f716f1876037c7b30b885f6d5f481372ee7a3be2f01962",
+ "coverage": {
+  "elements_in_changeset": 2,
+  "elements_detailed": 2,
+  "elements_skipped_budget": 0,
+  "history_gaps": [],
+  "user_profile": "fetched",
+  "discussion": "fetched",
+  "snapshot_truncated": false,
+  "score": 1.0
+ },
+ "decider": {
+  "model": "strands-decider-2B-qwen3.5-v1-2610",
+  "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+  "device": "cuda",
+  "max_length": 4096,
+  "temperature": 1.0545210242263665,
+  "base_model": "Qwen/Qwen3.5-2B-Base",
+  "prefix_cache": true,
+  "server_git_sha": null
+ },
+ "config_version": "sha256:21dfdbd28be18286fb2b3659db6be5d6754e27f74055748887babea7d0f5ac63",
+ "questions_hash": "sha256:760cdc6c475100cae62a3b5a6ffe803ce335fda41e787abd792d211077e06982",
+ "state_tokens": 1631,
+ "permutations": [
+  {
+   "name": "nature_p0",
+   "order": [
+    "consistent_edit",
+    "likely_good_faith_mistake",
+    "possible_deliberate_damage",
+    "needs_local_knowledge"
+   ],
+   "probabilities": {
+    "consistent_edit": 0.283,
+    "likely_good_faith_mistake": 0.1446,
+    "possible_deliberate_damage": 0.1125,
+    "needs_local_knowledge": 0.4599
+   },
+   "confidence": 0.2799
+  },
+  {
+   "name": "nature_p1",
+   "order": [
+    "likely_good_faith_mistake",
+    "possible_deliberate_damage",
+    "needs_local_knowledge",
+    "consistent_edit"
+   ],
+   "probabilities": {
+    "likely_good_faith_mistake": 0.124,
+    "possible_deliberate_damage": 0.1245,
+    "needs_local_knowledge": 0.3891,
+    "consistent_edit": 0.3624
+   },
+   "confidence": 0.1855
+  },
+  {
+   "name": "nature_p2",
+   "order": [
+    "possible_deliberate_damage",
+    "needs_local_knowledge",
+    "consistent_edit",
+    "likely_good_faith_mistake"
+   ],
+   "probabilities": {
+    "possible_deliberate_damage": 0.0974,
+    "needs_local_knowledge": 0.3312,
+    "consistent_edit": 0.3423,
+    "likely_good_faith_mistake": 0.2292
+   },
+   "confidence": 0.123
+  },
+  {
+   "name": "response_p0",
+   "order": [
+    "no_action_suggested",
+    "welcome_and_tips",
+    "ask_source_question",
+    "request_local_check",
+    "escalate_to_experienced_reviewer"
+   ],
+   "probabilities": {
+    "no_action_suggested": 0.3263,
+    "welcome_and_tips": 0.0446,
+    "ask_source_question": 0.2946,
+    "request_local_check": 0.2453,
+    "escalate_to_experienced_reviewer": 0.0893
+   },
+   "confidence": 0.1579
+  },
+  {
+   "name": "response_p1",
+   "order": [
+    "welcome_and_tips",
+    "ask_source_question",
+    "request_local_check",
+    "escalate_to_experienced_reviewer",
+    "no_action_suggested"
+   ],
+   "probabilities": {
+    "welcome_and_tips": 0.0511,
+    "ask_source_question": 0.2119,
+    "request_local_check": 0.2115,
+    "escalate_to_experienced_reviewer": 0.086,
+    "no_action_suggested": 0.4395
+   },
+   "confidence": 0.2993
+  },
+  {
+   "name": "response_p2",
+   "order": [
+    "request_local_check",
+    "escalate_to_experienced_reviewer",
+    "no_action_suggested",
+    "welcome_and_tips",
+    "ask_source_question"
+   ],
+   "probabilities": {
+    "request_local_check": 0.2049,
+    "escalate_to_experienced_reviewer": 0.1029,
+    "no_action_suggested": 0.358,
+    "welcome_and_tips": 0.0391,
+    "ask_source_question": 0.2951
+   },
+   "confidence": 0.1975
+  }
+ ],
+ "aggregated": {
+  "nature": {
+   "probabilities": {
+    "consistent_edit": 0.3292333333333333,
+    "likely_good_faith_mistake": 0.16593333333333335,
+    "possible_deliberate_damage": 0.11146666666666667,
+    "needs_local_knowledge": 0.39339999999999997
+   },
+   "argmax": "needs_local_knowledge",
+   "confidence_agg": 0.19119999999999995,
+   "order_sensitivity": 0.28769999999999996
+  },
+  "response": {
+   "probabilities": {
+    "no_action_suggested": 0.3746,
+    "welcome_and_tips": 0.04493333333333333,
+    "ask_source_question": 0.2672,
+    "request_local_check": 0.22056666666666666,
+    "escalate_to_experienced_reviewer": 0.09273333333333333
+   },
+   "argmax": "no_action_suggested",
+   "confidence_agg": 0.21825,
+   "order_sensitivity": 0.2395
+  }
+ },
+ "nouls": {
+  "comment_matches_changes": 0.3995,
+  "mature_feature_deleted_probe": 0.1091
+ },
+ "band": null,
+ "rules_fired": [],
+ "reconciliation": null,
+ "lane": null,
+ "timing_ms": {
+  "decider": 986
+ },
+ "errors": [],
+ "human_outcome_ids": [],
+ "note": "Synthetic fixture 02; stand-in state; GPU L4 run. Not a labelled evaluation.",
+ "observed": {
+  "client_latency_ms": 986,
+  "server_latency_ms": 439.56,
+  "input_tokens": 1631,
+  "order_probe_max_gap_nature_p0_vs_p1": 0.0794
+ }
+}

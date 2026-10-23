@@ -1,0 +1,26 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1055572367,
+      "timestamp": "2022-04-28T02:48:24Z",
+      "version": 1,
+      "changeset": 120282478,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "nodes": [
+        9699444725,
+        9699444726
+      ],
+      "tags": {
+        "highway": "service",
+        "service": "parking_aisle"
+      }
+    }
+  ]
+}

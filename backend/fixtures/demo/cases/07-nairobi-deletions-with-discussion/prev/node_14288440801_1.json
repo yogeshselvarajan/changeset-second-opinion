@@ -1,0 +1,24 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 14288440801,
+      "lat": -36.7397234,
+      "lon": 174.741906,
+      "timestamp": "2026-10-16T00:06:43Z",
+      "version": 1,
+      "changeset": 190581333,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "tags": {
+        "amenity": "fast_food",
+        "name": "Sip n Chill"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="synthetic fixture (CC0)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <modify>
+  <way id="900000000101" visible="true" version="3" changeset="900000000001" timestamp="2026-03-01T10:12:00Z" user="mapper_A" uid="900000001">
+   <nd ref="900000001101"/>
+   <nd ref="900000001102"/>
+   <tag k="highway" v="residential"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+  <way id="900000000102" visible="true" version="3" changeset="900000000001" timestamp="2026-03-01T10:13:00Z" user="mapper_A" uid="900000001">
+   <nd ref="900000001102"/>
+   <nd ref="900000001103"/>
+   <tag k="highway" v="footway"/>
+   <tag k="surface" v="paving_stones"/>
+  </way>
+  <way id="900000000103" visible="true" version="3" changeset="900000000001" timestamp="2026-03-01T10:14:00Z" user="mapper_A" uid="900000001">
+   <nd ref="900000001103"/>
+   <nd ref="900000001104"/>
+   <tag k="highway" v="track"/>
+   <tag k="surface" v="gravel"/>
+  </way>
+ </modify>
+</osmChange>

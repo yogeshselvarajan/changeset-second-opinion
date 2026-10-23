@@ -1,0 +1,99 @@
+---
+title: How a verdict is made
+description: How ten yes or no questions, a few fixed rules and one table turn the evidence for a changeset into a suggested reading.
+---
+
+*For anyone curious, and for judges checking the claims. Explanation.*
+
+The tool never writes to OpenStreetMap, and lanes only order the queue. Nothing here closes, hides or posts anything. A person reads the result and decides.
+
+## The short version
+
+The tool does not ask a model "is this edit good or bad". That is a hard question and a small model answers it badly. Instead it asks the model ten small yes or no questions about facts in the evidence. Then fixed rules and one table combine the answers into a single reading. The model never decides alone.
+
+1. The tool collects the public evidence for one changeset, using read-only requests.
+2. It writes that evidence as plain text, with a coverage block first that says how much it could see.
+3. The Strands Decider 2B answers ten yes or no questions about that text.
+4. Fixed rules, which read parsed numbers and never model answers, set a floor of caution.
+5. One table turns the ten answers into a suggested response, a nature, a band and a lane.
+
+## The model: Strands Decider 2B
+
+The Decider is a small local model, `StrandsAgents/strands-decider-2B-qwen3.5-v1-2610`. It runs as a separate server on the same machine and only listens on `127.0.0.1`. It is built to answer typed questions with probabilities, which is why it fits yes or no questions. See [run the Decider](../../self-host/run-the-decider/).
+
+A second model, Claude Haiku 4.5 on Amazon Bedrock, only writes comment drafts after a person asks. It plays no part in the verdict. See [draft and send a comment](../../review/draft-and-send-a-comment/).
+
+## Ten independent questions
+
+Each question is asked on its own, about one fact. The question text is a constant in the code and never contains text from the evidence. Evidence text is data: it is cleaned, shown in quotes, and any link in it is never opened.
+
+| Question as reviewers see it | What a yes means |
+| --- | --- |
+| An old or heavily edited feature was deleted | Raises concern |
+| New tag values look like nonsense, a test string or a name | Raises concern |
+| The changeset comment matches the edits | Reassures |
+| New or changed tags follow ordinary OSM conventions | Reassures |
+| The account is new or has very few changesets | Raises concern |
+| Deleted elements were added by the same account recently | Raises concern |
+| The edits claim a real-world change that tags cannot confirm | Raises concern |
+| The discussion names a survey, imagery or other source | Reassures |
+| One tag key was changed on more than 20 elements | Raises concern |
+| The evidence covers all deletions and most modified elements | Cross-check only |
+
+The last question is a cross-check of the coverage rule. It is asked and stored, but the table does not read it.
+
+## From a probability to a reading
+
+For each question the model gives one probability that the answer is yes. The tool reads it against two thresholds, 0.35 and 0.65. These live in the community pack, so a community can change them. See [tune it to your community](../../administer/tune-to-your-community/).
+
+| Probability of yes | Remainder (no) | Reading |
+| --- | --- | --- |
+| Above 0.65, for example 0.82 | 0.18 | Yes |
+| 0.35 to 0.65, for example 0.50 | 0.50 | Unknown, the cannot-tell band |
+| Below 0.35, for example 0.12 | 0.88 | No |
+
+The tool shows every probability, never one headline number. There is no score out of 100 and no single percentage for how bad an edit is.
+
+An unknown reading is always taken in the cautious direction. It never triggers a stronger action. It only withholds reassurance: the tool will not suggest "no action" or place a case in the looks-consistent lane unless every question the table reads gave a clear answer.
+
+## Rules that read parsed evidence
+
+Four fixed rules read counts, ages and coverage that the tool parses from the evidence. They never read a model answer.
+
+| Rule | Reads | Effect |
+| --- | --- | --- |
+| R1 mature deletion | A deleted element older than 365 days, or with five or more earlier versions | The response becomes "ask an experienced reviewer to look", and the lane is never looks consistent |
+| R2 mass change | Automated flags for mass deletion, mass modification or a possible import | The lane is at least review suggested |
+| R3 coverage | A coverage score under 0.5, or history gaps on more than 20 percent of detailed elements | The lane is insufficient evidence, and drafting is limited to a question |
+| R4 new account with deletions | An account under 7 days old that deleted something | The lane is at least review suggested |
+
+If the model is not available, a run is recorded as rules only. The rules still run and the evidence is still shown.
+
+Four of the ten questions can also be worked out from parsed evidence. The tool computes them and uses the result as a floor: a parsed fact that is true reads yes whatever the model said, and a fact that cannot be computed reads unknown. A parsed fact that is false leaves the model's reading as it was. So a model answer can only make a lane more cautious, never less.
+
+## One table makes the reading
+
+The table has no model in it. The first row that matches wins. Here is the response table, written in plain words.
+
+1. Suggest an experienced reviewer if the nonsense question is yes, or rule R1 fired, or at least two of the old-deletion, new-account, real-world-claim and mass-retag questions are yes.
+2. Suggest a local check if a real-world change is claimed and the discussion names a source.
+3. Suggest a question about the source if a real-world change is claimed.
+4. Suggest a welcome and tips if the account is new, or the conventions or comment questions read no.
+5. Suggest no action only if no evidence rule fired, the comment and conventions questions read yes, and every concern question reads no.
+6. Otherwise suggest a question about the source.
+
+A second table, built the same way, picks one of four natures: possible deliberate damage, needs local knowledge, likely good-faith mistake, or consistent edit. The word "possible" is deliberate. It is a prompt for a person to look, not a finding about anyone.
+
+The model also gives a four-way nature answer. It is stored for audit and evaluation, marked advisory, and has no path into the response, the band or the lane.
+
+## Band and lane
+
+The band counts how many of the questions the table reads came back unknown. At most one unknown is confident, up to three is unsure, and more is cannot tell. The band shows how decisive the readings were. It does not show how likely the edit is to be harmful.
+
+The lane then follows. Coverage rule R3 decides insufficient evidence by itself. Looks consistent needs a confident consistent-edit reading and no evidence rule. A local-knowledge nature or a local-check response gives needs local knowledge. Everything else is review suggested. Lanes only order the queue. See [why lanes only order the queue](../why-lanes-only-order-the-queue/).
+
+## Where to check it
+
+Every reading is kept in a receipt: the probabilities, the rules that fired, the table rows used and the coverage. See [read a receipt](../../review/read-a-receipt/) and the [receipt schema](../../reference/receipt-schema/). For how well the readings match a reference answer key, and why that evidence is thin, see [what it cannot do](../what-it-cannot-do/).
+
+The code is in [`backend/src/cso/domain/panel.py`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/backend/src/cso/domain/panel.py), [`policy.py`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/backend/src/cso/domain/policy.py) and [`lanes.py`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/backend/src/cso/domain/lanes.py).

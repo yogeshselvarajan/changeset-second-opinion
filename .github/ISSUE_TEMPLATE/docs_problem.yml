@@ -1,0 +1,37 @@
+name: Docs problem
+description: A page of the docs is wrong, unclear, out of date or missing
+title: "docs: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Every docs page has an "Edit page" link at the bottom: for a typo, a small pull
+        request is the quickest fix. For anything bigger, tell us here. Please do not paste secrets,
+        invite codes or personal data.
+  - type: input
+    id: page
+    attributes:
+      label: Which page
+      description: The address of the page, or its title.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong
+      options:
+        - A step does not work
+        - It says something that is no longer true
+        - It is unclear or hard to follow
+        - Something is missing
+        - A typo or a broken link
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What happened, and what you expected
+      description: If a step failed, include the command and the message you saw.
+    validations:
+      required: true

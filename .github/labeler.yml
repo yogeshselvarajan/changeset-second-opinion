@@ -1,0 +1,22 @@
+# Path labels, applied by .github/workflows/labeler.yml (actions/labeler).
+backend:
+  - changed-files:
+      - any-glob-to-any-file: ["backend/**"]
+web:
+  - changed-files:
+      - any-glob-to-any-file: ["web/**"]
+docs:
+  - changed-files:
+      - any-glob-to-any-file: ["site/**", "docs/**", "*.md"]
+infra:
+  - changed-files:
+      - any-glob-to-any-file: ["infra/**"]
+ci:
+  - changed-files:
+      - any-glob-to-any-file: [".github/**", "scripts/ci/**"]
+eval:
+  - changed-files:
+      - any-glob-to-any-file: ["evaluation/**"]
+security:
+  - changed-files:
+      - any-glob-to-any-file: ["SECURITY.md", ".github/workflows/codeql.yml", ".github/workflows/scorecard.yml"]

@@ -1,0 +1,26 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 11176665205,
+      "lat": -36.7881265,
+      "lon": 174.7715811,
+      "timestamp": "2023-09-08T13:48:35Z",
+      "version": 1,
+      "changeset": 140988205,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "tags": {
+        "amenity": "telephone",
+        "check_date": "2023-09-09",
+        "operator": "Spark New Zealand",
+        "operator:wikidata": "Q1549526"
+      }
+    }
+  ]
+}

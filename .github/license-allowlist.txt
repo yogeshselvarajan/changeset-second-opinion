@@ -1,0 +1,6 @@
+# Runtime Python packages that may carry a GPL or AGPL licence. One name per line, a reason after #.
+# CI (the licenses job) fails on any other GPL or AGPL runtime dependency, so a copyleft package
+# cannot come back unnoticed. The list is empty on purpose. Review every addition.
+#
+# Example line:
+# some-package  # why it is acceptable, who approved it, and when it goes away

@@ -1,0 +1,67 @@
+name: Bug report
+description: Something does not work as described
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please do not paste secrets, invite codes, session cookies or
+        personal data. For a security problem, follow the private reporting steps in SECURITY.md
+        instead of opening an issue.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Replay mode with a fixture is easiest to reproduce.
+      placeholder: |
+        1. Start the API with CSO_MODE=replay
+        2. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - osm
+        - decider
+        - policy
+        - draft
+        - persistence
+        - jobs
+        - api
+        - auth
+        - web
+        - infra
+        - eval
+        - docs
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Runtime mode
+      options:
+        - replay
+        - live
+        - not sure
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python and Node versions, and how you ran it (uv, docker compose).
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or output
+      description: Remove tokens, cookies and any personal data first.
+      render: text

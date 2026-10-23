@@ -1,0 +1,30 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1408565020,
+      "timestamp": "2026-03-25T06:15:01Z",
+      "version": 3,
+      "changeset": 180388268,
+      "user": "mapper_M",
+      "uid": 900000013,
+      "nodes": [
+        12944728643,
+        12944734718,
+        12944734724,
+        12944728642
+      ],
+      "tags": {
+        "covered": "yes",
+        "crossing": "zebra",
+        "footway": "crossing",
+        "highway": "footway"
+      }
+    }
+  ]
+}

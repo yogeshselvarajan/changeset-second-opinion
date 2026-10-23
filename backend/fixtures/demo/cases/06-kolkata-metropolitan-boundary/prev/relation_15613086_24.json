@@ -1,0 +1,78 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 15613086,
+      "timestamp": "2024-12-13T09:31:18Z",
+      "version": 24,
+      "changeset": 160237600,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "members": [
+        {
+          "type": "node",
+          "ref": 9182612241,
+          "role": "admin_centre"
+        },
+        {
+          "type": "way",
+          "ref": 1155005035,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1155150061,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1155005033,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299846802,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299845848,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299845306,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299845057,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 1299844783,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "addr:subdistrict": "Kalyani",
+        "admin_level": "7",
+        "boundary": "administrative",
+        "capital_city": "Kolkata",
+        "district": "Nadia South (Kolkata)",
+        "name": "Nagarukhra",
+        "population": "49922",
+        "region": "Presidency Division",
+        "type": "boundary",
+        "wikidata": "Q123662870",
+        "wikipedia": "bn:নগরউখড়া, পশ্চিমবঙ্গ"
+      }
+    }
+  ]
+}

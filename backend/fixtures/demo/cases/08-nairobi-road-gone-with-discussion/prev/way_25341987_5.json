@@ -1,0 +1,35 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 25341987,
+      "timestamp": "2019-03-25T01:57:06Z",
+      "version": 5,
+      "changeset": 68489902,
+      "user": "mapper_D",
+      "uid": 900000004,
+      "nodes": [
+        276137376,
+        6359516282,
+        6359516283,
+        276137377,
+        6359516284,
+        6359516281,
+        276137378,
+        6359516279,
+        6359516280,
+        276136816
+      ],
+      "tags": {
+        "highway": "residential",
+        "name": "Nakuru Street",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

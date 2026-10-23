@@ -1,0 +1,75 @@
+---
+title: Register the OSM sign-in app
+description: Register a read-only OpenStreetMap application and give its id and secret to the server.
+---
+
+*For operators who self-host. How-to.*
+
+Sign in with OpenStreetMap needs an OpenStreetMap application that you register once. It asks for `read_prefs` only, so the token can read the signed-in user's own details and nothing else.
+
+## What you need first
+
+- An OpenStreetMap account that should own the app.
+- The address of your deployment, or `127.0.0.1` for a local copy.
+- A safe place for the client secret. OpenStreetMap shows it once.
+
+## Register the app
+
+1. While signed in to OpenStreetMap, open `https://www.openstreetmap.org/oauth2/applications/new`. The list of your apps is at `https://www.openstreetmap.org/oauth2/applications`.
+2. Give the app a name.
+3. Set the redirect URI. It ends in `/api/v1/auth/osm/callback`:
+   - Hosted: `https://<your domain>/api/v1/auth/osm/callback`
+   - Local: `http://127.0.0.1:8000/api/v1/auth/osm/callback`
+
+   Put one address per line if you keep both.
+4. Tick **Confidential application**.
+5. Tick only **Read user preferences** (`read_prefs`). Leave every write permission unticked.
+6. Save. Copy the **client id** and the **client secret** now. The secret is shown once.
+
+Do not paste the secret into a chat, an issue or a commit. If that happens, delete the application and register a new one.
+
+The server refuses a redirect URL that is not `https`, or `http` on a loopback address.
+
+## Give the values to the server
+
+### On a local copy
+
+Put these in `backend/.env`, not in the repository root file:
+
+```sh
+CSO_OSM_OAUTH_CLIENT_ID=<client id>
+CSO_OSM_OAUTH_CLIENT_SECRET=<client secret>
+CSO_OSM_OAUTH_REDIRECT_URL=http://127.0.0.1:8000/api/v1/auth/osm/callback
+CSO_WEB_BASE_URL=http://127.0.0.1:5173
+```
+
+Sign-in is on only when the client id, the secret and the redirect URL are all set.
+
+**The 127.0.0.1 rule.** Open the site at `http://127.0.0.1:5173`, not `localhost`. OpenStreetMap sends the browser back to `127.0.0.1`, and the sign-in cookie is only sent back to the same host. `CSO_WEB_BASE_URL` tells the API where to send the browser after sign-in, because the web app runs on another port. Leave it empty on a hosted copy where one proxy serves both.
+
+Restart `uv run cso api` after you change the file.
+
+### On the AWS host
+
+Store them in SSM Parameter Store. The secret is a `SecureString`:
+
+```sh
+aws ssm put-parameter --name /cso/prod/osm_oauth_client_id --type String --value '<client id>'
+aws ssm put-parameter --name /cso/prod/osm_oauth_client_secret --type SecureString --value '<client secret>'
+```
+
+Then run `sudo bash /opt/cso/infra/scripts/bootstrap.sh` on the host. If either of the first two parameters is missing, the feature stays off. See [Deploy on AWS](../deploy-on-aws/).
+
+## Optional: limit who can sign in
+
+Set `CSO_OSM_SIGNIN_ALLOWED_UIDS` to comma separated OpenStreetMap user ids. On a public host, set it. A typo in the list prevents the server from starting rather than letting everyone in. To name the admin, see [Set up the first admin](../../administer/first-admin/).
+
+## If sign-in fails
+
+The error "Client authentication failed due to unknown client" means the client id or secret is wrong, or the app was deleted. Check the values, or register a new app and replace both. Other messages are listed in [Monitor and troubleshoot](../monitor-and-troubleshoot/).
+
+## Check that it worked
+
+Open the sign-in page. The **Sign in with OpenStreetMap** button shows. Choosing it takes you to OpenStreetMap, and after you approve, back to the queue. An admin can also see the switch under Settings, Access.
+
+Next: [Replay mode and live mode](../replay-and-live/).

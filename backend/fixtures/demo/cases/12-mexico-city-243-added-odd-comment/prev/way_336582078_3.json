@@ -1,0 +1,30 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 336582078,
+      "timestamp": "2019-03-18T18:16:24Z",
+      "version": 3,
+      "changeset": 68267991,
+      "user": "mapper_H",
+      "uid": 900000008,
+      "nodes": [
+        679493784,
+        679495620,
+        679493782,
+        679495031,
+        679495023
+      ],
+      "tags": {
+        "highway": "tertiary",
+        "name": "Avenida Michoacán Oriente",
+        "oneway": "yes"
+      }
+    }
+  ]
+}

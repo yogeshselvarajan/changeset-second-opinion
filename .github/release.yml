@@ -1,0 +1,22 @@
+# Categories for GitHub generated release notes (used when a release is created without release-please).
+changelog:
+  exclude:
+    labels: ["skip-changelog"]
+    authors: ["dependabot[bot]", "github-actions[bot]"]
+  categories:
+    - title: "Security"
+      labels: ["security"]
+    - title: "New"
+      labels: ["feat", "enhancement"]
+    - title: "Fixes"
+      labels: ["fix", "bug"]
+    - title: "Decision model, policy and drafts"
+      labels: ["decider", "policy", "draft"]
+    - title: "Documentation"
+      labels: ["docs", "documentation"]
+    - title: "Operations and deployment"
+      labels: ["infra", "ci", "obs"]
+    - title: "Dependencies"
+      labels: ["dependencies"]
+    - title: "Other changes"
+      labels: ["*"]

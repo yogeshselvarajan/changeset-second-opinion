@@ -1,0 +1,38 @@
+{
+  "fixture_id": "03-insufficient-evidence",
+  "description": "300 modified ways; budget detail covers 40; two prior versions redacted",
+  "changeset_id": 900000000003,
+  "coverage": {
+    "elements_in_changeset": 300,
+    "elements_detailed": 40,
+    "elements_skipped_budget": 260,
+    "history_gaps": [
+      {
+        "osm_type": "way",
+        "osm_id": 900000030007,
+        "reason": "redacted"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 900000030023,
+        "reason": "redacted"
+      }
+    ],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 0.126667
+  },
+  "flags": [
+    "mass modification"
+  ],
+  "rules": [
+    "R2",
+    "R3"
+  ],
+  "nature": null,
+  "response": null,
+  "lane": "insufficient_evidence",
+  "notes": "Detail budget is 40 elements; every way touches highway so ranking ties and document order decides (ways 1..40 carry prev files). History fallback is not replayable, so the two 403 ways stay gaps. score = 40/300 x (1 - 2/40). R2 also fires (osmcha mass modification); R3 forces the lane.",
+  "receipt": null
+}

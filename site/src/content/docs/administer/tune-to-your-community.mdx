@@ -1,0 +1,59 @@
+---
+title: Tune it to your community
+description: Pick a community pack, read what it changes, and switch to it from the Config page.
+---
+
+import ThemedShot from '../../../components/ThemedShot.astro';
+
+*For community admins. How-to.*
+
+A community pack is a file that sets the cut points, a few rules and the tone of drafts. Four ship with the tool. You switch packs on the Config page, and the page shows every setting that would change before anything is applied.
+
+## What you need first
+
+- An admin session. See [Set up the first admin](../first-admin/).
+- A sense of which pack fits. The table below helps.
+
+## The four packs
+
+| Pack | Choose it when | What differs from the default |
+| --- | --- | --- |
+| Default | You want the balanced starting point | The reference. Confident from 0.80, unsure from 0.50. Rule R1 fires on features older than 365 days. |
+| Newcomer friendly | Your community mostly meets new mappers | A new account's claim gets a welcome before a question. A mistake is suggested only when both the comment and the conventions look off. Links to `https://learnosm.org/` are allowed in drafts. Rules and caution are unchanged. |
+| Strict review | You want closer scrutiny | Confident from 0.85, unsure from 0.60. Rule R1 fires on features older than 180 days. The band asks for fewer unknown readings before it says confident. |
+| Hindi (hi-IN) | Your mappers write in Hindi | The default rules. Drafts are in Hindi when the mapper's locale is Hindi, English otherwise. A link to the Hindi wiki is allowed. |
+
+The pack files live in [`config/communities/`](https://github.com/yogeshselvarajan/changeset-second-opinion/tree/main/config/communities). Their fields are listed in the [community pack schema](../../reference/community-pack-schema/).
+
+## What a pack cannot change
+
+Every pack keeps the same floor. Rules read parsed evidence such as counts, ages and coverage, and a model answer can only make a lane more cautious. A pack changes how many cases land in each lane, never what is hidden. Every case stays in the queue. See [Why lanes only order the queue](../../concepts/why-lanes-only-order-the-queue/).
+
+The words that drafts avoid are the same in every pack, and a draft that uses one is refused by the checker.
+
+## Switch pack
+
+<ThemedShot name="config" alt="The Config page. It shows the active version, the bands, the rules R1 to R6, the tone settings and a list of community packs with the active one marked In use." caption="The Config page. Community packs are listed at the bottom, and the pack in use is marked." />
+
+1. Open **Config** and scroll to **Community packs**. The pack in use is marked **In use**.
+2. On the pack you want, choose **Switch to this pack**.
+3. Read the dialog, titled "Switch to the" followed by the pack name and "pack?". It lists the settings that would change, with the value in use now and the value after the switch. New analyses and drafts will use this pack. Runs already made keep the pack they used.
+4. Choose **Switch pack**.
+
+## Tone and thresholds
+
+Tone belongs to the pack: the language policy, the links drafts may contain and the checked words. The Config page shows them under **Tone**.
+
+Cut points belong to the pack and to calibration. They are not edited as sliders in Settings. The **Review** tab of Settings shows the active pack and the calibration version, and says so. To move cut points with your reviewers' decisions, see [Calibration](../calibration/).
+
+To write your own pack, copy a file in `config/communities/` and follow the [community pack schema](../../reference/community-pack-schema/).
+
+The server reads the pack folder each time the Config page asks for the list of packs, so a new valid file appears there without a restart. A file that is invalid, or that uses the same pack id as another file, prevents the list from being built, and the page says a pack file is invalid. Switching to a pack needs the admin role. From the command line, `cso calibrate --apply` is the command that stores and activates a new version.
+
+## Check that it worked
+
+- The Config page marks the new pack **In use**, and announces "Switched to the" followed by the pack name and "pack".
+- The **Review** tab of Settings shows the new pack under **Active pack**.
+- A case analysed after the switch names the new configuration version on its receipt. See [Read a receipt](../../review/read-a-receipt/).
+
+Next: [Calibration](../calibration/).

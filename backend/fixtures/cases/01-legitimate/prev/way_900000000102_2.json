@@ -1,0 +1,26 @@
+{
+  "version": "0.6",
+  "generator": "synthetic fixture (CC0)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 900000000102,
+      "timestamp": "2025-06-01T08:00:00Z",
+      "version": 2,
+      "changeset": 899999999000,
+      "user": "mapper_Z",
+      "uid": 900000009,
+      "visible": true,
+      "tags": {
+        "highway": "footway"
+      },
+      "nodes": [
+        900000001102,
+        900000001103
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+name: release-please
+
+# Keeps one open "release" pull request on main. It carries the next version (computed from the
+# Conventional Commit types on main) and edits the version in backend/pyproject.toml, backend/uv.lock,
+# web/package.json and web/package-lock.json. A person reviews and merges it. Merging it tags
+# vX.Y.Z and creates the GitHub Release, and this workflow then starts release.yml for that tag
+# (a workflow_dispatch call, because events made with GITHUB_TOKEN do not start other workflows).
+#
+# Set the repository secret RELEASE_PLEASE_TOKEN (fine grained token, this repository only, contents
+# and pull requests write) so the release pull request runs the required checks. Without it the
+# workflow still works, but the checks never start on the release pull request.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.rp.outputs.release_created }}
+      tag_name: ${{ steps.rp.outputs.tag_name }}
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - id: rp
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          config-file: .github/release-please-config.json
+          manifest-file: .github/.release-please-manifest.json
+
+  start-release:
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write # to dispatch release.yml
+      contents: read
+    steps:
+      - name: Start the release workflow for the new tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: gh workflow run release.yml --ref "$TAG" -f target=auto

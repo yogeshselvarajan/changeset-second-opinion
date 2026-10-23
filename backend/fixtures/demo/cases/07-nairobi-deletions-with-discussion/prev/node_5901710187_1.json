@@ -1,0 +1,24 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 5901710187,
+      "lat": -36.788688,
+      "lon": 174.769178,
+      "timestamp": "2018-09-12T11:58:27Z",
+      "version": 1,
+      "changeset": 62518138,
+      "user": "mapper_I",
+      "uid": 900000009,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Como st Cafe"
+      }
+    }
+  ]
+}

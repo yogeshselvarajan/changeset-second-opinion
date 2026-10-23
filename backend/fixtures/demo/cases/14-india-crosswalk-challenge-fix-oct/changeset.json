@@ -1,0 +1,33 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changeset": {
+    "id": 189806470,
+    "created_at": "2026-10-01T07:06:03Z",
+    "open": false,
+    "comments_count": 0,
+    "changes_count": 32,
+    "created_count": 14,
+    "modified_count": 16,
+    "deleted_count": 2,
+    "closed_at": "2026-10-01T07:06:05Z",
+    "min_lat": 19.0556242,
+    "min_lon": 72.8980838,
+    "max_lat": 19.0561729,
+    "max_lon": 72.9005489,
+    "uid": 900000001,
+    "user": "mapper_A",
+    "tags": {
+      "changesets_count": "9582",
+      "comment": "added residential road and gate with private access",
+      "created_by": "iD 2.42.2",
+      "host": "[url removed]",
+      "imagery_used": "Bing Maps Aerial;Esri World Imagery",
+      "locale": "en-US"
+    },
+    "comments": []
+  }
+}

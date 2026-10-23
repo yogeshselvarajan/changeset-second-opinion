@@ -1,0 +1,1922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1322 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="14298200957" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2472491" lon="73.6822440"/>
+ </create>
+ <create>
+  <node id="14298200958" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2471328" lon="73.6821547"/>
+ </create>
+ <create>
+  <node id="14298200959" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2470950" lon="73.6820485"/>
+ </create>
+ <create>
+  <node id="14298200960" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2464647" lon="73.6816501"/>
+ </create>
+ <create>
+  <node id="14298200961" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2463852" lon="73.6815872"/>
+ </create>
+ <create>
+  <node id="14298200962" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2462237" lon="73.6815110"/>
+ </create>
+ <create>
+  <node id="14298200963" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2459996" lon="73.6812818"/>
+ </create>
+ <create>
+  <node id="14298200964" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2472490" lon="73.6823425"/>
+ </create>
+ <create>
+  <node id="14298200965" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2473589" lon="73.6822844"/>
+ </create>
+ <create>
+  <node id="14298200966" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2473564" lon="73.6822643"/>
+ </create>
+ <create>
+  <node id="14298200967" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9381526" lon="73.5792434"/>
+ </create>
+ <create>
+  <node id="14298200968" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9382342" lon="73.5792381"/>
+ </create>
+ <create>
+  <node id="14298200969" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9382342" lon="73.5790771"/>
+ </create>
+ <create>
+  <node id="14298200970" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9381832" lon="73.5789108"/>
+ </create>
+ <create>
+  <node id="14298200971" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9381424" lon="73.5787445"/>
+ </create>
+ <create>
+  <node id="14298200972" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9380811" lon="73.5785675"/>
+ </create>
+ <create>
+  <node id="14298200973" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9380026" lon="73.5783742"/>
+ </create>
+ <create>
+  <node id="14298200974" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379190" lon="73.5781785"/>
+ </create>
+ <create>
+  <node id="14298200975" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379029" lon="73.5780907"/>
+ </create>
+ <create>
+  <node id="14298200976" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379674" lon="73.5778673"/>
+ </create>
+ <create>
+  <node id="14298200977" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9380245" lon="73.5777025"/>
+ </create>
+ <create>
+  <node id="14298200978" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9381858" lon="73.5776979"/>
+ </create>
+ <create>
+  <node id="14298200979" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9382546" lon="73.5775823"/>
+ </create>
+ <create>
+  <node id="14298200980" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9384144" lon="73.5775361"/>
+ </create>
+ <create>
+  <node id="14298200981" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9385668" lon="73.5772804"/>
+ </create>
+ <create>
+  <node id="14298200982" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9386592" lon="73.5770278"/>
+ </create>
+ <create>
+  <node id="14298200983" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9387017" lon="73.5769862"/>
+ </create>
+ <create>
+  <node id="14298200984" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9386987" lon="73.5769677"/>
+ </create>
+ <create>
+  <node id="14298200985" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9386313" lon="73.5769569"/>
+ </create>
+ <create>
+  <node id="14298200986" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9385507" lon="73.5769061"/>
+ </create>
+ <create>
+  <node id="14298200987" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9383543" lon="73.5768999"/>
+ </create>
+ <create>
+  <node id="14298200988" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9381403" lon="73.5769985"/>
+ </create>
+ <create>
+  <node id="14298200989" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379571" lon="73.5770801"/>
+ </create>
+ <create>
+  <node id="14298200990" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9377798" lon="73.5770770"/>
+ </create>
+ <create>
+  <node id="14298200991" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9377127" lon="73.5770631"/>
+ </create>
+ <create>
+  <node id="14298200992" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9376891" lon="73.5770349"/>
+ </create>
+ <create>
+  <node id="14298200993" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9376859" lon="73.5770181"/>
+ </create>
+ <create>
+  <node id="14298200994" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9375328" lon="73.5769283"/>
+ </create>
+ <create>
+  <node id="14298200995" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9375213" lon="73.5769095"/>
+ </create>
+ <create>
+  <node id="14298200996" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9375015" lon="73.5769028"/>
+ </create>
+ <create>
+  <node id="14298200997" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9374632" lon="73.5769122"/>
+ </create>
+ <create>
+  <node id="14298200998" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9374384" lon="73.5769350"/>
+ </create>
+ <create>
+  <node id="14298200999" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9374192" lon="73.5769658"/>
+ </create>
+ <create>
+  <node id="14298201000" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372993" lon="73.5769484"/>
+ </create>
+ <create>
+  <node id="14298223601" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372948" lon="73.5769155"/>
+ </create>
+ <create>
+  <node id="14298223602" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372674" lon="73.5769001"/>
+ </create>
+ <create>
+  <node id="14298223603" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372266" lon="73.5768968"/>
+ </create>
+ <create>
+  <node id="14298223604" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372017" lon="73.5769155"/>
+ </create>
+ <create>
+  <node id="14298223605" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9371921" lon="73.5769390"/>
+ </create>
+ <create>
+  <node id="14298223606" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9371347" lon="73.5769511"/>
+ </create>
+ <create>
+  <node id="14298223607" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9370230" lon="73.5770242"/>
+ </create>
+ <create>
+  <node id="14298223608" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9369108" lon="73.5770463"/>
+ </create>
+ <create>
+  <node id="14298223609" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9367679" lon="73.5770939"/>
+ </create>
+ <create>
+  <node id="14298223610" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366964" lon="73.5771201"/>
+ </create>
+ <create>
+  <node id="14298223611" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366441" lon="73.5772086"/>
+ </create>
+ <create>
+  <node id="14298223612" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366148" lon="73.5772803"/>
+ </create>
+ <create>
+  <node id="14298223613" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9365248" lon="73.5773346"/>
+ </create>
+ <create>
+  <node id="14298223614" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9364725" lon="73.5773735"/>
+ </create>
+ <create>
+  <node id="14298223615" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9364157" lon="73.5774124"/>
+ </create>
+ <create>
+  <node id="14298223616" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9363481" lon="73.5774191"/>
+ </create>
+ <create>
+  <node id="14298223617" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9362932" lon="73.5774654"/>
+ </create>
+ <create>
+  <node id="14298223618" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9362211" lon="73.5774761"/>
+ </create>
+ <create>
+  <node id="14298223619" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9361478" lon="73.5775056"/>
+ </create>
+ <create>
+  <node id="14298223620" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9360827" lon="73.5775271"/>
+ </create>
+ <create>
+  <node id="14298223621" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9360636" lon="73.5775083"/>
+ </create>
+ <create>
+  <node id="14298223622" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9360431" lon="73.5775070"/>
+ </create>
+ <create>
+  <node id="14298223623" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9359998" lon="73.5775499"/>
+ </create>
+ <create>
+  <node id="14298223624" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9359704" lon="73.5775915"/>
+ </create>
+ <create>
+  <node id="14298223625" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9359500" lon="73.5776196"/>
+ </create>
+ <create>
+  <node id="14298223626" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9358926" lon="73.5776049"/>
+ </create>
+ <create>
+  <node id="14298223627" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9358492" lon="73.5776625"/>
+ </create>
+ <create>
+  <node id="14298223628" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9358084" lon="73.5776531"/>
+ </create>
+ <create>
+  <node id="14298223629" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357663" lon="73.5776826"/>
+ </create>
+ <create>
+  <node id="14298223630" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356897" lon="73.5777363"/>
+ </create>
+ <create>
+  <node id="14298223631" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356706" lon="73.5777363"/>
+ </create>
+ <create>
+  <node id="14298223632" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356195" lon="73.5778060"/>
+ </create>
+ <create>
+  <node id="14298223633" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9355481" lon="73.5777926"/>
+ </create>
+ <create>
+  <node id="14298223634" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9355481" lon="73.5777805"/>
+ </create>
+ <create>
+  <node id="14298223635" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9355379" lon="73.5777671"/>
+ </create>
+ <create>
+  <node id="14298223636" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9355200" lon="73.5777658"/>
+ </create>
+ <create>
+  <node id="14298223637" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9354945" lon="73.5777779"/>
+ </create>
+ <create>
+  <node id="14298223638" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9354195" lon="73.5776925"/>
+ </create>
+ <create>
+  <node id="14298223639" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9353404" lon="73.5776161"/>
+ </create>
+ <create>
+  <node id="14298223640" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9352090" lon="73.5778065"/>
+ </create>
+ <create>
+  <node id="14298223641" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9351299" lon="73.5779473"/>
+ </create>
+ <create>
+  <node id="14298223642" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9350712" lon="73.5779943"/>
+ </create>
+ <create>
+  <node id="14298223643" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9350099" lon="73.5780412"/>
+ </create>
+ <create>
+  <node id="14298223644" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9349321" lon="73.5780721"/>
+ </create>
+ <create>
+  <node id="14298223645" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9347688" lon="73.5780841"/>
+ </create>
+ <create>
+  <node id="14298223646" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9346297" lon="73.5780788"/>
+ </create>
+ <create>
+  <node id="14298223647" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9346093" lon="73.5780573"/>
+ </create>
+ <create>
+  <node id="14298223648" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9345774" lon="73.5780721"/>
+ </create>
+ <create>
+  <node id="14298223649" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9345187" lon="73.5780721"/>
+ </create>
+ <create>
+  <node id="14298223650" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344562" lon="73.5780881"/>
+ </create>
+ <create>
+  <node id="14298223651" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344249" lon="73.5780711"/>
+ </create>
+ <create>
+  <node id="14298223652" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340504" lon="73.5780664"/>
+ </create>
+ <create>
+  <node id="14298223653" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344018" lon="73.5780418"/>
+ </create>
+ <create>
+  <node id="14298223654" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9343133" lon="73.5780533"/>
+ </create>
+ <create>
+  <node id="14298223655" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342090" lon="73.5780568"/>
+ </create>
+ <create>
+  <node id="14298223656" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341686" lon="73.5780423"/>
+ </create>
+ <create>
+  <node id="14298223657" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341359" lon="73.5780536"/>
+ </create>
+ <create>
+  <node id="14298223658" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340932" lon="73.5780454"/>
+ </create>
+ <create>
+  <node id="14298223659" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9331998" lon="73.5777510"/>
+ </create>
+ <create>
+  <node id="14298223660" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9334473" lon="73.5781572"/>
+ </create>
+ <create>
+  <node id="14298223661" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339774" lon="73.5780697"/>
+ </create>
+ <create>
+  <node id="14298223662" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339258" lon="73.5780625"/>
+ </create>
+ <create>
+  <node id="14298223663" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9338966" lon="73.5780183"/>
+ </create>
+ <create>
+  <node id="14298223664" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9338062" lon="73.5779979"/>
+ </create>
+ <create>
+  <node id="14298223665" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9337391" lon="73.5779841"/>
+ </create>
+ <create>
+  <node id="14298223666" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9336096" lon="73.5778640"/>
+ </create>
+ <create>
+  <node id="14298223667" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9335870" lon="73.5778146"/>
+ </create>
+ <create>
+  <node id="14298223668" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9333585" lon="73.5777562"/>
+ </create>
+ <create>
+  <node id="14298223669" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9333132" lon="73.5777288"/>
+ </create>
+ <create>
+  <node id="14298223670" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9332435" lon="73.5777399"/>
+ </create>
+ <create>
+  <node id="14298223671" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9332023" lon="73.5778293"/>
+ </create>
+ <create>
+  <node id="14298223672" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9332356" lon="73.5779012"/>
+ </create>
+ <create>
+  <node id="14298223673" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9332640" lon="73.5779452"/>
+ </create>
+ <create>
+  <node id="14298223674" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9333228" lon="73.5779344"/>
+ </create>
+ <create>
+  <node id="14298223675" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9332958" lon="73.5778330">
+   <tag k="man_made" v="tower"/>
+   <tag k="tower:type" v="defensive"/>
+  </node>
+ </create>
+ <create>
+  <node id="14298223676" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9335925" lon="73.5782357"/>
+ </create>
+ <create>
+  <node id="14298223677" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339422" lon="73.5795292"/>
+ </create>
+ <create>
+  <node id="14298223678" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339842" lon="73.5784381"/>
+ </create>
+ <create>
+  <node id="14298223679" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340321" lon="73.5785565"/>
+ </create>
+ <create>
+  <node id="14298223680" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340239" lon="73.5786904"/>
+ </create>
+ <create>
+  <node id="14298223681" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340808" lon="73.5787142"/>
+ </create>
+ <create>
+  <node id="14298223682" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341304" lon="73.5787272"/>
+ </create>
+ <create>
+  <node id="14298223683" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9343463" lon="73.5789159"/>
+ </create>
+ <create>
+  <node id="14298223684" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341717" lon="73.5787106"/>
+ </create>
+ <create>
+  <node id="14298223685" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342223" lon="73.5787222"/>
+ </create>
+ <create>
+  <node id="14298223686" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9343098" lon="73.5787840"/>
+ </create>
+ <create>
+  <node id="14298223687" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342665" lon="73.5789962"/>
+ </create>
+ <create>
+  <node id="14298223688" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341022" lon="73.5792535"/>
+ </create>
+ <create>
+  <node id="14298223689" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9335321" lon="73.5807650"/>
+ </create>
+ <create>
+  <node id="14298223690" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9337952" lon="73.5799377"/>
+ </create>
+ <create>
+  <node id="14298223691" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9336849" lon="73.5801034"/>
+ </create>
+ <create>
+  <node id="14298223692" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9336143" lon="73.5802757"/>
+ </create>
+ <create>
+  <node id="14298223693" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9336467" lon="73.5803130"/>
+ </create>
+ <create>
+  <node id="14298223694" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9335991" lon="73.5804272"/>
+ </create>
+ <create>
+  <node id="14298223695" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9335675" lon="73.5804681"/>
+ </create>
+ <create>
+  <node id="14298223696" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9335421" lon="73.5806125"/>
+ </create>
+ <create>
+  <node id="14298223697" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9380837" lon="73.5792376"/>
+ </create>
+ <create>
+  <node id="14298223698" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379911" lon="73.5792466"/>
+ </create>
+ <create>
+  <node id="14298223699" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9371696" lon="73.5789315"/>
+ </create>
+ <create>
+  <node id="14298223700" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379566" lon="73.5792581"/>
+ </create>
+ <create>
+  <node id="14298223701" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9379427" lon="73.5792408"/>
+ </create>
+ <create>
+  <node id="14298223702" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9378314" lon="73.5791791"/>
+ </create>
+ <create>
+  <node id="14298223703" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9377892" lon="73.5791270"/>
+ </create>
+ <create>
+  <node id="14298223704" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9377210" lon="73.5791222"/>
+ </create>
+ <create>
+  <node id="14298223705" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9376818" lon="73.5791357"/>
+ </create>
+ <create>
+  <node id="14298223706" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9376471" lon="73.5791159"/>
+ </create>
+ <create>
+  <node id="14298223707" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9376112" lon="73.5790653"/>
+ </create>
+ <create>
+  <node id="14298223708" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9375882" lon="73.5790347"/>
+ </create>
+ <create>
+  <node id="14298223709" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9374622" lon="73.5789681"/>
+ </create>
+ <create>
+  <node id="14298223710" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9373857" lon="73.5789472"/>
+ </create>
+ <create>
+  <node id="14298223711" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9373391" lon="73.5789119"/>
+ </create>
+ <create>
+  <node id="14298223712" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372754" lon="73.5789208"/>
+ </create>
+ <create>
+  <node id="14298223713" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372772" lon="73.5789660"/>
+ </create>
+ <create>
+  <node id="14298223714" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372596" lon="73.5789904"/>
+ </create>
+ <create>
+  <node id="14298223715" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372390" lon="73.5789760"/>
+ </create>
+ <create>
+  <node id="14298223716" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9372253" lon="73.5789334"/>
+ </create>
+ <create>
+  <node id="14298223717" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9361207" lon="73.5791345"/>
+ </create>
+ <create>
+  <node id="14298223718" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9370980" lon="73.5789711"/>
+ </create>
+ <create>
+  <node id="14298223719" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9370336" lon="73.5790068"/>
+ </create>
+ <create>
+  <node id="14298223720" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9369644" lon="73.5790105"/>
+ </create>
+ <create>
+  <node id="14298223721" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9369028" lon="73.5790478"/>
+ </create>
+ <create>
+  <node id="14298223722" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9368855" lon="73.5790965"/>
+ </create>
+ <create>
+  <node id="14298223723" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9368146" lon="73.5791120"/>
+ </create>
+ <create>
+  <node id="14298223724" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9367773" lon="73.5791329"/>
+ </create>
+ <create>
+  <node id="14298223725" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366998" lon="73.5791673"/>
+ </create>
+ <create>
+  <node id="14298223726" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366695" lon="73.5791946"/>
+ </create>
+ <create>
+  <node id="14298223727" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366594" lon="73.5792247"/>
+ </create>
+ <create>
+  <node id="14298223728" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9366224" lon="73.5792345"/>
+ </create>
+ <create>
+  <node id="14298223729" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9365769" lon="73.5792341"/>
+ </create>
+ <create>
+  <node id="14298223730" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9365256" lon="73.5791914"/>
+ </create>
+ <create>
+  <node id="14298223731" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9363955" lon="73.5792072"/>
+ </create>
+ <create>
+  <node id="14298223732" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9363389" lon="73.5792452"/>
+ </create>
+ <create>
+  <node id="14298223733" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9362029" lon="73.5792129"/>
+ </create>
+ <create>
+  <node id="14298223734" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9362709" lon="73.5792343"/>
+ </create>
+ <create>
+  <node id="14298223735" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9352368" lon="73.5792994"/>
+ </create>
+ <create>
+  <node id="14298223736" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344434" lon="73.5791775"/>
+ </create>
+ <create>
+  <node id="14298223737" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339574" lon="73.5799377"/>
+ </create>
+ <create>
+  <node id="14298223738" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9343822" lon="73.5792284"/>
+ </create>
+ <create>
+  <node id="14298223739" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342506" lon="73.5793796"/>
+ </create>
+ <create>
+  <node id="14298223740" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342000" lon="73.5794126"/>
+ </create>
+ <create>
+  <node id="14298223741" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341713" lon="73.5794858"/>
+ </create>
+ <create>
+  <node id="14298223742" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341351" lon="73.5795188"/>
+ </create>
+ <create>
+  <node id="14298223743" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341069" lon="73.5796309"/>
+ </create>
+ <create>
+  <node id="14298223744" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340490" lon="73.5796817"/>
+ </create>
+ <create>
+  <node id="14298223745" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340284" lon="73.5797265"/>
+ </create>
+ <create>
+  <node id="14298223746" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339710" lon="73.5797613"/>
+ </create>
+ <create>
+  <node id="14298223747" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9339609" lon="73.5798353"/>
+ </create>
+ <create>
+  <node id="14298223748" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9336572" lon="73.5808150"/>
+ </create>
+ <create>
+  <node id="14298223749" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9337265" lon="73.5806471"/>
+ </create>
+ <create>
+  <node id="14298223750" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9338790" lon="73.5801154"/>
+ </create>
+ <create>
+  <node id="14298223751" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9337994" lon="73.5803441"/>
+ </create>
+ <create>
+  <node id="14298223752" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9360138" lon="73.5791586"/>
+ </create>
+ <create>
+  <node id="14298223753" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9359805" lon="73.5791087"/>
+ </create>
+ <create>
+  <node id="14298223754" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9359420" lon="73.5790979"/>
+ </create>
+ <create>
+  <node id="14298223755" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9358992" lon="73.5791031"/>
+ </create>
+ <create>
+  <node id="14298223756" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9358710" lon="73.5790836"/>
+ </create>
+ <create>
+  <node id="14298223757" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357957" lon="73.5790267"/>
+ </create>
+ <create>
+  <node id="14298223758" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357889" lon="73.5789381"/>
+ </create>
+ <create>
+  <node id="14298223759" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356682" lon="73.5793499"/>
+ </create>
+ <create>
+  <node id="14298223760" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357989" lon="73.5788544"/>
+ </create>
+ <create>
+  <node id="14298223761" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357716" lon="73.5788279"/>
+ </create>
+ <create>
+  <node id="14298223762" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357170" lon="73.5788440"/>
+ </create>
+ <create>
+  <node id="14298223763" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356779" lon="73.5788689"/>
+ </create>
+ <create>
+  <node id="14298223764" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356555" lon="73.5788999"/>
+ </create>
+ <create>
+  <node id="14298223765" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356589" lon="73.5789647"/>
+ </create>
+ <create>
+  <node id="14298223766" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356929" lon="73.5790695"/>
+ </create>
+ <create>
+  <node id="14298223767" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357084" lon="73.5791511"/>
+ </create>
+ <create>
+  <node id="14298223768" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356927" lon="73.5792274"/>
+ </create>
+ <create>
+  <node id="14298223769" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357068" lon="73.5792532"/>
+ </create>
+ <create>
+  <node id="14298223770" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9357036" lon="73.5793015"/>
+ </create>
+ <create>
+  <node id="14298223771" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356767" lon="73.5793786"/>
+ </create>
+ <create>
+  <node id="14298223772" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356576" lon="73.5794022"/>
+ </create>
+ <create>
+  <node id="14298223773" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356333" lon="73.5793970"/>
+ </create>
+ <create>
+  <node id="14298223774" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356065" lon="73.5794653"/>
+ </create>
+ <create>
+  <node id="14298223775" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9355785" lon="73.5794702"/>
+ </create>
+ <create>
+  <node id="14298223776" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9354941" lon="73.5794202"/>
+ </create>
+ <create>
+  <node id="14298223777" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9353772" lon="73.5793152"/>
+ </create>
+ <create>
+  <node id="14298223778" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9353114" lon="73.5793165"/>
+ </create>
+ <create>
+  <node id="14298223779" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9348489" lon="73.5792308"/>
+ </create>
+ <create>
+  <node id="14298223780" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9352128" lon="73.5793190"/>
+ </create>
+ <create>
+  <node id="14298223781" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9351818" lon="73.5793165"/>
+ </create>
+ <create>
+  <node id="14298223782" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9351560" lon="73.5793260"/>
+ </create>
+ <create>
+  <node id="14298223783" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9351226" lon="73.5793015"/>
+ </create>
+ <create>
+  <node id="14298223784" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9350766" lon="73.5792877"/>
+ </create>
+ <create>
+  <node id="14298223785" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9350140" lon="73.5792623"/>
+ </create>
+ <create>
+  <node id="14298223786" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9349197" lon="73.5792589"/>
+ </create>
+ <create>
+  <node id="14298223787" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9347868" lon="73.5791656"/>
+ </create>
+ <create>
+  <node id="14298223788" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9347954" lon="73.5790637"/>
+ </create>
+ <create>
+  <node id="14298223789" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9347527" lon="73.5789959"/>
+ </create>
+ <create>
+  <node id="14298223790" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9346845" lon="73.5789480"/>
+ </create>
+ <create>
+  <node id="14298223791" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9346182" lon="73.5789750"/>
+ </create>
+ <create>
+  <node id="14298223792" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9345513" lon="73.5790316"/>
+ </create>
+ <create>
+  <node id="14298223793" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344856" lon="73.5790630"/>
+ </create>
+ <create>
+  <node id="14298223794" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344484" lon="73.5790771"/>
+ </create>
+ <create>
+  <node id="14298223795" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344136" lon="73.5790765"/>
+ </create>
+ <create>
+  <node id="14298223796" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344036" lon="73.5791008"/>
+ </create>
+ <create>
+  <node id="14298223797" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344337" lon="73.5791315"/>
+ </create>
+ <create>
+  <node id="14298223798" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5598815" lon="73.3353042"/>
+ </create>
+ <create>
+  <node id="14298223799" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5598662" lon="73.3353314"/>
+ </create>
+ <create>
+  <node id="14298223800" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5598196" lon="73.3353498"/>
+ </create>
+ <create>
+  <node id="14298223801" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5599930" lon="73.3351551"/>
+ </create>
+ <create>
+  <node id="14298223802" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5600404" lon="73.3351291"/>
+ </create>
+ <create>
+  <node id="14298223803" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5596203" lon="73.3354086"/>
+ </create>
+ <create>
+  <node id="14298223804" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5594672" lon="73.3355185"/>
+ </create>
+ <create>
+  <node id="14298223805" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5594097" lon="73.3356242"/>
+ </create>
+ <create>
+  <node id="14298223806" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5593800" lon="73.3356083"/>
+ </create>
+ <create>
+  <node id="14298223807" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5593548" lon="73.3355573"/>
+ </create>
+ <create>
+  <node id="14298223808" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2502901" lon="79.4011873"/>
+ </create>
+ <create>
+  <node id="14298223809" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2502243" lon="79.4016708"/>
+ </create>
+ <create>
+  <node id="14298223810" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2497174" lon="79.4015897"/>
+ </create>
+ <create>
+  <way id="1569578752" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="13299351887"/>
+   <nd ref="14298200964"/>
+   <nd ref="14298200965"/>
+   <nd ref="14298200966"/>
+   <nd ref="13299351886"/>
+   <nd ref="14298200957"/>
+   <nd ref="14298200958"/>
+   <nd ref="14298200959"/>
+   <nd ref="13299351885"/>
+   <nd ref="13299351884"/>
+   <nd ref="14298200960"/>
+   <nd ref="13299351883"/>
+   <nd ref="14298200961"/>
+   <nd ref="14298200962"/>
+   <nd ref="14298200963"/>
+   <nd ref="10589204772"/>
+   <nd ref="13299351882"/>
+   <nd ref="13299351881"/>
+   <nd ref="13299351880"/>
+   <nd ref="13961507766"/>
+   <nd ref="13961507767"/>
+   <nd ref="13961507768"/>
+   <nd ref="13961507769"/>
+   <nd ref="13961507770"/>
+   <nd ref="13961507771"/>
+   <nd ref="13961507772"/>
+   <nd ref="13961507773"/>
+   <nd ref="13961507774"/>
+   <nd ref="13961507775"/>
+   <nd ref="13299351892"/>
+   <nd ref="13299351891"/>
+   <nd ref="13299351890"/>
+   <nd ref="13299351889"/>
+   <nd ref="13299351888"/>
+   <nd ref="13299351887"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="राजगड"/>
+   <tag k="name:en" v="Rajgad Fort"/>
+   <tag k="name:hi" v="राजगढ़ का किला"/>
+   <tag k="ref:whc" v="1739-006"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q7286112"/>
+   <tag k="wikipedia" v="en:Rajgad"/>
+  </way>
+ </create>
+ <create>
+  <way id="1569578753" visible="true" version="1" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="14298200967"/>
+   <nd ref="14298200968"/>
+   <nd ref="14298200969"/>
+   <nd ref="14298200970"/>
+   <nd ref="14298200971"/>
+   <nd ref="14298200972"/>
+   <nd ref="14298200973"/>
+   <nd ref="14298200974"/>
+   <nd ref="14298200975"/>
+   <nd ref="14298200976"/>
+   <nd ref="14298200977"/>
+   <nd ref="14298200978"/>
+   <nd ref="14298200979"/>
+   <nd ref="14298200980"/>
+   <nd ref="14298200981"/>
+   <nd ref="14298200982"/>
+   <nd ref="14298200983"/>
+   <nd ref="14298200984"/>
+   <nd ref="14298200985"/>
+   <nd ref="14298200986"/>
+   <nd ref="14298200987"/>
+   <nd ref="14298200988"/>
+   <nd ref="14298200989"/>
+   <nd ref="14298200990"/>
+   <nd ref="14298200991"/>
+   <nd ref="14298200992"/>
+   <nd ref="14298200993"/>
+   <nd ref="14298200994"/>
+   <nd ref="14298200995"/>
+   <nd ref="14298200996"/>
+   <nd ref="14298200997"/>
+   <nd ref="14298200998"/>
+   <nd ref="14298200999"/>
+   <nd ref="14298201000"/>
+   <nd ref="14298223601"/>
+   <nd ref="14298223602"/>
+   <nd ref="14298223603"/>
+   <nd ref="14298223604"/>
+   <nd ref="14298223605"/>
+   <nd ref="14298223606"/>
+   <nd ref="14298223607"/>
+   <nd ref="14298223608"/>
+   <nd ref="14298223609"/>
+   <nd ref="14298223610"/>
+   <nd ref="14298223611"/>
+   <nd ref="14298223612"/>
+   <nd ref="14298223613"/>
+   <nd ref="14298223614"/>
+   <nd ref="14298223615"/>
+   <nd ref="14298223616"/>
+   <nd ref="14298223617"/>
+   <nd ref="14298223618"/>
+   <nd ref="14298223619"/>
+   <nd ref="14298223620"/>
+   <nd ref="14298223621"/>
+   <nd ref="14298223622"/>
+   <nd ref="14298223623"/>
+   <nd ref="14298223624"/>
+   <nd ref="14298223625"/>
+   <nd ref="14298223626"/>
+   <nd ref="14298223627"/>
+   <nd ref="14298223628"/>
+   <nd ref="14298223629"/>
+   <nd ref="14298223630"/>
+   <nd ref="14298223631"/>
+   <nd ref="14298223632"/>
+   <nd ref="14298223633"/>
+   <nd ref="14298223634"/>
+   <nd ref="14298223635"/>
+   <nd ref="14298223636"/>
+   <nd ref="14298223637"/>
+   <nd ref="14298223638"/>
+   <nd ref="14298223639"/>
+   <nd ref="14298223640"/>
+   <nd ref="14298223641"/>
+   <nd ref="14298223642"/>
+   <nd ref="14298223643"/>
+   <nd ref="14298223644"/>
+   <nd ref="14298223645"/>
+   <nd ref="14298223646"/>
+   <nd ref="14298223647"/>
+   <nd ref="14298223648"/>
+   <nd ref="14298223649"/>
+   <nd ref="14298223650"/>
+   <nd ref="14298223651"/>
+   <nd ref="14298223653"/>
+   <nd ref="14298223654"/>
+   <nd ref="14298223655"/>
+   <nd ref="14298223656"/>
+   <nd ref="14298223657"/>
+   <nd ref="14298223658"/>
+   <nd ref="14298223652"/>
+   <nd ref="14298223661"/>
+   <nd ref="14298223662"/>
+   <nd ref="14298223663"/>
+   <nd ref="14298223664"/>
+   <nd ref="14298223665"/>
+   <nd ref="14298223666"/>
+   <nd ref="14298223667"/>
+   <nd ref="14298223668"/>
+   <nd ref="14298223669"/>
+   <nd ref="14298223670"/>
+   <nd ref="14298223659"/>
+   <nd ref="14298223671"/>
+   <nd ref="14298223672"/>
+   <nd ref="14298223673"/>
+   <nd ref="14298223674"/>
+   <nd ref="14298223660"/>
+   <nd ref="14298223676"/>
+   <nd ref="14298223678"/>
+   <nd ref="14298223679"/>
+   <nd ref="14298223680"/>
+   <nd ref="14298223681"/>
+   <nd ref="14298223682"/>
+   <nd ref="14298223684"/>
+   <nd ref="14298223685"/>
+   <nd ref="14298223686"/>
+   <nd ref="14298223683"/>
+   <nd ref="14298223687"/>
+   <nd ref="14298223688"/>
+   <nd ref="14298223677"/>
+   <nd ref="14298223690"/>
+   <nd ref="14298223691"/>
+   <nd ref="14298223692"/>
+   <nd ref="14298223693"/>
+   <nd ref="14298223694"/>
+   <nd ref="14298223695"/>
+   <nd ref="14298223696"/>
+   <nd ref="14298223689"/>
+   <nd ref="14298223748"/>
+   <nd ref="14298223749"/>
+   <nd ref="14298223751"/>
+   <nd ref="14298223750"/>
+   <nd ref="14298223737"/>
+   <nd ref="14298223747"/>
+   <nd ref="14298223746"/>
+   <nd ref="14298223745"/>
+   <nd ref="14298223744"/>
+   <nd ref="14298223743"/>
+   <nd ref="14298223742"/>
+   <nd ref="14298223741"/>
+   <nd ref="14298223740"/>
+   <nd ref="14298223739"/>
+   <nd ref="14298223738"/>
+   <nd ref="14298223736"/>
+   <nd ref="14298223797"/>
+   <nd ref="14298223796"/>
+   <nd ref="14298223795"/>
+   <nd ref="14298223794"/>
+   <nd ref="14298223793"/>
+   <nd ref="14298223792"/>
+   <nd ref="14298223791"/>
+   <nd ref="14298223790"/>
+   <nd ref="14298223789"/>
+   <nd ref="14298223788"/>
+   <nd ref="14298223787"/>
+   <nd ref="14298223779"/>
+   <nd ref="14298223786"/>
+   <nd ref="14298223785"/>
+   <nd ref="14298223784"/>
+   <nd ref="14298223783"/>
+   <nd ref="14298223782"/>
+   <nd ref="14298223781"/>
+   <nd ref="14298223780"/>
+   <nd ref="14298223735"/>
+   <nd ref="14298223778"/>
+   <nd ref="14298223777"/>
+   <nd ref="14298223776"/>
+   <nd ref="14298223775"/>
+   <nd ref="14298223774"/>
+   <nd ref="14298223773"/>
+   <nd ref="14298223772"/>
+   <nd ref="14298223771"/>
+   <nd ref="14298223759"/>
+   <nd ref="14298223770"/>
+   <nd ref="14298223769"/>
+   <nd ref="14298223768"/>
+   <nd ref="14298223767"/>
+   <nd ref="14298223766"/>
+   <nd ref="14298223765"/>
+   <nd ref="14298223764"/>
+   <nd ref="14298223763"/>
+   <nd ref="14298223762"/>
+   <nd ref="14298223761"/>
+   <nd ref="14298223760"/>
+   <nd ref="14298223758"/>
+   <nd ref="14298223757"/>
+   <nd ref="14298223756"/>
+   <nd ref="14298223755"/>
+   <nd ref="14298223754"/>
+   <nd ref="14298223753"/>
+   <nd ref="14298223752"/>
+   <nd ref="14298223717"/>
+   <nd ref="14298223733"/>
+   <nd ref="14298223734"/>
+   <nd ref="14298223732"/>
+   <nd ref="14298223731"/>
+   <nd ref="14298223730"/>
+   <nd ref="14298223729"/>
+   <nd ref="14298223728"/>
+   <nd ref="14298223727"/>
+   <nd ref="14298223726"/>
+   <nd ref="14298223725"/>
+   <nd ref="14298223724"/>
+   <nd ref="14298223723"/>
+   <nd ref="14298223722"/>
+   <nd ref="14298223721"/>
+   <nd ref="14298223720"/>
+   <nd ref="14298223719"/>
+   <nd ref="14298223718"/>
+   <nd ref="14298223699"/>
+   <nd ref="14298223716"/>
+   <nd ref="14298223715"/>
+   <nd ref="14298223714"/>
+   <nd ref="14298223713"/>
+   <nd ref="14298223712"/>
+   <nd ref="14298223711"/>
+   <nd ref="14298223710"/>
+   <nd ref="14298223709"/>
+   <nd ref="14298223708"/>
+   <nd ref="14298223707"/>
+   <nd ref="14298223706"/>
+   <nd ref="14298223705"/>
+   <nd ref="14298223704"/>
+   <nd ref="14298223703"/>
+   <nd ref="14298223702"/>
+   <nd ref="14298223701"/>
+   <nd ref="14298223700"/>
+   <nd ref="14298223698"/>
+   <nd ref="14298223697"/>
+   <nd ref="14298200967"/>
+   <tag k="barrier" v="wall"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="प्रतापगड"/>
+   <tag k="name:en" v="Pratapgad"/>
+   <tag k="name:hi" v="प्रतापगढ़ दुर्ग"/>
+   <tag k="ref:whc" v="1739-007"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q3582929"/>
+   <tag k="wikipedia" v="en:Pratapgad"/>
+  </way>
+ </create>
+ <modify>
+  <node id="1288240133" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5598937" lon="73.3352785"/>
+ </modify>
+ <modify>
+  <node id="5360991569" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2481439" lon="79.3985392"/>
+ </modify>
+ <delete>
+  <node id="5360991576" visible="false" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="5360991577" visible="false" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="5360991578" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2476536" lon="79.3959403"/>
+ </modify>
+ <modify>
+  <node id="5360991579" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2476116" lon="79.3952161"/>
+ </modify>
+ <modify>
+  <node id="9196751405" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="20.7238038" lon="73.9447698">
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="साल्हेर"/>
+   <tag k="name:en" v="Salher Fort"/>
+   <tag k="ref:whc" v="1739-001"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q7404420"/>
+   <tag k="wikipedia" v="en:Salher"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="9197072319" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.7098725" lon="73.4759959">
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="लोहगड"/>
+   <tag k="name:en" v="Lohagad Fort"/>
+   <tag k="name:hi" v="लोहगढ़ किला"/>
+   <tag k="ref:whc" v="1739-003"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q6667935"/>
+   <tag k="wikipedia" v="en:Lohagad"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="10709000057" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9355791" lon="73.5790425"/>
+ </modify>
+ <modify>
+  <node id="10709000058" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9356652" lon="73.5787729"/>
+ </modify>
+ <modify>
+  <node id="10709000060" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9359398" lon="73.5788793"/>
+ </modify>
+ <modify>
+  <node id="13299351882" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2457835" lon="73.6810927"/>
+ </modify>
+ <modify>
+  <node id="13299351883" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2464390" lon="73.6816042"/>
+ </modify>
+ <modify>
+  <node id="13299351884" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2467099" lon="73.6818748"/>
+ </modify>
+ <modify>
+  <node id="13299351885" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2469110" lon="73.6819268"/>
+ </modify>
+ <modify>
+  <node id="13299351886" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2473414" lon="73.6822438">
+   <tag k="natural" v="cliff"/>
+  </node>
+ </modify>
+ <modify>
+  <node id="13694936747" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341747" lon="73.5784973"/>
+ </modify>
+ <modify>
+  <node id="13694936748" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9340996" lon="73.5784873"/>
+ </modify>
+ <delete>
+  <node id="13694936749" visible="false" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="13694936750" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341484" lon="73.5780830"/>
+ </modify>
+ <modify>
+  <node id="13694936751" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9344123" lon="73.5781182"/>
+ </modify>
+ <delete>
+  <node id="13694936752" visible="false" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="13694936753" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9343610" lon="73.5785432"/>
+ </modify>
+ <modify>
+  <node id="13694936754" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342682" lon="73.5785309"/>
+ </modify>
+ <modify>
+  <node id="13694936755" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9342591" lon="73.5786064"/>
+ </modify>
+ <modify>
+  <node id="13694936756" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.9341631" lon="73.5785937"/>
+ </modify>
+ <modify>
+  <way id="120880304" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="1354334869"/>
+   <nd ref="1354334806"/>
+   <nd ref="1354334786"/>
+   <nd ref="1354334764"/>
+   <nd ref="1354334865"/>
+   <nd ref="1354334824"/>
+   <nd ref="1354334873"/>
+   <nd ref="1354334778"/>
+   <nd ref="1354334847"/>
+   <nd ref="1354334838"/>
+   <nd ref="1354334772"/>
+   <nd ref="1354334776"/>
+   <nd ref="1354334774"/>
+   <nd ref="1354334807"/>
+   <nd ref="1354334832"/>
+   <nd ref="1354334837"/>
+   <nd ref="1354334840"/>
+   <nd ref="1354334767"/>
+   <nd ref="1354334849"/>
+   <nd ref="1354334833"/>
+   <nd ref="1354334756"/>
+   <nd ref="1354334861"/>
+   <nd ref="1354334835"/>
+   <nd ref="1354334869"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="layer" v="1"/>
+   <tag k="name" v="पावनगड"/>
+   <tag k="name:en" v="Pavangad Fort"/>
+   <tag k="ref:whc" v="1739-009"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="555716227" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="5360991592"/>
+   <nd ref="5360991591"/>
+   <nd ref="5360991590"/>
+   <nd ref="5360991589"/>
+   <nd ref="5360991588"/>
+   <nd ref="5360991587"/>
+   <nd ref="5360991586"/>
+   <nd ref="5360991585"/>
+   <nd ref="5360991584"/>
+   <nd ref="5360991583"/>
+   <nd ref="5360991582"/>
+   <nd ref="5360991581"/>
+   <nd ref="5360991580"/>
+   <nd ref="5360991579"/>
+   <nd ref="5360991578"/>
+   <nd ref="5360991567"/>
+   <nd ref="5360991568"/>
+   <nd ref="5360991569"/>
+   <nd ref="5360991570"/>
+   <nd ref="5360991571"/>
+   <nd ref="5360991572"/>
+   <nd ref="5360991573"/>
+   <nd ref="14298223810"/>
+   <nd ref="14298223809"/>
+   <nd ref="14298223808"/>
+   <nd ref="2665067687"/>
+   <nd ref="2665067688"/>
+   <nd ref="2665067689"/>
+   <nd ref="2665067690"/>
+   <nd ref="2665067691"/>
+   <nd ref="2665067692"/>
+   <nd ref="2665067693"/>
+   <nd ref="2665067694"/>
+   <nd ref="2665067696"/>
+   <nd ref="2665067697"/>
+   <nd ref="2665067698"/>
+   <nd ref="2665067699"/>
+   <nd ref="2665067700"/>
+   <nd ref="2665067701"/>
+   <nd ref="2665067702"/>
+   <nd ref="2665067704"/>
+   <nd ref="2665067706"/>
+   <nd ref="2665067708"/>
+   <nd ref="368985247"/>
+   <nd ref="5360991575"/>
+   <nd ref="5360991574"/>
+   <nd ref="2665067709"/>
+   <nd ref="2665067710"/>
+   <nd ref="2665067711"/>
+   <nd ref="2665067712"/>
+   <nd ref="2665067713"/>
+   <nd ref="2665067714"/>
+   <nd ref="5360991592"/>
+   <tag k="alt_name" v="Rajagiri Citadel"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="castle"/>
+   <tag k="name" v="செஞ்சிக் கோட்டை"/>
+   <tag k="name:en" v="Gingee Fort"/>
+   <tag k="name:hi" v="जिंजी दुर्ग"/>
+   <tag k="name:mr" v="जिंजीचा किल्ला"/>
+   <tag k="ref:whc" v="1739-012"/>
+   <tag k="tourism" v="attraction"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q3536493"/>
+   <tag k="wikipedia" v="en:Gingee Fort"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="658582730" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="1288240277"/>
+   <nd ref="14298223807"/>
+   <nd ref="14298223806"/>
+   <nd ref="14298223805"/>
+   <nd ref="1288239987"/>
+   <nd ref="1288239967"/>
+   <nd ref="14298223804"/>
+   <nd ref="14298223803"/>
+   <nd ref="1288239797"/>
+   <nd ref="14298223800"/>
+   <nd ref="14298223799"/>
+   <nd ref="14298223798"/>
+   <nd ref="1288240133"/>
+   <nd ref="1288239849"/>
+   <nd ref="14298223801"/>
+   <nd ref="14298223802"/>
+   <nd ref="1288240203"/>
+   <tag k="source" v="PGS"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1450009797" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="13299351880"/>
+   <nd ref="13299351881"/>
+   <nd ref="13299351882"/>
+   <nd ref="10589204772"/>
+   <nd ref="14298200963"/>
+   <nd ref="14298200962"/>
+   <nd ref="14298200961"/>
+   <nd ref="13299351883"/>
+   <nd ref="14298200960"/>
+   <nd ref="13299351884"/>
+   <nd ref="13299351885"/>
+   <nd ref="14298200959"/>
+   <nd ref="14298200958"/>
+   <nd ref="14298200957"/>
+   <nd ref="13299351886"/>
+   <tag k="natural" v="cliff"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="1494563054" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="13694936747"/>
+   <nd ref="13694936748"/>
+   <nd ref="13694936750"/>
+   <nd ref="13694936751"/>
+   <nd ref="13694936753"/>
+   <nd ref="13694936754"/>
+   <nd ref="13694936755"/>
+   <nd ref="13694936756"/>
+   <nd ref="13694936747"/>
+   <tag k="amenity" v="place_of_worship"/>
+   <tag k="building" v="yes"/>
+   <tag k="name" v="Shri Tulja Bhavani Mandir Pratapgad"/>
+   <tag k="religion" v="hindu"/>
+  </way>
+ </modify>
+ <modify>
+  <relation id="9158821" visible="true" version="2" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <member type="way" ref="113617791" role="outer"/>
+   <member type="way" ref="147730233" role="outer"/>
+   <member type="way" ref="113617762" role="outer"/>
+   <member type="way" ref="658582731" role="outer"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="विजयदुर्ग"/>
+   <tag k="name:en" v="Vijaydurg Fort"/>
+   <tag k="ref:whc" v="1739-010"/>
+   <tag k="type" v="boundary"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q3827850"/>
+   <tag k="wikipedia" v="en:Vijaydurg Fort"/>
+  </relation>
+ </modify>
+ <modify>
+  <node id="1288239797" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5597683" lon="73.3353155"/>
+ </modify>
+ <modify>
+  <node id="1288239849" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5598751" lon="73.3352311"/>
+ </modify>
+ <modify>
+  <node id="1288239967" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5594792" lon="73.3355614"/>
+ </modify>
+ <modify>
+  <node id="1288239987" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.5594532" lon="73.3356129"/>
+ </modify>
+ <modify>
+  <node id="5360991568" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2481355" lon="79.3976144"/>
+ </modify>
+ <modify>
+  <node id="10589204772" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="18.2459101" lon="73.6811759"/>
+ </modify>
+ <modify>
+  <way id="198116052" visible="true" version="3" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="2082964097"/>
+   <nd ref="2082963579"/>
+   <nd ref="2082964395"/>
+   <nd ref="2082963624"/>
+   <nd ref="2082963607"/>
+   <nd ref="2082964211"/>
+   <nd ref="2082964188"/>
+   <nd ref="2082964164"/>
+   <nd ref="2082964648"/>
+   <nd ref="2082964114"/>
+   <nd ref="2082964129"/>
+   <nd ref="2082964491"/>
+   <nd ref="2082964509"/>
+   <nd ref="2082963939"/>
+   <nd ref="2082963962"/>
+   <nd ref="2082964244"/>
+   <nd ref="2082963931"/>
+   <nd ref="2082963972"/>
+   <nd ref="2082963479"/>
+   <nd ref="2082963521"/>
+   <nd ref="2082963557"/>
+   <nd ref="2082964628"/>
+   <nd ref="2082963952"/>
+   <nd ref="2082963530"/>
+   <nd ref="2082963471"/>
+   <nd ref="2082964613"/>
+   <nd ref="2082964657"/>
+   <nd ref="2082963744"/>
+   <nd ref="2082963665"/>
+   <nd ref="2082963918"/>
+   <nd ref="2082963700"/>
+   <nd ref="2082964061"/>
+   <nd ref="11590932571"/>
+   <nd ref="11590932570"/>
+   <nd ref="11590932569"/>
+   <nd ref="11590921668"/>
+   <nd ref="11590921667"/>
+   <nd ref="11590921666"/>
+   <nd ref="11590921665"/>
+   <nd ref="11590921664"/>
+   <nd ref="11590921663"/>
+   <nd ref="11590921662"/>
+   <nd ref="11590921661"/>
+   <nd ref="11590921660"/>
+   <nd ref="11590921659"/>
+   <nd ref="5341337104"/>
+   <nd ref="5341337103"/>
+   <nd ref="5341337102"/>
+   <nd ref="5341337101"/>
+   <nd ref="5341337100"/>
+   <nd ref="5341337099"/>
+   <nd ref="5341337098"/>
+   <nd ref="5341337097"/>
+   <nd ref="5341337096"/>
+   <nd ref="5341337095"/>
+   <nd ref="5341337094"/>
+   <nd ref="5341337093"/>
+   <nd ref="5341337092"/>
+   <nd ref="5341337091"/>
+   <nd ref="5341337090"/>
+   <nd ref="5341337089"/>
+   <nd ref="5341337088"/>
+   <nd ref="5341337087"/>
+   <nd ref="5341337086"/>
+   <nd ref="5341337085"/>
+   <nd ref="5341337084"/>
+   <nd ref="5341337083"/>
+   <nd ref="5341337082"/>
+   <nd ref="5341337081"/>
+   <nd ref="5341337080"/>
+   <nd ref="5341337079"/>
+   <nd ref="5341337078"/>
+   <nd ref="5341337077"/>
+   <nd ref="5341337076"/>
+   <nd ref="5341337075"/>
+   <nd ref="5341337074"/>
+   <nd ref="5341337073"/>
+   <nd ref="5341337072"/>
+   <nd ref="5341337071"/>
+   <nd ref="5341337070"/>
+   <nd ref="5341337069"/>
+   <nd ref="5341337068"/>
+   <nd ref="5341337067"/>
+   <nd ref="5341337066"/>
+   <nd ref="5341337065"/>
+   <nd ref="5341337064"/>
+   <nd ref="5341337063"/>
+   <nd ref="5341337062"/>
+   <nd ref="5341337061"/>
+   <nd ref="5341337060"/>
+   <nd ref="5341337059"/>
+   <nd ref="2082964097"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="शिवनेरी"/>
+   <tag k="name:en" v="Shivneri Fort"/>
+   <tag k="ref:whc" v="1739-002"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q3520074"/>
+   <tag k="wikimedia_commons" v="Category:Shivneri Fort"/>
+   <tag k="wikipedia" v="en:Shivneri fort"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="368985247" visible="true" version="4" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="12.2511423" lon="79.3954980"/>
+ </modify>
+ <modify>
+  <way id="113617791" visible="true" version="4" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="1288240191"/>
+   <nd ref="1288239847"/>
+   <nd ref="1288240131"/>
+   <nd ref="1288239791"/>
+   <nd ref="1288239806"/>
+   <nd ref="1288239975"/>
+   <nd ref="1288240266"/>
+   <nd ref="1288239901"/>
+   <nd ref="1288239924"/>
+   <nd ref="1288240209"/>
+   <nd ref="1288239860"/>
+   <nd ref="1288240147"/>
+   <nd ref="1288240167"/>
+   <nd ref="1288239821"/>
+   <nd ref="1288240010"/>
+   <nd ref="1288240295"/>
+   <nd ref="1288240323"/>
+   <nd ref="1288239944"/>
+   <nd ref="1288240233"/>
+   <nd ref="1288239873"/>
+   <nd ref="1288239883"/>
+   <nd ref="1288240185"/>
+   <nd ref="1288239836"/>
+   <nd ref="1288240119"/>
+   <nd ref="1288240181"/>
+   <nd ref="1288239830"/>
+   <nd ref="1288240106"/>
+   <nd ref="1288240314"/>
+   <nd ref="1288239788"/>
+   <nd ref="1288239948"/>
+   <nd ref="1288240236"/>
+   <nd ref="1288239880"/>
+   <nd ref="1288239893"/>
+   <nd ref="1288240188"/>
+   <nd ref="1288239838"/>
+   <nd ref="1288240125"/>
+   <nd ref="1288240140"/>
+   <nd ref="1288239799"/>
+   <nd ref="1288239969"/>
+   <nd ref="1288240258"/>
+   <nd ref="1288240283"/>
+   <nd ref="1288239909"/>
+   <nd ref="1288240203"/>
+   <nd ref="14298223802"/>
+   <nd ref="14298223801"/>
+   <nd ref="1288239849"/>
+   <nd ref="1288240133"/>
+   <nd ref="14298223798"/>
+   <nd ref="14298223799"/>
+   <nd ref="14298223800"/>
+   <nd ref="1288239797"/>
+   <nd ref="14298223803"/>
+   <nd ref="14298223804"/>
+   <nd ref="1288239967"/>
+   <nd ref="1288239987"/>
+   <nd ref="14298223805"/>
+   <nd ref="14298223806"/>
+   <nd ref="14298223807"/>
+   <nd ref="1288240277"/>
+   <tag k="barrier" v="city_wall"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="281255137" visible="true" version="4" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="2852306755"/>
+   <nd ref="2852306756"/>
+   <nd ref="2852306757"/>
+   <nd ref="2852306758"/>
+   <nd ref="2852306759"/>
+   <nd ref="2852306760"/>
+   <nd ref="2852306761"/>
+   <nd ref="2852306762"/>
+   <nd ref="2852306763"/>
+   <nd ref="2852306764"/>
+   <nd ref="2852306765"/>
+   <nd ref="2852306766"/>
+   <nd ref="2852306767"/>
+   <nd ref="4223830872"/>
+   <nd ref="4223830871"/>
+   <nd ref="2852306768"/>
+   <nd ref="2852306769"/>
+   <nd ref="4223830873"/>
+   <nd ref="4223830874"/>
+   <nd ref="4223830875"/>
+   <nd ref="2852306770"/>
+   <nd ref="2852306771"/>
+   <nd ref="2852306772"/>
+   <nd ref="2852306773"/>
+   <nd ref="2852306774"/>
+   <nd ref="2852306755"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="खांदेरी किल्ला"/>
+   <tag k="name:en" v="Khanderi Fort"/>
+   <tag k="name:hi" v="खान्देरी दुर्ग"/>
+   <tag k="ref:whc" v="1739-004"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q3827817"/>
+   <tag k="wikipedia" v="en:Khanderi"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="342119741" visible="true" version="5" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="16.0427900" lon="73.4600899">
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="सिंधुदुर्ग"/>
+   <tag k="name:en" v="Sindhudurg Fort"/>
+   <tag k="wikidata" v="Q13413791"/>
+   <tag k="wikipedia" v="en:Sindhudurg Fort"/>
+  </node>
+ </modify>
+ <modify>
+  <way id="120880303" visible="true" version="5" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="1354334820"/>
+   <nd ref="1354334762"/>
+   <nd ref="1354334771"/>
+   <nd ref="1354334789"/>
+   <nd ref="1354334816"/>
+   <nd ref="1354334855"/>
+   <nd ref="1354334791"/>
+   <nd ref="1354334812"/>
+   <nd ref="1354334792"/>
+   <nd ref="1354334760"/>
+   <nd ref="1354334826"/>
+   <nd ref="1354334867"/>
+   <nd ref="1354334819"/>
+   <nd ref="1354334804"/>
+   <nd ref="1354334836"/>
+   <nd ref="1354334798"/>
+   <nd ref="1354334769"/>
+   <nd ref="1354334758"/>
+   <nd ref="1354334788"/>
+   <nd ref="1354334811"/>
+   <nd ref="1354334857"/>
+   <nd ref="1354334800"/>
+   <nd ref="1354334790"/>
+   <nd ref="1354334802"/>
+   <nd ref="1354334822"/>
+   <nd ref="1354334834"/>
+   <nd ref="1354334787"/>
+   <nd ref="1354334766"/>
+   <nd ref="1354334815"/>
+   <nd ref="1354334851"/>
+   <nd ref="1354334863"/>
+   <nd ref="1354334859"/>
+   <nd ref="1354334853"/>
+   <nd ref="1354334871"/>
+   <nd ref="1354334858"/>
+   <nd ref="1354334820"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="पन्हाळा"/>
+   <tag k="name:en" v="Panhala Fort"/>
+   <tag k="name:hi" v="पन्हाला दुर्ग"/>
+   <tag k="name:mr" v="पंहाळगड"/>
+   <tag k="ref:whc" v="1739-009"/>
+   <tag k="ruins" v="yes"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q7131008"/>
+   <tag k="wikimedia_commons" v="Category:Panhala Fort"/>
+   <tag k="wikipedia" v="en:Panhala Fort"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="604528475" visible="true" version="5" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001">
+   <nd ref="2712572312"/>
+   <nd ref="5735937885"/>
+   <nd ref="5735937886"/>
+   <nd ref="5735937887"/>
+   <nd ref="5735937888"/>
+   <nd ref="5735937889"/>
+   <nd ref="5735937890"/>
+   <nd ref="5735937891"/>
+   <nd ref="5735937892"/>
+   <nd ref="5735937893"/>
+   <nd ref="5735937894"/>
+   <nd ref="5735937895"/>
+   <nd ref="5735937896"/>
+   <nd ref="5735937897"/>
+   <nd ref="2712572323"/>
+   <nd ref="5735937898"/>
+   <nd ref="5735937899"/>
+   <nd ref="5735937900"/>
+   <nd ref="5735937901"/>
+   <nd ref="5735937902"/>
+   <nd ref="5735937903"/>
+   <nd ref="5735937904"/>
+   <nd ref="5735938027"/>
+   <nd ref="5735938182"/>
+   <nd ref="5735938181"/>
+   <nd ref="5735938180"/>
+   <nd ref="5735938179"/>
+   <nd ref="5735938178"/>
+   <nd ref="5735938177"/>
+   <nd ref="5735938176"/>
+   <nd ref="5735938175"/>
+   <nd ref="5735938174"/>
+   <nd ref="5735938173"/>
+   <nd ref="5735938026"/>
+   <nd ref="2712572334"/>
+   <nd ref="5735938025"/>
+   <nd ref="5735938172"/>
+   <nd ref="5735938024"/>
+   <nd ref="5735938023"/>
+   <nd ref="5735938171"/>
+   <nd ref="5735938170"/>
+   <nd ref="5735938169"/>
+   <nd ref="5735938168"/>
+   <nd ref="5735938167"/>
+   <nd ref="5735938166"/>
+   <nd ref="5735938165"/>
+   <nd ref="5735938164"/>
+   <nd ref="5735938163"/>
+   <nd ref="5735938162"/>
+   <nd ref="5735938161"/>
+   <nd ref="5735938160"/>
+   <nd ref="5735938022"/>
+   <nd ref="5735938021"/>
+   <nd ref="5735938159"/>
+   <nd ref="5735937920"/>
+   <nd ref="12865159201"/>
+   <nd ref="2712572349"/>
+   <nd ref="5735937919"/>
+   <nd ref="5735938158"/>
+   <nd ref="5735938157"/>
+   <nd ref="5735938156"/>
+   <nd ref="5735938155"/>
+   <nd ref="5735938154"/>
+   <nd ref="5735938153"/>
+   <nd ref="5735938152"/>
+   <nd ref="5735938151"/>
+   <nd ref="5735938150"/>
+   <nd ref="5735938149"/>
+   <nd ref="5735938148"/>
+   <nd ref="5735938147"/>
+   <nd ref="5735938146"/>
+   <nd ref="5735937918"/>
+   <nd ref="2712572357"/>
+   <nd ref="5735937917"/>
+   <nd ref="5735938145"/>
+   <nd ref="5735938144"/>
+   <nd ref="5735938143"/>
+   <nd ref="5735938142"/>
+   <nd ref="5735938141"/>
+   <nd ref="5735938140"/>
+   <nd ref="5735938139"/>
+   <nd ref="5735938138"/>
+   <nd ref="5735938137"/>
+   <nd ref="5735938136"/>
+   <nd ref="5735938135"/>
+   <nd ref="5735938134"/>
+   <nd ref="5735938133"/>
+   <nd ref="5735938132"/>
+   <nd ref="5735938131"/>
+   <nd ref="5735938130"/>
+   <nd ref="5735938129"/>
+   <nd ref="5735938128"/>
+   <nd ref="5735937916"/>
+   <nd ref="2712572365"/>
+   <nd ref="5735937915"/>
+   <nd ref="5735938127"/>
+   <nd ref="5735938126"/>
+   <nd ref="5735938125"/>
+   <nd ref="5735938124"/>
+   <nd ref="5735938123"/>
+   <nd ref="5735938122"/>
+   <nd ref="5735938121"/>
+   <nd ref="5735938120"/>
+   <nd ref="5735938119"/>
+   <nd ref="5735938118"/>
+   <nd ref="5735938117"/>
+   <nd ref="5735938116"/>
+   <nd ref="5735938115"/>
+   <nd ref="5735938114"/>
+   <nd ref="5735938113"/>
+   <nd ref="5735938112"/>
+   <nd ref="5735938111"/>
+   <nd ref="5735938110"/>
+   <nd ref="5735938109"/>
+   <nd ref="5735938108"/>
+   <nd ref="5735938107"/>
+   <nd ref="5735938106"/>
+   <nd ref="5735938105"/>
+   <nd ref="5735938104"/>
+   <nd ref="5735938103"/>
+   <nd ref="5735938102"/>
+   <nd ref="5735938101"/>
+   <nd ref="5735938100"/>
+   <nd ref="5735938099"/>
+   <nd ref="5735938098"/>
+   <nd ref="5735938097"/>
+   <nd ref="5735938096"/>
+   <nd ref="5735937914"/>
+   <nd ref="5735937913"/>
+   <nd ref="5735938095"/>
+   <nd ref="5735938094"/>
+   <nd ref="5735938093"/>
+   <nd ref="5735938092"/>
+   <nd ref="5735938091"/>
+   <nd ref="5735938090"/>
+   <nd ref="5735938089"/>
+   <nd ref="5735938088"/>
+   <nd ref="5735938087"/>
+   <nd ref="5735938086"/>
+   <nd ref="5735938085"/>
+   <nd ref="5735938084"/>
+   <nd ref="5735937912"/>
+   <nd ref="5735937911"/>
+   <nd ref="5735938083"/>
+   <nd ref="5735938082"/>
+   <nd ref="5735938081"/>
+   <nd ref="5735938080"/>
+   <nd ref="5735938079"/>
+   <nd ref="5735938078"/>
+   <nd ref="5735938077"/>
+   <nd ref="5735938076"/>
+   <nd ref="5735938075"/>
+   <nd ref="5735938074"/>
+   <nd ref="5735938073"/>
+   <nd ref="5735938072"/>
+   <nd ref="5735938071"/>
+   <nd ref="5735938070"/>
+   <nd ref="5735938069"/>
+   <nd ref="5735938068"/>
+   <nd ref="5735938067"/>
+   <nd ref="5735938066"/>
+   <nd ref="5735938065"/>
+   <nd ref="5735938064"/>
+   <nd ref="5735938063"/>
+   <nd ref="5735937910"/>
+   <nd ref="2712572381"/>
+   <nd ref="5735937909"/>
+   <nd ref="5735938062"/>
+   <nd ref="5735937908"/>
+   <nd ref="2712572387"/>
+   <nd ref="5735937907"/>
+   <nd ref="5735938061"/>
+   <nd ref="5735938060"/>
+   <nd ref="5735938059"/>
+   <nd ref="5735938058"/>
+   <nd ref="5735938057"/>
+   <nd ref="5735938056"/>
+   <nd ref="5735938055"/>
+   <nd ref="5735938054"/>
+   <nd ref="5735938053"/>
+   <nd ref="5735938052"/>
+   <nd ref="5735938051"/>
+   <nd ref="5735938050"/>
+   <nd ref="5735938049"/>
+   <nd ref="5735938048"/>
+   <nd ref="5735938047"/>
+   <nd ref="5735938046"/>
+   <nd ref="5735938045"/>
+   <nd ref="5735938044"/>
+   <nd ref="5735938043"/>
+   <nd ref="5735938042"/>
+   <nd ref="5735937906"/>
+   <nd ref="5735937905"/>
+   <nd ref="5735938041"/>
+   <nd ref="5735938040"/>
+   <nd ref="5735938039"/>
+   <nd ref="5735938038"/>
+   <nd ref="5735938037"/>
+   <nd ref="5735938036"/>
+   <nd ref="5735938035"/>
+   <nd ref="5735938034"/>
+   <nd ref="5735938033"/>
+   <nd ref="5735938032"/>
+   <nd ref="5735938031"/>
+   <nd ref="5735938030"/>
+   <nd ref="5735938029"/>
+   <nd ref="2712572292"/>
+   <nd ref="2712572294"/>
+   <nd ref="2712572296"/>
+   <nd ref="5735938201"/>
+   <nd ref="5735938200"/>
+   <nd ref="5735938199"/>
+   <nd ref="5735938198"/>
+   <nd ref="5735938197"/>
+   <nd ref="5735938196"/>
+   <nd ref="5735938195"/>
+   <nd ref="5735938194"/>
+   <nd ref="5735938193"/>
+   <nd ref="5735938192"/>
+   <nd ref="5735938191"/>
+   <nd ref="5735938190"/>
+   <nd ref="5735938189"/>
+   <nd ref="5735938188"/>
+   <nd ref="5735938187"/>
+   <nd ref="5735938186"/>
+   <nd ref="5735938185"/>
+   <nd ref="5735938184"/>
+   <nd ref="5735938183"/>
+   <nd ref="5735938028"/>
+   <nd ref="5735937884"/>
+   <nd ref="5735937883"/>
+   <nd ref="5735937882"/>
+   <nd ref="5735937881"/>
+   <nd ref="5735937880"/>
+   <nd ref="5735937879"/>
+   <nd ref="5735937878"/>
+   <nd ref="5735937877"/>
+   <nd ref="5735937876"/>
+   <nd ref="2712572312"/>
+   <tag k="barrier" v="city_wall"/>
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="रायगड"/>
+   <tag k="name:en" v="Raigad Fort"/>
+   <tag k="name:hi" v="रायगढ़"/>
+   <tag k="ref:whc" v="1739-005"/>
+   <tag k="ruins" v="yes"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q3626515"/>
+   <tag k="wikipedia" v="en:Raigad Fort"/>
+  </way>
+ </modify>
+ <modify>
+  <node id="2398275923" visible="true" version="6" changeset="190720565" timestamp="2026-10-19T00:55:38Z" user="mapper_A" uid="900000001" lat="17.8169273" lon="73.0844634">
+   <tag k="heritage:operator" v="whc"/>
+   <tag k="heritage:website" v="https://whc.unesco.org/en/list/1739"/>
+   <tag k="historic" v="fort"/>
+   <tag k="name" v="सुवर्णदुर्ग"/>
+   <tag k="name:en" v="Suvarnadurg"/>
+   <tag k="ref:whc" v="1739-008"/>
+   <tag k="source" v="Survey"/>
+   <tag k="whc:criteria" v="(iv)(vi)"/>
+   <tag k="whc:inscription_date" v="2025"/>
+   <tag k="wikidata" v="Q2099096"/>
+   <tag k="wikimedia_commons" v="Category:Suvarnadurg"/>
+   <tag k="wikipedia" v="en:Suvarnadurg"/>
+  </node>
+ </modify>
+</osmChange>

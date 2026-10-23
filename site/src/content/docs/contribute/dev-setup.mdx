@@ -1,0 +1,87 @@
+---
+title: Dev setup
+description: Clone the repository, run the backend and the web app in replay mode, and run the checks before a pull request.
+---
+
+*For contributors. How-to.*
+
+Replay mode needs no network, no GPU and no AWS account. The tool never writes to OpenStreetMap, and a change that adds a write path will not pass CI.
+
+## What you need first
+
+- Python 3.13 and [`uv`](https://docs.astral.sh/uv/)
+- Node.js with npm (a recent version)
+- Git
+- Docker is optional
+
+## Clone and install
+
+```sh
+git clone https://github.com/yogeshselvarajan/changeset-second-opinion.git
+cd changeset-second-opinion
+cd backend && uv sync --frozen
+cd ../web && npm ci
+```
+
+## Run the backend in replay mode
+
+From the `backend` folder:
+
+```sh
+uv run cso db upgrade
+uv run cso seed
+uv run cso auth create-invite --role reviewer --ttl-hours 24
+uv run cso api
+```
+
+`db upgrade` creates `./cso.db`. `seed` loads the fifteen recorded demo changesets. `create-invite` prints a code once, so copy it. `api` serves on `http://127.0.0.1:8000`. To force replay mode set `CSO_MODE=replay`.
+
+Without a Decider server running, every case sits in the rules-only lane. The recorded demo cases already carry real readings. To add a live Decider, follow [run the Decider](../../self-host/run-the-decider/).
+
+## Run the web app
+
+In a second terminal, from the `web` folder:
+
+```sh
+npm run dev
+```
+
+Open `http://localhost:5173`. Browse as a viewer, or sign in at `/login` with the invite code to request drafts and record outcomes.
+
+## Run the checks
+
+Run the ones that touch what you changed. The full set is the same as CI.
+
+Backend, from `backend`:
+
+```sh
+uv run ruff check . && uv run ruff format --check . && uv run mypy src/cso && uv run pytest -q
+uv run python ../scripts/ci/run_all.py
+```
+
+Web, from `web`:
+
+```sh
+npm run lint && npx tsc --noEmit && npm run build && npx vitest run
+npx playwright test
+```
+
+Notes:
+
+- The full backend suite takes several minutes. The browser tests use a built bundle. On a small machine use `--workers=1`.
+- `mypy` runs in strict mode on `cso.domain`, `cso.persistence` and `cso.adapters`.
+- On Windows set `PYTHONUTF8=1` when a script prints non-ASCII characters.
+- Tests use fakes for the Decider and Bedrock. Live checks are opt-in, and the Bedrock one bills your AWS account.
+
+## Shared files
+
+Four sets of files change only through the maintainer: `backend/openapi/v1.json`, `backend/pyproject.toml` with `backend/uv.lock`, `web/package.json` with `web/package-lock.json`, and the generated client in `web/src/api`. Say so in your pull request if your change needs one. After an API change run `uv run python -m cso.tools.export_openapi` in `backend`, then `npm run generate:api` in `web`.
+
+## Check it worked
+
+- `uv run pytest tests/unit/domain -q` passes in seconds.
+- `http://127.0.0.1:8000` answers and the queue at `http://localhost:5173/queue` shows fifteen cases in lanes.
+
+Next: [repo tour](../repo-tour/).
+
+The rules every change keeps are in [`CONTRIBUTING.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CONTRIBUTING.md).

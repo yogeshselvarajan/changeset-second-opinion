@@ -1,0 +1,24 @@
+{
+  "fixture_id": "02-good-faith-mistake",
+  "description": "New mapper renames a residential road to a shop name; v-1 shows the original name",
+  "changeset_id": 900000000002,
+  "coverage": {
+    "elements_in_changeset": 2,
+    "elements_detailed": 2,
+    "elements_skipped_budget": 0,
+    "history_gaps": [],
+    "user_profile": "fetched",
+    "discussion": "fetched",
+    "snapshot_truncated": false,
+    "score": 1.0
+  },
+  "flags": [
+    "New mapper"
+  ],
+  "rules": [],
+  "nature": "likely_good_faith_mistake",
+  "response": "welcome_and_tips",
+  "lane": "review_suggested",
+  "notes": "Prior version of the road (v3) carries name=Elm Street; age_days is unknown because v-1 is not the first version.",
+  "receipt": null
+}

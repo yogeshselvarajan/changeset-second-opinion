@@ -1,0 +1,105 @@
+---
+title: Back up, upgrade and migrate
+description: Back up the SQLite database, restore it, apply migrations with cso db upgrade and roll back a release.
+---
+
+*For operators who self-host. How-to.*
+
+All state is one SQLite file. Back it up before you upgrade, and know how to put it back.
+
+## What you need first
+
+- Shell access to the host that holds the database. On AWS that is an SSM session.
+- For a local copy, the `sqlite3` tool.
+
+## Back up a local copy
+
+The database path comes from `CSO_DATABASE_URL`. The default is `./cso.db` next to where you start the API. Make a consistent copy, even while the API is running:
+
+```sh
+sqlite3 cso.db ".backup 'cso-backup.db'"
+sqlite3 cso-backup.db "PRAGMA integrity_check;"
+```
+
+The second command should print `ok`. Keep the copy somewhere other than the same disk.
+
+## Back up on AWS
+
+Three layers run on the AWS host, from finest to coarsest:
+
+| Layer | What it does |
+| --- | --- |
+| Litestream | Replicates the database to S3 within 15 seconds of each commit. Keeps 24 hours of history and a snapshot every 6 hours. |
+| Nightly dump | Runs at 17:00 UTC (22:30 India time): `sqlite3 .backup`, an integrity check, gzip and upload to `s3://<bucket>/backups/YYYY/MM/`. Objects expire after 90 days. |
+| Volume snapshot | A nightly EBS snapshot, 7 kept. |
+
+To back up by hand on the host:
+
+```sh
+sudo bash /opt/cso/infra/scripts/backup.sh
+aws s3 ls s3://<bucket>/backups/ --recursive
+```
+
+## Restore on AWS
+
+From your workstation, restore from the replica. The host restores into a side file, checks it, and swaps it in only when it passes. The live database stays untouched until the copy checks out.
+
+```sh
+bash infra/scripts/restore.sh remote-litestream                       # latest
+bash infra/scripts/restore.sh remote-litestream 2026-10-19T08:30:00Z  # a moment in the last 24 hours
+bash infra/scripts/restore.sh remote                                  # latest nightly dump
+```
+
+The current file is kept as `cso.db.pre-restore-<stamp>`. If you lose the instance, deploy the stack again, then run `restore.sh remote-litestream`. See [Deploy on AWS](../deploy-on-aws/).
+
+Run a restore drill once after the first deploy, so you know the backup can be restored before you need it.
+
+## Upgrade
+
+On a local copy, from the repository root:
+
+```sh
+git pull
+cd backend
+uv sync --frozen
+uv run cso db upgrade
+```
+
+`cso db upgrade` applies migrations up to `head`. Pass `--revision <id>` for another target. `cso seed`, `cso calibrate` and `cso auth create-invite` also bring the database up to date before they run.
+
+With Docker Compose, the `migrate` service runs `db upgrade` before the API and the worker start, so rebuilding and restarting the stack upgrades the database. See [Install with Docker Compose](../docker-compose/).
+
+On AWS, deploy a tagged release from your workstation:
+
+```sh
+bash infra/scripts/deploy.sh v0.1.0
+```
+
+It takes a database backup first and halts the deploy if that fails. It builds the ref, restarts, and runs the health check. If the check fails, the previous commit and images come back by themselves and the command exits non-zero. It is a restart of a few seconds, not a blue-green swap.
+
+## Roll back
+
+```sh
+bash infra/scripts/deploy.sh --rollback
+```
+
+This returns to the commit and images that ran before the last deploy, with no rebuild. The database is not rolled back. Most migrations only add tables or columns, so older code usually runs against the newer schema. If a migration has to be undone, restore the database as it was before the deploy, then roll the application back.
+
+## Move to a new host
+
+1. Back up the database on the old host.
+2. Set up the new host. See [Install with Docker Compose](../docker-compose/) or [Deploy on AWS](../deploy-on-aws/).
+3. Put the backup file where `CSO_DATABASE_URL` points, then run `uv run cso db upgrade`.
+4. Move your settings too. Copy the file, and keep secrets out of it. Register the OpenStreetMap app again only if the domain changed. See [Register the OSM sign-in app](../register-the-osm-app/).
+
+The file holds no host name, path or machine setting, so a backup copy opens on any host. The engine sets its journal mode and other options each time it connects, and `cso db upgrade` brings an older file up to the current schema. This was checked by making a copy with the SQLite backup call, opening it from a different folder and running `cso db upgrade`, which printed `database at head`. A move between two real hosts has not been tried.
+
+On a host that runs the database in a container, the file has to be readable and writable by the user the container runs as. The restore script on AWS sets that owner (user and group 10001) for you. If you copy the file by hand, set the same owner.
+
+## Check that it worked
+
+- `uv run cso db upgrade` prints a line starting with "database at head".
+- `/readyz` answers 200. It also fails if the migrations are not at head. See [Monitor and troubleshoot](../monitor-and-troubleshoot/).
+- Open a case that existed before the backup. It is still there with its run and decision.
+
+Next: [Monitor and troubleshoot](../monitor-and-troubleshoot/).

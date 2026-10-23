@@ -1,0 +1,36 @@
+---
+title: Releases
+description: What the release process is today, how versions and the changelog are kept, and how a deployment picks a release.
+---
+
+*For maintainers and contributors. How-to, with the gaps stated.*
+
+The project is a hackathon MVP. Releases are automated with release-please, and the first release will be `v1.0.0`. The automation, the checks and the one time setup are described in [automation and releases](../ci-and-releases/). This page keeps the manual process as a fallback.
+
+## What exists today
+
+- **Version numbers.** The backend (`backend/pyproject.toml`) and the web app (`web/package.json`) both say `0.1.0`. The first release is `v1.0.0`; release-please sets both versions and the tag.
+- **Changelog.** `CHANGELOG.md` at the repository root lists user-visible changes, newest first, kept by hand. The [changelog](../../project/changelog/) page on this site is the same kind of list. Release-please does not write it; a person does.
+- **Commits.** Messages follow Conventional Commits with a scope from the list in [`CONTRIBUTING.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/CONTRIBUTING.md), for example `fix(jobs): re-queue on lease expiry`.
+- **Deploys.** `infra/scripts/deploy.sh` can deploy a git ref. Deploy a release tag rather than `main`. `deploy.sh --rollback` returns to the commit and images that ran before the last deploy. See [deploy on AWS](../../self-host/deploy-on-aws/) and [back up, upgrade and migrate](../../self-host/backup-upgrade-migrate/).
+- **Docs.** The docs site shows the date each page last changed, taken from git.
+
+As of 23 October 2026, `git tag --list` shows no tag yet. The release workflows are in `.github/workflows/` (`release-please.yml`, `release.yml`, `deploy-demo.yml`).
+
+## What a maintainer does for a release
+
+This is the manual process the repository supports. Normally release-please opens the release pull request for you.
+
+1. Make sure `main` is green on the `ci-passed` check. See [tests](../tests/).
+2. If the API changed, confirm `backend/openapi/v1.json` and the generated client are current.
+3. If dependencies changed, confirm `THIRD_PARTY_NOTICES.md` was updated.
+4. Move the user-visible items for the release in `CHANGELOG.md` under a dated heading, and say what changed in plain words.
+5. Raise the version in `backend/pyproject.toml` and `web/package.json` together. These are shared files and go through the integration owner.
+6. Tag the commit, for example `git tag v0.1.0`, and push the tag.
+7. To deploy that release, give its tag to the deploy script as described in [deploy on AWS](../../self-host/deploy-on-aws/).
+
+## Check it worked
+
+`git tag --list` shows the tag, and `CHANGELOG.md` has a heading for the release. After a deploy, the readiness check on the host passes, as the same page describes.
+
+Next: [project roadmap](../../project/roadmap/).

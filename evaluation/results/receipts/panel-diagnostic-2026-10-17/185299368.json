@@ -1,0 +1,122 @@
+{
+  "changeset_id": 185299368,
+  "composition": {
+    "band": "cannot_tell",
+    "cross_checks": {
+      "evidence_sufficient": "undecided",
+      "mass_retag_single_key": "undecided",
+      "mature_feature_deleted": "undecided",
+      "new_account_first_edits": "disagree"
+    },
+    "lane": "needs_local_knowledge",
+    "nature": "needs_local_knowledge",
+    "nature_row": "N5",
+    "response": "ask_source_question",
+    "response_row": "P6",
+    "rules": []
+  },
+  "config_version": "sha256:01ae6fdd985091161326815b8c3f73b8f3f00c285fe77db6d1987512fc60656e",
+  "evidence_version": "sha256:613c1545b8d370a6672ca9d06dc3c29bdf4529a24543beb1f217e195079aefae",
+  "identity": {
+    "base_model": "Qwen/Qwen3.5-2B-Base",
+    "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+    "device": "cuda",
+    "max_length": 4096,
+    "model": "strands-decider-2B-qwen3.5-v1-2610",
+    "prefix_cache": true,
+    "server_git_sha": null,
+    "temperature": 1.0545210242263665
+  },
+  "input_tokens": 1828,
+  "latency_ms": 1189,
+  "output_tokens": 11,
+  "panel": {
+    "advisory_nature": {
+      "advisory": true,
+      "choice": "needs_local_knowledge",
+      "confidence": 0.2406,
+      "order": [
+        "consistent_edit",
+        "likely_good_faith_mistake",
+        "possible_deliberate_damage",
+        "needs_local_knowledge"
+      ],
+      "probabilities": {
+        "consistent_edit": 0.2531,
+        "likely_good_faith_mistake": 0.2283,
+        "needs_local_knowledge": 0.4304,
+        "possible_deliberate_damage": 0.0881
+      }
+    },
+    "high": 0.65,
+    "ids": [
+      "mature_feature_deleted",
+      "nonsense_or_offensive_values",
+      "comment_matches_changes",
+      "conventions_followed",
+      "new_account_first_edits",
+      "deleted_own_recent_additions",
+      "real_world_change_claimed",
+      "discussion_cites_source",
+      "mass_retag_single_key",
+      "evidence_sufficient"
+    ],
+    "low": 0.35,
+    "readings": {
+      "comment_matches_changes": {
+        "id": "comment_matches_changes",
+        "probability": 0.7047,
+        "state": "yes"
+      },
+      "conventions_followed": {
+        "id": "conventions_followed",
+        "probability": 0.6107,
+        "state": "unknown"
+      },
+      "deleted_own_recent_additions": {
+        "id": "deleted_own_recent_additions",
+        "probability": 0.1953,
+        "state": "no"
+      },
+      "discussion_cites_source": {
+        "id": "discussion_cites_source",
+        "probability": 0.1061,
+        "state": "no"
+      },
+      "evidence_sufficient": {
+        "id": "evidence_sufficient",
+        "probability": 0.6216,
+        "state": "unknown"
+      },
+      "mass_retag_single_key": {
+        "id": "mass_retag_single_key",
+        "probability": 0.5529,
+        "state": "unknown"
+      },
+      "mature_feature_deleted": {
+        "id": "mature_feature_deleted",
+        "probability": 0.5593,
+        "state": "unknown"
+      },
+      "new_account_first_edits": {
+        "id": "new_account_first_edits",
+        "probability": 0.154,
+        "state": "no"
+      },
+      "nonsense_or_offensive_values": {
+        "id": "nonsense_or_offensive_values",
+        "probability": 0.1692,
+        "state": "no"
+      },
+      "real_world_change_claimed": {
+        "id": "real_world_change_claimed",
+        "probability": 0.3516,
+        "state": "unknown"
+      }
+    }
+  },
+  "profile": "compact",
+  "questions_hash": "sha256:d0cd31c9b190f6734322679a27db5a9e6a1c770641452db44e6141a12dc6dd21",
+  "rendered_tokens_estimate": 611,
+  "server_latency_ms": 664.1
+}

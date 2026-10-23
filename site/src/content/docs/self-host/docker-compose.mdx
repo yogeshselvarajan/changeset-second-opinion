@@ -1,0 +1,139 @@
+---
+title: Install with Docker Compose
+description: Run the replay demo with one command, or the full stack with the compose files, Caddy and one .env file.
+---
+
+*For operators who self-host. How-to.*
+
+The compose stack runs the API, the worker, Caddy and, when you add a profile, the Decider on one host. Only Caddy publishes a port.
+
+## What you need first
+
+- Docker with Compose v2. See [Requirements and sizing](../requirements/).
+- For a GPU host, the NVIDIA container toolkit.
+- For the real Decider, about 5 GB of free disk for the model, which downloads on first start. The replay demo needs none of this.
+
+## Quickstart: the replay demo
+
+This is the fastest way to see the product. It runs the fifteen recorded changesets with no model, no network calls to OpenStreetMap, no secrets and no `.env` file. Checked on 2026-10-20 with Docker 29.2.1.
+
+1. From the repository root, build and start it:
+
+   ```sh
+   docker compose -f infra/compose/docker-compose.yml -f infra/compose/docker-compose.demo.yml up --build
+   ```
+
+   The first build takes several minutes (it builds this docs site too). After that the layers are cached. Compose builds two images, `cso-backend:local` and `cso-web:local`. The API, the worker, the migration job and the seed job all use the backend image.
+
+2. The stack applies the migrations, then runs `cso seed` once, then starts the API, the worker and Caddy. Open `http://127.0.0.1:8080`. The queue lists 15 cases. This docs site is at `http://127.0.0.1:8080/docs/`. To use another host port, set `CSO_LOCAL_PORT` before the command.
+
+3. Make an invite code and sign in with it. From another terminal in the repository root:
+
+   ```sh
+   docker compose -f infra/compose/docker-compose.yml -f infra/compose/docker-compose.demo.yml exec api cso auth create-invite --role admin --max-uses 1 --ttl-hours 24 --label first-admin
+   ```
+
+   The code prints once.
+
+4. To load the demo set again by hand (the command is safe to repeat, and reports `seeded 0 new and 15 existing cases` when nothing is new):
+
+   ```sh
+   docker compose -f infra/compose/docker-compose.yml -f infra/compose/docker-compose.demo.yml exec api cso seed
+   ```
+
+   The image holds the demo set in `/app/fixtures/demo`, which is where the command looks by default.
+
+5. Remove it, including its data volume:
+
+   ```sh
+   docker compose -f infra/compose/docker-compose.yml -f infra/compose/docker-compose.demo.yml down -v
+   ```
+
+The demo file publishes the site on `127.0.0.1` only, forces `CSO_MODE=replay` and ignores any `.env`. Do not combine it with a Decider profile.
+
+## The compose files
+
+| File | Add it when |
+| --- | --- |
+| `infra/compose/docker-compose.yml` | Always. The base stack: `stack`, `migrate`, `api`, `worker` and `caddy`. |
+| `infra/compose/docker-compose.demo.yml` | You want the replay demo above. It adds the `seed` job and publishes `127.0.0.1:8080`. |
+| `infra/compose/docker-compose.cpu.yml` | The Decider runs on CPU. It adds `--device cpu` and sets the 90 second timeout class. |
+| `infra/compose/docker-compose.gpu.yml` | The Decider runs on an NVIDIA GPU. It adds `--device cuda` and sets the 45 second timeout class. |
+| `infra/compose/docker-compose.local.yml` | You run live mode on a local machine. It publishes Caddy on `127.0.0.1:8080`. |
+| `infra/compose/docker-compose.aws.yml` | You are on the AWS host. It sends logs to CloudWatch and adds Litestream. The bootstrap script uses it. |
+| `infra/compose/docker-compose.replay-aws.yml` | You run the public replay demo on one small AWS instance. Use it after the base and demo files. It publishes 443 and 80 (80 only redirects), reads `.env` for the public origin and keeps Docker's own log rotation. See [Deploy on AWS](../deploy-on-aws/). |
+
+Both Decider profiles extend `infra/compose/decider.service.yml`, which holds the settings they share.
+
+All services except `stack` share one network namespace with `network_mode: "service:stack"`. They talk over `127.0.0.1`, and nothing but Caddy's port is published. The Decider has no `ports:` entry and listens on `127.0.0.1` only. Because the namespace belongs to `stack`, bring the whole stack up or down together. If you recreate only `stack`, run `up -d --force-recreate` for the rest so they rejoin it.
+
+## Container hardening
+
+Every container runs as an unprivileged user with a read-only root filesystem, all capabilities dropped, `no-new-privileges`, a small `tmpfs` for `/tmp`, a process limit, CPU and memory limits, a healthcheck on the API, Caddy and the Decider, a restart policy that brings it back after a crash or a reboot, and a shutdown grace period (30 seconds for the API, 60 for the worker so a job in flight can finish). In the test below, the API, the worker and Caddy all shut down in about 4 seconds together. The backend runs as uid 10001, the Decider as uid 10002 and Caddy as uid 10003. Each of them writes only to its own volume: `/data` for the database, the model cache for the Decider, and Caddy's data and config folders. The images carry no secrets. Base images are pinned by tag and digest, and each image has OCI labels.
+
+## Sizes and memory
+
+Measured on 2026-10-20 on a Docker Desktop VM with 8 CPUs and 7.6 GiB of memory. Memory is from `docker stats --no-stream` after a fresh start of the demo and about 360 requests (the home page, a docs page and the case list, at roughly 8 requests per second). The memory limits are in the compose file, so the numbers show the headroom, not a measured peak.
+
+| Container | Image size on disk | Memory in use | Limit in the compose file |
+| --- | --- | --- | --- |
+| `stack` | 13 MB | 0.5 MiB | 16 MB |
+| `api` | 526 MB (shared with `worker`) | 81 MiB | 512 MB |
+| `worker` | same image | 92 MiB | 512 MB |
+| `caddy` (edge, SPA and docs) | 253 MB | 18 MiB | 256 MB |
+| `decider` (CPU profile) | 1.76 GB | 282 MiB with the libraries loaded and no weights | 12 GB (`CSO_DECIDER_MEMORY`) |
+
+The Decider figure is the process with PyTorch and Transformers imported and no model loaded. It is not the running cost. Memory with the weights loaded was not measured: the base model and adapter download about 5 GB, which was not done on the test machine. Plan on several GB more than that figure. The GPU image was not built here. It takes PyTorch from PyPI, whose Linux wheels carry the CUDA libraries, so it is several GB larger than the CPU image.
+
+## Steps for live mode
+
+1. From the repository root, copy the example settings:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+   The compose files read `.env` at the repository root. The file holds no secrets.
+
+2. Edit `.env`. The values that matter first:
+
+   | Setting | What it does |
+   | --- | --- |
+   | `CSO_MODE` | `replay` for saved changesets, `live` for the real OpenStreetMap API. See [Replay mode and live mode](../replay-and-live/). |
+   | `CSO_USER_AGENT` | A real repository address and contact email. Live mode refuses to start while the placeholders are in it. |
+   | `CSO_SITE_ADDRESS` | `:80` for plain HTTP, or your domain name for automatic TLS. |
+   | `CSO_DECIDER_DEVICE_CLASS` | `gpu` or `cpu`. The profile files set it for you. |
+
+   Every setting is listed in the [settings reference](../../reference/settings/).
+
+3. Start the stack on a local machine with the CPU profile:
+
+   ```sh
+   docker compose -f infra/compose/docker-compose.yml -f infra/compose/docker-compose.cpu.yml -f infra/compose/docker-compose.local.yml up --build
+   ```
+
+   Swap in `docker-compose.gpu.yml` on a GPU host. The first start builds the images and downloads the model into the `hf-cache` volume.
+
+4. Make a first admin invite code, with the same three files and `exec api cso auth create-invite --role admin --max-uses 1 --ttl-hours 24 --label first-admin` after them. The code prints once. To use an OpenStreetMap account instead, see [Set up the first admin](../../administer/first-admin/).
+
+## Caddy
+
+Caddy serves the web app and this docs site, and proxies `/api`, `/healthz`, `/readyz` and the web manifest to the API on `127.0.0.1:8000`. `/docs` redirects to `/docs/`, and an unknown docs path gets the docs 404 page with a 404 status. It sets security headers on every response. The docs pages get a looser Content-Security-Policy (inline scripts for the theme and search), and the app keeps the tight one. It limits API requests to 10 per second per client address and sign-in routes to 1 per second, and limits request bodies to 64 KB (1 MB for importing a case). With a domain in `CSO_SITE_ADDRESS`, it gets a Let's Encrypt certificate on its own. With only port 443 open, it uses the TLS-ALPN-01 challenge. Set `CSO_APEX_ADDRESS` to a second host name, for example the bare domain, and Caddy gets a certificate for it too and redirects it to `CSO_SITE_ADDRESS`. Left unset, that redirect does nothing.
+
+The API trusts the `X-Forwarded-For` header that Caddy writes. The compose file sets `CSO_TRUST_PROXY` to `true` for you. Do not put another proxy in front of Caddy without reading [Deploy on AWS](../deploy-on-aws/).
+
+## Data and volumes
+
+The database lives in the `cso-data` volume and the model cache in `hf-cache`. Point them at host folders with `CSO_DATA_DIR` and `CSO_HF_DIR`. A host folder needs the right owner: `10001:10001` for the data folder and `10002:10002` for the model folder.
+
+## Check that it worked
+
+With the demo or the local file, from the host:
+
+```sh
+curl -fsS http://127.0.0.1:8080/readyz
+```
+
+A 200 answer means the database is ready. In live mode, `/readyz` also needs the Decider, and answers 503 until the model has loaded. Open `http://127.0.0.1:8080` in a browser.
+
+Next: [Register the OSM sign-in app](../register-the-osm-app/).

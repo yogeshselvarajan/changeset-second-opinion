@@ -1,0 +1,56 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1072833269,
+      "timestamp": "2026-01-03T19:33:04Z",
+      "version": 7,
+      "changeset": 176795173,
+      "user": "mapper_H",
+      "uid": 900000008,
+      "nodes": [
+        1435216231,
+        4407367331,
+        670758019,
+        5639768769,
+        671362067,
+        671361892,
+        3732206717,
+        670429588,
+        670764571,
+        670764573,
+        670764570,
+        5639768751,
+        3732206676,
+        3732209403,
+        8237984404,
+        8740116008,
+        670764739,
+        670764577,
+        3732206685,
+        3732206681,
+        6182353386,
+        1435168699,
+        6182353283,
+        1435168700,
+        8311258221,
+        8311258224,
+        275059476,
+        1435168704
+      ],
+      "tags": {
+        "highway": "secondary",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Avenida Prolongación División del Norte",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

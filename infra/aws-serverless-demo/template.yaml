@@ -1,0 +1,650 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Changeset Second Opinion replay demo, fully serverless. Static files on S3
+  behind CloudFront, API on a Lambda container image (Lambda Web Adapter, x86_64) behind a function
+  URL that only CloudFront can call (origin access control). Deploy in us-east-1 (CloudFront needs
+  its ACM certificate there). Read infra/aws-serverless-demo/README.md first.
+
+Rules:
+  RegionIsUsEast1:
+    Assertions:
+      - Assert: !Equals [!Ref "AWS::Region", us-east-1]
+        AssertDescription: Deploy this stack in us-east-1 (the CloudFront certificate has to be there).
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: osm.changesetreview.online
+    Description: The public host name of the demo.
+  ApexDomain:
+    Type: String
+    Default: ""
+    Description: Optional bare domain (for example changesetreview.online) that redirects to DomainName. Empty turns it off. The certificate needs to cover it.
+  CertificateArn:
+    Type: String
+    AllowedPattern: ^arn:aws:acm:us-east-1:[0-9]{12}:certificate/[0-9a-f-]+$
+    Description: ISSUED ACM certificate in us-east-1 for DomainName (and ApexDomain when used).
+  ImageUri:
+    Type: String
+    Description: ECR image of the API, pinned by digest (repo@sha256:...). deploy.sh builds and pushes it.
+  AlertEmail:
+    Type: String
+    AllowedPattern: ^[^@\s]+@[^@\s]+\.[^@\s]+$
+    Description: Receives the budget and alarm mails (each address has to confirm the SNS subscription).
+  MonthlyBudgetUsd:
+    Type: Number
+    Default: 5
+    MinValue: 1
+    Description: Monthly cost budget in US dollars. A mail goes out at 80 percent actual and at 100 percent forecast.
+  MemorySizeMb:
+    Type: Number
+    Default: 1024
+    MinValue: 512
+    MaxValue: 2048
+    Description: API memory in MB. Memory is also CPU, and the Python start-up (about 250 MB of libraries) is CPU bound, so 1024 keeps the cold start near 4 to 6 seconds. See README.
+  ReservedConcurrency:
+    Type: Number
+    Default: 0
+    MinValue: 0
+    Description: Hard cap on parallel API instances, the cost brake. 0 means no reservation, and then the account concurrency quota is the cap. A new account with a quota of 10 cannot reserve any, so 0 is the default; raise it only after the quota has been increased. See README.
+  EdgeErrorPages:
+    Type: String
+    Default: "false"
+    AllowedValues: ["true", "false"]
+    Description: Styled 404 pages through a Lambda@Edge function. Off by default. In the first live test CloudFront answered 502 (LambdaValidationError) on missing pages with this function, so leave it off until it is fixed and tested; missing pages then return the plain S3 error.
+  CloudFrontHourlyRequestAlarm:
+    Type: Number
+    Default: 5000
+    MinValue: 100
+    Description: Alarm when CloudFront serves more than this many requests in one hour.
+  KeepWarmEnabled:
+    Type: String
+    Default: "true"
+    AllowedValues: ["true", "false"]
+    Description: Call the API on a timer so an instance stays warm and the first visitor after a quiet period does not wait for a cold start. "false" removes the timer.
+  KeepWarmMinutes:
+    Type: Number
+    Default: 5
+    MinValue: 2
+    MaxValue: 60
+    Description: Minutes between keep warm calls (default 5, about 8,600 calls a month, inside the Lambda free tier). Used only when KeepWarmEnabled is true.
+
+Conditions:
+  HasApex: !Not [!Equals [!Ref ApexDomain, ""]]
+  UseEdgeErrorPages: !Equals [!Ref EdgeErrorPages, "true"]
+  HasReservation: !Not [!Equals [!Ref ReservedConcurrency, 0]]
+  KeepWarmOn: !Equals [!Ref KeepWarmEnabled, "true"]
+
+Resources:
+  # ---------------------------------------------------------------- static files
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-old-versions
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 30
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 2
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: s3:*
+            Resource:
+              - !GetAtt SiteBucket.Arn
+              - !Sub ${SiteBucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub ${SiteBucket.Arn}/*
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}
+          # ListBucket turns a missing key into 404 instead of 403.
+          - Sid: AllowCloudFrontList
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:ListBucket
+            Resource: !GetAtt SiteBucket.Arn
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}
+
+  # ---------------------------------------------------------------- API on Lambda
+  ApiLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${AWS::StackName}-api
+      RetentionInDays: 14
+
+  ApiRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: logs
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !Sub ${ApiLogGroup.Arn}:*
+
+  ApiFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-api
+      PackageType: Image
+      Code:
+        ImageUri: !Ref ImageUri
+      Architectures:
+        - x86_64
+      MemorySize: !Ref MemorySizeMb
+      Timeout: 15
+      EphemeralStorage:
+        Size: 512
+      ReservedConcurrentExecutions: !If [HasReservation, !Ref ReservedConcurrency, !Ref "AWS::NoValue"]
+      Role: !GetAtt ApiRole.Arn
+      LoggingConfig:
+        LogGroup: !Ref ApiLogGroup
+      Environment:
+        Variables:
+          CSO_MODE: replay
+          CSO_JOBS_WORKER_ENABLED: "false"
+          CSO_TRUST_PROXY: "true"
+          AWS_LWA_INVOKE_MODE: buffered
+
+  ApiUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt ApiFunction.Arn
+      AuthType: AWS_IAM
+      InvokeMode: BUFFERED
+
+  # CloudFront needs both actions on the function (current Lambda requirement for function URLs).
+  AllowCloudFrontInvokeUrl:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: cloudfront.amazonaws.com
+      SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}
+      FunctionUrlAuthType: AWS_IAM
+
+  AllowCloudFrontInvoke:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunction
+      Principal: cloudfront.amazonaws.com
+      SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}
+
+  # Keep warm. An EventBridge rule invokes the function directly with an API Gateway HTTP API (v2)
+  # shaped event for GET /healthz. The Lambda Web Adapter turns that into a plain request to the
+  # app (checked locally with the Lambda Runtime Interface Emulator: status 200, body {"status":"ok"}).
+  # Any other event shape would be posted to /events and answer 404 in the app, so keep this shape.
+  KeepWarmRule:
+    Type: AWS::Events::Rule
+    Condition: KeepWarmOn
+    Properties:
+      Description: Calls GET /healthz on the API function so one instance stays warm.
+      ScheduleExpression: !Sub rate(${KeepWarmMinutes} minutes)
+      State: ENABLED
+      Targets:
+        - Id: api-keep-warm
+          Arn: !GetAtt ApiFunction.Arn
+          Input: '{"version":"2.0","routeKey":"$default","rawPath":"/healthz","rawQueryString":"","headers":{"host":"keepwarm.invalid","user-agent":"cso-keepwarm"},"requestContext":{"accountId":"anonymous","apiId":"keepwarm","domainName":"keepwarm.invalid","domainPrefix":"keepwarm","http":{"method":"GET","path":"/healthz","protocol":"HTTP/1.1","sourceIp":"127.0.0.1","userAgent":"cso-keepwarm"},"requestId":"keepwarm","routeKey":"$default","stage":"$default","time":"01/Jan/2026:00:00:00 +0000","timeEpoch":0},"isBase64Encoded":false}'
+
+  AllowKeepWarmInvoke:
+    Type: AWS::Lambda::Permission
+    Condition: KeepWarmOn
+    Properties:
+      FunctionName: !Ref ApiFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt KeepWarmRule.Arn
+
+  # ---------------------------------------------------------------- styled 404 pages
+  # A Lambda@Edge function on the origin response of the two static behaviours only (default and
+  # /docs*). When S3 answers 403 or 404 it returns the built 404.html (docs/404.html under /docs/)
+  # with status 404, like the Caddyfile. The API behaviours have no association, so their JSON
+  # problem answers (404, 403 and the rest) are never touched. It reads the page from the
+  # distribution itself, so it needs no S3 rights. It runs only on cache misses of missing files.
+  # If you change the code, give the version a new logical id (EdgeErrorPagesV2), because
+  # CloudFormation does not publish a new version for changed code on its own.
+  EdgeErrorPagesRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+                - edgelambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  EdgeErrorPagesFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-edge-404
+      Runtime: nodejs24.x
+      Handler: index.handler
+      Role: !GetAtt EdgeErrorPagesRole.Arn
+      MemorySize: 128
+      Timeout: 5
+      Code:
+        ZipFile: |
+          const cache = {};
+          exports.handler = async (event) => {
+            const cf = event.Records[0].cf;
+            const res = cf.response;
+            if (res.status !== '403' && res.status !== '404') return res;
+            const uri = cf.request.uri;
+            const page = uri.indexOf('/docs/') === 0 ? '/docs/404.html' : '/404.html';
+            if (uri === page) return res;
+            const now = Date.now();
+            let hit = cache[page];
+            if (!hit || now - hit.at > 60000) {
+              try {
+                const r = await fetch('https://' + cf.config.distributionDomainName + page, { signal: AbortSignal.timeout(3000) });
+                if (!r.ok) return res;
+                hit = { at: now, body: await r.text() };
+                cache[page] = hit;
+              } catch (e) {
+                return res;
+              }
+            }
+            return {
+              status: '404',
+              statusDescription: 'Not Found',
+              headers: {
+                'content-type': [{ key: 'Content-Type', value: 'text/html; charset=utf-8' }],
+                'cache-control': [{ key: 'Cache-Control', value: 'public, max-age=60' }],
+              },
+              body: hit.body,
+            };
+          };
+
+  EdgeErrorPagesV1:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref EdgeErrorPagesFunction
+
+  # ---------------------------------------------------------------- CloudFront
+  SiteOac:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub ${AWS::StackName}-site
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  ApiOac:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub ${AWS::StackName}-api
+        OriginAccessControlOriginType: lambda
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # Mirrors infra/caddy/Caddyfile. The app policy is the tight one. The docs policy allows inline
+  # scripts and WebAssembly for the docs search and nothing else.
+  AppHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub ${AWS::StackName}-app
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            Override: true
+            ContentSecurityPolicy: "default-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob:; child-src 'self' blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+          ContentTypeOptions:
+            Override: true
+          FrameOptions:
+            FrameOption: DENY
+            Override: true
+          ReferrerPolicy:
+            ReferrerPolicy: no-referrer
+            Override: true
+          StrictTransportSecurity:
+            AccessControlMaxAgeSec: 31536000
+            Override: true
+        CustomHeadersConfig:
+          Items:
+            - Header: Permissions-Policy
+              Value: camera=(), microphone=(), geolocation=()
+              Override: true
+            - Header: Cross-Origin-Opener-Policy
+              Value: same-origin
+              Override: true
+            - Header: Cross-Origin-Resource-Policy
+              Value: same-origin
+              Override: true
+
+  DocsHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub ${AWS::StackName}-docs
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            Override: true
+            ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+          ContentTypeOptions:
+            Override: true
+          FrameOptions:
+            FrameOption: DENY
+            Override: true
+          ReferrerPolicy:
+            ReferrerPolicy: no-referrer
+            Override: true
+          StrictTransportSecurity:
+            AccessControlMaxAgeSec: 31536000
+            Override: true
+        CustomHeadersConfig:
+          Items:
+            - Header: Permissions-Policy
+              Value: camera=(), microphone=(), geolocation=()
+              Override: true
+            - Header: Cross-Origin-Opener-Policy
+              Value: same-origin
+              Override: true
+            - Header: Cross-Origin-Resource-Policy
+              Value: same-origin
+              Override: true
+
+  # Public read-only data: a short shared cache cuts Lambda calls. Responses that say no-store
+  # (sign-in routes, /me) are never cached. No cookies or headers in the cache key.
+  ApiCache:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: !Sub ${AWS::StackName}-api
+        MinTTL: 0
+        DefaultTTL: 30
+        MaxTTL: 300
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          CookiesConfig:
+            CookieBehavior: none
+          HeadersConfig:
+            HeaderBehavior: none
+          QueryStringsConfig:
+            QueryStringBehavior: all
+
+  # Viewer request function: the part of Caddy that S3 does not do.
+  #   /docs -> 301 /docs/ ; folders answer with index.html ; the written pages answer with their
+  #   index.html ; any other path without a file extension gets the app shell (client routes).
+  #   Optional apex host: 301 to the main host.
+  # Add a page folder to PAGES when web/dist gets a new one (ls web/dist).
+  RewriteFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub ${AWS::StackName}-rewrite
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Docs redirect, folder index files, SPA fallback
+        Runtime: cloudfront-js-2.0
+      FunctionCode: !Sub
+        - |
+          var PAGES = ['/about', '/privacy'];
+          var MAIN = '${DomainName}';
+          var APEX = '${Apex}';
+          function handler(event) {
+            var r = event.request;
+            var host = r.headers.host ? r.headers.host.value : '';
+            if (APEX !== '' && host === APEX) {
+              return { statusCode: 301, statusDescription: 'Moved Permanently',
+                       headers: { location: { value: 'https://' + MAIN + r.uri } } };
+            }
+            var u = r.uri;
+            if (u === '/docs') {
+              return { statusCode: 301, statusDescription: 'Moved Permanently',
+                       headers: { location: { value: '/docs/' } } };
+            }
+            if (u.charAt(u.length - 1) === '/') { r.uri = u + 'index.html'; return r; }
+            var last = u.substring(u.lastIndexOf('/') + 1);
+            if (last.indexOf('.') !== -1) { return r; }
+            if (u.indexOf('/docs/') === 0 || PAGES.indexOf(u) !== -1) { r.uri = u + '/index.html'; return r; }
+            r.uri = '/_shell.html';
+            return r;
+          }
+        - Apex: !If [HasApex, !Ref ApexDomain, ""]
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub ${AWS::StackName} replay demo
+        Aliases: !If [HasApex, [!Ref DomainName, !Ref ApexDomain], [!Ref DomainName]]
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        PriceClass: PriceClass_100
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        Origins:
+          - Id: site
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt SiteOac.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+          - Id: api
+            DomainName: !Select [2, !Split ["/", !GetAtt ApiUrl.FunctionUrl]]
+            OriginAccessControlId: !GetAtt ApiOac.Id
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols: [TLSv1.2]
+              OriginReadTimeout: 30
+        DefaultCacheBehavior:
+          TargetOriginId: site
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # Managed-CachingOptimized
+          ResponseHeadersPolicyId: !Ref AppHeaders
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt RewriteFunction.FunctionARN
+          LambdaFunctionAssociations: !If
+            - UseEdgeErrorPages
+            - - EventType: origin-response
+                LambdaFunctionARN: !Ref EdgeErrorPagesV1
+            - !Ref AWS::NoValue
+        CacheBehaviors:
+          # The API is read only at the edge: only GET, HEAD and OPTIONS pass. A POST (sign-in,
+          # new analysis, outcome) is refused with 403 by CloudFront before Lambda is called.
+          - PathPattern: /api/*
+            TargetOriginId: api
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD, OPTIONS]
+            CachedMethods: [GET, HEAD]
+            Compress: true
+            CachePolicyId: !Ref ApiCache
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac # Managed-AllViewerExceptHostHeader
+            ResponseHeadersPolicyId: !Ref AppHeaders
+          - PathPattern: /healthz
+            TargetOriginId: api
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: !Ref ApiCache
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+            ResponseHeadersPolicyId: !Ref AppHeaders
+          - PathPattern: /readyz
+            TargetOriginId: api
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: !Ref ApiCache
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+            ResponseHeadersPolicyId: !Ref AppHeaders
+          - PathPattern: /site.webmanifest
+            TargetOriginId: api
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD]
+            CachePolicyId: !Ref ApiCache
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+            ResponseHeadersPolicyId: !Ref AppHeaders
+          - PathPattern: /docs*
+            TargetOriginId: site
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD]
+            CachedMethods: [GET, HEAD]
+            Compress: true
+            CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+            ResponseHeadersPolicyId: !Ref DocsHeaders
+            FunctionAssociations:
+              - EventType: viewer-request
+                FunctionARN: !GetAtt RewriteFunction.FunctionARN
+            LambdaFunctionAssociations: !If
+              - UseEdgeErrorPages
+              - - EventType: origin-response
+                  LambdaFunctionARN: !Ref EdgeErrorPagesV1
+              - !Ref AWS::NoValue
+
+  # ---------------------------------------------------------------- alerts and budget
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+        - Protocol: email
+          Endpoint: !Ref AlertEmail
+
+  ApiErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The API function returned errors.
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref ApiFunction
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 3
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+
+  ApiThrottlesAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The reserved concurrency cap was hit (busy day, or a flood the cap is absorbing).
+      Namespace: AWS/Lambda
+      MetricName: Throttles
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref ApiFunction
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 20
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+
+  EdgeRequestsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: CloudFront served an unusual number of requests in one hour.
+      Namespace: AWS/CloudFront
+      MetricName: Requests
+      Dimensions:
+        - Name: DistributionId
+          Value: !Ref Distribution
+        - Name: Region
+          Value: Global
+      Statistic: Sum
+      Period: 3600
+      EvaluationPeriods: 1
+      Threshold: !Ref CloudFrontHourlyRequestAlarm
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: [!Ref AlertTopic]
+
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: !Sub ${AWS::StackName}-monthly
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit:
+          Amount: !Ref MonthlyBudgetUsd
+          Unit: USD
+      NotificationsWithSubscribers:
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: 80
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref AlertEmail
+        - Notification:
+            NotificationType: FORECASTED
+            ComparisonOperator: GREATER_THAN
+            Threshold: 100
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref AlertEmail
+
+Outputs:
+  BucketName:
+    Value: !Ref SiteBucket
+  DistributionId:
+    Value: !Ref Distribution
+  DistributionDomain:
+    Description: Point the CNAME record of DomainName at this host name.
+    Value: !GetAtt Distribution.DomainName
+  FunctionName:
+    Value: !Ref ApiFunction

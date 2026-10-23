@@ -1,0 +1,54 @@
+---
+title: Calibration
+description: What the tool learns from reviewers' decisions, what it never changes, and why agreeing is a weak label.
+---
+
+*For community admins. Explanation.*
+
+Calibration uses your reviewers' decisions to move the cut points of the fact panel. It trains no model. It changes two numbers per question, and only after an admin reads a report and applies it.
+
+## What a cut point is
+
+The Decider gives each yes or no question a probability. The panel reads it as no below a low cut point, yes above a high cut point, and unknown in between. By default the cut points are 0.35 and 0.65. They were chosen before any reviewer used the tool. Unknown is always read in the cautious direction.
+
+## Where the labels come from
+
+Each decision a reviewer records can say whether a reading was right. The tool keeps the newest decision per case, so a changed mind counts once.
+
+- **Agree** counts every decided reading of that run as correct. A reading of unknown gets no label.
+- **Disagree with the model** or **a different response**, with the questions the reviewer marked wrong and the answer they gave, labels only those questions.
+- Any other outcome gives no label.
+
+## What the refit does
+
+For each question, it tries cut point pairs in steps of 0.05, between 0.15 and 0.85, with the high cut at least 0.10 above the low one. It picks the pair that makes the readings reviewers confirmed come out right most often, while at least 60 percent of readings still reach a yes or no. Ties go to more readings that decide, then to the pair nearest the default.
+
+A question with fewer than 25 labelled readings keeps the pack default and is marked "kept (not enough data)". With few reviewers, a question may never reach 25. That is the intended result.
+
+Accuracy per question is shown with a 95 percent interval. Per band accuracy is reported too, and it never changes a band cut-off.
+
+## What it never does
+
+- It never changes the rules R1 to R6 or the floor set by parsed facts.
+- It never makes unknown a less cautious reading. Only the width of the unknown band moves, inside the limits above.
+- It never touches the composition tables or the list of words drafts avoid.
+- It never applies itself. A refit is a dry run until an admin applies it.
+- It never edits the pack file. An applied refit is a new configuration version, a copy of the pack with the fitted cut points. Runs already made keep the version they used, and each receipt names the version it ran with.
+
+The next analysis after an apply uses the new version, with no restart.
+
+## The bias to know about
+
+Agreeing is an optimistic label. Reviewers agree more often than they check, and an agreement counts as confirming every decided reading, including ones nobody looked at. Agreement can confirm the current cut points. It cannot show that a yes or no was wrong. Only a correction can.
+
+The Config page says this next to the numbers. Treat a refit built mostly from agreements as a check on the pack, not as new information.
+
+## Where to see and apply it
+
+On the Config page, the Reliability section shows how each fact fared against reviewers' decisions. **Refit from outcomes** opens the dialog "Refit the cut points?", which lists each change, such as one cut point becoming another, before **Apply the refit** stores it. The Review tab of Settings shows the calibration version in force, or "None yet. The pack's own cut points are in use."
+
+On the command line, `uv run cso calibrate` reports without changing anything, and `uv run cso calibrate --apply` stores the result. Add `--pack <pack id>` to pick a pack. See the [command line reference](../../reference/command-line/).
+
+Applying writes an audit event. See [Privacy and what is stored](../privacy/).
+
+For the wider design, see [How a verdict is made](../../concepts/how-a-verdict-is-made/) and [Architecture](../../concepts/architecture/).

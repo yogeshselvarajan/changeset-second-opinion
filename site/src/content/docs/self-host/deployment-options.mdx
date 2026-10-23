@@ -1,0 +1,119 @@
+---
+title: Deployment options
+description: Compare the single host, a cloud native layout on AWS and the hosted Decider, with monthly costs for a small, a medium and a busy community.
+---
+
+*For operators who choose how to self-host. Explanation, with a decision guide.*
+
+Changeset Second Opinion is one FastAPI process with a durable worker, one SQLite file, a small model server (the Decider) and Amazon Bedrock for drafts. That shape fits more than one layout. This page compares three, says what the code supports today, and gives costs you can check. Prices were read from the AWS Price List API on 2026-10-20 for US East (N. Virginia) unless a row says otherwise.
+
+## The short answer
+
+- **Start with the single host.** It is the only layout that is built, scripted and tested. It is also the cheapest.
+- **Choose the cloud native layout** when you want no host to patch, a managed edge and deployments through a service. Expect to pay roughly 40 to 100 US dollars a month more than the single host for the fixed parts. It is a reference design, not a tested release.
+- **The biggest saving is the Decider, not the web tier.** A GPU that is awake all month costs about 590 US dollars. The same GPU awake 60 hours costs about 48. The hosted Decider and the CPU build can cut it further.
+
+## What the code supports today
+
+| Part | Today | What changes it |
+| --- | --- | --- |
+| Database | **SQLite only is tested and supported.** The code has a Postgres path (the `psycopg` driver, JSONB columns, a `FOR UPDATE SKIP LOCKED` job claim and an offline check that the migrations render for Postgres). The test that runs the migrations on a real Postgres server is skipped unless Docker is present, and no pipeline runs the suite on Postgres. | Treat Postgres as unproven. See [the maintainer design note](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/infra/aws-cloud-native/README.md) for the work needed. |
+| Process shape | One API process with the worker inside it, or `cso worker` on its own. Jobs live in the database and are picked up again after a restart. | With SQLite, run exactly one writer. |
+| Decider | A local server that the app reaches at a plain `http` address. No sign-in key, one request shape (`/v1/systemone`). | A hosted mode is not built. The hosted Decider API from the AWS User Group Madurai (`POST /v1/decide` with a bearer key) cannot be used until it is. |
+| Bedrock | Through the standard AWS credential chain, so an instance role or a task role works with no key. | Nothing to change. |
+
+## Compare the options
+
+| | 1. Single host | 2. Cloud native on AWS | 3. Hosted Decider (a choice inside 1 or 2) |
+| --- | --- | --- | --- |
+| Status | Built, scripted, one CloudFormation template | Reference design and an unvalidated-in-AWS template, never deployed | Needs a client change, then a pilot |
+| Compute | One EC2 host runs Caddy, API, worker and Decider | One Fargate task for API and worker, CloudFront and S3 for the web app and docs, an internal load balancer | Your side runs no model |
+| Database | SQLite on an encrypted gp3 volume, Litestream to S3 | SQLite on task storage, restored from S3 by Litestream at each start | Not affected |
+| Decider | Same host, GPU or CPU | A GPU service that scales to zero, or an external address | A third party runs it |
+| Patching | You patch the host and the AMI | AWS runs the platform. You rebuild images. | None |
+| Deploy | `deploy.sh`, with a backup first | Update the service. About a minute of downtime, by design. | Not affected |
+| Writers | One | One, enforced by the deployment settings | Not affected |
+| Fixed monthly cost | Low | Higher (load balancer, edge firewall, task) | None on your side |
+| Best for | Most communities, demos, the first year | Teams with AWS skills and a wish to avoid host care | Communities with no GPU budget, once it is supported |
+
+## SQLite and more than one task
+
+SQLite allows one writer. These rules keep your data safe, and each comes from a source:
+
+- **Never run two tasks or hosts that write the same file.** The cloud native design runs one task and tells the service to end the old task before it starts the new one.
+- **Do not put the database on a network file system such as EFS.** The SQLite documentation says that the write-ahead log mode the app uses does not work over a network file system, because it needs shared memory on one machine. A single task does not make this safe.
+- **Volumes that Amazon ECS attaches to a task are deleted when the task ends** when the task belongs to a service. So the database cannot rely on them either. The design restores the file from S3 with Litestream each time a task starts and replicates every 15 seconds while it runs. A hard failure can lose up to about 15 seconds of writes.
+- **Scaling the API out needs a managed database first.** That is the Postgres work, and it is not done.
+
+## Cost assumptions
+
+All figures are US dollars per month, 730 hours, US East (N. Virginia), on-demand, checked on 2026-10-20.
+
+| Size | Reviewers | Analyses per day | Drafts per day | Decider awake |
+| --- | --- | --- | --- | --- |
+| Small | about 5 | 30 | 10 | 60 hours |
+| Medium | about 20 | 200 | 100 | 220 hours (weekday business hours) |
+| Busy | about 100 | 1,000 (raise the daily cap) | 300 | all month |
+
+Other assumptions:
+
+- A draft uses 2,500 input and 300 output tokens (an estimate, not measured). At the Claude Haiku 4.5 US cross-Region rates of 1.10 and 5.50 US dollars per million tokens that is about 0.0044 per draft. The model id the app uses is the US profile.
+- The `g6.xlarge` GPU host is 0.8048 per hour. The `c7i.2xlarge` CPU host is 0.357 per hour.
+- The single host also has a 100 GiB gp3 volume (8.00), snapshots (about 2), a public address (3.65) and logs, alarms and S3 (about 3).
+- Data transfer, taxes, support plans and free tiers are left out unless stated.
+
+## Monthly cost
+
+| Layout | Small | Medium | Busy |
+| --- | --- | --- | --- |
+| **1a. Single host, GPU** (`g6.xlarge`, awake 60, 220, 730 hours) | about 66 | about 207 | about 644 |
+| **1b. Single host, CPU** (`c7i.2xlarge`, same hours) | about 39 | about 108 | about 317 |
+| **2a. Cloud native, GPU that scales to zero** | about 106 | about 262 | about 756 |
+| **2b. Cloud native, hosted Decider** (service price unknown, not included) | about 57 | about 83 | about 160 |
+| **2c. Cloud native, CPU Decider on Fargate** (8 vCPU, 16 GiB, 0.395 per hour) | about 81 | about 169 | about 449 |
+| **2d. Cloud native, SageMaker asynchronous endpoint** (`ml.g6.xlarge`, 1.1267 per hour) | about 125 | about 330 | about 983 |
+| **2e. Cloud native, Decider in a Lambda container (experimental)** | about 59 | about 93 | about 210 |
+
+The fixed part of the cloud native layout, without the Decider and Bedrock, is about 56 (small), 69 (medium) and 121 (busy). It is made of the Fargate task (ARM, 0.5 vCPU and 2 GiB, then 1 vCPU and 2 GiB, then 2 vCPU and 4 GiB: 17.02, 28.84 and 57.67), an internal Application Load Balancer (0.0225 per hour plus about 1 to 3 capacity units at 0.008, so 22 to 34), a public address for the task (3.65), the edge firewall (about 6.5 to 10), logs and alarms (3 to 8), two secrets (0.80), a private DNS zone (0.50) and small S3, CloudFront and image storage items.
+
+Notes on the table:
+
+- **Lambda (2e)** assumes 10 GB of memory and 10 seconds per analysis, which is 100 GB-seconds at 0.0000166667 each. That price came from memory and was not checked. Nobody has run the model in Lambda, so cold start time and speed are unknown.
+- **The hosted Decider (2b)** has no published price in what was checked. Treat it as free only if its operators say so in writing.
+- **Adding a managed database** later adds: RDS for PostgreSQL `db.t4g.micro` with 20 GB, about 14; `db.t4g.small` with 50 GB, about 29; `db.t4g.medium` in two zones, about 94 for the instance alone. Aurora Serverless v2 costs 0.12 per capacity unit hour, so a floor of 0.5 units is about 44. It can pause at zero units, but the worker polls the database, so expect it never to pause unless the worker changes.
+- **No NAT gateway is in the table.** It costs 0.045 per hour (about 33) plus 0.045 per GB. The reference design avoids it by putting tasks in public subnets behind a locked security group. If your rules need private subnets, add it.
+
+## Decision guide
+
+1. **Do you have a GPU quota and a budget under about 70 US dollars a month?** Use the single host, GPU, and pause it when nobody works. See [Deploy on AWS](../deploy-on-aws/).
+2. **No GPU quota, or the budget is tight?** Use the single host with the CPU build. It is slower (the CPU file estimates 2 to 30 seconds per request, not measured), which is fine for background analysis. See [Run the Decider](../run-the-decider/).
+3. **Do you run everything on a laptop or a server you own?** Use [Docker Compose](../docker-compose/). Nothing on this page applies.
+4. **Do you want no host to patch and have AWS skills?** Read the cloud native design note and pilot it. Run it in replay mode first.
+5. **More than one API process, or a second region?** Not supported yet. Wait for the Postgres work.
+6. **Do you want to use the hosted Decider?** Ask the maintainers to schedule the client change first. Be clear with your reviewers that the evidence text for each case goes to a third party, even though it comes from public OpenStreetMap data.
+
+## What was verified and what was not
+
+| Checked against AWS sources on 2026-10-20 | Not checked, treat as estimates |
+| --- | --- |
+| EC2 prices for `g6.xlarge`, `g5.xlarge`, `c7i.2xlarge` | The hosted Decider API: price, limits, request format, availability |
+| Fargate vCPU, memory and storage prices, ARM and x86 | Cold start times of every scale-to-zero Decider option |
+| ALB, NAT gateway, public IPv4, EBS, S3, EFS, ECR, Secrets Manager, CloudWatch alarm and log prices | Lambda price and Lambda speed with this model |
+| RDS for PostgreSQL and Aurora Serverless v2 prices | The CloudFront free tier and the exact edge firewall rule price |
+| SageMaker asynchronous `ml.g6.xlarge` price and scale to zero | Application Load Balancer capacity units for your traffic |
+| Claude Haiku 4.5 token prices on Bedrock | Whether the ECS-optimized GPU image parameter name in the template is current |
+| App Runner is closed to new customers, and ECS Express Mode is the stated successor | That a public-subnet route table is accepted for the internal load balancer used by a CloudFront VPC origin |
+| ECS task EBS volumes are deleted when a service task ends; ECS GPU tasks run on EC2 instances | Anything about a deployment: the template was never deployed |
+| CloudFront VPC origins accept an Application Load Balancer and the CloudFront prefix list on its security group | |
+| SQLite write-ahead log mode does not work over a network file system | |
+
+AWS App Runner is not an option for new accounts, so the design uses ECS on Fargate.
+
+## Next steps
+
+- [Deploy on AWS](../deploy-on-aws/) for the single host, step by step.
+- [Install with Docker Compose](../docker-compose/) for your own machine.
+- [Connect Amazon Bedrock](../connect-bedrock/) for drafts and the daily spend cap.
+- [Run the Decider](../run-the-decider/) for the GPU and CPU builds.
+- [Back up, upgrade and migrate](../backup-upgrade-migrate/) for Litestream and restores.
+- [Architecture](../../concepts/architecture/) for why the app is one process and one file.

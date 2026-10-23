@@ -1,0 +1,42 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 1024795787,
+      "timestamp": "2025-01-06T12:18:05Z",
+      "version": 5,
+      "changeset": 161055160,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "nodes": [
+        281009822,
+        1166511398,
+        6569193266,
+        2509077274,
+        10605733911,
+        6569193265,
+        10605733907,
+        2620929836,
+        6569193264,
+        6569193263,
+        10605733903,
+        2496039737
+      ],
+      "tags": {
+        "highway": "primary",
+        "lanes": "2",
+        "maxspeed": "50",
+        "name": "Salem - Kochi - Kanyakumari Road",
+        "name:ur": "سیلم - کوچی - کنیاکماری روڈ",
+        "ref:old": "NH47",
+        "sidewalk": "no",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

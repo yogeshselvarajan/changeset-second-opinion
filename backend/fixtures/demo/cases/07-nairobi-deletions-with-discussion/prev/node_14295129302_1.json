@@ -1,0 +1,26 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 14295129302,
+      "lat": -36.7163805,
+      "lon": 174.7453165,
+      "timestamp": "2026-10-17T23:44:34Z",
+      "version": 1,
+      "changeset": 190673886,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "tags": {
+        "addr:housenumber": "39",
+        "addr:street": "Anzac Road",
+        "name": "I-national Info Svcs",
+        "office": "company"
+      }
+    }
+  ]
+}

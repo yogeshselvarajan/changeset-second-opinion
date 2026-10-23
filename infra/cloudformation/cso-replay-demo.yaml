@@ -1,0 +1,416 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Changeset Second Opinion, replay demo on one small instance: Ubuntu 24.04 (arm64 t4g or x86 t3)
+  running docker compose (Caddy with automatic HTTPS, API, worker) in CSO_MODE=replay with the
+  fifteen recorded changesets. No GPU, no Decider, no Bedrock, no S3. An optional Elastic IP,
+  nightly EBS snapshots, CloudWatch alarms, an optional budget alert. No SSH, SSM Session Manager
+  only, IMDSv2 only, encrypted gp3 volume. Not for live mode: use cso-single-host.yaml for that.
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label: { default: Application }
+        Parameters: [Stage, DomainName, ApexDomainName, RepoUrl, GitRef]
+      - Label: { default: Host }
+        Parameters: [InstanceType, RootVolumeGiB, UseElasticIp, OpenHttpPort, VpcId, SubnetId]
+      - Label: { default: Operations }
+        Parameters: [AlertEmail, BudgetUsd, EnableSnapshots]
+
+Parameters:
+  Stage:
+    Type: String
+    Default: demo
+    AllowedPattern: '^[a-z][a-z0-9-]{1,15}$'
+    Description: >-
+      Name of this deployment. Optional settings are read from SSM Parameter Store under
+      /cso/<Stage>/ (osm_oauth_client_id, osm_oauth_client_secret, git_token and so on; see the
+      "Replay demo on one small instance" section of the Deploy on AWS page of the docs site).
+  InstanceType:
+    Type: String
+    Default: t4g.small
+    AllowedValues: [t4g.small, t4g.micro, t3.small]
+    Description: >-
+      t4g.small (arm64, 2 GiB) is the plan. t3.small is the x86 alternative. t4g.micro (1 GiB) is
+      cheaper and slower, and the first image build needs the swap file the bootstrap adds.
+  RootVolumeGiB:
+    Type: Number
+    Default: 20
+    MinValue: 16
+    MaxValue: 100
+    Description: Root volume size in GiB (gp3, encrypted). Holds the OS, two images, the build cache and the database.
+  DomainName:
+    Type: String
+    Default: osm.changesetreview.online
+    AllowedPattern: '^[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?$'
+    Description: Public name of the demo. Point its DNS A record at the PublicIp output. It is the certificate name, CSO_PUBLIC_ORIGIN, the sitemap host and the OpenStreetMap sign-in redirect host.
+  ApexDomainName:
+    Type: String
+    Default: changesetreview.online
+    AllowedPattern: '^([a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?)?$'
+    Description: >-
+      Optional second name that only redirects to DomainName (also gets a certificate, so give it
+      an A record to the same address first). Empty turns it off.
+  RepoUrl:
+    Type: String
+    Default: https://github.com/yogeshselvarajan/changeset-second-opinion.git
+    AllowedPattern: '^https://[^\s"'']+$'
+    Description: HTTPS git URL. A private repository needs the optional SecureString /cso/<Stage>/git_token.
+  GitRef:
+    Type: String
+    Default: main
+    AllowedPattern: '^[A-Za-z0-9._/-]+$'
+    Description: Branch or tag to deploy. Prefer a release tag.
+  UseElasticIp:
+    Type: String
+    Default: "true"
+    AllowedValues: ["true", "false"]
+    Description: >-
+      true keeps one address for the life of the stack (needed for a stable DNS record; a public
+      IPv4 address costs the same with or without it). false uses the instance's own address,
+      which changes whenever the instance stops and starts.
+  OpenHttpPort:
+    Type: String
+    Default: "true"
+    AllowedValues: ["true", "false"]
+    Description: >-
+      true also opens 80/tcp, which only redirects to https (so a bare http:// link works) and can
+      answer an HTTP-01 challenge. false leaves only 443/tcp open; the certificate still works
+      (TLS-ALPN-01), but http:// links time out.
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC for the host.
+  SubnetId:
+    Type: AWS::EC2::Subnet::Id
+    Description: Public subnet (route to an internet gateway) in an AZ that offers the instance type.
+  AlertEmail:
+    Type: String
+    Default: ""
+    AllowedPattern: '^([^@\s]+@[^@\s]+\.[^@\s]+)?$'
+    Description: Receives the alarm and budget emails (each subscription needs a confirmation click). Empty creates no topic, alarm notifications or budget.
+  BudgetUsd:
+    Type: Number
+    Default: 30
+    MinValue: 1
+    Description: Monthly cost budget in USD for the whole account, used only when AlertEmail is set. Warns at 80 percent and 100 percent of actual spend and at 100 percent forecast.
+  EnableSnapshots:
+    Type: String
+    Default: "true"
+    AllowedValues: ["true", "false"]
+    Description: Nightly EBS snapshot of the instance's volume, 3 kept (about 0.5 USD a month for a mostly static disk).
+
+Conditions:
+  IsArm: !Equals [!Select [0, !Split [".", !Ref InstanceType]], t4g]
+  UseEip: !Equals [!Ref UseElasticIp, "true"]
+  HttpOpen: !Equals [!Ref OpenHttpPort, "true"]
+  HasAlertEmail: !Not [!Equals [!Ref AlertEmail, ""]]
+  Snapshots: !Equals [!Ref EnableSnapshots, "true"]
+
+Resources:
+  # ------------------------------------------------------------------ network
+  HostSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: CSO replay demo. HTTPS in (and port 80 for the redirect when enabled), no SSH, web egress only.
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - Description: HTTPS to Caddy
+          IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+      # DNS, the metadata service and the time service are not filtered by security groups, so web
+      # ports are all the host needs: packages, git, container images, Let's Encrypt, the SSM service.
+      SecurityGroupEgress:
+        - Description: HTTPS out (git, images, certificates, SSM)
+          IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - Description: HTTP out (Ubuntu package mirrors)
+          IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - { Key: Name, Value: !Sub "${AWS::StackName}-host" }
+        - { Key: project, Value: cso-replay }
+
+  # Separate rule so that port 80 can be switched off with a parameter.
+  HttpIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Condition: HttpOpen
+    Properties:
+      GroupId: !Ref HostSecurityGroup
+      Description: HTTP to Caddy, only redirects to https
+      IpProtocol: tcp
+      FromPort: 80
+      ToPort: 80
+      CidrIp: 0.0.0.0/0
+
+  # ------------------------------------------------------------------ identity
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: Instance role for the CSO replay demo (SSM agent and its own optional settings only).
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ec2.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Policies:
+        - PolicyName: cso-replay-least-privilege
+          PolicyDocument:
+            # No Bedrock, no S3, no logs: replay mode calls nothing. Only the optional settings and
+            # secrets of this deployment (/cso/<Stage>/) can be read, decrypted through SSM only.
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [ssm:GetParameter, ssm:GetParameters]
+                Resource: !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/cso/${Stage}/*"
+              - Effect: Allow
+                Action: [kms:Decrypt]
+                Resource: !Sub "arn:aws:kms:${AWS::Region}:${AWS::AccountId}:key/*"
+                Condition:
+                  StringEquals:
+                    "kms:ViaService": !Sub "ssm.${AWS::Region}.amazonaws.com"
+      Tags:
+        - { Key: project, Value: cso-replay }
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref InstanceRole]
+
+  # ------------------------------------------------------------------ host
+  Host:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Sub
+        - "{{resolve:ssm:/aws/service/canonical/ubuntu/server/24.04/stable/current/${Arch}/hvm/ebs-gp3/ami-id}}"
+        - Arch: !If [IsArm, arm64, amd64]
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
+      # A public address is attached at launch so the first boot can reach the internet; the
+      # Elastic IP, when used, replaces it.
+      NetworkInterfaces:
+        - DeviceIndex: "0"
+          SubnetId: !Ref SubnetId
+          AssociatePublicIpAddress: true
+          GroupSet: [!Ref HostSecurityGroup]
+      # No key pair: there is no SSH. Use `aws ssm start-session`.
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeType: gp3
+            VolumeSize: !Ref RootVolumeGiB
+            Encrypted: true
+            DeleteOnTermination: true
+      MetadataOptions:
+        HttpTokens: required # IMDSv2 only
+        HttpEndpoint: enabled
+        # Hop limit 1: containers cannot reach the instance role credentials.
+        HttpPutResponseHopLimit: 1
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -euo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+          mkdir -p /etc/cso /opt/cso
+          cat > /etc/cso/bootstrap.env <<'ENVFILE'
+          CSO_PROFILE=replay
+          CSO_STAGE=${Stage}
+          CSO_DOMAIN=${DomainName}
+          CSO_APEX_DOMAIN=${ApexDomainName}
+          CSO_OPEN_HTTP=${OpenHttpPort}
+          CSO_REPO_URL=${RepoUrl}
+          CSO_GIT_REF=${GitRef}
+          CSO_AWS_REGION=${AWS::Region}
+          CSO_INSTANCE_TYPE=${InstanceType}
+          ENVFILE
+          chmod 0644 /etc/cso/bootstrap.env
+          apt-get update -y
+          apt-get install -y git curl unzip
+          curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o /tmp/awscliv2.zip
+          unzip -q -o /tmp/awscliv2.zip -d /tmp
+          /tmp/aws/install --update
+          # Optional deploy token for a private repository (SecureString /cso/<Stage>/git_token).
+          # Held in a shell variable for one clone and never stored in git config or on disk.
+          token=$(/usr/local/bin/aws ssm get-parameter --name /cso/${Stage}/git_token --with-decryption --region ${AWS::Region} --query Parameter.Value --output text 2>/dev/null || true)
+          if [ -n "$token" ]; then
+            git -c "http.extraheader=Authorization: Basic $(printf 'x-access-token:%s' "$token" | base64 -w0)" clone ${RepoUrl} /opt/cso
+          else
+            git clone ${RepoUrl} /opt/cso
+          fi
+          cd /opt/cso && git checkout ${GitRef}
+          bash /opt/cso/infra/scripts/bootstrap-replay.sh >> /var/log/cso-bootstrap.log 2>&1
+      Tags:
+        - { Key: Name, Value: !Sub "${AWS::StackName}-host" }
+        - { Key: project, Value: cso-replay }
+
+  ElasticIp:
+    Type: AWS::EC2::EIP
+    Condition: UseEip
+    Properties:
+      Domain: vpc
+      Tags:
+        - { Key: project, Value: cso-replay }
+
+  ElasticIpAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Condition: UseEip
+    Properties:
+      AllocationId: !GetAtt ElasticIp.AllocationId
+      InstanceId: !Ref Host
+
+  # ------------------------------------------------------------------ snapshots
+  SnapshotRole:
+    Type: AWS::IAM::Role
+    Condition: Snapshots
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: dlm.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole
+
+  SnapshotPolicy:
+    Type: AWS::DLM::LifecyclePolicy
+    Condition: Snapshots
+    Properties:
+      Description: Nightly snapshot of the CSO replay demo host - 3 kept
+      State: ENABLED
+      ExecutionRoleArn: !GetAtt SnapshotRole.Arn
+      PolicyDetails:
+        PolicyType: EBS_SNAPSHOT_MANAGEMENT
+        ResourceTypes: [INSTANCE]
+        TargetTags:
+          - { Key: project, Value: cso-replay }
+        Schedules:
+          - Name: nightly
+            CopyTags: true
+            CreateRule:
+              Interval: 24
+              IntervalUnit: HOURS
+              Times: ["17:15"]
+            RetainRule:
+              Count: 3
+
+  # ------------------------------------------------------------------ alarms and cost guard
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Condition: HasAlertEmail
+    Properties:
+      DisplayName: CSO replay demo alerts
+      Subscription:
+        - Protocol: email
+          Endpoint: !Ref AlertEmail
+      Tags:
+        - { Key: project, Value: cso-replay }
+
+  StatusCheckAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The host failed its EC2 status checks for 2 minutes (the site is probably down).
+      Namespace: AWS/EC2
+      MetricName: StatusCheckFailed
+      Dimensions:
+        - { Name: InstanceId, Value: !Ref Host }
+      Statistic: Maximum
+      Period: 60
+      EvaluationPeriods: 2
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: breaching # a running host always publishes this metric
+      AlarmActions: !If [HasAlertEmail, [!Ref AlertTopic], !Ref "AWS::NoValue"]
+
+  # A failed system check (the underlying hardware) restarts the instance on healthy hardware. The
+  # instance keeps its volume, address and settings.
+  SystemRecoverAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The underlying hardware failed its system check; recover the instance on other hardware.
+      Namespace: AWS/EC2
+      MetricName: StatusCheckFailed_System
+      Dimensions:
+        - { Name: InstanceId, Value: !Ref Host }
+      Statistic: Maximum
+      Period: 60
+      EvaluationPeriods: 2
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Sub "arn:aws:automate:${AWS::Region}:ec2:recover"
+        - !If [HasAlertEmail, !Ref AlertTopic, !Ref "AWS::NoValue"]
+
+  CpuHighAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Average CPU above 80 percent for 15 minutes. Expected during the first image build, not otherwise.
+      Namespace: AWS/EC2
+      MetricName: CPUUtilization
+      Dimensions:
+        - { Name: InstanceId, Value: !Ref Host }
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 3
+      Threshold: 80
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: !If [HasAlertEmail, [!Ref AlertTopic], !Ref "AWS::NoValue"]
+
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Condition: HasAlertEmail
+    Properties:
+      Budget:
+        BudgetName: !Sub "${AWS::StackName}-monthly"
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit:
+          Amount: !Ref BudgetUsd
+          Unit: USD
+      # Covers the whole account's spend (a tag filter needs the cost allocation tag switched on first).
+      NotificationsWithSubscribers:
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: 80
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - { SubscriptionType: EMAIL, Address: !Ref AlertEmail }
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: 100
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - { SubscriptionType: EMAIL, Address: !Ref AlertEmail }
+        - Notification:
+            NotificationType: FORECASTED
+            ComparisonOperator: GREATER_THAN
+            Threshold: 100
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - { SubscriptionType: EMAIL, Address: !Ref AlertEmail }
+
+Outputs:
+  InstanceId:
+    Value: !Ref Host
+    Description: Used by infra/scripts (SSM Run Command) and `aws ssm start-session`.
+  PublicIp:
+    Value: !If [UseEip, !Ref ElasticIp, !GetAtt Host.PublicIp]
+    Description: Create the DNS A records for DomainName (and ApexDomainName) with this address.
+  DomainName:
+    Value: !Ref DomainName
+  Url:
+    Value: !Sub "https://${DomainName}"
+  SettingsPath:
+    Value: !Sub "/cso/${Stage}/"
+    Description: Optional SSM Parameter Store settings (see the Deploy on AWS page of the docs site).

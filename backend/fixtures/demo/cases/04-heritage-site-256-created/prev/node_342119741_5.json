@@ -1,0 +1,27 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "node",
+      "id": 342119741,
+      "lat": 16.04279,
+      "lon": 73.4600899,
+      "timestamp": "2026-10-19T00:55:38Z",
+      "version": 5,
+      "changeset": 190720565,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "tags": {
+        "historic": "fort",
+        "name": "सिंधुदुर्ग",
+        "name:en": "Sindhudurg Fort",
+        "wikidata": "Q13413791",
+        "wikipedia": "en:Sindhudurg Fort"
+      }
+    }
+  ]
+}

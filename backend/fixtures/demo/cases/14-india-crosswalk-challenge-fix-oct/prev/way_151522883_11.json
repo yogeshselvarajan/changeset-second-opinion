@@ -1,0 +1,32 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 151522883,
+      "timestamp": "2026-10-01T05:46:05Z",
+      "version": 11,
+      "changeset": 189803958,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "nodes": [
+        1643351828,
+        9311818795,
+        1643351829,
+        14237206198,
+        14237796390,
+        1643351830
+      ],
+      "tags": {
+        "highway": "tertiary",
+        "name": "Road No.10",
+        "name:hi": "मार्ग क्र.१०",
+        "ref": "10"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (1329 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <modify>
+  <node id="12339803951" visible="true" version="2" changeset="190513686" timestamp="2026-10-14T15:32:32Z" user="mapper_A" uid="900000001" lat="-1.2454438" lon="36.7707087"/>
+ </modify>
+ <modify>
+  <node id="6359516282" visible="true" version="6" changeset="190513686" timestamp="2026-10-14T15:32:32Z" user="mapper_A" uid="900000001" lat="-1.2446887" lon="36.7705805"/>
+ </modify>
+</osmChange>

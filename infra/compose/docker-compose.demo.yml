@@ -1,0 +1,48 @@
+# Replay demo: the fifteen recorded changesets, no model, no network calls, no secrets, no .env file.
+#
+#   docker compose -f infra/compose/docker-compose.yml -f infra/compose/docker-compose.demo.yml up --build
+#
+# Then open http://127.0.0.1:8080 (CSO_LOCAL_PORT changes the port). It publishes the site on
+# loopback only, forces CSO_MODE=replay, ignores the repository .env, and loads the demo set with
+# `cso seed` before the API starts (the command is safe to run again). Do not combine it with
+# docker-compose.cpu.yml or docker-compose.gpu.yml; those are for live mode.
+services:
+  stack:
+    ports: !override
+      - "127.0.0.1:${CSO_LOCAL_PORT:-8080}:80"
+
+  migrate:
+    env_file: !reset []
+    environment:
+      CSO_MODE: replay
+
+  # One-shot: load the demo set into the database once migrations are applied.
+  seed:
+    extends:
+      file: docker-compose.yml
+      service: migrate
+    command: ["seed"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    env_file: !reset []
+    environment:
+      CSO_MODE: replay
+    labels:
+      cso.role: seed
+
+  api:
+    env_file: !reset []
+    environment:
+      CSO_MODE: replay
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+
+  worker:
+    env_file: !reset []
+    environment:
+      CSO_MODE: replay
+    depends_on:
+      seed:
+        condition: service_completed_successfully

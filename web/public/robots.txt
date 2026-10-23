@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /privacy
+Allow: /r/
+Allow: /docs/
+Disallow: /api/
+Disallow: /login
+Disallow: /queue
+Disallow: /case
+Disallow: /history
+Disallow: /config
+Disallow: /settings
+
+Sitemap: __CSO_PUBLIC_ORIGIN__/sitemap.xml
+Sitemap: __CSO_PUBLIC_ORIGIN__/docs/sitemap-index.xml

@@ -1,0 +1,33 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 475875141,
+      "timestamp": "2021-09-05T16:55:03Z",
+      "version": 2,
+      "changeset": 110757938,
+      "user": "mapper_L",
+      "uid": 900000012,
+      "nodes": [
+        4695595764,
+        9064294049,
+        9064294050,
+        4695595994,
+        9064294035,
+        4695596308,
+        9064294038,
+        9064294037,
+        9064294036,
+        4695596321
+      ],
+      "tags": {
+        "aeroway": "taxiway"
+      }
+    }
+  ]
+}

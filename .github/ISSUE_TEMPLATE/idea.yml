@@ -1,0 +1,22 @@
+name: Idea
+description: Suggest a change or a new feature
+title: "idea: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. Please check the three rules in CONTRIBUTING.md first: ideas that write to
+        OpenStreetMap, hide cases from reviewers or let a model answer widen an action will not fit.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: The situation, in your words. A reviewer's day is a good place to start.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would change
+      description: A sketch is enough. Say what you have already tried.

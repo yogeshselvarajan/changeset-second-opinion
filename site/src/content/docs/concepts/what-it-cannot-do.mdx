@@ -1,0 +1,51 @@
+---
+title: What it cannot do
+description: The limits of the tool, stated with the real evaluation numbers and without rounding them up.
+---
+
+*For anyone deciding how far to trust it. Explanation.*
+
+The tool never writes to OpenStreetMap, and lanes only order the queue. It is a hackathon project with a small evaluation. This page says what that evaluation does and does not show.
+
+## The short answer
+
+The evidence does not yet show that the model adds information beyond always guessing the commonest answer. The answer key was written by an AI. No person checked it. The sample has no clear example of deliberate damage. Treat the readings as a way to organise attention, never as a finding.
+
+## What was measured
+
+The figures come from one run on 17 October 2026 over 60 real edits, using `strands-decider-2B-qwen3.5-v1-2610` on a GPU. The source file is [`evaluation/results/spike-2026-10-17.json`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/evaluation/results/spike-2026-10-17.json). Intervals are Wilson 95 percent intervals.
+
+| What | Result | Interval |
+| --- | --- | --- |
+| Readings where the model gave a clear yes or no and matched the answer key | 353 of 413, about 85.5 percent | 81.7 to 88.5 percent |
+| The same test for a baseline that always guesses the commonest answer for each question | 450 of 528, about 85.2 percent | 81.9 to 88.0 percent |
+| Readings that came back unknown (cannot tell) | 115 of 528, about 21.8 percent | 18.5 to 25.5 percent |
+| Nature composed from the ten readings, matching the answer key | 23 of 60, about 38 percent | 27.1 to 51.0 percent |
+| Nature from the fixed rules alone | 21 of 60, about 35 percent | 24.2 to 47.6 percent |
+
+Read the first two rows together. On the readings it was willing to answer, the model matched the key about as often as guessing the commonest answer every time. The intervals overlap almost completely. The model also declined to answer on about one reading in five, which is the cannot-tell band doing its job. The last two rows overlap as well.
+
+## The answer key is AI written
+
+The same AI wrote the answer key for every one of the 60 edits, in two passes about 25 minutes apart, and settled the nine items where the passes differed. The model outputs for those items were already committed before the first pass. No person wrote or checked a label. The project's own site says so: the labels behind these figures are indicative and not human validated.
+
+The numbers, and the label text that goes with them, come from `web/src/landing/numbers.json`. That text was also written by an AI, and no person has checked it.
+
+## No clear example of deliberate damage
+
+Counted by the answer key, the 60 edits are 30 consistent edits, 25 that need local knowledge, 5 likely good-faith mistakes and none that show possible deliberate damage. So the sample cannot tell whether the tool notices the case people worry about most. A safety figure for the damage case does not exist yet.
+
+## Other limits to know about
+
+- **The held-out set is not blind.** All 102 held-out changeset ids went through the Decider without labels in a diagnostic run. Nothing was tuned on them, but a later number on that set cannot claim the model never saw them. The held-out evaluation itself has not been run.
+- **The pass bar was set after seeing data.** The test used to call the first run a pass was written after a smoke run showed the four-way nature question was close to uniform. It was not fixed in advance.
+- **Not measured yet:** the Haiku-only and rules-plus-Haiku comparisons, whether a larger Decider checkpoint does better, Bedrock calls avoided, and cost per review. No live Bedrock result is recorded. The tools to run them exist.
+- **Thin evidence is common.** The tool reads a fixed budget of the public record: at most 40 elements in detail, 5 history lookups and 50 requests. When the coverage score is under 0.5, or history is missing for more than 20 percent of detailed elements, the case goes to the insufficient-evidence lane. In the 15 recorded demo changesets, 7 landed there and none landed in looks consistent.
+- **It cannot see the ground.** It reads tags and history. It cannot tell whether a new shop is really there. That is what the needs-local-knowledge lane is for.
+- **Some editors hide the edit-time changeset count.** For those, the new-account question often reads unknown for older accounts.
+- **Probabilities are not calibrated to your community.** The model's probabilities were fitted by its authors on other tasks. Only your own recorded outcomes can show how often a reading was right. See [calibration](../../administer/calibration/).
+- **Sign in with OpenStreetMap has not been tested against the real service** in the project's own checks. Treat it as unproven until you run it.
+
+## What to do with this
+
+Read the evidence first. Use the lane as a hint about where to look first, and the receipt to see why. Record your own outcomes, so that your community can see how well the readings fit. See [how a verdict is made](../how-a-verdict-is-made/) and [responsible use](../responsible-use/).

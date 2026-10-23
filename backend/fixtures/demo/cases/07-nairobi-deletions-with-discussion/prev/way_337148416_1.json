@@ -1,0 +1,28 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 337148416,
+      "timestamp": "2015-04-07T08:47:54Z",
+      "version": 1,
+      "changeset": 30034102,
+      "user": "mapper_D",
+      "uid": 900000004,
+      "nodes": [
+        3442505681,
+        3442505682,
+        3442505712,
+        3442505711,
+        3442505681
+      ],
+      "tags": {
+        "building": "yes"
+      }
+    }
+  ]
+}

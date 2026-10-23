@@ -1,0 +1,31 @@
+# Suspect words for the stage-1 "suspect_word" flag.
+#
+# This list is original to Changeset Second Opinion and is released under Apache-2.0 with the rest
+# of the project. It was written for this project from general mapping practice (import, copyright
+# and imagery-source questions, plus text that tries to instruct a reader). It is not derived from
+# the word data of any other tool.
+#
+# Format: one entry per line; lines starting with "#" and blank lines are ignored. Matching is
+# case-insensitive over the changeset comment, source and imagery_used tags. An entry matches only
+# as a whole word or phrase, so "import" does not match "important". A match only adds a flag that
+# a reviewer can read; it never changes a lane on its own and nothing is hidden because of it.
+
+# Imports and bulk data
+import
+imported
+importing
+
+# Sources that need a licence check
+google
+google maps
+google earth
+street view
+copyright
+copyrighted
+copied
+scraped
+scraping
+
+# Text that tries to instruct the reader or the model (also shown as evidence, never obeyed)
+ignore previous instructions
+<script

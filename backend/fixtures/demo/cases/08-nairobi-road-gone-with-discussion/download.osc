@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="openstreetmap-cgimap 2.1.0 (3163983 spike-07.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <delete>
+  <node id="12339803952" visible="false" version="2" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="12339803953" visible="false" version="2" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="12339803954" visible="false" version="2" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <delete>
+  <node id="6375016911" visible="false" version="4" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <node id="6359516282" visible="true" version="5" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001" lat="-1.2440732" lon="36.7704370"/>
+ </modify>
+ <delete>
+  <node id="276137376" visible="false" version="6" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001"/>
+ </delete>
+ <modify>
+  <way id="25341987" visible="true" version="8" changeset="190380899" timestamp="2026-10-12T06:01:07Z" user="mapper_A" uid="900000001">
+   <nd ref="6359516282"/>
+   <nd ref="6359516283"/>
+   <nd ref="6375016910"/>
+   <nd ref="276137377"/>
+   <nd ref="6359516284"/>
+   <nd ref="6359516281"/>
+   <nd ref="276137378"/>
+   <nd ref="6359516279"/>
+   <nd ref="6359516280"/>
+   <nd ref="276136816"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Nakuru Street"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+</osmChange>

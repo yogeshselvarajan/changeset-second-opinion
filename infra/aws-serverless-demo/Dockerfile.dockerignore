@@ -1,0 +1,20 @@
+# Context for infra/aws-serverless-demo/Dockerfile. Deny everything, then allow only what it copies.
+*
+!backend/pyproject.toml
+!backend/uv.lock
+!backend/alembic.ini
+!backend/README.md
+!backend/LICENSE
+!backend/src/**
+!backend/fixtures/**
+!config/**
+**/__pycache__
+**/*.pyc
+**/.venv
+**/.mypy_cache
+**/.ruff_cache
+**/.pytest_cache
+**/.env
+**/.env.*
+**/*.db
+**/*.db-*

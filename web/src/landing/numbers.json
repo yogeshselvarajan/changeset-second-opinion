@@ -1,0 +1,56 @@
+{
+  "source": "evaluation/results/spike-2026-10-17.json",
+  "date": "2026-10-17",
+  "model": "strands-decider-2B-qwen3.5-v1-2610 (cuda)",
+  "items": 60,
+  "labels": {
+    "ai_only": true,
+    "people": [],
+    "text": "Measured on 60 real edits. The answer key for every one was written by an AI, in two passes, and settled by the same AI. No person wrote or checked it, so these figures are indicative and not human validated."
+  },
+  "pooled_decided": {
+    "k": 353,
+    "n": 413,
+    "lower": 0.8174670411543317,
+    "upper": 0.8854380893212697
+  },
+  "unknown_rate": {
+    "k": 115,
+    "n": 528,
+    "lower": 0.1847031685501679,
+    "upper": 0.2549794754829138
+  },
+  "majority_baseline": {
+    "k": 450,
+    "n": 528,
+    "lower": 0.8194649273580602,
+    "upper": 0.8799916378086968
+  },
+  "nature_composed": {
+    "k": 23,
+    "n": 60,
+    "lower": 0.27088272374082023,
+    "upper": 0.5098240417590008
+  },
+  "nature_rules": {
+    "k": 21,
+    "n": 60,
+    "lower": 0.24167774406017556,
+    "upper": 0.47637381158245135
+  },
+  "demo": {
+    "source": "backend/fixtures/demo/cases",
+    "cases": 15,
+    "questions_per_case": 10,
+    "readings": 150,
+    "unknown_readings": 26,
+    "median_model_ms": 654,
+    "slowest_model_ms": 2183,
+    "lanes": {
+      "needs_local_knowledge": 4,
+      "review_suggested": 4,
+      "insufficient_evidence": 7
+    },
+    "placed": 15
+  }
+}

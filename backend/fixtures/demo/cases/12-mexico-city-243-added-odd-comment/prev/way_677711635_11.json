@@ -1,0 +1,55 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 677711635,
+      "timestamp": "2024-11-14T15:15:18Z",
+      "version": 11,
+      "changeset": 159134437,
+      "user": "mapper_J",
+      "uid": 900000010,
+      "nodes": [
+        3249194753,
+        8301838081,
+        6347444809,
+        8558253735,
+        8558253736,
+        387265669,
+        8558253737,
+        8558253738,
+        6184702389,
+        387265672,
+        8558253739,
+        387265673,
+        8558253774,
+        8558253775,
+        3249194751,
+        4076126561,
+        8557631618,
+        8557631617,
+        387265676,
+        8301838101,
+        8359777645,
+        387265678,
+        387265679,
+        8557627315,
+        387265680,
+        8557627313,
+        8557627314,
+        6456189673,
+        8359777631,
+        387265682
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "Avenida Miguel Hidalgo",
+        "oneway": "no"
+      }
+    }
+  ]
+}

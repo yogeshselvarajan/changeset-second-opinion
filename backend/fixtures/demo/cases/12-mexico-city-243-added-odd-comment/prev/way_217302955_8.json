@@ -1,0 +1,39 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 217302955,
+      "timestamp": "2019-07-02T22:08:59Z",
+      "version": 8,
+      "changeset": 71839016,
+      "user": "mapper_D",
+      "uid": 900000004,
+      "nodes": [
+        286567548,
+        4076126364,
+        4076126365,
+        4076126363,
+        3570773814,
+        3532146333,
+        3532146328,
+        3532146323,
+        387266454,
+        286567552
+      ],
+      "tags": {
+        "alt_name": "Nueva Carretera a Oaxtepec",
+        "highway": "primary",
+        "maxspeed": "60",
+        "name": "Avenida Cuauhtémoc",
+        "oneway": "no",
+        "ref": "MEX 113",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

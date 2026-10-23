@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="synthetic fixture (CC0)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <modify>
+  <way id="900000000111" visible="true" version="4" changeset="900000000002" timestamp="2026-03-02T14:02:00Z" user="mapper_B" uid="900000002">
+   <nd ref="900000001111"/>
+   <nd ref="900000001112"/>
+   <nd ref="900000001113"/>
+   <tag k="highway" v="residential"/>
+   <tag k="name" v="Corner Bakery"/>
+  </way>
+ </modify>
+ <create>
+  <node id="900000000211" visible="true" version="1" changeset="900000000002" timestamp="2026-03-02T14:04:00Z" user="mapper_B" uid="900000002" lat="52.5201000" lon="13.4051000">
+   <tag k="shop" v="bakery"/>
+   <tag k="name" v="Corner Bakery"/>
+  </node>
+ </create>
+</osmChange>

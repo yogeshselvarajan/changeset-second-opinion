@@ -1,0 +1,61 @@
+---
+title: Documentation
+description: Documentation for a second opinion on flagged OpenStreetMap edits. Evidence first; a human posts.
+template: splash
+hero:
+  title: Changeset Second Opinion
+  tagline: A second opinion on flagged OpenStreetMap edits. It lays out the evidence, shows every answer and drafts the kind reply. You decide. You post.
+  actions:
+    - text: Try the demo
+      link: ./start/quickstart/
+      icon: right-arrow
+    - text: What it is
+      link: ./start/what-it-is/
+      variant: minimal
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+import ThemedShot from "../../components/ThemedShot.astro";
+
+Welcome. Changeset Second Opinion helps a volunteer reviewer with a flagged OpenStreetMap edit. It gathers the public evidence for one changeset, asks a small model ten yes or no questions about it, shows every answer, and suggests where the case belongs in your queue. If a reply to the mapper would help, it drafts one for you to edit. You can try it on demo data in a few minutes, with no OpenStreetMap account, no GPU and no AWS account. New here? Read [what it is](./start/what-it-is/), then follow the [quickstart](./start/quickstart/).
+
+## What it will not do
+
+- It **never writes to OpenStreetMap**. It reads public data. The one extra request to OpenStreetMap is the sign-in exchange, with read-only scope.
+- **Lanes only order the queue.** Nothing is hidden, nothing closes by itself and nothing is posted by itself.
+
+<ThemedShot
+  name="case"
+  alt="A case in Changeset Second Opinion: the changeset, its place, the evidence and the suggested response, with the actions along the bottom."
+  caption="A case on the demo data: real changesets from October 2026, read by the Strands Decider 2B."
+/>
+
+## Find your path
+
+<CardGrid>
+  <Card title="Review a changeset" icon="open-book">
+    You look after the map and a flagged edit has landed in your queue.
+    [Review your first changeset](./review/first-changeset/).
+  </Card>
+  <Card title="Run a workspace" icon="setting">
+    You invite people, set the tone and own the workspace.
+    [Set up the first admin](./administer/first-admin/).
+  </Card>
+  <Card title="Self-host it" icon="rocket">
+    You run it, keep it up and keep the cost capped.
+    [Install with Docker Compose](./self-host/docker-compose/).
+  </Card>
+  <Card title="Contribute" icon="pencil">
+    You fix a bug, add a question or write a community pack.
+    [Set up for development](./contribute/dev-setup/).
+  </Card>
+  <Card title="Check the claims" icon="magnifier">
+    You are judging or studying it and want the answer in five minutes.
+    [How a verdict is made](./concepts/how-a-verdict-is-made/) and
+    [what it cannot do](./concepts/what-it-cannot-do/).
+  </Card>
+</CardGrid>
+
+## How these docs are organised
+
+Every page is one of four kinds, and its first line says who it is for. **Tutorials** teach by doing. **How-to guides** get one task done. **Reference** pages are complete and dry, and the ones for the API, the command line, the settings, the roles and the schemas are generated from the code. **Explanations** say why. The idea comes from [Diátaxis](https://diataxis.fr/).

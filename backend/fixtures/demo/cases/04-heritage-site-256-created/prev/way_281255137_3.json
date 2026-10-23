@@ -1,0 +1,50 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 281255137,
+      "timestamp": "2018-12-27T19:38:50Z",
+      "version": 3,
+      "changeset": 65823016,
+      "user": "mapper_F",
+      "uid": 900000006,
+      "nodes": [
+        2852306755,
+        2852306756,
+        2852306757,
+        2852306758,
+        2852306759,
+        2852306760,
+        2852306761,
+        2852306762,
+        2852306763,
+        2852306764,
+        2852306765,
+        2852306766,
+        2852306767,
+        4223830872,
+        4223830871,
+        2852306768,
+        2852306769,
+        4223830873,
+        4223830874,
+        4223830875,
+        2852306770,
+        2852306771,
+        2852306772,
+        2852306773,
+        2852306774,
+        2852306755
+      ],
+      "tags": {
+        "historic": "fort",
+        "name": "Khanderi Fort"
+      }
+    }
+  ]
+}

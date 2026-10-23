@@ -1,0 +1,59 @@
+---
+title: Privacy and what is stored
+description: What the tool keeps, what it never keeps, and how the audit log works.
+---
+
+*For community admins and reviewers. Explanation.*
+
+This page says what a workspace stores and why. It matches the privacy page in the app. If you run your own copy, you are the one who holds this data, so the facts here are the ones to check.
+
+## What the public pages do not do
+
+The public pages set no cookies, load no third party scripts and use no analytics. Their one request to the server asks for the site's name, colour and logo. It carries no cookie and nothing about you.
+
+## What is stored
+
+- **Public OpenStreetMap data** about the changesets that reviewers look at: the changeset, its elements, and public facts about the account that made it, such as its age and edit count.
+- **Each analysis.** The evidence snapshot, the readings, the rules that fired, the lane and the configuration version. A receipt page shows these. It never carries a reviewer's name, a draft, an outcome or the evidence text.
+- **What a reviewer decides.** The outcome, any note and comment text they write, and the name they sign in with.
+- **Who signed in.** An invite code reviewer chooses a display name. A reviewer who signs in with OpenStreetMap is stored by OpenStreetMap user id, display name and account creation date.
+- **Sessions.** A signed-in session uses two cookies, one for the session and one to protect against forged requests. They are removed when you sign out.
+- **Invite codes.** Stored as a hash. The code itself cannot be shown again.
+
+An optional OSMCha token, if a reviewer supplies one to list flagged changesets, is kept encrypted in the session row, never logged, and used for reading only.
+
+## What is never stored
+
+- **No OpenStreetMap token.** The sign-in token is used once to read the user name and is then dropped. The database keeps the user id, display name and account creation date, never a token.
+- **No OpenStreetMap password.** It never reaches the tool.
+- **No write access.** No path in the code writes to OpenStreetMap, and no write permission is ever requested.
+- **No secrets in the web page, the code or the logs.** The OAuth client secret comes from the environment. On the AWS host it is read from SSM Parameter Store into memory and a tmpfs, never to the disk.
+
+## Logs
+
+The web server keeps an access log for 14 days to spot errors and abuse. Each line holds the time, the visitor's address with its last part removed, the path without any query, the status and the size. It holds no cookie and no header. Session ids, invite codes and CSRF tokens are redacted from application logs, and evidence is logged by snapshot id, not by content.
+
+## Records are not edited
+
+Snapshots, runs, drafts, outcomes and audit events are never changed after they are written. A correction is a new row. This is why History can show who decided what, and why a person's earlier decisions keep their name.
+
+An admin can export the history. To have entries reviewed or removed, a person contacts the address in the repository's security policy.
+
+## The audit log
+
+The audit log is an append-only list of actions by people with power over the workspace. It records who did it (the display name), what, when, and the session. Events include:
+
+| Event | When |
+| --- | --- |
+| `workspace.claimed` | The named admin claims a fresh workspace |
+| `auth.osm_login` | Someone signs in with OpenStreetMap, with the role and OpenStreetMap user id |
+| `settings.updated` | An admin saves Settings. It stores a hash of the values before and after, not the values |
+| `invite.created` | An admin makes an invite code. It stores the label and role, never the code |
+| `invite.revoked` | An admin revokes a code, with how many sessions ended |
+
+Applying a calibration refit also writes an audit event.
+
+## Where to read more
+
+- [What it cannot do](../../concepts/what-it-cannot-do/) for the limits of the tool.
+- [`SECURITY.md`](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/SECURITY.md) for how to report a security problem.

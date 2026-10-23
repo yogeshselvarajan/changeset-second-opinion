@@ -1,0 +1,29 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 31615980,
+      "timestamp": "2025-01-02T07:24:01Z",
+      "version": 7,
+      "changeset": 160895113,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "nodes": [
+        353730406,
+        11563376741,
+        353730411
+      ],
+      "tags": {
+        "highway": "residential",
+        "lane_markings": "no",
+        "name": "Park Avenue Road",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

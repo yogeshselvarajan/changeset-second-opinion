@@ -1,0 +1,84 @@
+---
+title: Set up the first admin
+description: Name the admin account, claim a fresh workspace once, and see why nobody else can.
+---
+
+*For community admins and operators. How-to.*
+
+A fresh workspace has no admin. The operator names who may become one, and that account claims the workspace in one confirmed step. Finding the address of a deployment gives no one admin.
+
+## What you need first
+
+- A running workspace with Sign in with OpenStreetMap switched on. See [Register the OSM sign-in app](../../self-host/register-the-osm-app/).
+- The OpenStreetMap account that should be admin.
+
+## Find your OpenStreetMap user id
+
+The setting takes the numeric user id, not the display name. Either way works:
+
+- Open `https://www.openstreetmap.org/user/<your name>`. The id is in the page's "view history" links.
+- While signed in to OpenStreetMap, open `https://api.openstreetmap.org/api/0.6/user/details.json` and read the `id` field.
+
+An id says who you are. It is not a secret.
+
+## Name the admin
+
+Set `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` to a comma separated list of ids.
+
+On a local copy, add it to `backend/.env`:
+
+```sh
+CSO_BOOTSTRAP_ADMIN_OSM_UIDS=12345
+```
+
+Restart `uv run cso api` so it reads the file.
+
+On the AWS host, store the id in SSM Parameter Store and run the bootstrap again. The `bootstrap_admin_osm_uids` parameter becomes `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` in `/opt/cso/.env`:
+
+```sh
+aws ssm put-parameter --name /cso/prod/bootstrap_admin_osm_uids --type String --value '12345'
+```
+
+Then, on the host: `sudo bash /opt/cso/infra/scripts/bootstrap.sh`. See [Deploy on AWS](../../self-host/deploy-on-aws/).
+
+## Claim the workspace
+
+1. Sign in with OpenStreetMap using the named account.
+2. The app shows **This workspace has no admin yet**. Choose **Claim this workspace**.
+3. Read the dialog "Claim this workspace?". It says this can happen only once and is written to the audit log. Choose **Yes, claim it**.
+
+You are now the owner and the admin. Every later OpenStreetMap sign-in by this account is an admin session.
+
+## Why nobody else can claim it
+
+- Only an account listed in `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` sees the claim banner. OpenStreetMap proves who is signing in.
+- The claim is one update that succeeds for the first caller and is refused for everyone after. A second attempt shows "This workspace already has an admin."
+- A session opened with an invite code cannot claim. Neither can any workspace that already has an owner.
+- The claim writes a `workspace.claimed` audit event.
+
+A listed account can claim even when an admin invite code exists.
+
+`CSO_OSM_SIGNIN_ALLOWED_UIDS` is a different setting. It limits who may sign in at all. It does not make anyone admin.
+
+## If the setting is empty
+
+With `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` empty, nobody can claim from the web. Make an admin invite code instead. On a local copy, from `backend/`:
+
+```sh
+uv run cso auth create-invite --role admin --max-uses 1 --ttl-hours 24 --label first-admin
+```
+
+On the AWS host:
+
+```sh
+sudo bash /opt/cso/infra/scripts/compose.sh exec api cso auth create-invite \
+  --role admin --max-uses 1 --ttl-hours 24 --label first-admin
+```
+
+The code prints once and is stored only as a hash. Copy it now. Sign in with it on the sign-in page.
+
+## Check that it worked
+
+Settings appears in the sidebar, and the top bar shows Admin. You see the message "You are now the admin of this workspace." after the claim.
+
+Next: [Invite and remove reviewers](../invite-and-remove-reviewers/).

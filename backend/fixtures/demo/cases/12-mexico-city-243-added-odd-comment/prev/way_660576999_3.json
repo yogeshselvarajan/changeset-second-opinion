@@ -1,0 +1,42 @@
+{
+  "generator": "cso record",
+  "version": "0.6",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "elements": [
+    {
+      "type": "way",
+      "id": 660576999,
+      "timestamp": "2026-10-19T22:55:38Z",
+      "version": 3,
+      "changeset": 190765359,
+      "user": "mapper_A",
+      "uid": 900000001,
+      "nodes": [
+        4076126561,
+        8557631620,
+        6184701988,
+        8557631621,
+        8557631622,
+        6184701989,
+        8557631623,
+        6184701990,
+        8557631619,
+        8557631624,
+        6184701991,
+        8557631625,
+        8557631626,
+        8557631627,
+        6184702053,
+        8557631628,
+        8557631629,
+        14301248447
+      ],
+      "tags": {
+        "highway": "residential",
+        "name": "Calle Oriente"
+      }
+    }
+  ]
+}

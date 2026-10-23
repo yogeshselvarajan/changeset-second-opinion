@@ -1,0 +1,162 @@
+# Base stack (ADR-007): web edge, API, worker and database migration. No Decider here: add
+# docker-compose.cpu.yml or docker-compose.gpu.yml for that. On AWS also docker-compose.aws.yml
+# (CloudWatch logs, Litestream). Locally add docker-compose.local.yml, or docker-compose.demo.yml for
+# the replay demo with the fifteen recorded changesets (one command, no model, no secrets).
+#
+# Network design: the `stack` service owns ONE network namespace. api, worker, caddy (and the
+# decider, when an overlay adds it) join it with `network_mode: "service:stack"`, so they talk over
+# 127.0.0.1 and nothing but Caddy's 443 is ever published. The Decider keeps `--host 127.0.0.1` and
+# has no `ports:` key (invariant 7).
+name: cso
+
+# Shared hardening: no extra privileges, no capabilities, a read-only root filesystem. Each service
+# gets a small tmpfs for /tmp and writes real data only to its own volume.
+x-hardening: &hardening
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  tmpfs:
+    - /tmp:size=64m,mode=1777
+  pids_limit: 256
+  init: true
+
+x-backend: &backend
+  <<: *hardening
+  # One image serves migrate, seed, api and worker. Only `api` carries the build section, so
+  # `docker compose build` builds it once; the others reuse the tag and never pull it.
+  image: cso-backend:local
+  pull_policy: never
+  network_mode: "service:stack"
+  restart: unless-stopped
+  env_file:
+    - path: ../../.env
+      required: false
+  environment:
+    CSO_DATABASE_URL: sqlite+aiosqlite:////data/cso.db
+  volumes:
+    - ${CSO_DATA_DIR:-cso-data}:/data
+  logging:
+    driver: json-file
+    options: {max-size: "10m", max-file: "5"}
+
+services:
+  # Holds the shared namespace and the only published port. Nothing else publishes anything.
+  stack:
+    image: alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6
+    command: ["sleep", "infinity"]
+    init: true
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    user: "65534:65534"
+    # Caddy runs unprivileged and still binds 80 and 443 inside this namespace.
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: 0
+    ports:
+      - "443:443"
+    cpus: "0.10"
+    mem_limit: 16m
+    labels:
+      org.opencontainers.image.title: cso-stack
+      cso.role: network-namespace
+
+  # One-shot: apply migrations before the API and the worker start.
+  migrate:
+    <<: *backend
+    command: ["db", "upgrade"]
+    network_mode: none
+    restart: "no"
+    cpus: "1.0"
+    mem_limit: 256m
+    labels:
+      cso.role: migrate
+
+  api:
+    <<: *backend
+    build:
+      context: ../..
+      dockerfile: infra/compose/backend.Dockerfile
+    pull_policy: missing
+    command: ["api", "--host", "127.0.0.1"]
+    environment:
+      CSO_DATABASE_URL: sqlite+aiosqlite:////data/cso.db
+      CSO_JOBS_WORKER_ENABLED: "false" # the `worker` service runs the job loop
+      # Every request reaches the API through Caddy on loopback; without this all IP-keyed limits
+      # (login lockout, mutation flood guard) share one 127.0.0.1 bucket. Caddy overwrites
+      # X-Forwarded-For, so its single (rightmost) hop is the real client.
+      CSO_TRUST_PROXY: "true"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=3)"
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    stop_grace_period: 30s
+    cpus: "2.0"
+    mem_limit: 512m
+    labels:
+      cso.role: api
+
+  worker:
+    <<: *backend
+    command: ["worker"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    # A job in flight gets time to finish before the container is killed.
+    stop_grace_period: 60s
+    cpus: "2.0"
+    mem_limit: 512m
+    labels:
+      cso.role: worker
+
+  caddy:
+    <<: *hardening
+    build:
+      context: ../..
+      dockerfile: infra/compose/web.Dockerfile
+      args:
+        CSO_PUBLIC_ORIGIN: ${CSO_PUBLIC_ORIGIN:-http://localhost}
+    image: cso-web:local
+    network_mode: "service:stack"
+    restart: unless-stopped
+    environment:
+      CSO_SITE_ADDRESS: ${CSO_SITE_ADDRESS:-:80}
+      # Optional: a second host name that redirects to CSO_SITE_ADDRESS (replay demo apex).
+      CSO_APEX_ADDRESS: ${CSO_APEX_ADDRESS:-http://apex-redirect.invalid}
+    volumes:
+      - ../caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      # The listener is up (with a domain, port 80 only redirects, so a socket check is used).
+      test: ["CMD", "nc", "-z", "127.0.0.1", "80"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    stop_grace_period: 15s
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "5"}
+    cpus: "2.0"
+    mem_limit: 256m
+    labels:
+      cso.role: edge
+
+volumes:
+  cso-data:
+  hf-cache:
+  caddy-data:
+  caddy-config:
