@@ -7,16 +7,12 @@
   "bump-patch-for-minor-pre-major": false,
   "skip-changelog": true,
   "release-as": "1.0.0",
+  "pull-request-title-pattern": "chore: release ${version}",
   "packages": {
     ".": {
       "package-name": "changeset-second-opinion",
       "extra-files": [
         { "type": "toml", "path": "backend/pyproject.toml", "jsonpath": "$.project.version" },
-        {
-          "type": "toml",
-          "path": "backend/uv.lock",
-          "jsonpath": "$.package[?(@.name=='changeset-second-opinion')].version"
-        },
         { "type": "json", "path": "web/package.json", "jsonpath": "$.version" },
         { "type": "json", "path": "web/package-lock.json", "jsonpath": "$.version" },
         { "type": "json", "path": "web/package-lock.json", "jsonpath": "$.packages[''].version" }

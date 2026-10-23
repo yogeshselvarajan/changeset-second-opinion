@@ -1,8 +1,9 @@
 name: release-please
 
 # Keeps one open "release" pull request on main. It carries the next version (computed from the
-# Conventional Commit types on main) and edits the version in backend/pyproject.toml, backend/uv.lock,
-# web/package.json and web/package-lock.json. A person reviews and merges it. Merging it tags
+# Conventional Commit types on main) and edits the version in backend/pyproject.toml, web/package.json
+# and web/package-lock.json; the sync-lock job then regenerates backend/uv.lock. A person reviews and
+# merges it. Merging it tags
 # vX.Y.Z and creates the GitHub Release, and this workflow then starts release.yml for that tag
 # (a workflow_dispatch call, because events made with GITHUB_TOKEN do not start other workflows).
 #
@@ -31,6 +32,7 @@ jobs:
     outputs:
       release_created: ${{ steps.rp.outputs.release_created }}
       tag_name: ${{ steps.rp.outputs.tag_name }}
+      pr_branch: ${{ fromJSON(steps.rp.outputs.pr || '{}').headBranchName }}
     steps:
       - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
@@ -41,6 +43,46 @@ jobs:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}
           config-file: .github/release-please-config.json
           manifest-file: .github/.release-please-manifest.json
+
+  # release-please bumps the version in backend/pyproject.toml but cannot edit backend/uv.lock, which
+  # records the project version too, so `uv lock --check` would fail on the release pull request.
+  # This job regenerates the lock file on the release branch. It pushes with RELEASE_PLEASE_TOKEN so
+  # the required checks run on the new commit.
+  sync-lock:
+    needs: release-please
+    if: needs.release-please.outputs.pr_branch != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.release-please.outputs.pr_branch }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+      - uses: ./.github/actions/setup-backend
+        with:
+          sync: "false"
+      - name: Regenerate backend/uv.lock for the release version
+        working-directory: backend
+        run: uv lock
+      - name: Commit the lock file when it changed
+        env:
+          BRANCH: ${{ needs.release-please.outputs.pr_branch }}
+        run: |
+          if git diff --quiet -- backend/uv.lock; then
+            echo "backend/uv.lock already matches the release version"
+            exit 0
+          fi
+          git config user.name "Yogesh Selvarajan"
+          git config user.email "yogeshselvarajan@gmail.com"
+          git add backend/uv.lock
+          git commit -m "chore(release): sync uv.lock with the release version"
+          git push origin "HEAD:${BRANCH}"
 
   start-release:
     needs: release-please
