@@ -916,8 +916,9 @@ export const updateWorkspaceSettingsMutation = (options?: Partial<Options<Update
 /**
  * Claim an unclaimed workspace and become its admin
  *
- * Only an OpenStreetMap session can claim, and only once: the update that records the owner
- * succeeds for the first caller and is refused for everyone after. The session becomes admin.
+ * Only an OpenStreetMap account named in `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` can claim, and only
+ * once: the update that records the owner succeeds for the first caller and is refused for
+ * everyone after. The session becomes admin.
  */
 export const claimWorkspaceMutation = (options?: Partial<Options<ClaimWorkspaceData>>): UseMutationOptions<ClaimWorkspaceResponse, ClaimWorkspaceError, Options<ClaimWorkspaceData>> => {
     const mutationOptions: UseMutationOptions<ClaimWorkspaceResponse, ClaimWorkspaceError, Options<ClaimWorkspaceData>> = {

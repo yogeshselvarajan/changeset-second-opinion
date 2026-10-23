@@ -326,7 +326,7 @@ export const copy = {
   maker: {
     eyebrow: "Who built it",
     title: "Made by Yogesh Selvarajan.",
-    body: "One developer, built for the AWS Agent Experience Hackathon, in the track for the Strands Decider. Say hello, send a suggestion, or tell us how your community reviews edits.",
+    body: "One developer, built for the AWS Agent Experience Hackathon: Strands Decider. Say hello, send a suggestion, or tell us how your community reviews edits.",
     hackathon: "The hackathon page",
     linkedin: "LinkedIn",
     builder: "AWS Builder Center",
@@ -335,7 +335,7 @@ export const copy = {
     links: {
       sponsor: "https://github.com/sponsors/yogeshselvarajan",
       hackathon:
-        "https://builder.aws.com/build/hackathons/4f50957c-1d08-37ab-b11c-97516b9adeb4/agent-experience-hackathon-strands-decider",
+        "https://builder.aws.com/build/hackathons/4f50957c-1d08-37ab-b11c-97516b9adeb4/agent-experience-hackathon-strands-decider?tab=about",
       linkedin: "https://www.linkedin.com/in/yogesh-selvarajan/",
       builder: "https://builder.aws.com/community/@yogeshs",
       email: "mailto:yogeshselvarajan@gmail.com",
@@ -437,9 +437,9 @@ export const copy = {
     licence: "Code under the Apache-2.0 licence.",
     data: "Data © OpenStreetMap contributors, ODbL.",
     usage: "Follows the OpenStreetMap usage policy: read-only requests with a named contact.",
-    built: "Built for the AWS Agent Experience Hackathon.",
+    built: "Built for the AWS Agent Experience Hackathon: Strands Decider.",
     builtHref:
-      "https://builder.aws.com/build/hackathons/4f50957c-1d08-37ab-b11c-97516b9adeb4/agent-experience-hackathon-strands-decider",
+      "https://builder.aws.com/build/hackathons/4f50957c-1d08-37ab-b11c-97516b9adeb4/agent-experience-hackathon-strands-decider?tab=about",
     madeBy: "Made by Yogesh",
     madeByHref: "https://www.linkedin.com/in/yogesh-selvarajan/",
     sponsor: "Support the project",
@@ -490,7 +490,7 @@ export const copy = {
       id: "who",
       title: "Who built it",
       paragraphs: [
-        "Made by Yogesh Selvarajan, as one developer, for the AWS Agent Experience Hackathon. AI coding assistants helped write the code, and every decision about what the tool should and should not do was made by a person. You can reach Yogesh on LinkedIn, on AWS Builder Center or at yogeshselvarajan@gmail.com.",
+        "Made by Yogesh Selvarajan, as one developer, for the AWS Agent Experience Hackathon: Strands Decider. AI coding assistants helped write the code, and a person set the scope and made every decision. You can reach Yogesh on LinkedIn, on AWS Builder Center or at yogeshselvarajan@gmail.com.",
         "If the tool helps your community, you can sponsor the work on GitHub.",
       ],
     },

@@ -346,8 +346,9 @@ export const updateWorkspaceSettings = <ThrowOnError extends boolean = false>(op
 /**
  * Claim an unclaimed workspace and become its admin
  *
- * Only an OpenStreetMap session can claim, and only once: the update that records the owner
- * succeeds for the first caller and is refused for everyone after. The session becomes admin.
+ * Only an OpenStreetMap account named in `CSO_BOOTSTRAP_ADMIN_OSM_UIDS` can claim, and only
+ * once: the update that records the owner succeeds for the first caller and is refused for
+ * everyone after. The session becomes admin.
  */
 export const claimWorkspace = <ThrowOnError extends boolean = false>(options?: Options<ClaimWorkspaceData, ThrowOnError>): RequestResult<ClaimWorkspaceResponses, ClaimWorkspaceErrors, ThrowOnError> => (options?.client ?? client).post<ClaimWorkspaceResponses, ClaimWorkspaceErrors, ThrowOnError>({ url: '/api/v1/workspace/claim', ...options });
 

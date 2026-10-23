@@ -106,4 +106,4 @@ Use the issue templates in [`.github/ISSUE_TEMPLATE`](.github/ISSUE_TEMPLATE): b
 
 ## AI-assisted contributions
 
-This repository was itself built largely with AI agents (see the README's disclosure). AI-assisted contributions are welcome under the same rules: you are responsible for what you submit, the checks above apply, and please say in the pull request when an assistant wrote most of it.
+AI coding assistants helped write this repository's code, and a person set the scope and made every decision (see the README's disclosure). AI-assisted contributions are welcome under the same rules: you are responsible for what you submit, the checks above apply, and please say in the pull request when an assistant wrote most of it.

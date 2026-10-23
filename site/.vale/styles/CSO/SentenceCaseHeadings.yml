@@ -3,9 +3,22 @@ message: "'%s' should be in sentence case."
 level: error
 scope: heading
 match: $sentence
-indicators:
-  - ":"
+# No ":" indicator: a heading such as "Quickstart: the replay demo" keeps the text after
+# the colon in lower case, which is the house style.
 exceptions:
+  # Type names in the schema reference pages (CamelCase identifiers).
+  - '[A-Z][a-z]+(?:[A-Z][a-z]+)+'
+  - I
+  - IAM
+  - DNS
+  - PyPI
+  - TestPyPI
+  - Hostinger
+  # AWS region name "US East (N. Virginia)".
+  - US
+  - East
+  - N
+  - Virginia
   - API
   - AWS
   - Amazon

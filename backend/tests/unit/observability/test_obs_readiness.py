@@ -6,8 +6,8 @@ from pathlib import Path
 
 import httpx
 import pytest
-from conftest import migrate_stamp
 
+from conftest import migrate_stamp
 from cso.api.db import app_settings
 from cso.api.schemas import DeciderHealth
 from cso.observability.readiness import (

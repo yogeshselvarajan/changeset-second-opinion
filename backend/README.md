@@ -43,6 +43,6 @@ unmodified.
 
 ## How it is made
 
-The code was written with the help of AI coding agents. A person reviews and approves every change
-before it merges, and the checks in the repository (tests, type checks, invariant checks and
+AI coding assistants helped write the code, and a person set the scope and made every decision. A
+person reviews and approves every change before it merges, and the checks in the repository (tests, type checks, invariant checks and
 documentation rules) run on every pull request.

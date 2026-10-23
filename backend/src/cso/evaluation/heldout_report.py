@@ -16,7 +16,7 @@ from cso.evaluation.stats import Proportion, wilson_interval
 NO_GOLD: Final = "no gold labels: only label-free statistics"
 
 DISCLOSURE: Final = (
-    "Disclosure. This project was built with AI coding assistance (Claude). The Strands Decider "
+    "Disclosure. This project was built with AI coding assistance. The Strands Decider "
     "checkpoint is experimental: it is used as shipped and its temperature was not fitted on our "
     "data. The labels line above says who produced the gold labels; where it says AI-ONLY, no "
     "person labelled or adjudicated them, and every number scored against them is indicative "

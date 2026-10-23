@@ -1,12 +1,14 @@
 <div align="center">
 
-<img src="assets/mark.svg" alt="" width="56" height="48">
+<img src="assets/mark.svg" alt="" width="56">
 
 # Changeset Second Opinion
 
 **A second opinion on flagged OpenStreetMap edits. Evidence first; a person decides and posts.**
 
 [Live demo](https://osm.changesetreview.online) · [Docs](https://osm.changesetreview.online/docs/) · [Run it in 5 minutes](#run-it-in-5-minutes)
+
+Built for the [AWS Agent Experience Hackathon: Strands Decider](https://builder.aws.com/build/hackathons/4f50957c-1d08-37ab-b11c-97516b9adeb4/agent-experience-hackathon-strands-decider?tab=about).
 
 [![ci](https://img.shields.io/github/actions/workflow/status/yogeshselvarajan/changeset-second-opinion/ci.yml?branch=main&label=ci)](https://github.com/yogeshselvarajan/changeset-second-opinion/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
@@ -21,7 +23,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/screen-case-dark.png">
-  <img src="assets/screen-case-light.png" width="1280" height="800" alt="A case screen for a Nairobi changeset: the changeset number, its lane (Review suggested) and band (Model is confident) across the top, the evidence on the left, and the suggested response with the fact panel on the right">
+  <img src="assets/screen-case-light.png" width="900" alt="A case screen for a Nairobi changeset: the changeset number, its lane (Review suggested) and band (Model is confident) across the top, the evidence on the left, and the suggested response with the fact panel on the right">
 </picture>
 
 A case on the recorded demo data, with a real reading from the Strands Decider 2B.
@@ -163,6 +165,6 @@ Code is Apache-2.0 ([`LICENSE`](LICENSE)); third-party components are in [`THIRD
 
 ## How this was built, and thanks
 
-I am Yogesh Selvarajan ([LinkedIn](https://www.linkedin.com/in/yogesh-selvarajan/), [AWS Builder Center](https://builder.aws.com/community/@yogeshs)), and I built this for the AWS Agent Experience Hackathon: Strands Decider. Most of the code, tests and docs were written by AI agents (Claude Code) while I set the scope and approved each step. Automated checks gate every change, and nobody has done an independent review yet.
+I am Yogesh Selvarajan ([LinkedIn](https://www.linkedin.com/in/yogesh-selvarajan/), [AWS Builder Center](https://builder.aws.com/community/@yogeshs)), and I built this for the [AWS Agent Experience Hackathon: Strands Decider](https://builder.aws.com/build/hackathons/4f50957c-1d08-37ab-b11c-97516b9adeb4/agent-experience-hackathon-strands-decider?tab=about). AI coding assistants helped write the code, and a person set the scope and made every decision. Automated checks gate every change, and nobody has done an independent review yet.
 
-Thanks to the Strands Agents team for the Decider, to the AWS User Group Madurai for the kit, and to the OpenStreetMap contributors whose data and care this tool is meant to support.
+Thanks to the Strands Agents team for the Decider and to the OpenStreetMap contributors whose data and care this tool is meant to support.

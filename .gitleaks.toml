@@ -1,0 +1,27 @@
+# Gitleaks configuration. Extends the default ruleset; nothing is disabled globally.
+# Each allowlist entry below is tied to one file AND one exact text, so a real secret
+# added to the same files, or the same text elsewhere, is still reported.
+
+title = "Changeset Second Opinion"
+
+[extend]
+useDefault = true
+
+# Redaction test: the fake AWS-shaped key below is the input the scrubber has to remove.
+# It is the documented placeholder pattern, not a credential.
+[[allowlists]]
+description = "Fake AWS key used as input in the log redaction unit test"
+condition = "AND"
+paths = ['''backend/tests/unit/observability/test_obs_redaction\.py''']
+regexes = ['''AKIAABCDEFGHIJKLMNOP''']
+
+# The generic-api-key rule matches the word "key" followed by a dotted rule identifier.
+# "R1.min_age_days" is the name of a policy rule, not a secret.
+[[allowlists]]
+description = "Policy rule identifier R1.min_age_days (a name, not a secret)"
+condition = "AND"
+paths = [
+  '''backend/tests/unit/domain/test_packs\.py''',
+  '''web/playwright/draft\.fixtures\.ts''',
+]
+regexes = ['''R1\.min_age_days''']

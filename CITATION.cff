@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Changeset Second Opinion"
+type: software
+authors:
+  - family-names: "Selvarajan"
+    given-names: "Yogesh"
+repository-code: "https://github.com/yogeshselvarajan/changeset-second-opinion"
+url: "https://osm.changesetreview.online"
+license: Apache-2.0
+abstract: "A second-opinion review tool for flagged OpenStreetMap changesets that gathers the evidence, shows the Strands Decider's answers and orders the queue, while a person decides and posts."
+keywords:
+  - openstreetmap
+  - changeset-review
+  - strands-agents
+  - decision-support
+  - fastapi
+  - react

@@ -103,7 +103,8 @@ test.describe("@landing home page", () => {
       "The command line",
     ]);
     const links = page.getByTestId("maker-links").getByRole("link");
-    await expect(links).toHaveCount(4);
+    // Hackathon page, LinkedIn, Builder Center, email, sponsor.
+    await expect(links).toHaveCount(5);
     await expect(links.nth(1)).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/yogesh-selvarajan/",
@@ -290,7 +291,8 @@ test.describe("@landing public pages", () => {
     page,
   }) => {
     await page.goto("/");
-    await expect(page).toHaveTitle("Changeset Second Opinion");
+    // Same text as HOME_TITLE in src/landing/pages.ts.
+    await expect(page).toHaveTitle("Changeset Second Opinion: flagged OpenStreetMap edits");
     expect(await page.locator("head title").count()).toBe(1);
     expect(await page.locator('head link[rel="canonical"]').count()).toBe(1);
     // React renders the structured data where the page puts it; the static copy was replaced.

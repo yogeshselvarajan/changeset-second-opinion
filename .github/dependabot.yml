@@ -1,9 +1,11 @@
 version: 2
 
-# One weekly run per ecosystem. Minor and patch updates are grouped so one pull request carries them
-# together; majors come alone. Third party actions are pinned to full commit SHAs (with the tag in a
-# trailing comment) and Dependabot rewrites both. A cooldown skips releases younger than a few days,
-# which is the cheapest defence against a just-published malicious version.
+# One weekly run per ecosystem and directory, and one grouped pull request for each. Major versions
+# of the base images and of a few tools that tend to break the build (eslint, jsdom, size-limit,
+# sqlalchemy) are ignored by default and are upgraded by hand when there is time to test them;
+# minor and patch updates still arrive. Third party actions are pinned to full commit SHAs (with the
+# tag in a trailing comment) and Dependabot rewrites both. A cooldown skips releases younger than a
+# few days, which is the cheapest defence against a just-published malicious version.
 
 updates:
   - package-ecosystem: "github-actions"
@@ -13,10 +15,10 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 3
     groups:
       actions:
         patterns: ["*"]
-        update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(ci)"
     labels: ["dependencies", "ci"]
@@ -28,8 +30,13 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "sqlalchemy"
+        update-types: ["version-update:semver-major"]
     groups:
-      python-minor-and-patch:
+      python-deps:
+        patterns: ["*"]
         update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(deps)"
@@ -42,6 +49,11 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 3
+    groups:
+      pattern-python-deps:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(deps)"
     labels: ["dependencies", "python"]
@@ -53,8 +65,21 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@eslint/js"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "jsdom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "size-limit"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@size-limit/file"
+        update-types: ["version-update:semver-major"]
     groups:
-      web-minor-and-patch:
+      web-deps:
+        patterns: ["*"]
         update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(deps)"
@@ -67,8 +92,21 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@eslint/js"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "jsdom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "size-limit"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@size-limit/file"
+        update-types: ["version-update:semver-major"]
     groups:
-      site-minor-and-patch:
+      site-deps:
+        patterns: ["*"]
         update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(deps)"
@@ -83,6 +121,18 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "python"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "node"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "litestream/litestream"
+        update-types: ["version-update:semver-major"]
+    groups:
+      docker-images:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(infra)"
     labels: ["dependencies", "infra"]
@@ -94,6 +144,18 @@ updates:
       day: "monday"
     cooldown:
       default-days: 7
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "python"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "node"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "litestream/litestream"
+        update-types: ["version-update:semver-major"]
+    groups:
+      compose-images:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
     commit-message:
       prefix: "chore(infra)"
     labels: ["dependencies", "infra"]

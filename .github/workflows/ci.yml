@@ -296,8 +296,9 @@ jobs:
           sync: "false"
       - name: CloudFormation lint (every template)
         # W1028 is a known unreachable-branch note in the cloud-native template (GPU switch).
+        # The "--" matters: -i takes a list, so without it the template paths are read as rule ids.
         run: >-
-          uvx cfn-lint --ignore-checks W1028
+          uvx cfn-lint -i W1028 --
           infra/cloudformation/*.yaml infra/aws-serverless-demo/template.yaml
           infra/aws-cloud-native/cso-cloud-native.yaml infra/aws-github-oidc/*.yaml
       - name: Dockerfiles (hadolint)

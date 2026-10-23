@@ -19,7 +19,7 @@ Changeset Second Opinion is one FastAPI process with a durable worker, one SQLit
 | --- | --- | --- |
 | Database | **SQLite only is tested and supported.** The code has a Postgres path (the `psycopg` driver, JSONB columns, a `FOR UPDATE SKIP LOCKED` job claim and an offline check that the migrations render for Postgres). The test that runs the migrations on a real Postgres server is skipped unless Docker is present, and no pipeline runs the suite on Postgres. | Treat Postgres as unproven. See [the maintainer design note](https://github.com/yogeshselvarajan/changeset-second-opinion/blob/main/infra/aws-cloud-native/README.md) for the work needed. |
 | Process shape | One API process with the worker inside it, or `cso worker` on its own. Jobs live in the database and are picked up again after a restart. | With SQLite, run exactly one writer. |
-| Decider | A local server that the app reaches at a plain `http` address. No sign-in key, one request shape (`/v1/systemone`). | A hosted mode is not built. The hosted Decider API from the AWS User Group Madurai (`POST /v1/decide` with a bearer key) cannot be used until it is. |
+| Decider | A local server that the app reaches at a plain `http` address. No sign-in key, one request shape (`/v1/systemone`). | A hosted mode is not built. A hosted Decider API (`POST /v1/decide` with a bearer key) cannot be used until it is. |
 | Bedrock | Through the standard AWS credential chain, so an instance role or a task role works with no key. | Nothing to change. |
 
 ## Compare the options
