@@ -8,7 +8,7 @@
 # Stage 1: build the SPA and, through web's build script, the docs site (site/) into dist/docs.
 # The output is plain files, so this stage always runs on the machine that builds (BUILDPLATFORM)
 # and never under emulation, even when the image is built for arm64 on an x86 machine.
-FROM --platform=$BUILDPLATFORM node:22.23.3-alpine3.24@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 AS web
+FROM --platform=$BUILDPLATFORM node:26.12.0-alpine3.24@sha256:6f08a523443ddedf52941874c203475b0ad503e859ad70cb26ab8be9a517dbd5 AS web
 WORKDIR /web
 COPY web/package.json web/package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
