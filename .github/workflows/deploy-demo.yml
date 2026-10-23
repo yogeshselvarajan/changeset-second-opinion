@@ -1,4 +1,5 @@
 name: deploy demo
+# Manual runs and calls from release.yml only; a push to this file registers it with GitHub Actions.
 
 # Deploys the serverless replay demo (infra/aws-serverless-demo) with infra/aws-serverless-demo/deploy.sh.
 # AWS access is OIDC only: the job assumes the role named in the repository variable AWS_DEPLOY_ROLE_ARN
