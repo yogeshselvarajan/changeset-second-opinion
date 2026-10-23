@@ -38,7 +38,7 @@ services:
   # The image is pinned. It shares the API's data volume and user so it can read the database and
   # keep its small metadata folder next to it. Restore with: infra/scripts/restore.sh litestream
   litestream:
-    image: litestream/litestream:0.3.13
+    image: litestream/litestream:0.5.17
     command: ["replicate", "-config", "/etc/litestream.yml"]
     user: "10001:10001"
     restart: unless-stopped
