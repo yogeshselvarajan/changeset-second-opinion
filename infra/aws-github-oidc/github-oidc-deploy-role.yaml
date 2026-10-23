@@ -15,6 +15,16 @@ Parameters:
     Default: changeset-second-opinion
     AllowedPattern: "^[A-Za-z0-9._-]{1,100}$"
     Description: Repository name.
+  GitHubOwnerId:
+    Type: String
+    Default: "77218020"
+    AllowedPattern: "^[0-9]{1,20}$"
+    Description: Numeric id of the GitHub owner (gh api users/OWNER --jq .id). Used by the immutable subject form.
+  GitHubRepositoryId:
+    Type: String
+    Default: "1423035413"
+    AllowedPattern: "^[0-9]{1,20}$"
+    Description: Numeric id of the repository (gh api repos/OWNER/REPO --jq .id). Used by the immutable subject form.
   GitHubEnvironment:
     Type: String
     Default: demo
@@ -66,7 +76,11 @@ Resources:
             Condition:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
-                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepository}:environment:${GitHubEnvironment}
+                # Both subject shapes: the classic name form, and the immutable id form GitHub
+                # emits when the repository uses immutable subject claims.
+                token.actions.githubusercontent.com:sub:
+                  - !Sub repo:${GitHubOwner}/${GitHubRepository}:environment:${GitHubEnvironment}
+                  - !Sub repo:${GitHubOwner}@${GitHubOwnerId}/${GitHubRepository}@${GitHubRepositoryId}:environment:${GitHubEnvironment}
       Policies:
         - PolicyName: deploy-demo
           PolicyDocument:

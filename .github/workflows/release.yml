@@ -362,24 +362,30 @@ jobs:
           PRERELEASE: ${{ needs.prepare.outputs.prerelease }}
         run: |
           set -euo pipefail
-          mkdir -p assets
-          cp artifacts/python-dist/* artifacts/sbom-python/* artifacts/docs-site/* assets/
-          cp CHANGELOG.md assets/CHANGELOG.md
-          (cd assets && sha256sum -- * | grep -v ' SHA256SUMS$' > SHA256SUMS)
+          # A fresh folder outside the checkout: the repository has its own assets/ directory.
+          out="$RUNNER_TEMP/release-files"
+          rm -rf "$out"
+          mkdir -p "$out"
+          cp artifacts/python-dist/* artifacts/sbom-python/* artifacts/docs-site/* "$out/"
+          cp CHANGELOG.md "$out/CHANGELOG.md"
+          (cd "$out" && sha256sum -- * | grep -v ' SHA256SUMS$' > SHA256SUMS)
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             flags=(--verify-tag --generate-notes)
             [ "$PRERELEASE" = "true" ] && flags+=(--prerelease)
             gh release create "$TAG" --title "$TAG" "${flags[@]}"
           fi
-          gh release upload "$TAG" assets/* --clobber
+          gh release upload "$TAG" "$out"/* --clobber
           echo "Release: https://github.com/${GH_REPO}/releases/tag/${TAG}" >>"$GITHUB_STEP_SUMMARY"
 
   deploy-demo:
     name: deploy-demo
     needs: [prepare, github-release]
+    # The explicit !cancelled() replaces the implicit success() check, which also looks at skipped
+    # jobs further up the chain (publish-testpypi is skipped on a stable release).
     if: >-
-      needs.prepare.outputs.release == 'true' && needs.prepare.outputs.prerelease == 'false'
-      && vars.AWS_DEPLOY_ROLE_ARN != ''
+      ${{ !cancelled() && needs.github-release.result == 'success'
+      && needs.prepare.outputs.release == 'true' && needs.prepare.outputs.prerelease == 'false'
+      && vars.AWS_DEPLOY_ROLE_ARN != '' }}
     permissions:
       id-token: write
       contents: read
