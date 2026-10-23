@@ -1,6 +1,6 @@
 [project]
 name = "changeset-second-opinion"
-version = "0.1.0"
+version = "1.0.0"
 description = "Second-opinion review tool for flagged OpenStreetMap changesets: evidence, typed decisions, a lane-ordered queue and comment drafts for a person to edit."
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
