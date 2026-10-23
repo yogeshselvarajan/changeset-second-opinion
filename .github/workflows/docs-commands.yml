@@ -1,4 +1,5 @@
 name: docs commands still work
+# Scheduled and manual runs only; a push to this file registers it with GitHub Actions.
 
 # Runs the shell blocks the docs mark as tested (the fence says `sh test`), nightly, so a Quickstart
 # that has rotted fails here and not in front of a new reader.

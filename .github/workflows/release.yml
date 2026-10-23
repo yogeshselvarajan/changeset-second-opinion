@@ -1,4 +1,5 @@
 name: release
+# Manual runs and release tags only; a push to this file registers it with GitHub Actions.
 
 # Builds and publishes a release. It is started by release-please.yml for each new tag, or by hand from
 # the Actions tab: choose a tag in "Use workflow from".

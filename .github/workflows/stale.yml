@@ -1,4 +1,5 @@
 name: stale
+# Scheduled and manual runs only; a push to this file registers it with GitHub Actions.
 
 # A gentle sweep. Items wait two months before a reminder and another month before closing, and
 # anything labelled as planned, security related or help wanted is left alone. A comment brings an

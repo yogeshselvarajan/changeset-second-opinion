@@ -1,4 +1,5 @@
 name: docs external links
+# Scheduled and manual runs only; a push to this file registers it with GitHub Actions.
 
 # Dead outside links, weekly. It runs on a schedule so a flaky website can never block a merge.
 # The token is only there so GitHub does not rate-limit the checker.
