@@ -19,14 +19,14 @@ classifiers = [
     "Topic :: Scientific/Engineering :: GIS",
 ]
 dependencies = [
-    "fastapi==0.143.3",
-    "starlette==1.8.0",
+    "fastapi==0.149.0",
+    "starlette==1.9.0",
     "pydantic==2.14.1",
     "pydantic-settings==2.16.0",
     "uvicorn[standard]==0.54.0",
     "httpx[http2]==0.28.1",
     "anyio==4.15.1",
-    "sqlalchemy[asyncio]==2.0.55",
+    "sqlalchemy[asyncio]==2.1.5",
     "alembic==1.20.0",
     "aiosqlite==0.22.1",
     "psycopg[binary,pool]==3.3.6",
