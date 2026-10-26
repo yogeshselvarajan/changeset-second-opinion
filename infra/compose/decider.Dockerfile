@@ -6,7 +6,7 @@
 # libraries (GPU hosts). The CPU compose file passes https://download.pytorch.org/whl/cpu, which is
 # several GB smaller. Base image pinned by tag and digest, last checked 2026-10-20 (python 3.13.16).
 
-FROM python:3.13.16-slim-trixie@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f AS builder
+FROM python:3.14.7-slim-trixie@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d AS builder
 ARG STRANDS_DECIDER_VERSION=0.1.0
 ARG TORCH_INDEX=
 ENV PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1
@@ -16,7 +16,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN if [ -n "$TORCH_INDEX" ]; then pip install --index-url "$TORCH_INDEX" "torch>=2.7"; fi
 RUN pip install "strands-decider==${STRANDS_DECIDER_VERSION}"
 
-FROM python:3.13.16-slim-trixie@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f AS runtime
+FROM python:3.14.7-slim-trixie@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d AS runtime
 LABEL org.opencontainers.image.title="cso-decider" \
       org.opencontainers.image.description="Strands Decider 2B server for Changeset Second Opinion" \
       org.opencontainers.image.licenses="Apache-2.0"

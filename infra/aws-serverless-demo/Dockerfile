@@ -12,12 +12,12 @@
 #   - no worker (CSO_JOBS_WORKER_ENABLED=false), no Decider, no Bedrock, no sign-in settings.
 # Lambda runs the image as its own unprivileged user and ignores USER; files are world readable.
 
-FROM ghcr.io/astral-sh/uv:0.12.1@sha256:cf4eedcaa81655197f625739489effcbe71b61ceb1506f332c3facae5deceded AS uv
+FROM ghcr.io/astral-sh/uv:0.13.5@sha256:32a7bb39b496babbd997b0a39a4d66c126bdaf5661b302bf6f06abda8deca6ff AS uv
 
 # Lambda Web Adapter 1.1.0: multi-arch image (x86_64 and arm64); Docker picks the right one.
 FROM public.ecr.aws/awsguru/aws-lambda-adapter:1.1.0 AS lwa
 
-FROM python:3.13.16-slim-trixie@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f AS builder
+FROM python:3.14.7-slim-trixie@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d AS builder
 COPY --from=uv /uv /usr/local/bin/uv
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
@@ -48,7 +48,7 @@ RUN mkdir /build \
     && rm -f /build/cso.db-wal /build/cso.db-shm \
     && chmod 0444 /build/cso.db
 
-FROM python:3.13.16-slim-trixie@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f AS runtime
+FROM python:3.14.7-slim-trixie@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d AS runtime
 LABEL org.opencontainers.image.title="cso-lwa-api" \
       org.opencontainers.image.description="Changeset Second Opinion replay demo API on Lambda Web Adapter (spike)" \
       org.opencontainers.image.licenses="Apache-2.0"
