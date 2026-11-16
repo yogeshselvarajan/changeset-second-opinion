@@ -8,7 +8,7 @@
 # Stage 1: build the SPA and, through web's build script, the docs site (site/) into dist/docs.
 # The output is plain files, so this stage always runs on the machine that builds (BUILDPLATFORM)
 # and never under emulation, even when the image is built for arm64 on an x86 machine.
-FROM --platform=$BUILDPLATFORM node:22.23.3-alpine3.24@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 AS web
+FROM --platform=$BUILDPLATFORM node:22.23.4-alpine3.24@sha256:0e1754758c2df4cfa3e68d59e2e1b7374bb7fd9ea6328eaaacf15cc934af8202 AS web
 WORKDIR /web
 COPY web/package.json web/package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
@@ -34,14 +34,14 @@ RUN npm run build
 # Stage 2: Caddy with the rate-limit module, pinned to a commit (HEAD on 2026-10-17, committed
 # 2026-06-12); the latest tag, v0.1.0, is from 2024-08. The Caddy version matches the runtime base.
 # It cross-compiles for TARGETARCH on the build machine, so an arm64 image needs no emulation.
-FROM --platform=$BUILDPLATFORM caddy:2.11.7-builder@sha256:d842facfd63b960922e57444ff76fd8f0793a66dfdcf481af8026e1f4e6a39b4 AS builder
+FROM --platform=$BUILDPLATFORM caddy:2.11.8-builder@sha256:d4eb070c36154bd2d4c94b40359a03c6168346d5af5404963c74691ab77fb63f AS builder
 ARG TARGETOS
 ARG TARGETARCH
 RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} xcaddy build v2.11.7 --with github.com/mholt/caddy-ratelimit@5625512f24f6f59d6f64fb3aafe5eecff0b286db
 
 # Stage 3: runtime. Runs as an unprivileged user; binding port 80 or 443 needs no privilege because
 # the compose file sets net.ipv4.ip_unprivileged_port_start=0 on the shared network namespace.
-FROM caddy:2.11.7-alpine@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f AS runtime
+FROM caddy:2.11.8-alpine@sha256:f6228111e5fafa1a5238258d0858e103f10599b8d1659a146e7726681a002bb9 AS runtime
 LABEL org.opencontainers.image.title="cso-web" \
       org.opencontainers.image.description="Changeset Second Opinion: web app, docs site and Caddy edge" \
       org.opencontainers.image.licenses="Apache-2.0" \
